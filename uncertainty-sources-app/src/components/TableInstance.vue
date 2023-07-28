@@ -1,7 +1,11 @@
 <template>
   <div class="table" v-if="!openDetails">
     <EasyDataTable :headers="headers" :items="items" @click-row="showRow" v-if="items.length > 0" />
-    <p v-else>No data available. Please make sure that the data server is up and running (localhost:3000)</p>
+    <p v-else>
+        No data available. <br><br>
+        Please make sure that the data server is up and running (localhost:3000). <br>
+        Start the server by running "Node server.js" in the terminal of the data folder (./uncertainty-sources/PostJSON).
+    </p>
   </div>
   <div class="entry" v-if="openDetails">
     <button @click="openDetails = false">Back</button>
