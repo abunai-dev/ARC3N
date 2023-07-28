@@ -1,0 +1,21 @@
+{
+    "id": 1,
+    "name": "Are SQL Injections performed?",
+    "location": "Input",
+    "architecturalType":"Usage Behaviour",
+    "type": "Recognized Ignorance",
+    "manageability": "Partial Reducible",
+    "resolutionTime": "Run Time",
+    "reducibleByADD": "No",
+    "impactOnConfidentiality": "Indirect",
+    "severityOfImpact": "high",
+    "relationParent": [],
+    "relationSibling": [],
+    "url": "http://www.google.com",
+    "description": "This is a Test if the description of uncertainty two can be displayed correctly.",
+    "keywords": ["data"],
+    "definition": "This is a Test if the definition of uncertainty two can be displayed correctly.",
+    "exampleScenario": "This is a Test if the example scenario of uncertainty two can be displayed correctly.",
+    "exampleImagePath": "/src/data/pictures/test.png",
+    "communityAnnotationUrl": "http://www.google.com"
+}
