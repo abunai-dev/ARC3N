@@ -2,8 +2,12 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const cors = require('cors');
+
 const port = 3000;
 const directoryPath = "./uncertainties";
+
+app.use(cors({ origin: 'http://localhost:5173'}));
 
 app.get("/", (req, res) => {
     fs.readdir(directoryPath, (err, files) => {
