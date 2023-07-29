@@ -19,6 +19,14 @@ import EntityDetails from './EntityDetails.vue'
 import { ref } from 'vue'
 import type { Uncertainty } from '@/util/types/Uncertainty'
 import axios from 'axios'
+import { architecturalTypeMapping }from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
+import {impactOnConfidentialityMapping} from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
+import {locationMapping} from '@/util/scripts/manifestationMapping/locationMapping'
+import {manageabilityMapping} from '@/util/scripts/manifestationMapping/manageabilityMapping'
+import {reducibleByAddMapping} from '@/util/scripts/manifestationMapping/reducibleByAddMapping'
+import {resolutionTimeMapping} from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
+import {severityOfImpactMapping} from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
+import {typeMapping} from '@/util/scripts/manifestationMapping/typeMapping'
 
 
 const uncertainties = await fetchData()
@@ -64,17 +72,18 @@ async function fetchData(): Promise<Uncertainty[]> {
 function parseData(rawData: any): Uncertainty[] {
   const uncertainties: Uncertainty[] = []
   for (const uncertainty of rawData) {
-    const obj = {
+    try {
+    const obj : Uncertainty = {
       id: uncertainty.id,
       name: uncertainty.name,
-      location: uncertainty.location,
-      architecturalType: uncertainty.architecturalType,
-      type: uncertainty.type,
-      manageability: uncertainty.manageability,
-      resolutionTime: uncertainty.resolutionTime,
-      reducibleByADD: uncertainty.reducibleByADD,
-      impactOnConfidentiality: uncertainty.impactOnConfidentiality,
-      severityOfImpact: uncertainty.severityOfImpact,
+      location: locationMapping(uncertainty.location),
+      architecturalType: architecturalTypeMapping(uncertainty.architecturalType),
+      type: typeMapping(uncertainty.type),
+      manageability: manageabilityMapping(uncertainty.manageability),
+      resolutionTime: resolutionTimeMapping(uncertainty.resolutionTime),
+      reducibleByADD: reducibleByAddMapping(uncertainty.reducibleByADD),
+      impactOnConfidentiality: impactOnConfidentialityMapping(uncertainty.impactOnConfidentiality),
+      severityOfImpact: severityOfImpactMapping(uncertainty.severityOfImpact),
       relationParent: uncertainty.relationParent,
       relationSibling: uncertainty.relationSibling,
       url: uncertainty.url,
@@ -85,69 +94,13 @@ function parseData(rawData: any): Uncertainty[] {
       exampleImagePath: uncertainty.exampleImagePath,
       communityAnnotationUrl: uncertainty.communityAnnotationUrl
     }
-
     uncertainties.push(obj)
+  } catch (error) {
+    console.log("Error while parsing data on Uncertainty: "+ uncertainty.name + "\n" + "Error: " + error + "\n" + "Data is being skipped!")
+  }
 
-    console.log(
-      'Uncertainty Object:' +
-        '\n' +
-        'ID: ' +
-        obj.id +
-        '\n' +
-        'Name:' +
-        obj.name +
-        '\n' +
-        'Location:' +
-        obj.location +
-        '\n' +
-        'architecturalElementType:' +
-        obj.architecturalType +
-        '\n' +
-        'type:' +
-        obj.type +
-        '\n' +
-        'manageability:' +
-        obj.manageability +
-        '\n' +
-        'resolutionTime:' +
-        obj.resolutionTime +
-        '\n' +
-        'resolvableByADD:' +
-        obj.reducibleByADD +
-        '\n' +
-        'impactOnConfidentiality:' +
-        obj.impactOnConfidentiality +
-        '\n' +
-        'severityOfImpact:' +
-        obj.severityOfImpact +
-        '\n' +
-        'relationParent:' +
-        obj.relationParent +
-        '\n' +
-        'relationshipSibling: ' +
-        obj.relationSibling +
-        '\n' +
-        'url:' +
-        obj.url +
-        '\n' +
-        'description:' +
-        obj.description +
-        '\n' +
-        'keywords:' +
-        obj.keywords +
-        '\n' +
-        'definition:' +
-        obj.definition +
-        '\n' +
-        'exampleScenario:' +
-        obj.exampleScenario +
-        '\n' +
-        'exampleImagePath:' +
-        obj.exampleImagePath +
-        '\n' +
-        'communityAnnotationUrl:' +
-        obj.communityAnnotationUrl
-    )
+
+
     console.log(
       'Uncertainty Object in List:' +
         '\n' +
@@ -158,28 +111,28 @@ function parseData(rawData: any): Uncertainty[] {
         uncertainties[uncertainties.length - 1].name +
         '\n' +
         'Location:' +
-        uncertainties[uncertainties.length - 1].location +
+        uncertainties[uncertainties.length - 1].location.name +
         '\n' +
         'architecturalElementType:' +
-        uncertainties[uncertainties.length - 1].architecturalType +
+        uncertainties[uncertainties.length - 1].architecturalType.name +
         '\n' +
         'type:' +
-        uncertainties[uncertainties.length - 1].type +
+        uncertainties[uncertainties.length - 1].type.name +
         '\n' +
         'manageability:' +
-        uncertainties[uncertainties.length - 1].manageability +
+        uncertainties[uncertainties.length - 1].manageability.name +
         '\n' +
         'resolutionTime:' +
-        uncertainties[uncertainties.length - 1].resolutionTime +
+        uncertainties[uncertainties.length - 1].resolutionTime.name +
         '\n' +
         'resolvableByADD:' +
-        uncertainties[uncertainties.length - 1].reducibleByADD +
+        uncertainties[uncertainties.length - 1].reducibleByADD.name +
         '\n' +
         'impactOnConfidentiality:' +
-        uncertainties[uncertainties.length - 1].impactOnConfidentiality +
+        uncertainties[uncertainties.length - 1].impactOnConfidentiality.name +
         '\n' +
         'severityOfImpact:' +
-        uncertainties[uncertainties.length - 1].severityOfImpact +
+        uncertainties[uncertainties.length - 1].severityOfImpact.name +
         '\n' +
         'relationParent:' +
         uncertainties[uncertainties.length - 1].relationParent +
@@ -218,85 +171,17 @@ function buildItems(): Item[] {
     var obj = {
       id: uncertainty.id,
       name: uncertainty.name,
-      location: uncertainty.location,
-      architecturalType: uncertainty.architecturalType,
-      type: uncertainty.type,
-      manageability: uncertainty.manageability,
-      resolutionTime: uncertainty.resolutionTime,
-      reducibleByADD: uncertainty.reducibleByADD,
-      impactOnConfidentiality: uncertainty.impactOnConfidentiality,
-      severityOfImpact: uncertainty.severityOfImpact
+      location: uncertainty.location.name,
+      architecturalType: uncertainty.architecturalType.name,
+      type: uncertainty.type.name,
+      manageability: uncertainty.manageability.name,
+      resolutionTime: uncertainty.resolutionTime.name,
+      reducibleByADD: uncertainty.reducibleByADD.name,
+      impactOnConfidentiality: uncertainty.impactOnConfidentiality.name,
+      severityOfImpact: uncertainty.severityOfImpact.name
     }
-
     items.push(obj)
-    console.log(
-      'Table Item:' +
-        '\n' +
-        'ID: ' +
-        obj.id +
-        '\n' +
-        'Name:' +
-        obj.name +
-        '\n' +
-        'Location:' +
-        obj.location +
-        '\n' +
-        'architecturalElementType:' +
-        obj.architecturalType +
-        '\n' +
-        'type:' +
-        obj.type +
-        '\n' +
-        'manageability:' +
-        obj.manageability +
-        '\n' +
-        'resolutionTime:' +
-        obj.resolutionTime +
-        '\n' +
-        'resolvableByADD:' +
-        obj.reducibleByADD +
-        '\n' +
-        'impactOnConfidentiality:' +
-        obj.impactOnConfidentiality +
-        '\n' +
-        'severityOfImpact' +
-        obj.severityOfImpact
-    )
-
-    console.log(
-      'Table Item in List:' +
-        '\n' +
-        ' ID: ' +
-        items[items.length - 1].id +
-        'Name:' +
-        items[items.length - 1].name +
-        '\n' +
-        'Location:' +
-        items[items.length - 1].location +
-        '\n' +
-        'architecturalElementType:' +
-        items[items.length - 1].architecturalElementType +
-        '\n' +
-        'type:' +
-        items[items.length - 1].type +
-        '\n' +
-        'manageability:' +
-        items[items.length - 1].manageability +
-        '\n' +
-        'resolutionTime:' +
-        items[items.length - 1].resolutionTime +
-        '\n' +
-        'resolvableByADD:' +
-        items[items.length - 1].reducibleByADD +
-        '\n' +
-        'impactOnConfidentiality:' +
-        items[items.length - 1].impactOnConfidentiality +
-        '\n' +
-        'severityOfImpact' +
-        items[items.length - 1].severityOfImpact
-    )
   }
-  console.log('Items: ' + items.toString())
   return items
 }
 
