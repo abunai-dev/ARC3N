@@ -1,7 +1,7 @@
 <template>
-    <div class="classificationItem">
+    <div class="classificationItem" @click="$emit('showClassification')">
         <div class="category">
-            <p>{{ props.statedcategory }} :</p>
+            <p>{{ props.statedcategory.name }}:</p>
         </div>
         <div class="manifestation">
             <p> {{ props.statedmanifestation.name }}</p>
@@ -13,11 +13,12 @@
 <script setup lang="ts">
 import type { Manifestation } from '@/util/types/Manifestation';
 import type { Category } from '@/util/types/Category';
-import type { PropType } from 'vue';
+import { type PropType } from 'vue';
+
 
 const props = defineProps({
         statedcategory: {
-            type: String,
+            type: Object as PropType<Category>,
             required: true
         },
         statedmanifestation: {
@@ -33,11 +34,12 @@ const props = defineProps({
     align-self: auto;
     margin: 5px;
     padding: 5px;
-    display: row;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
 .classificationItem p {
     text-align: left;
+    margin: 5px;
 }
 </style>

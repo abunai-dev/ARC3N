@@ -14,6 +14,13 @@
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
-    "declaration": true
-  }
+    "declaration": true,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true
+  },
+  "include": ["./src/**/*.ts"],
+  "types": [
+    "node"
+  ]
 }

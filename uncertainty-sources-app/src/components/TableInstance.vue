@@ -9,16 +9,19 @@
   </div>
   <div class="entry" v-if="openDetails">
     <button @click="openDetails = false">Back</button>
-    <EntityDetails :uncertainty="currentUncertainty" />
+    <UncertaintyDetails :uncertainty="currentUncertainty" />
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Header, Item, ClickRowArgument } from 'vue3-easy-data-table'
-import EntityDetails from './EntityDetails.vue'
-import { ref } from 'vue'
-import type { Uncertainty } from '@/util/types/Uncertainty'
+import UncertaintyDetails from './UncertaintyDetailPage.vue'
+
 import axios from 'axios'
+import { ref } from 'vue'
+
+import type { Uncertainty } from '@/util/types/Uncertainty'
+
 import { architecturalTypeMapping }from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
 import {impactOnConfidentialityMapping} from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
 import {locationMapping} from '@/util/scripts/manifestationMapping/locationMapping'
@@ -58,7 +61,7 @@ const showRow = (item: ClickRowArgument) => {
 }
 
 async function fetchData(): Promise<Uncertainty[]> {
-  const response = await axios.get('http://localhost:3000/').catch((error) => {
+  const response = await axios.get('http://localhost:3000/uncertainties').catch((error) => {
     console.log("Data could not be fetched. Please check if the data server is running! " + "\n" + "Error: " + error)
     return error
   })

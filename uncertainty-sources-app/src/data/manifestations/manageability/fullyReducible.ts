@@ -1,7 +1,7 @@
 import type { Manifestation } from "@/util/types/Manifestation"
 const fullyReducible : Manifestation =
 {
-    "name": "fullyReducible",
+    "name": "Fully Reducible",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [
         "This is a test if the location definition of input is working",
