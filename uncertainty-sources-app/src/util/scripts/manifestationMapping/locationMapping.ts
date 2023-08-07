@@ -19,3 +19,7 @@ export function locationMapping(locationName: String) : Manifestation{
             throw new Error('Invalid Location Manifestation');
     }
 }
+
+export function getLocationNames() : string[]{
+    return [ input.name, systemBehaviour.name, systemEnvironment.name, systemStructure.name];
+}

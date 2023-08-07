@@ -15,3 +15,7 @@ export function resolutionTimeMapping(resolutionTimeMappingName: String) : Manif
             throw new Error('Invalid Resolution Time Manifestation');
     }
 }
+
+export function getResolutionTimeNames() : string[]{
+    return [ designTime.name, requirementsTime.name, runTime.name ];
+}

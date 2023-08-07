@@ -12,3 +12,7 @@ export function severityOfImpactMapping(severityOfImpactMappingName: String) : M
             throw new Error('Invalid Severity of Impact Manifestation');
     }
 }
+
+export function getSeverityOfImpactNames() : string[]{
+    return [ high.name, low.name ];
+}

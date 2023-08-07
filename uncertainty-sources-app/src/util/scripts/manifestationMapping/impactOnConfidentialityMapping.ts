@@ -14,3 +14,7 @@ export function impactOnConfidentialityMapping(impactOnConfidentialityName: Stri
             throw new Error('Invalid Impact on Confidentiality Manifestation');
     }
 }
+
+export function getImpactOnConfidentialityNames() : string[]{
+    return [ direct.name, indirect.name ];
+}

@@ -22,3 +22,7 @@ export function architecturalTypeMapping(architecturalElementTypeName: String) :
             throw new Error('Invalid Architectural Element Type Manifestation');
     }
 }
+
+export function getArchitecturalTypeNames() : string[]{
+    return [ component.name, connector.name, hardwareResource.name, interfaceManifestation.name, usageBehaviour.name ];
+}

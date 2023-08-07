@@ -1,12 +1,32 @@
 <template>
   <div class="table" v-if="!openDetails">
     <div v-if="items.length > 0">
-      <div class="searchBar">
-        <span>search value:</span>
-        <input type="text" v-model="searchValue" />
-      </div>
+      <div class="topBar">
+        <div class="searchBar" v-if="isSearch">
+          <button @click="isSearch=false; searchValue=''">Filter</button>
+          <div class="input">
+            <span>search value:</span>
+            <input type="text" v-model="searchValue"/>
+          </div>
+        </div>
+        <div class="filterBar" v-else>
+          <div class="filter">
+            <span>filter by:</span>
+            <select v-model="selectedHeader" @change="searchValue=''">
+              <option v-for="header in getFilterableHeaders()" :key="header.text" :value="header.value">{{ header.text }}</option>
+            </select>
 
-      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" search-field="name" :search-value="searchValue" v-if="items.length > 0" />
+            <span class="filter-options" v-if="selectedHeader !== ''">
+              <select v-model="searchValue">
+                <option v-for="option in filterOptions(selectedHeader)" :key="option"> {{ option }}</option>
+              </select>
+            </span>
+          </div>
+          <button @click="isSearch=true; searchValue=''; selectedHeader=''">Search</button>
+        </div>
+      </div>
+      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" :search-field=selectedHeader :search-value="searchValue" v-if="selectedHeader !== ''" :sort-by="sortBy" :sort-type="sortType" />
+      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" v-else />
     </div>
     <div v-else>
       <p>
@@ -23,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Header, Item, ClickRowArgument } from 'vue3-easy-data-table'
+import type { Header, Item, ClickRowArgument, SortType } from 'vue3-easy-data-table'
 import UncertaintyDetails from './UncertaintyDetailPage.vue'
 
 import axios from 'axios'
@@ -40,21 +60,36 @@ import {resolutionTimeMapping} from '@/util/scripts/manifestationMapping/resolut
 import {severityOfImpactMapping} from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
 import {typeMapping} from '@/util/scripts/manifestationMapping/typeMapping'
 
+import { getArchitecturalTypeNames } from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
+import { getImpactOnConfidentialityNames } from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
+import { getLocationNames } from '@/util/scripts/manifestationMapping/locationMapping'
+import { getManageabilityNames } from '@/util/scripts/manifestationMapping/manageabilityMapping'
+import { getReducibleByAddNames } from '@/util/scripts/manifestationMapping/reducibleByAddMapping'
+import { getResolutionTimeNames } from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
+import { getSeverityOfImpactNames } from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
+import { getTypeNames } from '@/util/scripts/manifestationMapping/typeMapping'
+
+
+
 
 const uncertainties = await fetchData()
 const searchValue = ref('')
+const selectedHeader = ref('')
+const isSearch = ref(true)
+const sortType: SortType = 'asc';
+const sortBy = ref('id')
 
 const headers: Header[] = [
-  { text: 'ID', value: 'id' },
+  { text: 'ID', value: 'id', sortable:true},
   { text: 'Name', value: 'name' },
-  { text: 'Type', value: 'type' },
-  { text: 'Location', value: 'location' },
-  { text: 'Manageability', value: 'manageability' },
-  { text: 'Severity Of Impact', value: 'severityOfImpact' },
-  { text: 'Resolution Time', value: 'resolutionTime' },
-  { text: 'Reducible by ADD', value: 'reducibleByADD' },
-  { text: 'Impact On Confidentiality', value: 'impactOnConfidentiality' },
-  { text: 'Architectural Element Type', value: 'architecturalType' }
+  { text: 'Type', value: 'type' , sortable:true},
+  { text: 'Location', value: 'location' , sortable:true},
+  { text: 'Manageability', value: 'manageability' , sortable:true},
+  { text: 'Severity Of Impact', value: 'severityOfImpact' , sortable:true},
+  { text: 'Resolution Time', value: 'resolutionTime' , sortable:true},
+  { text: 'Reducible by ADD', value: 'reducibleByADD' , sortable:true},
+  { text: 'Impact On Confidentiality', value: 'impactOnConfidentiality', sortable:true},
+  { text: 'Architectural Element Type', value: 'architecturalType', sortable:true }
 ]
 
 const items: Item[] = buildItems()
@@ -80,6 +115,16 @@ async function fetchData(): Promise<Uncertainty[]> {
   } else {
     return parseData(response.data)
   }
+}
+
+function getFilterableHeaders(): Header[] {
+  const filterableHeaders: Header[] = []
+  for (const header of headers) {
+    if (header.value !== 'id' && header.value !== 'name') {
+      filterableHeaders.push(header)
+    }
+  }
+  return filterableHeaders
 }
 
 function parseData(rawData: any): Uncertainty[] {
@@ -111,69 +156,7 @@ function parseData(rawData: any): Uncertainty[] {
   } catch (error) {
     console.log("Error while parsing data on Uncertainty: "+ uncertainty.name + "\n" + "Error: " + error + "\n" + "Data is being skipped!")
   }
-
-
-
-    console.log(
-      'Uncertainty Object in List:' +
-        '\n' +
-        'ID: ' +
-        uncertainties[uncertainties.length - 1].id +
-        '\n' +
-        'Name:' +
-        uncertainties[uncertainties.length - 1].name +
-        '\n' +
-        'Location:' +
-        uncertainties[uncertainties.length - 1].location.name +
-        '\n' +
-        'architecturalElementType:' +
-        uncertainties[uncertainties.length - 1].architecturalType.name +
-        '\n' +
-        'type:' +
-        uncertainties[uncertainties.length - 1].type.name +
-        '\n' +
-        'manageability:' +
-        uncertainties[uncertainties.length - 1].manageability.name +
-        '\n' +
-        'resolutionTime:' +
-        uncertainties[uncertainties.length - 1].resolutionTime.name +
-        '\n' +
-        'resolvableByADD:' +
-        uncertainties[uncertainties.length - 1].reducibleByADD.name +
-        '\n' +
-        'impactOnConfidentiality:' +
-        uncertainties[uncertainties.length - 1].impactOnConfidentiality.name +
-        '\n' +
-        'severityOfImpact:' +
-        uncertainties[uncertainties.length - 1].severityOfImpact.name +
-        '\n' +
-        'relationParent:' +
-        uncertainties[uncertainties.length - 1].relationParent +
-        '\n' +
-        'relationshipSibling: ' +
-        uncertainties[uncertainties.length - 1].relationSibling +
-        '\n' +
-        'url:' +
-        uncertainties[uncertainties.length - 1].url +
-        '\n' +
-        'description:' +
-        uncertainties[uncertainties.length - 1].description +
-        '\n' +
-        'keywords:' +
-        uncertainties[uncertainties.length - 1].keywords +
-        '\n' +
-        'definition:' +
-        uncertainties[uncertainties.length - 1].definition +
-        '\n' +
-        'exampleScenario:' +
-        uncertainties[uncertainties.length - 1].exampleScenario +
-        '\n' +
-        'exampleImagePath:' +
-        uncertainties[uncertainties.length - 1].exampleImagePath +
-        '\n' +
-        'communityAnnotationUrl:' +
-        uncertainties[uncertainties.length - 1].communityAnnotationUrl
-    )
+    console.log('Uncertainty Object Name: ' + uncertainties[uncertainties.length - 1].name + '\n')
   }
   return uncertainties
 }
@@ -207,6 +190,40 @@ function getUncertainty(id: number): Uncertainty {
   //TODO: Throw error
   return uncertainties[0]
 }
+
+function filterOptions(header: string): string[] {
+  var options: string[] = []
+  switch (header) {
+    case 'location':
+      options = getLocationNames()
+      break
+    case 'architecturalType':
+      options = getArchitecturalTypeNames()
+      break
+    case 'type':
+      options = getTypeNames()
+      break
+    case 'manageability':
+      options = getManageabilityNames()
+      break
+    case 'resolutionTime':
+      options = getResolutionTimeNames()
+      break
+    case 'reducibleByADD':
+      options = getReducibleByAddNames()
+      break
+    case 'impactOnConfidentiality':
+      options = getImpactOnConfidentialityNames()
+      break
+    case 'severityOfImpact':
+      options = getSeverityOfImpactNames()
+      break
+    default:
+      options = []
+      break
+  }
+  return options
+}
 </script>
 
 <style scoped>
@@ -235,11 +252,26 @@ function getUncertainty(id: number): Uncertainty {
   height: 100%;
 }
 
+.topBar {
+  display:block;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .searchBar {
   display: flex;
   flex-direction: row;
   align-items: right;
-  justify-content: right;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+}
+
+.filterBar {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: space-between;
   margin: 10px;
   padding: 10px;
 }

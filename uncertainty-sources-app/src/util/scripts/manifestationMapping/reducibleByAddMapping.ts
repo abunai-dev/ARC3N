@@ -12,3 +12,7 @@ export function reducibleByAddMapping(reducibleByAddMappingName: String) : Manif
             throw new Error('Invalid Reducible by ADD Manifestation');
     }
 }
+
+export function getReducibleByAddNames() : string[]{
+    return [ notReducible.name, reducible.name ];
+}

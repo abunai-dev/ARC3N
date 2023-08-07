@@ -16,3 +16,7 @@ export function manageabilityMapping(manageabilityMappingName: String) : Manifes
             throw new Error('Invalid Manageability Manifestation');
     }
 }
+
+export function getManageabilityNames() : string[]{
+    return [ fullyReducible.name, irreducible.name, partialReducible.name ];
+}

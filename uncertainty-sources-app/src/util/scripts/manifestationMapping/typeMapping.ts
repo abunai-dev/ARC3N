@@ -15,3 +15,7 @@ export function typeMapping(typeMappingName: String) : Manifestation{
             throw new Error('Invalid Type Manifestation');
     }
 }
+
+export function getTypeNames() : string[]{
+    return [ recognizedIgnorance.name, scenarioUncertainty.name, statisticalUncertainty.name ];
+}
