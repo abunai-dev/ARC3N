@@ -1,11 +1,20 @@
 <template>
   <div class="table" v-if="!openDetails">
-    <EasyDataTable :headers="headers" :items="items" @click-row="showRow" v-if="items.length > 0" />
-    <p v-else>
+    <div v-if="items.length > 0">
+      <div class="searchBar">
+        <span>search value:</span>
+        <input type="text" v-model="searchValue" />
+      </div>
+
+      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" search-field="name" :search-value="searchValue" v-if="items.length > 0" />
+    </div>
+    <div v-else>
+      <p>
         No data available. <br><br>
         Please make sure that the data server is up and running (localhost:3000). <br>
         Start the server by running "Node server.js" in the terminal of the data folder (./uncertainty-sources/PostJSON).
-    </p>
+      </p>
+    </div>
   </div>
   <div class="entry" v-if="openDetails">
     <button @click="openDetails = false">Back</button>
@@ -33,6 +42,7 @@ import {typeMapping} from '@/util/scripts/manifestationMapping/typeMapping'
 
 
 const uncertainties = await fetchData()
+const searchValue = ref('')
 
 const headers: Header[] = [
   { text: 'ID', value: 'id' },
@@ -223,5 +233,14 @@ function getUncertainty(id: number): Uncertainty {
   font-size: 1rem;
   width: 100%;
   height: 100%;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+  margin: 10px;
+  padding: 10px;
 }
 </style>

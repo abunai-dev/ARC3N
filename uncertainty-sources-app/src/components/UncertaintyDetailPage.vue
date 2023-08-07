@@ -30,7 +30,10 @@
         </div>
         <div class="additionalHelp">
             <p>Example of Uncertainty: {{ props.uncertainty.exampleScenario }}</p>
-            <p> {{ props.uncertainty.exampleImagePath }}</p>
+            <div class="image-container">
+                <img :src="props.uncertainty.exampleImagePath" :alt="props.uncertainty.exampleImagePath">
+            </div>
+            
             <p>Find out about the ongoing discussion regarding the uncertainty: {{ props.uncertainty.communityAnnotationUrl }}</p>
             <p> {{ props.uncertainty.url }}</p>
         </div>
@@ -130,5 +133,18 @@ p {
     padding: 10px;
     flex-direction: row;
     justify-content: center;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 1000px;
+    max-height: 400px;
 }
 </style>

@@ -10,7 +10,7 @@ const architecturalElementType : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
-    "imagePath": "/api/images/categories/architecturalElementType.jpg"
+    "imagePath": "/images/categories/architecturalElementType.jpg"
 }
 
 export default architecturalElementType;

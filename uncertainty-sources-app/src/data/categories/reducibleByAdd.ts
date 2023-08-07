@@ -7,7 +7,7 @@ const reducibleByAdd : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ notReducible, reducible ],
-    "imagePath": "/api/images/categories/reducibleByAdd.jpg"
+    "imagePath": "/images/categories/reducibleByAdd.jpg"
 }
 
 export default reducibleByAdd;

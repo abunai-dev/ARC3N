@@ -7,7 +7,7 @@ const impactOnConfidentiality : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ direct, indirect ],
-    "imagePath": "/api/images/categories/impactOnConfidentiality.jpg"
+    "imagePath": "/images/categories/impactOnConfidentiality.jpg"
 }
 
 export default impactOnConfidentiality;

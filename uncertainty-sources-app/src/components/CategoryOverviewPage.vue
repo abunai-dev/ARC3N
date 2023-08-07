@@ -6,18 +6,21 @@
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
             <ManifestationsDetailSection :manifestations="props.statedcategory.manifestations"/>
+            <p> {{ props.statedcategory.exampleScenarios }}</p>
+            <img :src=imagePath :alt="imagePath" >
         </main>
-        <p> {{ props.statedcategory.exampleScenarios }}</p>
-        <img :src="props.statedcategory.imagePath" alt="Example Image">
+        
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Category } from '@/util/types/Category';
 import type { Manifestation } from '@/util/types/Manifestation';
-import { type PropType } from 'vue';
+import { type PropType, ref } from 'vue';
 import BasicInformation from './BasicInformationSection.vue';
 import ManifestationsDetailSection from './ManifestationsDetailSection.vue';
+
+
 
 const props = defineProps({
         statedcategory: {
@@ -29,6 +32,8 @@ const props = defineProps({
             required: true
         },
     });
+
+const imagePath = "http://localhost:3000" + props.statedcategory.imagePath;
 
 </script>
 
@@ -45,6 +50,15 @@ h1 {
 
 main {
     flex-direction: column;
+}
+
+img {
+    max-width: 1000px;
+    max-height: 400px;
+    align-content: center;
+    text-align: center;
+    align-self: center;
+
 }
 
 </style>

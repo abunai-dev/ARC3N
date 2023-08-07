@@ -28,33 +28,45 @@ async function fetchData() {
   }
 }
 
-async function fetchImages() {
-  try {
-    const imageFiles = await fs.promises.readdir(imagesPath);
-    const images = await Promise.all(
-      imageFiles.map(async (file) => {
-        const imageContent = await fs.promises.readFile(path.join(imagesPath, file), 'utf8');
-        return {
-          filename: file,
-          content: imageContent,
-        }
-      })
-    );
-    return images;
-  } catch (err) {
-    console.error('Error reading images directory: ' + err);
-    return [];
-  }
-}
+// async function fetchImages() {
+//   try {
+//     const imageFiles = await fs.promises.readdir(imagesPath);
+//     const images = await Promise.all(
+//       imageFiles.map(async (file) => {
+//         const imageContent = await fs.promises.readFile(path.join(imagesPath, file));
+//         return {
+//           filename: file,
+//           content: imageContent,
+//         }
+//       })
+//     );
+//     return images;
+//   } catch (err) {
+//     console.error('Error reading images directory: ' + err);
+//     return [];
+//   }
+// }
 
 app.get('/uncertainties', async (req, res) => {
   const data = await fetchData();
   res.json(data);
 });
 
-app.get('/images', async (req, res) => {
-  const images = await fetchImages();
-  res.json(images);
+app.get('/images/:subfolder/:filename', async (req, res) => {
+  try {
+    const {subfolder, filename} = req.params;
+
+    const imagePath = (subfolder === 'categories' || subfolder === 'uncertainties') ? path.join(imagesPath, subfolder, filename) : path.join(imagesPath, filename);
+    console.log(imagePath);
+
+    const imageContent = await fs.promises.readFile(imagePath);
+
+    res.setHeader('Content-Type', 'image/jpg');
+    res.end(imageContent);
+  } catch (err) {
+    console.error('Error reading images directory: ' + err);
+    res.status(500).json({error: 'Error trying to read image:' + imagesPath});
+  }
 });
 
 app.listen(port, () => {

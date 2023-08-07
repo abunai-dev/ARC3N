@@ -8,7 +8,7 @@ const resolutionTime : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ designTime, runTime, requirementsTime ],
-    "imagePath": "/api/images/categories/resolutionTime.jpg"
+    "imagePath": "/images/categories/resolutionTime.jpg"
 }
 
 export default resolutionTime;

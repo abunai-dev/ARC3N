@@ -16,6 +16,6 @@
     "keywords": ["data"],
     "definition": "This is a Test if the definition of uncertainty two can be displayed correctly.",
     "exampleScenario": "This is a Test if the example scenario of uncertainty two can be displayed correctly.",
-    "exampleImagePath": "/src/data/pictures/test.png",
+    "exampleImagePath": "http://localhost:3000/images/uncertainties/uncertaintytwo.jpg",
     "communityAnnotationUrl": "http://www.google.com"
 }
