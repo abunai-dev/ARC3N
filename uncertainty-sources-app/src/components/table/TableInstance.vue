@@ -3,28 +3,10 @@
     <div v-if="items.length > 0">
       <div class="topBar">
         <div class="searchBar" v-if="isSearch">
-          <button @click="isSearch=false; searchValue=''">Filter</button>
-          <div class="input">
-            <span>search value:</span>
-            <input type="text" v-model="searchValue"/>
-            <button @click="reset">Reset</button>
-          </div>
+          <SearchBar :search-value="searchValue" @toggle-search="toggleSearchAndFilter" @reset="reset" @search="setSearchValue" />
         </div>
         <div class="filterBar" v-else>
-          <div class="filter">
-            <span>filter by:</span>
-            <select v-model="selectedHeader" @change="searchValue=''">
-              <option v-for="header in getFilterableHeaders()" :key="header.text" :value="header.value">{{ header.text }}</option>
-            </select>
-
-            <span class="filter-options" v-if="selectedHeader !== ''">
-              <select v-model="searchValue">
-                <option v-for="option in filterOptions(selectedHeader)" :key="option"> {{ option }}</option>
-              </select>
-            </span>
-            <button @click="reset">Reset</button>
-          </div>
-          <button @click="isSearch=true; searchValue=''; selectedHeader=''">Search</button>
+          <FilterBar :filterable-headers="getFilterableHeaders()" :selected-category="selectedHeader" :search-value="searchValue" @toggle-search="toggleSearchAndFilter" @reset="reset" @filter-category="setHeader" @filter-value="setSearchValue" />
         </div>
       </div>
       <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-field=selectedHeader :search-value="searchValue" v-if="selectedHeader !== ''" :sort-by="sortBy" :sort-type="sortType" />
@@ -57,16 +39,13 @@ import {resolutionTimeMapping} from '@/util/scripts/manifestationMapping/resolut
 import {severityOfImpactMapping} from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
 import {typeMapping} from '@/util/scripts/manifestationMapping/typeMapping'
 
-import { getArchitecturalTypeNames } from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
-import { getImpactOnConfidentialityNames } from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
-import { getLocationNames } from '@/util/scripts/manifestationMapping/locationMapping'
-import { getManageabilityNames } from '@/util/scripts/manifestationMapping/manageabilityMapping'
-import { getReducibleByAddNames } from '@/util/scripts/manifestationMapping/reducibleByAddMapping'
-import { getResolutionTimeNames } from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
-import { getSeverityOfImpactNames } from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
-import { getTypeNames } from '@/util/scripts/manifestationMapping/typeMapping'
+import {relationshipsMapping} from '@/util/scripts/relationshipsMapping'
+
 import type { Category } from '@/util/types/Category'
 import type { Manifestation } from '@/util/types/Manifestation'
+
+import SearchBar from '@/components/table/SearchBar.vue'
+import FilterBar from '@/components/table/FilterBar.vue'
 
 const props = defineProps({
   filterByOption: {
@@ -158,8 +137,7 @@ function parseData(rawData: any): Uncertainty[] {
       reducibleByADD: reducibleByAddMapping(uncertainty.reducibleByADD),
       impactOnConfidentiality: impactOnConfidentialityMapping(uncertainty.impactOnConfidentiality),
       severityOfImpact: severityOfImpactMapping(uncertainty.severityOfImpact),
-      relationParent: uncertainty.relationParent,
-      relationSibling: uncertainty.relationSibling,
+      relations: relationshipsMapping(uncertainty.relations),
       url: uncertainty.url,
       description: uncertainty.description,
       keywords: uncertainty.keywords,
@@ -207,45 +185,23 @@ function getUncertainty(id: number): Uncertainty {
   return uncertainties[0]
 }
 
-function filterOptions(header: string): string[] {
-  var options: string[] = []
-  switch (header) {
-    case 'location':
-      options = getLocationNames()
-      break
-    case 'architecturalType':
-      options = getArchitecturalTypeNames()
-      break
-    case 'type':
-      options = getTypeNames()
-      break
-    case 'manageability':
-      options = getManageabilityNames()
-      break
-    case 'resolutionTime':
-      options = getResolutionTimeNames()
-      break
-    case 'reducibleByADD':
-      options = getReducibleByAddNames()
-      break
-    case 'impactOnConfidentiality':
-      options = getImpactOnConfidentialityNames()
-      break
-    case 'severityOfImpact':
-      options = getSeverityOfImpactNames()
-      break
-    default:
-      options = []
-      break
-  }
-  return options
+function toggleSearchAndFilter() {
+  isSearch.value = !isSearch.value
+  selectedHeader.value = ''
+  searchValue.value = ''
 }
-
 function reset() {
   searchValue.value = ''
   selectedHeader.value = ''
 }
 
+function setSearchValue(searchInput: string) {
+  searchValue.value = searchInput
+}
+
+function setHeader(header: string) {
+  selectedHeader.value = header
+}
 </script>
 
 <style scoped>

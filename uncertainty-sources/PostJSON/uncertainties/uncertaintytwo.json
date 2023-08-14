@@ -9,8 +9,15 @@
     "reducibleByADD": "No",
     "impactOnConfidentiality": "Indirect",
     "severityOfImpact": "low",
-    "relationParent": [],
-    "relationSibling": [],
+    "relations": [
+        {
+            "relatedToId": 1,
+            "positionInRelationship": "parent"
+        },
+        {
+            "relatedToId": 3
+        }  
+    ],
     "url": "http://www.google.com",
     "description": "This is a Test if the description of uncertainty two can be displayed correctly.",
     "keywords": ["data"],

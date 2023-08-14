@@ -6,7 +6,7 @@
         <TableInstance @selected-uncertainty="setCurrentUncertainty" :filter-by-option="currentFilterBy" :search-value="currentSearchValue"/>
     </div>
     <div class="uncertainty-detail" v-if="(showUncertainty) && (currentUncertainty != null)">
-        <UncertaintyDetail :uncertainty="currentUncertainty" @selected-classification-category="setClassificationCategory" @selected-keyword="setSearchValue"/>
+        <UncertaintyDetail :uncertainty="currentUncertainty" @selected-classification-category="setClassificationCategory" @selected-keyword="setSearchValue" @selected-uncertainty-id="setSearchValue"/>
     </div>
     <div class="classification-detail" v-if="(showClassification) && (currentClassificationCategory != null)">
         <CategoryOverviewPage :statedcategory="currentClassificationCategory" @filter-by="setFilteredTable"/>
@@ -37,6 +37,7 @@ function toggleShowTable() {
     currentUncertainty = ref(null) as Ref<Uncertainty | null>;
     currentClassificationCategory= ref(null) as Ref<Category | null>;
     currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Manifestation} | null>;
+    currentSearchValue.value = '';
     console.log("The value is set to show the table " )
 }
 

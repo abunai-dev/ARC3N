@@ -1,5 +1,5 @@
-export enum Relationship {
-    Parent = "parent",
-    Child = "child",
-    Sibling = "sibling",
+import type { RelationshipPosition } from "./RelationshipPosition";
+export interface Relationship {
+    relatedToId: number;
+    positionInRelationship?: RelationshipPosition;
 }

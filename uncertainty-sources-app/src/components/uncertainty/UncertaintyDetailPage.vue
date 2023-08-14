@@ -24,8 +24,7 @@
             </div>
         </div>
         <div class="relationships">
-            <p>Is parent of: {{ props.uncertainty.relationParent }}</p>
-            <p>Is related to: {{ props.uncertainty.relationSibling }}</p>
+            <RelationshipItem v-for="(relation, index) in props.uncertainty.relations" :relationship="relation" :key="index" :value="relation.relatedToId" @click="$emit('selected-uncertainty-id', relation.relatedToId.toString())"/>
         </div>
         <div class="additionalHelp">
             <p>Example of Uncertainty: {{ props.uncertainty.exampleScenario }}</p>
@@ -45,6 +44,8 @@ import {type PropType} from 'vue';
 import KeywordComponent from './KeywordComponent.vue';
 import BasicInformation from '@/components/util/BasicInformationSection.vue';
 import ClassificationItem from './ClassificationItem.vue';
+import RelationshipItem from './RelationshipItem.vue';
+
 
 import architecturalElementType from '@/data/categories/architecturalElementType';
 import impactOnConfidentiality from '@/data/categories/impactOnConfidentiality';
@@ -64,7 +65,7 @@ const props = defineProps({
         },
     });
 
-const emit = defineEmits(['selected-classification-category', 'selected-keyword']);
+const emit = defineEmits(['selected-classification-category', 'selected-keyword', 'selected-uncertainty-id']);
 
 function toggleShowClassification(category: Category) {
     emit('selected-classification-category', category);

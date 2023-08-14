@@ -1,4 +1,5 @@
 import type { Manifestation } from "./Manifestation";
+import type { Relationship } from "./Relationship";
 import { Keyword } from "./Keyword";
 
 export interface Uncertainty {
@@ -12,8 +13,7 @@ export interface Uncertainty {
     reducibleByADD: Manifestation;
     impactOnConfidentiality: Manifestation;
     severityOfImpact: Manifestation;
-    relationParent: number[];
-    relationSibling: number[];
+    relations: Relationship[];
     url: string;
     description: string;
     keywords: Keyword[];
