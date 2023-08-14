@@ -5,7 +5,7 @@
         </header>
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
-            <ManifestationsDetailSection :manifestations="props.statedcategory.manifestations"/>
+            <ManifestationsDetailSection :manifestations="props.statedcategory.manifestations" :category="props.statedcategory" @filter-by-manifestation="sendFilterOption"/>
             <p> {{ props.statedcategory.exampleScenarios }}</p>
             <img :src=imagePath :alt="imagePath" >
         </main>
@@ -17,7 +17,7 @@
 import type { Category } from '@/util/types/Category';
 import type { Manifestation } from '@/util/types/Manifestation';
 import { type PropType, ref } from 'vue';
-import BasicInformation from './BasicInformationSection.vue';
+import BasicInformation from '@/components/util/BasicInformationSection.vue'
 import ManifestationsDetailSection from './ManifestationsDetailSection.vue';
 
 
@@ -27,11 +27,16 @@ const props = defineProps({
             type: Object as PropType<Category>,
             required: true
         },
-        statedmanifestation: {
-            type: Object as PropType<Manifestation>,
-            required: true
-        },
     });
+
+const emit = defineEmits(['filterBy']);
+
+function sendFilterOption(manifestation: Manifestation) {
+    const category = props.statedcategory
+    const payload = { category, manifestation }
+    console.log("sendFilterOption :" + props.statedcategory.name + manifestation.name)
+    emit('filterBy', payload)
+}
 
 const imagePath = "http://localhost:3000" + props.statedcategory.imagePath;
 

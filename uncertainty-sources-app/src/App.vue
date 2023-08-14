@@ -2,18 +2,18 @@
   <div class = "container">
     <header>
       <img alt="Uncertainty source logo" class="logo" src="./assets/logo.jpg" width="1300" height="150" />
-      <h1 v-if="!showTable">Welcome to the Uncertainty Source Archive</h1>   
+      <h1 v-if="!showContent">Welcome to the Uncertainty Source Archive</h1>   
     </header>
     <main>
       <div class="button-container">
-        <p v-if="!showTable">Press the button below to get started!</p>
-        <button @click="toggleShowTable" class="button" v-if="!showTable">
+        <p v-if="!showContent">Press the button below to get started!</p>
+        <button @click="toggleShowContent" class="button" v-if="!showContent">
           Show Table
         </button> 
       </div>
-        <div v-if="showTable" class="table">
+        <div v-if="showContent" class="content">
           <Suspense>
-            <TableInstance />
+            <Content/>
           </Suspense>
         </div>
     </main>
@@ -21,15 +21,15 @@
 </template>
 
 <script setup lang="ts">
-import TableInstance from './components/TableInstance.vue'
+import Content from './components/AppContent.vue';
 import { ref } from 'vue'
 
 
-const showTable = ref(false)
+const showContent = ref(false)
 
-function toggleShowTable() {
-  showTable.value = !showTable.value
-  console.log("The value is: " + showTable.value)
+function toggleShowContent() {
+  showContent.value = !showContent.value
+  console.log("The value is: " + showContent.value)
 }
 
 </script>
@@ -97,7 +97,7 @@ p {
   margin: 0 auto;
 }
 
-.table {
+.content {
   clear: both;
   display: flexbox;
   margin: 40px auto;

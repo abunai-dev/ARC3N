@@ -1,6 +1,9 @@
 <template>
     <div class="item">
-        <p>{{ props.manifestation.name }}: {{ props.manifestation.definition }}</p>
+        <div class="definition-and-button">
+            <p>{{ props.manifestation.name }}: {{ props.manifestation.definition }}</p>
+            <FilterButton buttontext="Show more examples!" @filter="sendFilterOption"/>
+        </div>
         <div class="example-list">
             <p v-for="(example, index) in props.manifestation.exampleScenarios" :key="index">{{example}}</p>
         </div>
@@ -8,7 +11,8 @@
 </template>
 <script setup lang="ts">
     import type { Manifestation } from '@/util/types/Manifestation';
-    import type { PropType } from 'vue';
+    import { type PropType } from 'vue';
+    import FilterButton from '@/components/util/FilterButton.vue';
 
     const props = defineProps({
         manifestation: {
@@ -16,6 +20,14 @@
             required: true
         },
     });
+
+    const emit = defineEmits(['filterByManifestation']);
+
+    function sendFilterOption() {
+        console.log("sendFilterOption :" + props.manifestation.name)
+        emit('filterByManifestation', props.manifestation)
+    }
+
 
 </script>
 <style scoped>
@@ -35,5 +47,10 @@
 
 .item p {
     text-align: left;
+}
+
+.definition-and-button {
+    flex-direction: column;
+    justify-content: space-between;
 }
 </style>

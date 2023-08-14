@@ -4,7 +4,7 @@
             <h3>Manifestations:</h3>
          </header>
         <main>
-            <ManifestationDetailItem v-for="(manifestation, index) in props.manifestations" :manifestation="manifestation" :key="index"/>
+            <ManifestationDetailItem v-for="(manifestation, index) in props.manifestations" :manifestation="manifestation" :key="index" @filter-by-manifestation="forwardEmit"/>
         </main>
     </div>
 
@@ -21,6 +21,14 @@ const props = defineProps({
             required: true
         },
     });
+
+const emit = defineEmits(['filterByManifestation']);
+
+function forwardEmit(manifestation: Manifestation) {
+    console.log("forwardEmit :" + manifestation.name)
+    emit('filterByManifestation', manifestation)
+}
+
 </script>
 <style scoped>
 .manifestations {

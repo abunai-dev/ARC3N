@@ -7,8 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Keyword } from '@/util/types/Keyword';
-import type { PropType } from 'vue';
 
 const props = defineProps({
         keyword: {

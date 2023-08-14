@@ -1,5 +1,5 @@
 <template>
-  <div class="table" v-if="!openDetails">
+  <div class="table">
     <div v-if="items.length > 0">
       <div class="topBar">
         <div class="searchBar" v-if="isSearch">
@@ -7,6 +7,7 @@
           <div class="input">
             <span>search value:</span>
             <input type="text" v-model="searchValue"/>
+            <button @click="reset">Reset</button>
           </div>
         </div>
         <div class="filterBar" v-else>
@@ -21,12 +22,13 @@
                 <option v-for="option in filterOptions(selectedHeader)" :key="option"> {{ option }}</option>
               </select>
             </span>
+            <button @click="reset">Reset</button>
           </div>
           <button @click="isSearch=true; searchValue=''; selectedHeader=''">Search</button>
         </div>
       </div>
-      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" :search-field=selectedHeader :search-value="searchValue" v-if="selectedHeader !== ''" :sort-by="sortBy" :sort-type="sortType" />
-      <EasyDataTable :headers="headers" :items="items" @click-row="showRow" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" v-else />
+      <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-field=selectedHeader :search-value="searchValue" v-if="selectedHeader !== ''" :sort-by="sortBy" :sort-type="sortType" />
+      <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" v-else />
     </div>
     <div v-else>
       <p>
@@ -36,18 +38,13 @@
       </p>
     </div>
   </div>
-  <div class="entry" v-if="openDetails">
-    <button @click="openDetails = false">Back</button>
-    <UncertaintyDetails :uncertainty="currentUncertainty" />
-  </div>
 </template>
 
 <script setup lang="ts">
 import type { Header, Item, ClickRowArgument, SortType } from 'vue3-easy-data-table'
-import UncertaintyDetails from './UncertaintyDetailPage.vue'
 
 import axios from 'axios'
-import { ref } from 'vue'
+import { ref, type PropType } from 'vue'
 
 import type { Uncertainty } from '@/util/types/Uncertainty'
 
@@ -68,17 +65,23 @@ import { getReducibleByAddNames } from '@/util/scripts/manifestationMapping/redu
 import { getResolutionTimeNames } from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
 import { getSeverityOfImpactNames } from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
 import { getTypeNames } from '@/util/scripts/manifestationMapping/typeMapping'
+import type { Category } from '@/util/types/Category'
+import type { Manifestation } from '@/util/types/Manifestation'
 
-
-
-
+const props = defineProps({
+  filterByOption: {
+    type: Object as PropType<{category: Category, manifestation: Manifestation} | null>,
+    default: null
+  },
+  searchValue: {
+    type: String,
+    default: ''
+  }
+})
 const uncertainties = await fetchData()
-const searchValue = ref('')
-const selectedHeader = ref('')
-const isSearch = ref(true)
-const sortType: SortType = 'asc';
-const sortBy = ref('id')
-
+const items: Item[] = buildItems()
+var currentItemId = ref(0)
+var currentUncertainty = ref(getUncertainty(currentItemId.value))
 const headers: Header[] = [
   { text: 'ID', value: 'id', sortable:true},
   { text: 'Name', value: 'name' },
@@ -91,19 +94,20 @@ const headers: Header[] = [
   { text: 'Impact On Confidentiality', value: 'impactOnConfidentiality', sortable:true},
   { text: 'Architectural Element Type', value: 'architecturalType', sortable:true }
 ]
+const sortType: SortType = 'asc';
+const sortBy = ref('id')
+const emit = defineEmits(['selected-uncertainty']) 
 
-const items: Item[] = buildItems()
-
-var currentItemId = ref(0)
-const openDetails = ref(false)
-var currentUncertainty = ref(getUncertainty(currentItemId.value))
-const showRow = (item: ClickRowArgument) => {
-  openDetails.value = true
+const setSelectedUncertainty = (item: ClickRowArgument) => {
   var currentItemId = ref(item.id)
   currentUncertainty.value = getUncertainty(currentItemId.value)
-  console.log('The row is: ' + item.id + 'The openDetails is: ' + openDetails.value)
   console.log('The current uncertainty is: ' + currentUncertainty.value.id)
+  emit('selected-uncertainty', currentUncertainty.value)
 }
+
+const searchValue = ref(props.filterByOption?.manifestation.name || props.searchValue)
+const selectedHeader = ref(findHeader(props.filterByOption?.category.name || ''))
+const isSearch = ref(props.filterByOption === null)
 
 async function fetchData(): Promise<Uncertainty[]> {
   const response = await axios.get('http://localhost:3000/uncertainties').catch((error) => {
@@ -125,6 +129,18 @@ function getFilterableHeaders(): Header[] {
     }
   }
   return filterableHeaders
+}
+
+function findHeader(name : string | null): string {
+  if (name === null) {
+    return ''
+  }
+  for (const header of getFilterableHeaders()) {
+    if (header.value.toLowerCase() === name.toLowerCase()) {
+      return header.value
+    }
+  }
+  return ''
 }
 
 function parseData(rawData: any): Uncertainty[] {
@@ -224,6 +240,12 @@ function filterOptions(header: string): string[] {
   }
   return options
 }
+
+function reset() {
+  searchValue.value = ''
+  selectedHeader.value = ''
+}
+
 </script>
 
 <style scoped>

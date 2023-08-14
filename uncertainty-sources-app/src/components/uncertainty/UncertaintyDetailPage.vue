@@ -1,5 +1,4 @@
 <template>
-    <div v-if="!showClassificationOverview">
     <header>
         <h1> {{props.uncertainty.id}} - {{ props.uncertainty.name }}</h1>
     </header>
@@ -8,7 +7,7 @@
             <BasicInformation :definition="props.uncertainty.definition" :description="props.uncertainty.description"/>
         </div>
         <div class="keywords">
-            <KeywordComponent v-for="(keyword, index) in props.uncertainty.keywords" :keyword="keyword" :key="index"/>
+            <KeywordComponent v-for="(keyword, index) in props.uncertainty.keywords" :keyword="keyword" :key="index" :value="keyword" @click="toggleShowKeywordResults(keyword)"/>
         </div>
         <div class="classification">
             <div class = "classificationitems">
@@ -38,21 +37,14 @@
             <p> {{ props.uncertainty.url }}</p>
         </div>
     </main>
-    </div>
-    <div v-if="showClassificationOverview" class="vertical">
-        <ClassificationCategoryOverview :statedcategory="classificationToShow" :statedmanifestation="props.uncertainty.location"/>
-    </div>
-    
-
 </template>
 
 <script setup lang="ts">
 import type { Uncertainty } from '@/util/types/Uncertainty';
-import {type PropType, ref} from 'vue';
+import {type PropType} from 'vue';
 import KeywordComponent from './KeywordComponent.vue';
-import BasicInformation from './BasicInformationSection.vue';
+import BasicInformation from '@/components/util/BasicInformationSection.vue';
 import ClassificationItem from './ClassificationItem.vue';
-import ClassificationCategoryOverview from './CategoryOverviewPage.vue';
 
 import architecturalElementType from '@/data/categories/architecturalElementType';
 import impactOnConfidentiality from '@/data/categories/impactOnConfidentiality';
@@ -72,12 +64,14 @@ const props = defineProps({
         },
     });
 
-const showClassificationOverview = ref(false);
-const classificationToShow = ref();
+const emit = defineEmits(['selected-classification-category', 'selected-keyword']);
 
 function toggleShowClassification(category: Category) {
-    showClassificationOverview.value = !showClassificationOverview.value;
-    classificationToShow.value = category;
+    emit('selected-classification-category', category);
+}
+
+function toggleShowKeywordResults(keyword: string) {
+    emit('selected-keyword', keyword);
 }
 
 </script>
