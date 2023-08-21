@@ -1,7 +1,7 @@
 <template>
   <div class = "container">
     <header>
-      <img alt="Uncertainty source logo" class="logo" src="./assets/logo.jpg" width="1300" height="150" />
+      <img alt="Uncertainty source logo" class="logo" :src="logoPath" width="1300" height="150" />
       <h1 v-if="!showContent">Welcome to the Uncertainty Source Archive</h1>   
     </header>
     <main>
@@ -31,6 +31,8 @@ function toggleShowContent() {
   showContent.value = !showContent.value
   console.log("The value is: " + showContent.value)
 }
+
+const logoPath = ref("images/logo.jpg")
 
 </script>
 
