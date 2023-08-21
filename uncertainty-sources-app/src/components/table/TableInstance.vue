@@ -24,23 +24,9 @@
 
 <script setup lang="ts">
 import type { Header, Item, ClickRowArgument, SortType } from 'vue3-easy-data-table'
-
-import axios from 'axios'
 import { ref, type PropType } from 'vue'
-
 import type { Uncertainty } from '@/util/types/Uncertainty'
-
-import { architecturalTypeMapping }from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
-import {impactOnConfidentialityMapping} from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
-import {locationMapping} from '@/util/scripts/manifestationMapping/locationMapping'
-import {manageabilityMapping} from '@/util/scripts/manifestationMapping/manageabilityMapping'
-import {reducibleByAddMapping} from '@/util/scripts/manifestationMapping/reducibleByAddMapping'
-import {resolutionTimeMapping} from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
-import {severityOfImpactMapping} from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
-import {typeMapping} from '@/util/scripts/manifestationMapping/typeMapping'
-
-import {relationshipsMapping} from '@/util/scripts/relationshipsMapping'
-
+import uncertainties from '@/data/uncertainties'
 import type { Category } from '@/util/types/Category'
 import type { Manifestation } from '@/util/types/Manifestation'
 
@@ -57,7 +43,7 @@ const props = defineProps({
     default: ''
   }
 })
-const uncertainties = await fetchData()
+const allUncertainties = uncertainties
 const items: Item[] = buildItems()
 var currentItemId = ref(0)
 var currentUncertainty = ref(getUncertainty(currentItemId.value))
@@ -88,18 +74,6 @@ const searchValue = ref(props.filterByOption?.manifestation.name || props.search
 const selectedHeader = ref(findHeader(props.filterByOption?.category.name || ''))
 const isSearch = ref(props.filterByOption === null)
 
-async function fetchData(): Promise<Uncertainty[]> {
-  const response = await axios.get('http://localhost:3000/uncertainties').catch((error) => {
-    console.log("Data could not be fetched. Please check if the data server is running! " + "\n" + "Error: " + error)
-    return error
-  })
-  if (response.data === undefined) {
-    return []
-  } else {
-    return parseData(response.data)
-  }
-}
-
 function getFilterableHeaders(): Header[] {
   const filterableHeaders: Header[] = []
   for (const header of headers) {
@@ -122,42 +96,9 @@ function findHeader(name : string | null): string {
   return ''
 }
 
-function parseData(rawData: any): Uncertainty[] {
-  const uncertainties: Uncertainty[] = []
-  for (const uncertainty of rawData) {
-    try {
-    const obj : Uncertainty = {
-      id: uncertainty.id,
-      name: uncertainty.name,
-      location: locationMapping(uncertainty.location),
-      architecturalType: architecturalTypeMapping(uncertainty.architecturalType),
-      type: typeMapping(uncertainty.type),
-      manageability: manageabilityMapping(uncertainty.manageability),
-      resolutionTime: resolutionTimeMapping(uncertainty.resolutionTime),
-      reducibleByADD: reducibleByAddMapping(uncertainty.reducibleByADD),
-      impactOnConfidentiality: impactOnConfidentialityMapping(uncertainty.impactOnConfidentiality),
-      severityOfImpact: severityOfImpactMapping(uncertainty.severityOfImpact),
-      relations: relationshipsMapping(uncertainty.relations),
-      url: uncertainty.url,
-      description: uncertainty.description,
-      keywords: uncertainty.keywords,
-      definition: uncertainty.definition,
-      exampleScenario: uncertainty.exampleScenario,
-      exampleImagePath: uncertainty.exampleImagePath,
-      communityAnnotationUrl: uncertainty.communityAnnotationUrl
-    }
-    uncertainties.push(obj)
-  } catch (error) {
-    console.log("Error while parsing data on Uncertainty: "+ uncertainty.name + "\n" + "Error: " + error + "\n" + "Data is being skipped!")
-  }
-    console.log('Uncertainty Object Name: ' + uncertainties[uncertainties.length - 1].name + '\n')
-  }
-  return uncertainties
-}
-
 function buildItems(): Item[] {
   const items: Item[] = []
-  for (const uncertainty of uncertainties) {
+  for (const uncertainty of allUncertainties) {
     var obj = {
       id: uncertainty.id,
       name: uncertainty.name,
@@ -176,13 +117,13 @@ function buildItems(): Item[] {
 }
 
 function getUncertainty(id: number): Uncertainty {
-  for (const uncertainty of uncertainties) {
+  for (const uncertainty of allUncertainties) {
     if (uncertainty.id === id) {
       return uncertainty
     }
   }
   //TODO: Throw error
-  return uncertainties[0]
+  return allUncertainties[0]
 }
 
 function toggleSearchAndFilter() {

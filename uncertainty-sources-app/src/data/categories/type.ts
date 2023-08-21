@@ -8,7 +8,7 @@ const type : Category = {
     "description": "This is a test if the description of type is working",
     "exampleScenarios": [],
     "manifestations": [ recognizedIgnorance, scenarioUncertainty, statisticalUncertainty ],
-    "imagePath": "/images/categories/type.jpg"
+    "imagePath": "type.jpg"
 }
 
 export default type;

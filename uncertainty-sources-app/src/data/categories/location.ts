@@ -10,7 +10,7 @@ const location : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [Input, systemBehaviour, systemEnvironment, systemStructure ],
-    "imagePath": "/images/categories/location.jpg"
+    "imagePath": "location.jpg"
 }
 
 export default location;

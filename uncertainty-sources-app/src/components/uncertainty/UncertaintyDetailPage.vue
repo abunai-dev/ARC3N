@@ -29,7 +29,7 @@
         <div class="additionalHelp">
             <p>Example of Uncertainty: {{ props.uncertainty.exampleScenario }}</p>
             <div class="image-container">
-                <img :src="props.uncertainty.exampleImagePath" :alt="props.uncertainty.exampleImagePath">
+                <img :src="imagePath" :alt="props.uncertainty.exampleImagePath">
             </div>
             
             <p>Find out about the ongoing discussion regarding the uncertainty: {{ props.uncertainty.communityAnnotationUrl }}</p>
@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
 import type { Uncertainty } from '@/util/types/Uncertainty';
-import {type PropType} from 'vue';
+import {type PropType, ref} from 'vue';
 import KeywordComponent from './KeywordComponent.vue';
 import BasicInformation from '@/components/util/BasicInformationSection.vue';
 import ClassificationItem from './ClassificationItem.vue';
@@ -56,6 +56,7 @@ import resolutionTime from '@/data/categories/resolutionTime';
 import severityOfImpact from '@/data/categories/severityOfImpact';
 import typeManifestation from '@/data/categories/type';
 import type { Category } from '@/util/types/Category';
+import requirementsTime from '@/data/manifestations/resolutionTime/requirementsTime';
 
 
 const props = defineProps({
@@ -64,6 +65,8 @@ const props = defineProps({
             required: true
         },
     });
+
+const imagePath= ref("images/uncertainties/" + props.uncertainty.exampleImagePath)
 
 const emit = defineEmits(['selected-classification-category', 'selected-keyword', 'selected-uncertainty-id']);
 

@@ -8,7 +8,7 @@ const manageability : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [fullyReducible, irreducible, partialReducible ],
-    "imagePath": "/images/categories/manageability.jpg"
+    "imagePath": "manageability.jpg"
 }
 
 export default manageability;

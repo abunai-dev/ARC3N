@@ -38,7 +38,7 @@ function sendFilterOption(manifestation: Manifestation) {
     emit('filterBy', payload)
 }
 
-const imagePath = "http://localhost:3000" + props.statedcategory.imagePath;
+const imagePath = ref("images/categories/" + props.statedcategory.imagePath);
 
 </script>
 
