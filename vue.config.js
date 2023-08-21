@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? "/REPO_NAME/" : "/UncertaintySourceArchive/",
+    publicPath: process.env.NODE_ENV === 'production' ? "/UncertaintySourceArchive/" : "/",
 };
