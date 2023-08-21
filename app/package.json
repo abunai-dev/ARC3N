@@ -1,7 +1,6 @@
 {
   "name": "uncertainty-sources-app",
   "version": "0.0.0",
-  "private": true,
   "homepage": "https://abunai-dev.github.io/UncertaintySourceArchive/",
   "scripts": {
     "dev": "vite",
