@@ -1,7 +1,7 @@
 <template>
   <div class = "container">
     <header>
-      <img alt="Uncertainty source logo" class="logo" src="@/assets/logo.jpg" width="1300" height="150" />
+      <img alt="Uncertainty source logo" class="logo" src="./assets/logo.jpg" width="1300" height="150" />
       <h1 v-if="!showContent">Welcome to the Uncertainty Source Archive</h1>   
     </header>
     <main>
