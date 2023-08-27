@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const requirementsTime : Manifestation =
+import type { ResolutionTimeManifestation } from "@/util/types/Manifestation"
+const requirementsTime : ResolutionTimeManifestation =
 {
+    "type" : "resolutionTime",
     "name": "Requirements Time",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

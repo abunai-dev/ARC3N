@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const connector : Manifestation =
+import type { ArchitecturalElementTypeManifestation } from "@/util/types/Manifestation"
+const connector : ArchitecturalElementTypeManifestation =
 {
+    "type": "architecturalElementType",
     "name": "Connector",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

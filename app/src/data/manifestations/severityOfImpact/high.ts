@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const high : Manifestation =
+import type { SeverityOfImpactManifestation } from "@/util/types/Manifestation"
+const high : SeverityOfImpactManifestation =
 {
+    "type": "severityOfImpact",
     "name": "High",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

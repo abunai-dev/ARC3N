@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const recognizedIgnorance : Manifestation =
+import type { TypeManifestation } from "@/util/types/Manifestation"
+const recognizedIgnorance : TypeManifestation =
 {
+    "type": "type",
     "name": "Recognized Ignorance",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

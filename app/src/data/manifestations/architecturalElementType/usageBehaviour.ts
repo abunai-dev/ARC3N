@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const usageBehaviour : Manifestation =
+import type { ArchitecturalElementTypeManifestation } from "@/util/types/Manifestation"
+const usageBehaviour : ArchitecturalElementTypeManifestation =
 {
+    "type": "architecturalElementType",
     "name": "Usage Behaviour",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

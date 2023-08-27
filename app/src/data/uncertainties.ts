@@ -26,13 +26,12 @@ const uncertainties : Uncertainty[] = [
         "impactOnConfidentiality": indirect,
         "severityOfImpact": high,
         "relations": [],
-        "url": "http://www.google.com",
         "description": "This is a Test if the description of uncertainty two can be displayed correctly.",
         "keywords": [Keyword.Data],
         "definition": "This is a Test if the definition of uncertainty two can be displayed correctly.",
         "exampleScenario": "This is a Test if the example scenario of uncertainty two can be displayed correctly.",
         "exampleImagePath": "uncertaintyone.jpg",
-        "communityAnnotationUrl": "http://www.google.com"
+        "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/1"
     },
     {
         "id": 2,
@@ -54,13 +53,12 @@ const uncertainties : Uncertainty[] = [
                     "relatedToId": 3
                 }  
             ],
-        "url": "http://www.google.com",
         "description": "This is a Test if the description of uncertainty two can be displayed correctly.",
         "keywords": [Keyword.Data],
         "definition": "This is a Test if the definition of uncertainty two can be displayed correctly.",
         "exampleScenario": "This is a Test if the example scenario of uncertainty two can be displayed correctly.",
         "exampleImagePath": "uncertaintytwo.jpg",
-        "communityAnnotationUrl": "http://www.google.com"
+        "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/2"
     }
 ]
 

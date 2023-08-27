@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const scenarioUncertainty : Manifestation =
+import type { TypeManifestation } from "@/util/types/Manifestation"
+const scenarioUncertainty : TypeManifestation =
 {
+    "type": "type",
     "name": "Scenario Uncertainty",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [

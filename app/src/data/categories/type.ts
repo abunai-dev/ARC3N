@@ -8,7 +8,8 @@ const type : Category = {
     "description": "This is a test if the description of type is working",
     "exampleScenarios": [],
     "manifestations": [ recognizedIgnorance, scenarioUncertainty, statisticalUncertainty ],
-    "imagePath": "type.jpg"
+    "imagePath": "type.jpg",
+    "discussionUrl": ""
 }
 
 export default type;

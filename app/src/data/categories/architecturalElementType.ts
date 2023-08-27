@@ -10,7 +10,8 @@ const architecturalElementType : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
-    "imagePath": "architecturalElementType.jpg"
+    "imagePath": "architecturalElementType.jpg",
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/4"
 }
 
 export default architecturalElementType;

@@ -6,4 +6,5 @@ export interface Category {
     exampleScenarios: string[];
     manifestations: Manifestation[];
     imagePath: string;
+    discussionUrl: string;
 }

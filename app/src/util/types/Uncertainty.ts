@@ -1,20 +1,19 @@
-import type { Manifestation } from "./Manifestation";
+import type { ArchitecturalElementTypeManifestation, ImpactOnConfidentialityManifestation, LocationManifestation, ManageabilityManifestation, ReducibleByADDManifestation, ResolutionTimeManifestation, SeverityOfImpactManifestation, TypeManifestation } from "./Manifestation";
 import type { Relationship } from "./Relationship";
 import { Keyword } from "./Keyword";
 
 export interface Uncertainty {
     id: number;
     name: string;
-    location: Manifestation;
-    architecturalType: Manifestation;
-    type: Manifestation;
-    manageability: Manifestation;
-    resolutionTime: Manifestation;
-    reducibleByADD: Manifestation;
-    impactOnConfidentiality: Manifestation;
-    severityOfImpact: Manifestation;
+    location: LocationManifestation;
+    architecturalType: ArchitecturalElementTypeManifestation;
+    type: TypeManifestation;
+    manageability: ManageabilityManifestation;
+    resolutionTime: ResolutionTimeManifestation;
+    reducibleByADD: ReducibleByADDManifestation;
+    impactOnConfidentiality: ImpactOnConfidentialityManifestation;
+    severityOfImpact: SeverityOfImpactManifestation;
     relations: Relationship[];
-    url: string;
     description: string;
     keywords: Keyword[];
     definition: string;
@@ -22,3 +21,4 @@ export interface Uncertainty {
     exampleImagePath: string;
     communityAnnotationUrl: string;
 }
+

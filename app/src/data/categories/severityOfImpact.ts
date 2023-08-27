@@ -7,7 +7,8 @@ const severityOfImpact : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [ high, low ],
-    "imagePath": "severityOfImpact.jpg"
+    "imagePath": "severityOfImpact.jpg",
+    "discussionUrl": ""
 }
 
 export default severityOfImpact;

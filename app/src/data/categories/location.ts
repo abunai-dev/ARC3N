@@ -10,7 +10,8 @@ const location : Category = {
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
     "manifestations": [Input, systemBehaviour, systemEnvironment, systemStructure ],
-    "imagePath": "location.jpg"
+    "imagePath": "location.jpg",
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/3"
 }
 
 export default location;

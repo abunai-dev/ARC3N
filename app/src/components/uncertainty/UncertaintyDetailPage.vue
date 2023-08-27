@@ -27,13 +27,7 @@
             <RelationshipItem v-for="(relation, index) in props.uncertainty.relations" :relationship="relation" :key="index" :value="relation.relatedToId" @click="$emit('selected-uncertainty-id', relation.relatedToId.toString())"/>
         </div>
         <div class="additionalHelp">
-            <p>Example of Uncertainty: {{ props.uncertainty.exampleScenario }}</p>
-            <div class="image-container">
-                <img :src="imagePath" :alt="props.uncertainty.exampleImagePath">
-            </div>
-            
-            <p>Find out about the ongoing discussion regarding the uncertainty: {{ props.uncertainty.communityAnnotationUrl }}</p>
-            <p> {{ props.uncertainty.url }}</p>
+            <ExampleSectionVue :description="props.uncertainty.exampleScenario" :imagePath="imagePath" :collaborationUrl="props.uncertainty.communityAnnotationUrl"/>
         </div>
     </main>
 </template>
@@ -57,6 +51,7 @@ import severityOfImpact from '@/data/categories/severityOfImpact';
 import typeManifestation from '@/data/categories/type';
 import type { Category } from '@/util/types/Category';
 import requirementsTime from '@/data/manifestations/resolutionTime/requirementsTime';
+import ExampleSectionVue from '../util/ExampleSection.vue';
 
 
 const props = defineProps({

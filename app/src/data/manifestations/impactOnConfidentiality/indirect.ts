@@ -1,6 +1,7 @@
-import type { Manifestation } from "@/util/types/Manifestation"
-const indirect : Manifestation =
+import type { ImpactOnConfidentialityManifestation } from "@/util/types/Manifestation"
+const indirect : ImpactOnConfidentialityManifestation =
 {
+    "type": "impactOnConfidentiality",
     "name": "Indirect",
     "definition": "This is a test if the location definition of input is working",
     "exampleScenarios": [
