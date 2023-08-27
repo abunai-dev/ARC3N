@@ -6,8 +6,7 @@
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
             <ManifestationsDetailSection :manifestations="props.statedcategory.manifestations" :category="props.statedcategory" @filter-by-manifestation="sendFilterOption"/>
-            <p> {{ props.statedcategory.exampleScenarios }}</p>
-            <img :src=imagePath :alt="imagePath" >
+            <ExampleSection :description="props.statedcategory.exampleScenarios.toString()" :imagePath="imagePath" :collaborationUrl="props.statedcategory.discussionUrl"/>
         </main>
         
     </div>
@@ -19,6 +18,7 @@ import type { Manifestation } from '@/util/types/Manifestation';
 import { type PropType, ref } from 'vue';
 import BasicInformation from '@/components/util/BasicInformationSection.vue'
 import ManifestationsDetailSection from './ManifestationsDetailSection.vue';
+import ExampleSection from '../util/ExampleSection.vue';
 
 
 
