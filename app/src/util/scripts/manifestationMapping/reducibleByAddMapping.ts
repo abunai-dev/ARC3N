@@ -1,8 +1,8 @@
 import notReducible from "@/data/manifestations/reducibleByADD/notReducible";
 import reducible from "@/data/manifestations/reducibleByADD/reducible";
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Manifestation, ReducibleByADDManifestation } from '@/util/types/Manifestation';
 
-export function reducibleByAddMapping(reducibleByAddMappingName: String) : Manifestation{
+export function reducibleByAddMapping(reducibleByAddMappingName: String) : ReducibleByADDManifestation{
     switch (reducibleByAddMappingName.toLocaleLowerCase()) {
         case 'no':
             return notReducible;

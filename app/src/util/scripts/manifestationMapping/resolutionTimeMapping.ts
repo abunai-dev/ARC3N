@@ -1,9 +1,9 @@
 import designTime from "@/data/manifestations/resolutionTime/designTime";
 import requirementsTime from "@/data/manifestations/resolutionTime/requirementsTime";
 import runTime from "@/data/manifestations/resolutionTime/runTime";
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { ResolutionTimeManifestation } from '@/util/types/Manifestation';
 
-export function resolutionTimeMapping(resolutionTimeMappingName: String) : Manifestation{
+export function resolutionTimeMapping(resolutionTimeMappingName: String) : ResolutionTimeManifestation{
     switch (resolutionTimeMappingName.toLocaleLowerCase()) {
         case 'design time':
             return designTime;

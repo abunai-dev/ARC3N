@@ -2,10 +2,10 @@ import input from '@/data/manifestations/location/input'
 import systemBehaviour from '@/data/manifestations/location/systembehaviour'
 import systemEnvironment from '@/data/manifestations/location/systemenvironment'
 import systemStructure from '@/data/manifestations/location/systemstructure'
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { LocationManifestation } from '@/util/types/Manifestation';
 
 
-export function locationMapping(locationName: String) : Manifestation{
+export function locationMapping(locationName: String) : LocationManifestation{
     switch (locationName.toLocaleLowerCase()) {
         case 'input':
             return input;

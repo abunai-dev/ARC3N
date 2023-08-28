@@ -3,10 +3,10 @@ import connector from '@/data/manifestations/architecturalElementType/connector'
 import hardwareResource from '@/data/manifestations/architecturalElementType/hardwareResource'
 import interfaceManifestation from '@/data/manifestations/architecturalElementType/interface'
 import usageBehaviour from '@/data/manifestations/architecturalElementType/usageBehaviour'
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { ArchitecturalElementTypeManifestation } from '@/util/types/Manifestation';
 
 
-export function architecturalTypeMapping(architecturalElementTypeName: String) : Manifestation{
+export function architecturalTypeMapping(architecturalElementTypeName: String) : ArchitecturalElementTypeManifestation{
     switch (architecturalElementTypeName.toLocaleLowerCase()) {
         case 'component':
             return component;
