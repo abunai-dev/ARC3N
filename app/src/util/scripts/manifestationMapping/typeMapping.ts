@@ -1,7 +1,7 @@
 import recognizedIgnorance from "@/data/manifestations/type/recognizedIgnorance";
 import scenarioUncertainty from "@/data/manifestations/type/scenarioUncertainty";
 import statisticalUncertainty from "@/data/manifestations/type/statisticalUncertainty";
-import type { Manifestation, TypeManifestation } from '@/util/types/Manifestation';
+import type { TypeManifestation } from '@/util/types/Manifestation';
 
 export function typeMapping(typeMappingName: String) : TypeManifestation {
     switch (typeMappingName.toLocaleLowerCase()) {

@@ -1,7 +1,7 @@
 import direct from '@/data/manifestations/impactOnConfidentiality/direct'
 import indirect from '@/data/manifestations/impactOnConfidentiality/indirect'
 
-import type { ImpactOnConfidentialityManifestation, Manifestation } from 'src/util/types/Manifestation';
+import type { ImpactOnConfidentialityManifestation } from 'src/util/types/Manifestation';
 
 
 export function impactOnConfidentialityMapping(impactOnConfidentialityName: String) : ImpactOnConfidentialityManifestation {

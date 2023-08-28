@@ -49,7 +49,7 @@
         <p>TODO: Figure out how to process potential image</p>
     </div>
     <div class="Submit" v-if="isValidInput()">
-        <button>Submit</button>
+        <button @click="sendData()">Submit</button>
     </div>
 
 </template>
@@ -86,5 +86,39 @@ function isValidInput(): boolean {
         && chosenType.value != null && chosenManageability.value != null && chosenResolutionTime.value != null 
         && chosenReducibleByAdd.value != null && chosenImpactOnConfidentiality.value != null && chosenSeverityOfImpact.value != null
         && definition.value != '';
+}
+
+function sendData() {
+    const payload = {
+        name: name.value,
+        location: chosenLocation.value,
+        architecturalElementType: chosenArchitecturalElementType.value,
+        type: chosenType.value,
+        manageability: chosenManageability.value,
+        resolutionTime: chosenResolutionTime.value,
+        reducibleByAdd: chosenReducibleByAdd.value,
+        impactOnConfidentiality: chosenImpactOnConfidentiality.value,
+        severityOfImpact: chosenSeverityOfImpact.value,
+        definition: definition.value,
+        description: description.value,
+        exampleScenario: exampleScenario.value
+    };
+
+    fetch('https://api.github.com/repos/abunai-dev/UncertaintySourceArchive/actions/workflows/create-pull-request-on-new-uncertainty-input/dispatches',
+    {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ',
+            'Accept': 'application/vnd.github.v3+json'
+        },
+        body: JSON.stringify({
+            ref: 'main',
+            inputs: {
+                payload: JSON.stringify(payload)
+            }
+        })
+    }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
+
+    //TODO: Create Repository secret
 }
 </script>
