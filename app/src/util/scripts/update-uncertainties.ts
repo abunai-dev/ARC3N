@@ -12,7 +12,6 @@ import { impactOnConfidentialityMapping } from './manifestationMapping/impactOnC
 import { severityOfImpactMapping } from './manifestationMapping/severityOfImpactMapping';
 
 const filePath = path.join(__dirname, './app/src/data/uncertainties.ts');
-const content = fs.readFileSync(filePath, 'utf8');
 
 const payloadArg = process.argv[2];
 if (!payloadArg) {

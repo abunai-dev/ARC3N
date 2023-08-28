@@ -9,8 +9,8 @@
           <FilterBar :filterable-headers="getFilterableHeaders()" :selected-category="selectedHeader" :search-value="searchValue" @toggle-search="toggleSearchAndFilter" @reset="reset" @filter-category="setHeader" @filter-value="setSearchValue" />
         </div>
       </div>
-      <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-field=selectedHeader :search-value="searchValue" v-if="selectedHeader !== ''" :sort-by="sortBy" :sort-type="sortType" />
-      <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" v-else />
+      <EasyDataTable :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-field=selectedHeader :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" header-text-direction="center" body-text-direction="center"  v-if="selectedHeader !== ''"/>
+      <EasyDataTable table-class-name="customize-table" :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" header-text-direction="center" body-text-direction="center" v-else />
     </div>
     <div v-else>
       <p>
@@ -50,14 +50,15 @@ var currentUncertainty = ref(getUncertainty(currentItemId.value))
 const headers: Header[] = [
   { text: 'ID', value: 'id', sortable:true},
   { text: 'Name', value: 'name' },
-  { text: 'Type', value: 'type' , sortable:true},
+  { text: 'Keywords', value: 'keywords'},
   { text: 'Location', value: 'location' , sortable:true},
+  { text: 'Architectural Element Type', value: 'architecturalType', sortable:true },
+  { text: 'Type', value: 'type' , sortable:true},
   { text: 'Manageability', value: 'manageability' , sortable:true},
-  { text: 'Severity Of Impact', value: 'severityOfImpact' , sortable:true},
   { text: 'Resolution Time', value: 'resolutionTime' , sortable:true},
   { text: 'Reducible by ADD', value: 'reducibleByADD' , sortable:true},
   { text: 'Impact On Confidentiality', value: 'impactOnConfidentiality', sortable:true},
-  { text: 'Architectural Element Type', value: 'architecturalType', sortable:true }
+  { text: 'Severity Of Impact', value: 'severityOfImpact' , sortable:true}
 ]
 const sortType: SortType = 'asc';
 const sortBy = ref('id')
@@ -109,7 +110,8 @@ function buildItems(): Item[] {
       resolutionTime: uncertainty.resolutionTime.name,
       reducibleByADD: uncertainty.reducibleByADD.name,
       impactOnConfidentiality: uncertainty.impactOnConfidentiality.name,
-      severityOfImpact: uncertainty.severityOfImpact.name
+      severityOfImpact: uncertainty.severityOfImpact.name,
+      keywords: uncertainty.keywords.join(', ')
     }
     items.push(obj)
   }
