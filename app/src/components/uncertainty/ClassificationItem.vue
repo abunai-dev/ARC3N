@@ -1,15 +1,17 @@
 <template>
-    <div class="classificationItem" @click="$emit('showClassification')">
-        <div class="category">
-            <p @mouseover="toggleShowCategoryDefinition" @mouseleave="toggleShowCategoryDefinition">{{ props.statedcategory.name }}:</p>
+    <div class="container">
+        <div class="classificationItem" @click="$emit('showClassification')">
+            <div class="category">
+                <p @mouseover="toggleShowCategoryDefinition" @mouseleave="toggleShowCategoryDefinition">{{ props.statedcategory.name }}:</p>
+            </div>
+            <div class="manifestation">
+                <p @mouseover="toggleShowManifestationDefintion" @mouseleave="toggleShowManifestationDefintion">{{ props.statedmanifestation.name }}</p>
+            </div>
         </div>
-        <div class="manifestation">
-            <p @mouseover="toggleShowManifestationDefintion" @mouseleave="toggleShowManifestationDefintion">{{ props.statedmanifestation.name }}</p>
-        </div>
-    </div>
-    <div class="defintion" v-show="showDefinition">
+        <div class="defintion" v-show="showDefinition">
             <p>{{message}}</p>
         </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -76,6 +78,9 @@ function toggleShowDefinition() {
     display: block;
     margin: 5px;
     max-width: 200px;
-
+}
+.container {
+    display: block;
+    justify-content: left;
 }
 </style>
