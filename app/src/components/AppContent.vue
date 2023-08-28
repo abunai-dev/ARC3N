@@ -4,12 +4,18 @@
     </div>
     <div class="table" v-if="showTable">
         <TableInstance @selected-uncertainty="setCurrentUncertainty" :filter-by-option="currentFilterBy" :search-value="currentSearchValue"/>
+        <div class="button">
+            <button @click="toggleShowUncertaintyCreator()">Add new uncertainty</button>
+        </div>
     </div>
     <div class="uncertainty-detail" v-if="(showUncertainty) && (currentUncertainty != null)">
         <UncertaintyDetail :uncertainty="currentUncertainty" @selected-classification-category="setClassificationCategory" @selected-keyword="setSearchValue" @selected-uncertainty-id="setSearchValue"/>
     </div>
     <div class="classification-detail" v-if="(showClassification) && (currentClassificationCategory != null)">
         <CategoryOverviewPage :statedcategory="currentClassificationCategory" @filter-by="setFilteredTable"/>
+    </div>
+    <div class="new-entry" v-if="showUncertaintyCreator">
+        <UncertaintyCreator />
     </div>
 </template>
 
@@ -21,11 +27,13 @@ import type { Uncertainty } from '@/util/types/Uncertainty';
 import type { Category } from '@/util/types/Category';
 import CategoryOverviewPage from './category/CategoryOverviewPage.vue';
 import type { Manifestation } from '@/util/types/Manifestation';
+import UncertaintyCreator from './uncertaintycreation/UncertaintyCreator.vue';
 
 const showTable = ref(true);
 const showUncertainty = ref(false);
 const showClassification = ref(false);
 const currentSearchValue = ref('');
+const showUncertaintyCreator = ref(false);
 let currentUncertainty = ref(null) as Ref<Uncertainty | null>;
 let currentClassificationCategory= ref(null) as Ref<Category | null>;
 let currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Manifestation} | null>;
@@ -34,6 +42,7 @@ function toggleShowTable() {
     showTable.value = true;
     showUncertainty.value = false;
     showClassification.value = false;
+    showUncertaintyCreator.value = false;
     currentUncertainty = ref(null) as Ref<Uncertainty | null>;
     currentClassificationCategory= ref(null) as Ref<Category | null>;
     currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Manifestation} | null>;
@@ -45,6 +54,7 @@ function toggleShowUncertainty() {
     showTable.value = false;
     showUncertainty.value = true;
     showClassification.value = false;
+    showUncertaintyCreator.value = false;
     if (currentUncertainty.value != null) {
         console.log("The value is set to show the uncertainty: " + currentUncertainty.value.name)
     }
@@ -55,9 +65,17 @@ function toggleShowClassification() {
     showTable.value = false;
     showUncertainty.value = false;
     showClassification.value = true;
+    showUncertaintyCreator.value = false;
     if (currentClassificationCategory.value != null) {
         console.log("The value is set to show the classification " + currentClassificationCategory.value.name)
     }
+}
+
+function toggleShowUncertaintyCreator() {
+    showTable.value = false;
+    showUncertainty.value = false;
+    showClassification.value = false;
+    showUncertaintyCreator.value = true;
 }
 
 function setCurrentUncertainty(uncertainty: Uncertainty) {
