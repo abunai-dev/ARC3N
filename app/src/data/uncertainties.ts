@@ -25,7 +25,6 @@ import statisticalUncertainty from "./manifestations/type/statisticalUncertainty
 import systemEnvironment from "./manifestations/location/systemenvironment";
 import hardwareResource from "./manifestations/architecturalElementType/hardwareResource";
 import realizationTime from "./manifestations/resolutionTime/realizationTime";
-import { dir } from "console";
 import systemStructure from "./manifestations/location/systemstructure";
 
 const uncertainties : Uncertainty[] = [
@@ -34,7 +33,7 @@ const uncertainties : Uncertainty[] = [
         "name": "Are SQL Injections performed?",
         "location": inputLocation,
         "architecturalType": usageBehaviour,
-        "type": recognizedIgnorance,
+        "type": scenarioUncertainty,
         "manageability": partialReducible,
         "resolutionTime": runTime,
         "reducibleByADD": notReducible,
@@ -368,7 +367,7 @@ const uncertainties : Uncertainty[] = [
         "type": recognizedIgnorance,
         "manageability": partialReducible,
         "resolutionTime": requirementsTime,
-        "reducibleByADD": reducible,
+        "reducibleByADD": notReducible,
         "impactOnConfidentiality": direct,
         "severityOfImpact": high,
         "relations": [],
@@ -424,8 +423,8 @@ const uncertainties : Uncertainty[] = [
         "architecturalType": component,
         "type": scenarioUncertainty,
         "manageability": fullyReducible,
-        "resolutionTime": requirementsTime,
-        "reducibleByADD": reducible,
+        "resolutionTime": designTime,
+        "reducibleByADD": notReducible,
         "impactOnConfidentiality": direct,
         "severityOfImpact": high,
         "relations": [],
@@ -515,7 +514,7 @@ const uncertainties : Uncertainty[] = [
     {
         "id": 26,
         "name": "What data is persisted?",
-        "location": systemEnvironment,
+        "location": systemBehaviour,
         "architecturalType": component,
         "type": recognizedIgnorance,
         "manageability": fullyReducible,
