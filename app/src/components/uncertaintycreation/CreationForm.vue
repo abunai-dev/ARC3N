@@ -4,28 +4,28 @@
         <input type="text" id="name" v-model="name" required/>
     </div>
     <div class="Location">
-        <CategoryOptionForm :category="location" @selectedOption="(option: Manifestation) => chosenLocation = option" />
+        <CategoryOptionForm :category="location" @selectedOption="(option: Manifestation) => chosenLocation = option.name" />
     </div>
     <div class="ArchitecturalElementType">
-        <CategoryOptionForm :category="architecturalElementType" @selectedOption="(option: Manifestation) => chosenArchitecturalElementType = option" />
+        <CategoryOptionForm :category="architecturalElementType" @selectedOption="(option: Manifestation) => chosenArchitecturalElementType = option.name" />
     </div>
     <div class="Type">
-        <CategoryOptionForm :category="type" @selectedOption="(option: Manifestation) => chosenType = option" />
+        <CategoryOptionForm :category="type" @selectedOption="(option: Manifestation) => chosenType = option.name" />
     </div>
     <div class="Manageability">
-        <CategoryOptionForm :category="manageability" @selectedOption="(option: Manifestation) => chosenManageability = option" />
+        <CategoryOptionForm :category="manageability" @selectedOption="(option: Manifestation) => chosenManageability = option.name" />
     </div>
     <div class="Resolution Time">
-        <CategoryOptionForm :category="resolutionTime" @selectedOption="(option: Manifestation) => chosenResolutionTime = option" />
+        <CategoryOptionForm :category="resolutionTime" @selectedOption="(option: Manifestation) => chosenResolutionTime = option.name" />
     </div>
     <div class="Reducible-By-Add">
-        <CategoryOptionForm :category="reducibleByAdd" @selectedOption="(option: Manifestation) => chosenReducibleByAdd = option" />
+        <CategoryOptionForm :category="reducibleByAdd" @selectedOption="(option: Manifestation) => chosenReducibleByAdd = option.name" />
     </div>
     <div class="Impact-On-Confidentiality">
-        <CategoryOptionForm :category="impactOnConfidentiality" @selectedOption="(option: Manifestation) => chosenImpactOnConfidentiality = option" />
+        <CategoryOptionForm :category="impactOnConfidentiality" @selectedOption="(option: Manifestation) => chosenImpactOnConfidentiality = option.name" />
     </div>
     <div class="Severity-Of-Impact">
-        <CategoryOptionForm :category="severityOfImpact" @selectedOption="(option: Manifestation) => chosenSeverityOfImpact = option" />
+        <CategoryOptionForm :category="severityOfImpact" @selectedOption="(option: Manifestation) => chosenSeverityOfImpact = option.name" />
     </div>
     <div class="Definition">
         <label for="definition">Definition:</label>
@@ -49,7 +49,7 @@
         <p>TODO: Figure out how to process potential image</p>
     </div>
     <div class="Submit" v-if="isValidInput()">
-        <button @click="sendData()">Submit</button>
+        <button @click="runSubmitProcess()">Submit</button>
     </div>
 
 </template>
@@ -67,58 +67,87 @@ import reducibleByAdd from '@/data/categories/reducibleByAdd';
 import impactOnConfidentiality from '@/data/categories/impactOnConfidentiality';
 import severityOfImpact from '@/data/categories/severityOfImpact';
 
+import Swal from 'sweetalert2';
+import type {SweetAlertResult} from 'sweetalert2';
+
 const name = ref('');
-const chosenLocation : Ref<Manifestation | null> = ref(null)
-const chosenArchitecturalElementType: Ref<Manifestation | null> = ref(null)
-const chosenType: Ref<Manifestation | null> = ref(null)
-const chosenManageability: Ref<Manifestation | null> = ref(null)
-const chosenResolutionTime: Ref<Manifestation | null> = ref(null)
-const chosenReducibleByAdd: Ref<Manifestation | null> = ref(null)
-const chosenImpactOnConfidentiality: Ref<Manifestation | null> = ref(null)
-const chosenSeverityOfImpact: Ref<Manifestation | null> = ref(null)
+const chosenLocation : Ref<string> = ref('')
+const chosenArchitecturalElementType: Ref<string> = ref('')
+const chosenType: Ref<string> = ref('')
+const chosenManageability: Ref<string> = ref('')
+const chosenResolutionTime: Ref<string> = ref('')
+const chosenReducibleByAdd: Ref<string> = ref('')
+const chosenImpactOnConfidentiality: Ref<string> = ref('')
+const chosenSeverityOfImpact: Ref<string> = ref('')
 const description = ref('');
 const definition = ref('');
 const exampleScenario = ref('');
+const newIssueUrl = ref('');
+
 
 
 function isValidInput(): boolean {
-    return name.value != '' && chosenLocation.value != null && chosenArchitecturalElementType.value != null 
-        && chosenType.value != null && chosenManageability.value != null && chosenResolutionTime.value != null 
-        && chosenReducibleByAdd.value != null && chosenImpactOnConfidentiality.value != null && chosenSeverityOfImpact.value != null
+    return name.value != '' && chosenLocation.value != '' && chosenArchitecturalElementType.value != '' 
+        && chosenType.value != '' && chosenManageability.value != '' && chosenResolutionTime.value != '' 
+        && chosenReducibleByAdd.value != '' && chosenImpactOnConfidentiality.value != '' && chosenSeverityOfImpact.value != ''
         && definition.value != '';
 }
 
-function sendData() {
-    const payload = {
-        name: name.value,
-        location: chosenLocation.value,
-        architecturalElementType: chosenArchitecturalElementType.value,
-        type: chosenType.value,
-        manageability: chosenManageability.value,
-        resolutionTime: chosenResolutionTime.value,
-        reducibleByAdd: chosenReducibleByAdd.value,
-        impactOnConfidentiality: chosenImpactOnConfidentiality.value,
-        severityOfImpact: chosenSeverityOfImpact.value,
-        definition: definition.value,
-        description: description.value,
-        exampleScenario: exampleScenario.value
-    };
+async function runSubmitProcess() {
+    if (isValidInput()) {
+        createIssueUrl();
+        await Swal.fire({
+        title: 'Thank you for your contribution!',
+        text: 'By clicking ok, you will be send to the github page to create a new issue with your uncertainty proposal. \n The form is already filled with your proposed changes.' + 
+        'Please review your proposed changes, but do not change the format of the form. Additional comments can be added after the issue creation.',
+        icon: 'info',
+        confirmButtonText: 'Ok',
+}).then((result : SweetAlertResult) => {
+        if (result.value) {
+            window.open(newIssueUrl.value);
+            return true;
+        } else {
+            return false;
+        }
+    });
+    }
+    
+}
 
-    fetch('https://api.github.com/repos/abunai-dev/UncertaintySourceArchive/actions/workflows/create-pull-request-on-new-uncertainty-input/dispatches',
-    {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer ',
-            'Accept': 'application/vnd.github.v3+json'
-        },
-        body: JSON.stringify({
-            ref: 'main',
-            inputs: {
-                payload: JSON.stringify(payload)
-            }
-        })
-    }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
 
-    //TODO: Create Repository secret
+
+function createIssueUrl() {
+
+    const body = `{
+        %0A
+        "name": "${name.value}",
+        %0A
+        "location": "${chosenLocation.value}",
+        %0A
+        "architecturalElementType": "${chosenArchitecturalElementType.value}",
+        %0A
+        "type": "${chosenType.value}",
+        %0A
+        "manageability": "${chosenManageability.value}",
+        %0A
+        "resolutionTime": "${chosenResolutionTime.value}",
+        %0A
+        "reducibleByAdd": "${chosenReducibleByAdd.value}",
+        %0A
+        "impactOnConfidentiality": "${chosenImpactOnConfidentiality.value}",
+        %0A
+        "severityOfImpact": "${chosenSeverityOfImpact.value}",
+        %0A
+        "definition": "${definition.value}",
+        %0A
+        "description": "${description.value}",
+        %0A
+        "exampleScenario": "${exampleScenario.value}"
+        %0A
+    }`;
+
+    const title = `New Uncertainty Proposal - ${name.value}`;
+
+    newIssueUrl.value = `https://github.com/abunai-dev/UncertaintySourceArchive/issues/new?title=${title}&body=${body}`;
 }
 </script>

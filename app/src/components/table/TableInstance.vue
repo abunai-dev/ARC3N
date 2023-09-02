@@ -13,11 +13,7 @@
       <EasyDataTable table-class-name="customize-table" :headers="headers" :items="items" @click-row="setSelectedUncertainty" :search-value="searchValue" :sort-by="sortBy" :sort-type="sortType" header-text-direction="center" body-text-direction="center" v-else />
     </div>
     <div v-else>
-      <p>
-        No data available. <br><br>
-        Please make sure that the data server is up and running (localhost:3000). <br>
-        Start the server by running "Node server.js" in the terminal of the data folder (./uncertainty-sources/PostJSON).
-      </p>
+      <p>No data available.</p>
     </div>
   </div>
 </template>
