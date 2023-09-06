@@ -1,12 +1,12 @@
 import type { Category } from "@/util/types/Category"
-import notReducible from "../manifestations/reducibleByADD/notReducible";
-import reducible from "../manifestations/reducibleByADD/reducible";
+import notReducible from "../options/reducibleByADD/notReducible";
+import reducible from "../options/reducibleByADD/reducible";
 const reducibleByAdd : Category = {
     "name": "Reducible by Add",
-    "definition": "This is a test if the type definition of category location is working",
+    "definition": "Uncertainty resolvable by an architectural design decision.",
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
-    "manifestations": [ notReducible, reducible ],
+    "options": [ notReducible, reducible ],
     "imagePath": "reducibleByAdd.jpg",
     "discussionUrl": ""
 }

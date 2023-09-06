@@ -1,12 +1,12 @@
 import type { Category } from "@/util/types/Category"
-import direct from "../manifestations/impactOnConfidentiality/direct";
-import indirect from "../manifestations/impactOnConfidentiality/indirect"
+import direct from "../options/impactOnConfidentiality/direct";
+import indirect from "../options/impactOnConfidentiality/indirect"
 const impactOnConfidentiality : Category = {
     "name": "Impact on Confidentiality",
-    "definition": "This is a test if the type definition of category location is working",
-    "description": "This is a test if the type description of category location is working",
+    "definition": "Potential impact on confidentiality requirements.",
+    "description": "",
     "exampleScenarios": [],
-    "manifestations": [ direct, indirect ],
+    "options": [ direct, indirect ],
     "imagePath": "impactOnConfidentiality.jpg",
     "discussionUrl": ""
 }

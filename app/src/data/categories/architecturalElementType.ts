@@ -1,15 +1,15 @@
 import type { Category } from "@/util/types/Category"
-import component from "../manifestations/architecturalElementType/component";
-import connector from "../manifestations/architecturalElementType/connector";
-import hardwareResource from "../manifestations/architecturalElementType/hardwareResource";
-import interfaceManifestation from "../manifestations/architecturalElementType/interface";
-import usageBehaviour from "../manifestations/architecturalElementType/usageBehaviour";
+import component from "../options/architecturalElementType/component";
+import connector from "../options/architecturalElementType/connector";
+import hardwareResource from "../options/architecturalElementType/hardwareResource";
+import interfaceManifestation from "../options/architecturalElementType/interface";
+import usageBehaviour from "../options/architecturalElementType/usageBehaviour";
 const architecturalElementType : Category = {
     "name": "Architectural Element Type",
-    "definition": "This is a test if the type definition of category location is working",
-    "description": "This is a test if the type description of category location is working",
+    "definition": "Elements to which an uncertainty can be assigned.",
+    "description": "",
     "exampleScenarios": [],
-    "manifestations": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
+    "options": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
     "imagePath": "architecturalElementType.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/4"
 }

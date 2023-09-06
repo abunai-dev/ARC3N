@@ -1,10 +1,10 @@
-import type { Manifestation } from "./Manifestation";
+import type { Option } from "./Option";
 export interface Category {
     name: string;
     definition: string;
     description: string;
     exampleScenarios: string[];
-    manifestations: Manifestation[];
+    options: Option[];
     imagePath: string;
     discussionUrl: string;
 }

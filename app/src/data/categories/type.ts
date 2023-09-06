@@ -1,13 +1,13 @@
 import type { Category } from "@/util/types/Category"
-import recognizedIgnorance from "../manifestations/type/recognizedIgnorance";
-import scenarioUncertainty from "../manifestations/type/scenarioUncertainty";
-import statisticalUncertainty from "../manifestations/type/statisticalUncertainty";
+import recognizedIgnorance from "../options/type/recognizedIgnorance";
+import scenarioUncertainty from "../options/type/scenarioUncertainty";
+import statisticalUncertainty from "../options/type/statisticalUncertainty";
 const type : Category = {
     "name": "Type",
-    "definition": "This is a test if the definition of type is working",
-    "description": "This is a test if the description of type is working",
+    "definition": "How much is known about the uncertainty and how can it be described.",
+    "description": "",
     "exampleScenarios": [],
-    "manifestations": [ recognizedIgnorance, scenarioUncertainty, statisticalUncertainty ],
+    "options": [ recognizedIgnorance, scenarioUncertainty, statisticalUncertainty ],
     "imagePath": "type.jpg",
     "discussionUrl": ""
 }

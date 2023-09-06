@@ -4,28 +4,28 @@
         <input type="text" id="name" v-model="name" required/>
     </div>
     <div class="Location">
-        <CategoryOptionForm :category="location" @selectedOption="(option: Manifestation) => chosenLocation = option.name" />
+        <CategoryOptionForm :category="location" @selectedOption="(option: Option) => chosenLocation = option.name" />
     </div>
     <div class="ArchitecturalElementType">
-        <CategoryOptionForm :category="architecturalElementType" @selectedOption="(option: Manifestation) => chosenArchitecturalElementType = option.name" />
+        <CategoryOptionForm :category="architecturalElementType" @selectedOption="(option: Option) => chosenArchitecturalElementType = option.name" />
     </div>
     <div class="Type">
-        <CategoryOptionForm :category="type" @selectedOption="(option: Manifestation) => chosenType = option.name" />
+        <CategoryOptionForm :category="type" @selectedOption="(option: Option) => chosenType = option.name" />
     </div>
     <div class="Manageability">
-        <CategoryOptionForm :category="manageability" @selectedOption="(option: Manifestation) => chosenManageability = option.name" />
+        <CategoryOptionForm :category="manageability" @selectedOption="(option: Option) => chosenManageability = option.name" />
     </div>
     <div class="Resolution Time">
-        <CategoryOptionForm :category="resolutionTime" @selectedOption="(option: Manifestation) => chosenResolutionTime = option.name" />
+        <CategoryOptionForm :category="resolutionTime" @selectedOption="(option: Option) => chosenResolutionTime = option.name" />
     </div>
     <div class="Reducible-By-Add">
-        <CategoryOptionForm :category="reducibleByAdd" @selectedOption="(option: Manifestation) => chosenReducibleByAdd = option.name" />
+        <CategoryOptionForm :category="reducibleByAdd" @selectedOption="(option: Option) => chosenReducibleByAdd = option.name" />
     </div>
     <div class="Impact-On-Confidentiality">
-        <CategoryOptionForm :category="impactOnConfidentiality" @selectedOption="(option: Manifestation) => chosenImpactOnConfidentiality = option.name" />
+        <CategoryOptionForm :category="impactOnConfidentiality" @selectedOption="(option: Option) => chosenImpactOnConfidentiality = option.name" />
     </div>
     <div class="Severity-Of-Impact">
-        <CategoryOptionForm :category="severityOfImpact" @selectedOption="(option: Manifestation) => chosenSeverityOfImpact = option.name" />
+        <CategoryOptionForm :category="severityOfImpact" @selectedOption="(option: Option) => chosenSeverityOfImpact = option.name" />
     </div>
     <div class="Definition">
         <label for="definition">Definition:</label>
@@ -58,7 +58,7 @@
 import { ref, type Ref } from 'vue';
 import location  from '@/data/categories/location';
 import CategoryOptionForm from './CategoryOptionForm.vue';
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Option } from '@/util/types/Option';
 import architecturalElementType from '@/data/categories/architecturalElementType';
 import type from '@/data/categories/type';
 import manageability from '@/data/categories/manageability';
@@ -150,4 +150,4 @@ function createIssueUrl() {
 
     newIssueUrl.value = `https://github.com/abunai-dev/UncertaintySourceArchive/issues/new?title=${title}&body=${body}`;
 }
-</script>
+</script>@/util/types/Option

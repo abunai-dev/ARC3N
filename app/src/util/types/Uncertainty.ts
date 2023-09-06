@@ -1,4 +1,4 @@
-import type { ArchitecturalElementTypeManifestation, ImpactOnConfidentialityManifestation, LocationManifestation, ManageabilityManifestation, ReducibleByADDManifestation, ResolutionTimeManifestation, SeverityOfImpactManifestation, TypeManifestation } from "./Manifestation";
+import type { ArchitecturalElementTypeManifestation, ImpactOnConfidentialityManifestation, LocationManifestation, ManageabilityManifestation, ReducibleByADDManifestation, ResolutionTimeManifestation, SeverityOfImpactManifestation, TypeManifestation } from "./Option";
 import type { Relationship } from "./Relationship";
 import { Keyword } from "./Keyword";
 

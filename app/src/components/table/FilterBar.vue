@@ -17,14 +17,14 @@
 import { ref, type PropType } from 'vue';
 import type { Header } from 'vue3-easy-data-table'
 
-import { getArchitecturalTypeNames } from '@/util/scripts/manifestationMapping/architecturalTypeMapping'
-import { getImpactOnConfidentialityNames } from '@/util/scripts/manifestationMapping/impactOnConfidentialityMapping'
-import { getLocationNames } from '@/util/scripts/manifestationMapping/locationMapping'
-import { getManageabilityNames } from '@/util/scripts/manifestationMapping/manageabilityMapping'
-import { getReducibleByAddNames } from '@/util/scripts/manifestationMapping/reducibleByAddMapping'
-import { getResolutionTimeNames } from '@/util/scripts/manifestationMapping/resolutionTimeMapping'
-import { getSeverityOfImpactNames } from '@/util/scripts/manifestationMapping/severityOfImpactMapping'
-import { getTypeNames } from '@/util/scripts/manifestationMapping/typeMapping'
+import { getArchitecturalTypeNames } from '@/util/scripts/optionMapping/architecturalTypeMapping'
+import { getImpactOnConfidentialityNames } from '@/util/scripts/optionMapping/impactOnConfidentialityMapping'
+import { getLocationNames } from '@/util/scripts/optionMapping/locationMapping'
+import { getManageabilityNames } from '@/util/scripts/optionMapping/manageabilityMapping'
+import { getReducibleByAddNames } from '@/util/scripts/optionMapping/reducibleByAddMapping'
+import { getResolutionTimeNames } from '@/util/scripts/optionMapping/resolutionTimeMapping'
+import { getSeverityOfImpactNames } from '@/util/scripts/optionMapping/severityOfImpactMapping'
+import { getTypeNames } from '@/util/scripts/optionMapping/typeMapping'
 
 const props = defineProps(
     {
@@ -87,4 +87,4 @@ function filterOptions(header: string): string[] {
 
 </script>
 <style scoped>
-</style>
+</style>@/util/scripts/optionMapping/architecturalTypeMapping@/util/scripts/optionMapping/impactOnConfidentialityMapping@/util/scripts/optionMapping/locationMapping@/util/scripts/optionMapping/manageabilityMapping@/util/scripts/optionMapping/reducibleByAddMapping@/util/scripts/optionMapping/resolutionTimeMapping@/util/scripts/optionMapping/severityOfImpactMapping@/util/scripts/optionMapping/typeMapping

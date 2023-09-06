@@ -1,13 +1,13 @@
 import type { Category } from "@/util/types/Category"
-import fullyReducible from "../manifestations/manageability/fullyReducible";
-import irreducible from "../manifestations/manageability/irreducible";
-import partialReducible from "../manifestations/manageability/partialReducible";
+import fullyReducible from "../options/manageability/fullyReducible";
+import irreducible from "../options/manageability/irreducible";
+import partialReducible from "../options/manageability/partialReducible";
 const manageability : Category = {
     "name": "Manageability",
-    "definition": "This is a test if the type definition of category location is working",
+    "definition": "Can more knowledge or appropriate means reduce the uncertainty.",
     "description": "This is a test if the type description of category location is working",
     "exampleScenarios": [],
-    "manifestations": [fullyReducible, irreducible, partialReducible ],
+    "options": [fullyReducible, irreducible, partialReducible ],
     "imagePath": "manageability.jpg",
     "discussionUrl": ""
 }

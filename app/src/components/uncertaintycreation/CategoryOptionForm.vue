@@ -21,4 +21,4 @@ const props = defineProps({
 
 const selectedOption : Ref<Manifestation | null> = ref(null)
 
-</script>
+</script>@/util/types/Option

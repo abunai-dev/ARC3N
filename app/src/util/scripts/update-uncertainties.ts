@@ -2,14 +2,14 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { Uncertainty } from '@/util/types/Uncertainty';
 
-import { locationMapping } from './manifestationMapping/locationMapping';
-import { architecturalTypeMapping } from './manifestationMapping/architecturalTypeMapping';
-import { typeMapping } from './manifestationMapping/typeMapping';
-import { manageabilityMapping } from './manifestationMapping/manageabilityMapping';
-import { resolutionTimeMapping } from './manifestationMapping/resolutionTimeMapping';
-import { reducibleByAddMapping } from './manifestationMapping/reducibleByAddMapping';
-import { impactOnConfidentialityMapping } from './manifestationMapping/impactOnConfidentialityMapping';
-import { severityOfImpactMapping } from './manifestationMapping/severityOfImpactMapping';
+import { locationMapping } from './optionMapping/locationMapping';
+import { architecturalTypeMapping } from './optionMapping/architecturalTypeMapping';
+import { typeMapping } from './optionMapping/typeMapping';
+import { manageabilityMapping } from './optionMapping/manageabilityMapping';
+import { resolutionTimeMapping } from './optionMapping/resolutionTimeMapping';
+import { reducibleByAddMapping } from './optionMapping/reducibleByAddMapping';
+import { impactOnConfidentialityMapping } from './optionMapping/impactOnConfidentialityMapping';
+import { severityOfImpactMapping } from './optionMapping/severityOfImpactMapping';
 
 const filePath = path.join(__dirname, './app/src/data/uncertainties.ts');
 
