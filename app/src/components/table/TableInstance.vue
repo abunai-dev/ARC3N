@@ -31,7 +31,7 @@ import FilterBar from '@/components/table/FilterBar.vue'
 
 const props = defineProps({
   filterByOption: {
-    type: Object as PropType<{category: Category, Option: Option} | null>,
+    type: Object as PropType<{category: Category, option: Option} | null>,
     default: null
   },
   searchValue: {
@@ -67,7 +67,7 @@ const setSelectedUncertainty = (item: ClickRowArgument) => {
   emit('selected-uncertainty', currentUncertainty.value)
 }
 
-const searchValue = ref(props.filterByOption?.Option.name || props.searchValue)
+const searchValue = ref(props.filterByOption?.option.name || props.searchValue)
 const selectedHeader = ref(findHeader(props.filterByOption?.category.name || ''))
 const isSearch = ref(props.filterByOption === null)
 

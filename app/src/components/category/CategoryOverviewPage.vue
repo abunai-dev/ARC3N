@@ -5,7 +5,7 @@
         </header>
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
-            <OptionDetailSection :options="props.statedcategory.options" :category="props.statedcategory" @filter-by-Option="sendFilterOption"/>
+            <OptionDetailSection :options="props.statedcategory.options" :category="props.statedcategory" @filter-by-option="sendFilterOption"/>
             <ExampleSection :description="props.statedcategory.exampleScenarios.toString()" :imagePath="imagePath" :collaborationUrl="props.statedcategory.discussionUrl"/>
         </main>
         
@@ -31,9 +31,9 @@ const props = defineProps({
 
 const emit = defineEmits(['filterBy']);
 
-function sendFilterOption(Option: Option) {
+function sendFilterOption(option: Option) {
     const category = props.statedcategory
-    const payload = { category, Option }
+    const payload = { category, option }
     console.log("sendFilterOption :" + props.statedcategory.name + Option.name)
     emit('filterBy', payload)
 }

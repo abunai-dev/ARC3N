@@ -17,15 +17,15 @@ import { type PropType } from 'vue';
 
 const props = defineProps({
         description: {
-            type: Object as PropType<string>,
+            type: String,
             required: true
         },
         imagePath: {
-            type: Object as PropType<string>,
+            type: String,
             required: true
         },
         collaborationUrl: {
-            type: Object as PropType<string>,
+            type: String,
             required: true
         },
         });

@@ -4,7 +4,7 @@
             <h3>options:</h3>
          </header>
         <main>
-            <OptionDetailItem v-for="(option, index) in props.options" :option="option" :key="index" @filter-by-option="forwardEmit"/>
+            <OptionDetailItem v-for="(option, index) in props.options" :option="option" :key="index" @filter-byoption="forwardEmit"/>
         </main>
     </div>
 

@@ -36,7 +36,7 @@ const currentSearchValue = ref('');
 const showUncertaintyCreator = ref(false);
 let currentUncertainty = ref(null) as Ref<Uncertainty | null>;
 let currentClassificationCategory= ref(null) as Ref<Category | null>;
-let currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Option} | null>;
+let currentFilterBy = ref(null) as Ref< {category: Category, option: Option} | null>;
 
 function toggleShowTable() {
     showTable.value = true;
@@ -45,7 +45,7 @@ function toggleShowTable() {
     showUncertaintyCreator.value = false;
     currentUncertainty = ref(null) as Ref<Uncertainty | null>;
     currentClassificationCategory= ref(null) as Ref<Category | null>;
-    currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Option} | null>;
+    currentFilterBy = ref(null) as Ref< {category: Category, option: Option} | null>;
     currentSearchValue.value = '';
     console.log("The value is set to show the table " )
 }
@@ -90,8 +90,8 @@ function setClassificationCategory(category: Category) {
     toggleShowClassification();
 }
 
-function setFilteredTable(payload: {category: Category, manifestation: Option}) {
-    console.log("Incoming fitered table value: " + payload.category.name + payload.manifestation.name)
+function setFilteredTable(payload: {category: Category, option: Option}) {
+    console.log("Incoming fitered table value: " + payload.category.name + payload.option.name)
     toggleShowTable();
     currentFilterBy.value = payload;
 }

@@ -1,15 +1,15 @@
 <template>
     <div class = "classificationitems">
-        <ClassificationItem @showClassification="$emit('showClassification', location)" :statedcategory="location" :statedOption="props.uncertainty.location"/>
-        <ClassificationItem @showClassification="$emit('showClassification', typeManifestation)" :statedcategory="typeManifestation" :statedOption="props.uncertainty.type"/>
-        <ClassificationItem @showClassification="$emit('showClassification', architecturalElementType)" :statedcategory="architecturalElementType" :statedOption="props.uncertainty.architecturalType"/>
-        <ClassificationItem @showClassification="$emit('showClassification', impactOnConfidentiality)" :statedcategory="impactOnConfidentiality" :statedOption="props.uncertainty.impactOnConfidentiality"/>
+        <ClassificationItem @showClassification="emit('showClassification', location)" :statedcategory="location" :statedOption="props.uncertainty.location"/>
+        <ClassificationItem @showClassification="emit('showClassification', typeManifestation)" :statedcategory="typeManifestation" :statedOption="props.uncertainty.type"/>
+        <ClassificationItem @showClassification="emit('showClassification', architecturalElementType)" :statedcategory="architecturalElementType" :statedOption="props.uncertainty.architecturalType"/>
+        <ClassificationItem @showClassification="emit('showClassification', impactOnConfidentiality)" :statedcategory="impactOnConfidentiality" :statedOption="props.uncertainty.impactOnConfidentiality"/>
     </div>
     <div class ="classificationitems">
-        <ClassificationItem @showClassification="$emit('showClassification', manageability)" :statedcategory="manageability" :statedOption="props.uncertainty.manageability"/>
-        <ClassificationItem @showClassification="$emit('showClassification', reducibleByADD)" :statedcategory="reducibleByADD" :statedOption="props.uncertainty.reducibleByADD"/>
-        <ClassificationItem @showClassification="$emit('showClassification', resolutionTime)" :statedcategory="resolutionTime" :statedOption="props.uncertainty.resolutionTime"/>
-        <ClassificationItem @showClassification="$emit('showClassification', severityOfImpact)" :statedcategory="severityOfImpact" :statedOption="props.uncertainty.severityOfImpact"/>
+        <ClassificationItem @showClassification="emit('showClassification', manageability)" :statedcategory="manageability" :statedOption="props.uncertainty.manageability"/>
+        <ClassificationItem @showClassification="emit('showClassification', reducibleByADD)" :statedcategory="reducibleByADD" :statedOption="props.uncertainty.reducibleByADD"/>
+        <ClassificationItem @showClassification="emit('showClassification', resolutionTime)" :statedcategory="resolutionTime" :statedOption="props.uncertainty.resolutionTime"/>
+        <ClassificationItem @showClassification="emit('showClassification', severityOfImpact)" :statedcategory="severityOfImpact" :statedOption="props.uncertainty.severityOfImpact"/>
     </div>
 </template>
 <script setup lang="ts">
@@ -31,6 +31,8 @@ const props = defineProps({
             required: true
         },
     });
+
+const emit = defineEmits(['showClassification']);
 
 </script>
 <style scoped>
