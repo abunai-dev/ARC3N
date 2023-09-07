@@ -5,9 +5,10 @@
       <h1 v-if="!showContent">Welcome to the Uncertainty Source Archive</h1>   
     </header>
     <main>
-      <div class="button-container">
-        <p v-if="!showContent">Press the button below to get started!</p>
-        <button @click="toggleShowContent" class="button" v-if="!showContent">
+      <div class="button-container" v-if="!showContent">
+        <p v-for="messageItem in message" :key="messageItem">{{ messageItem }}</p>
+        <p>Press the button below to get started!</p>
+        <button @click="toggleShowContent" class="button">
           Show Table
         </button> 
       </div>
@@ -23,6 +24,7 @@
 <script setup lang="ts">
 import Content from './components/AppContent.vue';
 import { ref } from 'vue'
+import message from '@/data/welcome/welcomemessage'
 
 
 const showContent = ref(false)

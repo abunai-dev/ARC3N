@@ -405,12 +405,12 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty fifteen can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty fifteen can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty fifteen can be displayed correctly.",
+        "definition": "Refers to the fact, that at design time it is not known which component provider will be chosen to provide a component. Thus the trustworthiness of the component provider is unknown.",
+        "exampleScenario": "A relatively unknown component provider is chosen for the provision of a database for the software system.",
         "exampleImagePath": "",
-        "communityAnnotationUrl": ""
+        "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/6"
     },
     {
         "id": 16,
@@ -477,10 +477,10 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty eighteen can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty eighteen can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty eighteen can be displayed correctly.",
+        "definition": "Refers to the different types of data that are being processed within a software system. Confidential data has to be persisted differently to other data.",
+        "exampleScenario": "Credit card information is being processed within a software system. This data has to be persisted in an encrypted way.",
         "exampleImagePath": "",
         "communityAnnotationUrl": ""
     },
