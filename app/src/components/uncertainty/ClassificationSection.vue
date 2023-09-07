@@ -1,15 +1,15 @@
 <template>
     <div class = "classificationitems">
-        <ClassificationItem @showClassification="$emit('showClassification', location)" :statedcategory="location" :statedmanifestation="props.uncertainty.location"/>
-        <ClassificationItem @showClassification="$emit('showClassification', typeManifestation)" :statedcategory="typeManifestation" :statedmanifestation="props.uncertainty.type"/>
-        <ClassificationItem @showClassification="$emit('showClassification', architecturalElementType)" :statedcategory="architecturalElementType" :statedmanifestation="props.uncertainty.architecturalType"/>
-        <ClassificationItem @showClassification="$emit('showClassification', impactOnConfidentiality)" :statedcategory="impactOnConfidentiality" :statedmanifestation="props.uncertainty.impactOnConfidentiality"/>
+        <ClassificationItem @showClassification="$emit('showClassification', location)" :statedcategory="location" :statedOption="props.uncertainty.location"/>
+        <ClassificationItem @showClassification="$emit('showClassification', typeManifestation)" :statedcategory="typeManifestation" :statedOption="props.uncertainty.type"/>
+        <ClassificationItem @showClassification="$emit('showClassification', architecturalElementType)" :statedcategory="architecturalElementType" :statedOption="props.uncertainty.architecturalType"/>
+        <ClassificationItem @showClassification="$emit('showClassification', impactOnConfidentiality)" :statedcategory="impactOnConfidentiality" :statedOption="props.uncertainty.impactOnConfidentiality"/>
     </div>
     <div class ="classificationitems">
-        <ClassificationItem @showClassification="$emit('showClassification', manageability)" :statedcategory="manageability" :statedmanifestation="props.uncertainty.manageability"/>
-        <ClassificationItem @showClassification="$emit('showClassification', reducibleByADD)" :statedcategory="reducibleByADD" :statedmanifestation="props.uncertainty.reducibleByADD"/>
-        <ClassificationItem @showClassification="$emit('showClassification', resolutionTime)" :statedcategory="resolutionTime" :statedmanifestation="props.uncertainty.resolutionTime"/>
-        <ClassificationItem @showClassification="$emit('showClassification', severityOfImpact)" :statedcategory="severityOfImpact" :statedmanifestation="props.uncertainty.severityOfImpact"/>
+        <ClassificationItem @showClassification="$emit('showClassification', manageability)" :statedcategory="manageability" :statedOption="props.uncertainty.manageability"/>
+        <ClassificationItem @showClassification="$emit('showClassification', reducibleByADD)" :statedcategory="reducibleByADD" :statedOption="props.uncertainty.reducibleByADD"/>
+        <ClassificationItem @showClassification="$emit('showClassification', resolutionTime)" :statedcategory="resolutionTime" :statedOption="props.uncertainty.resolutionTime"/>
+        <ClassificationItem @showClassification="$emit('showClassification', severityOfImpact)" :statedcategory="severityOfImpact" :statedOption="props.uncertainty.severityOfImpact"/>
     </div>
 </template>
 <script setup lang="ts">

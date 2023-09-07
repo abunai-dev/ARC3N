@@ -1,14 +1,12 @@
-import type { TypeManifestation } from "../../../util/types/Option"
+import type { TypeOption } from "@/util/types/Option"
 
-const statisticalUncertainty : TypeManifestation =
+const statisticalUncertainty : TypeOption =
 {
     "type": "type",
     "name": "Statistical Uncertainty",
-    "definition": "This is a test if the location definition of input is working",
+    "definition": "Uncertainty describable with statistical means.",
     "exampleScenarios": [
-        "This is a test if the location definition of input is working",
-        "This is a test if the location definition of input is working",
-        "This is a test if the location definition of input is working"
+        "stochastic expressions"
     ]
 }
 export default statisticalUncertainty;

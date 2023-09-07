@@ -1,4 +1,4 @@
-import type { ImpactOnConfidentialityOption } from "../../../util/types/Option"
+import type { ImpactOnConfidentialityOption } from "@/util/types/Option"
 const none : ImpactOnConfidentialityOption =
 {
     "type": "impactOnConfidentiality",

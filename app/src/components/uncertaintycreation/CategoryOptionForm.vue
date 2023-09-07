@@ -2,7 +2,7 @@
     <div>
         <span>{{ category.name }}: </span>
         <select v-model="selectedOption" @change="$emit('selectedOption', selectedOption)">
-            <option v-for="categoryOption in category.manifestations" :key="categoryOption.name" :value="categoryOption">{{ categoryOption.name }}</option>
+            <option v-for="categoryOption in category.options" :key="categoryOption.name" :value="categoryOption">{{ categoryOption.name }}</option>
         </select>
     </div>
 </template>
@@ -10,7 +10,7 @@
 
 import { ref, type PropType, type Ref } from 'vue';
 import type { Category } from '@/util/types/Category';
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Option } from '@/util/types/Option';
 
 const props = defineProps({
     category: {
@@ -19,6 +19,6 @@ const props = defineProps({
     }
 })
 
-const selectedOption : Ref<Manifestation | null> = ref(null)
+const selectedOption : Ref<Option | null> = ref(null)
 
 </script>@/util/types/Option

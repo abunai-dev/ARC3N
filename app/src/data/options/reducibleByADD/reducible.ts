@@ -1,4 +1,4 @@
-import type { ReducibleByADDOption } from "../../../util/types/Option"
+import type { ReducibleByADDOption } from "@/util/types/Option"
 const reducible : ReducibleByADDOption =
 {
     "type": "reducibleByADD",

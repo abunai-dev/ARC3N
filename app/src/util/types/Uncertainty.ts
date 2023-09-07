@@ -1,18 +1,18 @@
-import type { ArchitecturalElementTypeManifestation, ImpactOnConfidentialityManifestation, LocationManifestation, ManageabilityManifestation, ReducibleByADDManifestation, ResolutionTimeManifestation, SeverityOfImpactManifestation, TypeManifestation } from "./Option";
+import type { ArchitecturalElementTypeOption, ImpactOnConfidentialityOption, LocationOption, ManageabilityOption, ReducibleByADDOption, ResolutionTimeOption, SeverityOfImpactOption, TypeOption } from "./Option";
 import type { Relationship } from "./Relationship";
 import { Keyword } from "./Keyword";
 
 export interface Uncertainty {
     id: number;
     name: string;
-    location: LocationManifestation;
-    architecturalType: ArchitecturalElementTypeManifestation;
-    type: TypeManifestation;
-    manageability: ManageabilityManifestation;
-    resolutionTime: ResolutionTimeManifestation;
-    reducibleByADD: ReducibleByADDManifestation;
-    impactOnConfidentiality: ImpactOnConfidentialityManifestation;
-    severityOfImpact: SeverityOfImpactManifestation;
+    location: LocationOption;
+    architecturalType: ArchitecturalElementTypeOption;
+    type: TypeOption;
+    manageability: ManageabilityOption;
+    resolutionTime: ResolutionTimeOption;
+    reducibleByADD: ReducibleByADDOption;
+    impactOnConfidentiality: ImpactOnConfidentialityOption;
+    severityOfImpact: SeverityOfImpactOption;
     relations: Relationship[];
     description: string;
     keywords: Keyword[];

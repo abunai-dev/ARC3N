@@ -1,4 +1,4 @@
-import type { ArchitecturalElementTypeOption } from "../../../util/types/Option"
+import type { ArchitecturalElementTypeOption } from "@/util/types/Option"
 const usageBehaviour : ArchitecturalElementTypeOption =
 {
     "type": "architecturalElementType",

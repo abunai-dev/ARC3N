@@ -1,4 +1,4 @@
-import type { ResolutionTimeOption } from "../../../util/types/Option"
+import type { ResolutionTimeOption } from "@/util/types/Option"
 const runTime : ResolutionTimeOption =
 {
     "type" : "resolutionTime",

@@ -1,4 +1,4 @@
-import type { SeverityOfImpactOption } from "../../../util/types/Option"
+import type { SeverityOfImpactOption } from "@/util/types/Option"
 const none : SeverityOfImpactOption =
 {
     "type" : "severityOfImpact",

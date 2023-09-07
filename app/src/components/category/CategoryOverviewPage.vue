@@ -5,7 +5,7 @@
         </header>
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
-            <ManifestationsDetailSection :manifestations="props.statedcategory.manifestations" :category="props.statedcategory" @filter-by-manifestation="sendFilterOption"/>
+            <OptionDetailSection :options="props.statedcategory.options" :category="props.statedcategory" @filter-by-Option="sendFilterOption"/>
             <ExampleSection :description="props.statedcategory.exampleScenarios.toString()" :imagePath="imagePath" :collaborationUrl="props.statedcategory.discussionUrl"/>
         </main>
         
@@ -14,10 +14,10 @@
 
 <script setup lang="ts">
 import type { Category } from '@/util/types/Category';
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Option } from '@/util/types/Option';
 import { type PropType, ref } from 'vue';
 import BasicInformation from '@/components/util/BasicInformationSection.vue'
-import ManifestationsDetailSection from './ManifestationsDetailSection.vue';
+import OptionDetailSection from './OptionDetailSection.vue';
 import ExampleSection from '../util/ExampleSection.vue';
 
 
@@ -31,10 +31,10 @@ const props = defineProps({
 
 const emit = defineEmits(['filterBy']);
 
-function sendFilterOption(manifestation: Manifestation) {
+function sendFilterOption(Option: Option) {
     const category = props.statedcategory
-    const payload = { category, manifestation }
-    console.log("sendFilterOption :" + props.statedcategory.name + manifestation.name)
+    const payload = { category, Option }
+    console.log("sendFilterOption :" + props.statedcategory.name + Option.name)
     emit('filterBy', payload)
 }
 

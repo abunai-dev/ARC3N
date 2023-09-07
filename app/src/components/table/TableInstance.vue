@@ -24,14 +24,14 @@ import { ref, type PropType } from 'vue'
 import type { Uncertainty } from '@/util/types/Uncertainty'
 import uncertainties from '@/data/uncertainties'
 import type { Category } from '@/util/types/Category'
-import type { Manifestation } from '@/util/types/Manifestation'
+import type { Option } from '@/util/types/Option'
 
 import SearchBar from '@/components/table/SearchBar.vue'
 import FilterBar from '@/components/table/FilterBar.vue'
 
 const props = defineProps({
   filterByOption: {
-    type: Object as PropType<{category: Category, manifestation: Manifestation} | null>,
+    type: Object as PropType<{category: Category, Option: Option} | null>,
     default: null
   },
   searchValue: {
@@ -67,7 +67,7 @@ const setSelectedUncertainty = (item: ClickRowArgument) => {
   emit('selected-uncertainty', currentUncertainty.value)
 }
 
-const searchValue = ref(props.filterByOption?.manifestation.name || props.searchValue)
+const searchValue = ref(props.filterByOption?.Option.name || props.searchValue)
 const selectedHeader = ref(findHeader(props.filterByOption?.category.name || ''))
 const isSearch = ref(props.filterByOption === null)
 

@@ -1,4 +1,4 @@
-import type { LocationOption } from "../../../util/types/Option"
+import type { LocationOption } from "@/util/types/Option"
 const systemEnvironment : LocationOption =
 {
     "type": "location",

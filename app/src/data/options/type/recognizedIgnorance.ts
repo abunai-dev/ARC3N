@@ -1,13 +1,10 @@
-import type { TypeManifestation } from "../../../util/types/Option"
-const recognizedIgnorance : TypeManifestation =
+import type { TypeOption } from "@/util/types/Option";
+const recognizedIgnorance : TypeOption =
 {
     "type": "type",
     "name": "Recognized Ignorance",
-    "definition": "This is a test if the location definition of input is working",
+    "definition": "Awareness of the uncertainty but no mitigation or description strategy is in place.",
     "exampleScenarios": [
-        "This is a test if the location definition of input is working",
-        "This is a test if the location definition of input is working",
-        "This is a test if the location definition of input is working"
     ]
 }
 export default recognizedIgnorance;

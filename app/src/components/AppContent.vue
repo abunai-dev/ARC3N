@@ -3,7 +3,7 @@
         <button @click="toggleShowTable()">Back</button>
     </div>
     <div class="table" v-if="showTable">
-        <TableInstance @selected-uncertainty="setCurrentUncertainty" :filter-by-option="currentFilterBy" :search-value="currentSearchValue"/>
+        <TableInstance @selected-uncertainty="setCurrentUncertainty" :filter-by-Option="currentFilterBy" :search-value="currentSearchValue"/>
         <div class="button">
             <button @click="toggleShowUncertaintyCreator()">Add new uncertainty</button>
         </div>
@@ -26,7 +26,7 @@ import UncertaintyDetail from './uncertainty/UncertaintyDetailPage.vue';
 import type { Uncertainty } from '@/util/types/Uncertainty';
 import type { Category } from '@/util/types/Category';
 import CategoryOverviewPage from './category/CategoryOverviewPage.vue';
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Option } from '@/util/types/Option';
 import UncertaintyCreator from './uncertaintycreation/UncertaintyCreator.vue';
 
 const showTable = ref(true);
@@ -36,7 +36,7 @@ const currentSearchValue = ref('');
 const showUncertaintyCreator = ref(false);
 let currentUncertainty = ref(null) as Ref<Uncertainty | null>;
 let currentClassificationCategory= ref(null) as Ref<Category | null>;
-let currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Manifestation} | null>;
+let currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Option} | null>;
 
 function toggleShowTable() {
     showTable.value = true;
@@ -45,7 +45,7 @@ function toggleShowTable() {
     showUncertaintyCreator.value = false;
     currentUncertainty = ref(null) as Ref<Uncertainty | null>;
     currentClassificationCategory= ref(null) as Ref<Category | null>;
-    currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Manifestation} | null>;
+    currentFilterBy = ref(null) as Ref< {category: Category, manifestation: Option} | null>;
     currentSearchValue.value = '';
     console.log("The value is set to show the table " )
 }
@@ -90,7 +90,7 @@ function setClassificationCategory(category: Category) {
     toggleShowClassification();
 }
 
-function setFilteredTable(payload: {category: Category, manifestation: Manifestation}) {
+function setFilteredTable(payload: {category: Category, manifestation: Option}) {
     console.log("Incoming fitered table value: " + payload.category.name + payload.manifestation.name)
     toggleShowTable();
     currentFilterBy.value = payload;

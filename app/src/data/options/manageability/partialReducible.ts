@@ -1,4 +1,4 @@
-import type { ManageabilityOption } from "../../../util/types/Option"
+import type { ManageabilityOption } from "@/util/types/Option"
 const partialReducible : ManageabilityOption =
 {
     "type": "manageability",

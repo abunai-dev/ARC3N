@@ -4,8 +4,8 @@
             <div class="category">
                 <p @mouseover="toggleShowCategoryDefinition" @mouseleave="toggleShowCategoryDefinition">{{ props.statedcategory.name }}:</p>
             </div>
-            <div class="manifestation">
-                <p @mouseover="toggleShowManifestationDefintion" @mouseleave="toggleShowManifestationDefintion">{{ props.statedmanifestation.name }}</p>
+            <div class="Option">
+                <p @mouseover="toggleShowOptionDefintion" @mouseleave="toggleShowOptionDefintion">{{ props.statedOption.name }}</p>
             </div>
         </div>
         <div class="defintion" v-show="showDefinition">
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Manifestation } from '@/util/types/Manifestation';
+import type { Option } from '@/util/types/Option';
 import type { Category } from '@/util/types/Category';
 import { type PropType, ref } from 'vue';
 
@@ -25,8 +25,8 @@ const props = defineProps({
             type: Object as PropType<Category>,
             required: true
         },
-        statedmanifestation: {
-            type: Object as PropType<Manifestation>,
+        statedOption: {
+            type: Object as PropType<Option>,
             required: true
         },
     });
@@ -41,15 +41,15 @@ function toggleShowCategoryDefinition() {
 }
 
 function setMessage() {
-    if (props.statedcategory.definition.length > props.statedmanifestation.definition.length) {
+    if (props.statedcategory.definition.length > props.statedOption.definition.length) {
         return props.statedcategory.definition;
     } else {
-        return props.statedmanifestation.definition;
+        return props.statedOption.definition;
     }
 }
 
-function toggleShowManifestationDefintion() {
-    message.value = props.statedmanifestation.definition;
+function toggleShowOptionDefintion() {
+    message.value = props.statedOption.definition;
     toggleShowDefinition();
 }
 
