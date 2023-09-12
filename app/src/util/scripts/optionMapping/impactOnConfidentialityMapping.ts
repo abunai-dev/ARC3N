@@ -19,5 +19,5 @@ export function impactOnConfidentialityMapping(impactOnConfidentialityName: Stri
 }
 
 export function getImpactOnConfidentialityNames() : string[]{
-    return [ direct.name, indirect.name ];
+    return [ direct.name, indirect.name, none.name ];
 }
