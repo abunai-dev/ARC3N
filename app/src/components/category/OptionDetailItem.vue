@@ -5,6 +5,7 @@
             <FilterButton buttontext="Show more examples!" @filter="sendFilterOption"/>
         </div>
         <div class="example-list">
+            <p>Example:</p>
             <p v-for="(example, index) in props.option.exampleScenarios" :key="index">{{example}}</p>
         </div>
     </div>
@@ -33,16 +34,17 @@
 <style scoped>
 .item {
     flex-direction: row;
-    margin: 5px;
+    margin: 10px;
     padding: 5px;
 }
 .example-list {
-    flex-direction: column;
+    display:flex;
+    margin: 5px;
+    flex-direction: row;
 }
 
 .example-list p {
     text-align: left;
-    flex-direction: column;
 }
 
 .item p {
@@ -50,7 +52,11 @@
 }
 
 .definition-and-button {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+}
+.definition-and-button p {
+    margin: 5px;
 }
 </style>@/util/types/Option

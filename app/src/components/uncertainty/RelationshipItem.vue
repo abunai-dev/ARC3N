@@ -1,5 +1,5 @@
 <template>
-        <div v-if="isSpecialRelation(props.relationship)">
+        <div class="relationship" v-if="isSpecialRelation(props.relationship)">
             <p>Related to: {{ props.relationship.relatedToId }} Relation type: {{ props.relationship.positionInRelationship }}</p>
         </div>
         <div v-else>
@@ -26,4 +26,13 @@ function isSpecialRelation(relationship: Relationship) : boolean {
 }
 
 </script>
+<style scoped>
+.relationship {
+    margin: 10px;
+}
+.relationship p {
+    cursor: pointer;
+}
+</style>
+
 

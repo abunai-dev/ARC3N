@@ -88,4 +88,12 @@ function toggleShowDefinition() {
     justify-content: center;
     width: 500px;
 }
+
+.category p {
+    cursor: pointer;
+}
+
+.Option p {
+    cursor: pointer;
+}
 </style>

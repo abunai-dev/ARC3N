@@ -1,7 +1,7 @@
 <template>
     <div class="options">
         <header>
-            <h3>options:</h3>
+            <h3>Options:</h3>
          </header>
         <main>
             <OptionDetailItem v-for="(option, index) in props.options" :option="option" :key="index" @filter-byoption="forwardEmit"/>

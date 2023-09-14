@@ -1,14 +1,14 @@
 <template>
     <div class="entry" v-if="showUncertainty || showUncertaintyCreator">
-        <button @click="toggleShowTable()">Back</button>
+        <button class="button" @click="toggleShowTable()">Back</button>
     </div>
     <div class="entry" v-if="showClassification">
-        <button @click="toggleShowUncertainty()">Back</button>
+        <button class="button" @click="toggleShowUncertainty()">Back</button>
     </div>
     <div class="table" v-if="showTable">
         <TableInstance @selected-uncertainty="setCurrentUncertainty"/>
-        <div class="button">
-            <button @click="toggleShowUncertaintyCreator()">Add new uncertainty</button>
+        <div>
+            <button class="button" @click="toggleShowUncertaintyCreator()"> Add new uncertainty </button>
         </div>
     </div>
     <div class="uncertainty-detail" v-if="(showUncertainty) && (currentUncertainty != null)">
@@ -135,9 +135,7 @@ function setSearchValue(searchValue: string) {
     align-items: center;
 }
 .button {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5px;
+    margin-top: 5px;
 }
 </style>

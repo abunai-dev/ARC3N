@@ -2,21 +2,22 @@
           <div class="input">
             <span>search value:</span>
             <input type="text" v-model="tableState.searchValue"/>
-            <button @click="$emit('reset'), searchValue = ''">Reset</button>
+            <button class="button" @click="$emit('reset'), tableState.searchValue = ''">Reset</button>
           </div>
 </template>
 <script setup lang="ts">
-import {ref} from 'vue';
 import { tableState } from '@/util/types/TableState';
-
-const props = defineProps(
-    {
-        searchValue: {
-            type: String,
-            default: ''
-        }
-    }
-)
-const searchValue = ref(props.searchValue);
-
 </script>
+<style scoped>
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+}
+.button {
+  margin-left: 10px;
+  margin-top: 0;
+  padding: 5;
+}
+</style>

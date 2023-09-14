@@ -369,14 +369,14 @@ function getUncertainty(id: number): Uncertainty {
 .topBar {
   display:block;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: right;
 }
 
 .searchBar {
   display: flex;
   flex-direction: row;
   align-items: right;
-  justify-content: space-between;
+  justify-content: right;
   margin: 10px;
   padding: 10px;
 }
