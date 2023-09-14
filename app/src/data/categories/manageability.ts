@@ -6,7 +6,7 @@ const manageability : Category = {
     "name": "Manageability",
     "definition": "Can more knowledge or appropriate means reduce the uncertainty.",
     "description": "This is a test if the type description of category location is working",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [fullyReducible, irreducible, partialReducible ],
     "imagePath": "manageability.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/25"

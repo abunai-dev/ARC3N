@@ -5,6 +5,7 @@ const scenarioUncertainty : TypeOption =
     "name": "Scenario Uncertainty",
     "definition": "Distinct scenarios depending on the uncertain outcome, no statistical means.",
     "exampleScenarios": [
+        "Handling different types of input data in a software system."
     ]
 }
 export default scenarioUncertainty;

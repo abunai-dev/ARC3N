@@ -5,7 +5,7 @@ const reducibleByAdd : Category = {
     "name": "Reducible by Add",
     "definition": "Uncertainty resolvable by an architectural design decision.",
     "description": "This is a test if the type description of category location is working",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [ notReducible, reducible ],
     "imagePath": "reducibleByAdd.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/27"

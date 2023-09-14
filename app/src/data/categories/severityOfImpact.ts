@@ -6,7 +6,7 @@ const severityOfImpact : Category = {
     "name": "Severity of Impact",
     "definition": "Describes the severity if uncertainty is not mitigated.",
     "description": "This is a test if the type description of category location is working",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [ high, low, none ],
     "imagePath": "severityOfImpact.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/29"

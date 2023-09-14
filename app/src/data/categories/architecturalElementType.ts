@@ -8,7 +8,7 @@ const architecturalElementType : Category = {
     "name": "Architectural Element Type",
     "definition": "Elements to which an uncertainty can be assigned.",
     "description": "",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
     "imagePath": "architecturalElementType.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/4"

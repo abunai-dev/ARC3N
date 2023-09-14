@@ -6,7 +6,7 @@ const impactOnConfidentiality : Category = {
     "name": "Impact on Confidentiality",
     "definition": "Potential impact on confidentiality requirements.",
     "description": "",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [ direct, indirect, none ],
     "imagePath": "impactOnConfidentiality.jpg",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/28"

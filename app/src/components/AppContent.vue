@@ -1,9 +1,9 @@
 <template>
     <div class="entry" v-if="showUncertainty || showUncertaintyCreator">
-        <button class="button" @click="toggleShowTable()">Back</button>
+        <button class="button" @click="toggleShowTable()" @keyup="processKeyDown">Back</button>
     </div>
     <div class="entry" v-if="showClassification">
-        <button class="button" @click="toggleShowUncertainty()">Back</button>
+        <button class="button" @click="toggleShowUncertainty()" @keyup="processKeyDown">Back</button>
     </div>
     <div class="table" v-if="showTable">
         <TableInstance @selected-uncertainty="setCurrentUncertainty"/>
@@ -32,6 +32,8 @@ import CategoryOverviewPage from './category/CategoryOverviewPage.vue';
 import type { Option } from '@/util/types/Option';
 import UncertaintyCreator from './uncertaintycreation/UncertaintyCreator.vue';
 import {tableState} from '@/util/types/TableState';
+
+window.addEventListener('keydown', processKeyDown);
 
 const showTable = ref(true);
 const showUncertainty = ref(false);
@@ -72,6 +74,7 @@ function toggleShowClassification() {
     }
 }
 
+
 function toggleShowUncertaintyCreator() {
     showTable.value = false;
     showUncertainty.value = false;
@@ -91,6 +94,16 @@ function setClassificationCategory(category: Category) {
     toggleShowClassification();
 }
 
+function processKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+        if (showUncertainty.value ||showUncertaintyCreator.value) {
+            toggleShowTable();
+        } else if (showClassification.value) {
+            toggleShowUncertainty();
+        }
+    }
+}
+
 function setFilteredTable(payload: {category: Category, option: Option}) {
     console.log("Incoming fitered table value: " + payload.category.name + payload.option.name)
     if(payload.category.name === 'Location') {
@@ -103,11 +116,11 @@ function setFilteredTable(payload: {category: Category, option: Option}) {
         tableState.selectedManageability = payload.option.name;
     } else if (payload.category.name === 'Resolution Time') {
         tableState.selectedResolutionTime = payload.option.name;
-    } else if (payload.category.name === 'Reducible by ADD') {
+    } else if (payload.category.name === 'Reducible by Add') {
         tableState.selectedReducibleByAdd = payload.option.name;
-    } else if (payload.category.name === 'Impact On Confidentiality') {
+    } else if (payload.category.name === 'Impact on Confidentiality') {
         tableState.selectedImpactOnConfidentiality = payload.option.name;
-    } else if (payload.category.name === 'Severity Of Impact') {
+    } else if (payload.category.name === 'Severity of Impact') {
         tableState.selectedSeverityOfImpact = payload.option.name;
     } else {
         tableState.searchValue = payload.option.name;

@@ -1,12 +1,17 @@
 <template>
     <div class="item">
         <div class="definition-and-button">
-            <p>{{ props.option.name }}: {{ props.option.definition }}</p>
+            <div class="definition-and-button">
+                <p style="font-weight: bold;">{{ props.option.name }}:</p>
+                <p>{{ props.option.definition }}</p>
+            </div>
             <FilterButton buttontext="Show more examples!" @filter="sendFilterOption"/>
         </div>
         <div class="example-list">
-            <p>Example:</p>
-            <p v-for="(example, index) in props.option.exampleScenarios" :key="index">{{example}}</p>
+            <p style="margin-right:5px;">Example:</p>
+            <div class="list">
+                <p v-for="(example, index) in props.option.exampleScenarios" :key="index">{{example}}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -58,5 +63,10 @@
 }
 .definition-and-button p {
     margin: 5px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
 }
 </style>@/util/types/Option

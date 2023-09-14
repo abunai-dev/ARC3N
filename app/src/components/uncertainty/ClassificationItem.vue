@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="definition">
-            <p text-align=left v-if="showDefinition">{{message}}</p>
+            <p v-if="showDefinition">{{message}}</p>
             <p v-else><br></p>
         </div>
     </div>
@@ -69,20 +69,17 @@ function toggleShowDefinition() {
     padding: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
 }
 .classificationItem p {
-    text-align: left;
+    text-align: center;
     margin: 5px;
 }
 .definition {
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
-.definition p {
-    text-align: left;
-    justify-content: left;
-}
+
 .container {
     display: block;
     justify-content: center;

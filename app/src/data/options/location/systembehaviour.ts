@@ -5,6 +5,7 @@ const systemBehaviour : LocationOption =
     "name": "System Behaviour",
     "definition": "Behaviour of the system and its components as well as their communication",
     "exampleScenarios": [
+        "The handling of sensitive data within a component."
     ]
 }
 export default systemBehaviour;
