@@ -9,7 +9,7 @@ const severityOfImpact : Category = {
     "exampleScenarios": [],
     "options": [ high, low, none ],
     "imagePath": "severityOfImpact.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/29"
 }
 
 export default severityOfImpact;

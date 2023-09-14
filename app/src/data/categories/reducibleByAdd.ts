@@ -8,7 +8,7 @@ const reducibleByAdd : Category = {
     "exampleScenarios": [],
     "options": [ notReducible, reducible ],
     "imagePath": "reducibleByAdd.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/27"
 }
 
 export default reducibleByAdd;

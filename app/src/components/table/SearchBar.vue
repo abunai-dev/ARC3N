@@ -1,13 +1,13 @@
 <template>
-    <button @click="$emit('toggleSearch')">Filter</button>
           <div class="input">
             <span>search value:</span>
-            <input type="text" v-model="searchValue" @input="emitSearch"/>
+            <input type="text" v-model="tableState.searchValue"/>
             <button @click="$emit('reset'), searchValue = ''">Reset</button>
           </div>
 </template>
 <script setup lang="ts">
 import {ref} from 'vue';
+import { tableState } from '@/util/types/TableState';
 
 const props = defineProps(
     {
@@ -18,9 +18,5 @@ const props = defineProps(
     }
 )
 const searchValue = ref(props.searchValue);
-const emits = defineEmits(['search', 'reset', 'toggleSearch']);
 
-function emitSearch() {
-    emits('search', searchValue.value)
-}
 </script>

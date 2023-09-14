@@ -9,7 +9,7 @@ const type : Category = {
     "exampleScenarios": [],
     "options": [ recognizedIgnorance, scenarioUncertainty, statisticalUncertainty ],
     "imagePath": "type.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/24"
 }
 
 export default type;

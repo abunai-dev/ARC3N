@@ -48,6 +48,7 @@ function toggleShowClassification(category: Category) {
 }
 
 function toggleShowKeywordResults(keyword: string) {
+    console.log("The keyword is: " + keyword);
     emit('selected-keyword', keyword);
 }
 
@@ -81,7 +82,7 @@ p {
 }
 
 .additionalHelp {
-    margin: 10px;
+    margin: 50px;
     padding: 10px;
 }
 

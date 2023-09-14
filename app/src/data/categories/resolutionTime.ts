@@ -10,7 +10,7 @@ const resolutionTime : Category = {
     "exampleScenarios": [],
     "options": [ designTime, realizationTime, runTime, requirementsTime ],
     "imagePath": "resolutionTime.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/26"
 }
 
 export default resolutionTime;

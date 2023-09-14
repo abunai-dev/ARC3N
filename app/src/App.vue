@@ -49,7 +49,7 @@ header {
 
 main {
   max-width: 2500px;
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
 }
@@ -103,7 +103,7 @@ p {
 
 .content {
   clear: both;
-  display: flexbox;
+  display: flex;
   margin: 40px auto;
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
@@ -111,6 +111,7 @@ p {
   background: #fff;
   color: #2c3e50;
   font-size: 1rem;
-  max-width: 1500px;
+  max-width: 2000px;
+  max-height: fit-content;
 }
 </style>

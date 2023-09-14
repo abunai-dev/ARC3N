@@ -1,19 +1,19 @@
 <template>
     <div class="example-section">
         <div class="scenario">
-            <p>{{ props.description }}</p>
+            <h3>Example Scenario:</h3>
+            <p v-for="section in descriptionSections" :key="section">{{ section }}</p>
         </div>
         <div class="supporting-image">
             <img :src="imagePath" :alt="imagePath">
         </div>
         <div class="collaboration">
-            <a :href="props.collaborationUrl" class="button" target="_blank">Click, to find out about the ongoing discussion</a>
+            <a :href="props.collaborationUrl" class="button" target="_blank">Click here, to find out about the ongoing discussion</a>
         </div>
     </div>
 
 </template>
 <script setup lang="ts">
-import { type PropType } from 'vue';
 
 const props = defineProps({
         description: {
@@ -29,6 +29,8 @@ const props = defineProps({
             required: true
         },
         });
+
+const descriptionSections = props.description.split("\n");
 
 </script>
 <style scoped>
@@ -47,10 +49,21 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 .collaboration {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.scenario {
+    display: block;
+    max-width: 1500px;
+    text-align: left;
+    margin: 10px;
+}
+
+.scenario p {
+    text-align: left;
 }
 </style>

@@ -8,8 +8,9 @@
                 <p @mouseover="toggleShowOptionDefintion" @mouseleave="toggleShowOptionDefintion">{{ props.statedOption.name }}</p>
             </div>
         </div>
-        <div class="defintion" v-show="showDefinition">
-            <p>{{message}}</p>
+        <div class="definition">
+            <p text-align=left v-if="showDefinition">{{message}}</p>
+            <p v-else><br></p>
         </div>
     </div>
 </template>
@@ -75,12 +76,16 @@ function toggleShowDefinition() {
     margin: 5px;
 }
 .definition {
-    display: block;
-    margin: 5px;
-    max-width: 200px;
+    display: flex;
+    justify-content: left;
+}
+.definition p {
+    text-align: left;
+    justify-content: left;
 }
 .container {
     display: block;
-    justify-content: left;
+    justify-content: center;
+    width: 500px;
 }
-</style>@/util/types/Option
+</style>

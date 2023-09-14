@@ -9,7 +9,7 @@ const manageability : Category = {
     "exampleScenarios": [],
     "options": [fullyReducible, irreducible, partialReducible ],
     "imagePath": "manageability.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/25"
 }
 
 export default manageability;

@@ -9,7 +9,7 @@ const impactOnConfidentiality : Category = {
     "exampleScenarios": [],
     "options": [ direct, indirect, none ],
     "imagePath": "impactOnConfidentiality.jpg",
-    "discussionUrl": ""
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/28"
 }
 
 export default impactOnConfidentiality;
