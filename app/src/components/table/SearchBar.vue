@@ -1,6 +1,6 @@
 <template>
           <div class="input">
-            <span>search value:</span>
+            <span class="search">search value:</span>
             <input type="text" v-model="tableState.searchValue"/>
             <button class="button" @click="$emit('reset'), tableState.searchValue = ''">Reset</button>
           </div>
@@ -15,9 +15,12 @@ import { tableState } from '@/util/types/TableState';
   align-items: right;
   justify-content: right;
 }
+.search {
+  margin-right: 10px;
+}
 .button {
   margin-left: 10px;
   margin-top: 0;
-  padding: 5;
+  padding: 5px;
 }
 </style>
