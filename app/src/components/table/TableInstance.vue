@@ -3,7 +3,7 @@
     <div v-if="items.length > 0">
       <div class="topBar">
         <div class="searchBar">
-          <SearchBar :search-value="tableState.searchValue" @reset="tableState.searchValue=''" />
+          <SearchBar :search-value="tableState.searchValue" @reset="reset()" />
         </div>
       </div>
       <EasyDataTable table-class-name="customize-table" 
@@ -336,6 +336,28 @@ function getUncertainty(id: number): Uncertainty {
   }
   //TODO: Throw error
   return allUncertainties[0]
+}
+
+function reset() {
+tableState.searchValue = ''
+tableState.selectedKeyword = 'all'
+tableState.selectedLocation = 'all'
+tableState.selectedArchitecturalType = 'all'
+tableState.selectedType = 'all'
+tableState.selectedManageability = 'all'
+tableState.selectedResolutionTime = 'all'
+tableState.selectedReducibleByAdd = 'all'
+tableState.selectedImpactOnConfidentiality = 'all'
+tableState.selectedSeverityOfImpact = 'all'
+showKeywwordFilter.value = false
+showLocationFilter.value = false
+showArchitecturalTypeFilter.value = false
+showTypeFilter.value = false
+showManageabilityFilter.value = false
+showResolutionTimeFilter.value = false
+showReducibleByAddFilter.value = false
+showImpactOnConfidentialityFilter.value = false
+showSeverityOfImpactFilter.value = false
 }
 
 </script>

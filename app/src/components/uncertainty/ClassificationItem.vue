@@ -10,7 +10,7 @@
         </div>
         <div class="definition">
             <p v-if="showDefinition">{{message}}</p>
-            <p v-else><br></p>
+            <v-else><br></v-else>
         </div>
     </div>
 </template>
@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import type { Option } from '@/util/types/Option';
 import type { Category } from '@/util/types/Category';
-import { type PropType, ref } from 'vue';
+import { type PropType, ref, computed } from 'vue';
 
 
 const props = defineProps({
@@ -92,5 +92,9 @@ function toggleShowDefinition() {
 
 .Option p {
     cursor: pointer;
+}
+
+.invisible {
+    visibility: hidden;
 }
 </style>

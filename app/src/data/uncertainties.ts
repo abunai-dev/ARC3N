@@ -408,7 +408,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [Keyword.Trust],
         "definition": "Refers to the fact, that at design time it is not known which component provider will be chosen to provide a component. Thus the trustworthiness of the component provider is unknown.",
-        "exampleScenario": "The company decided that they don't want to host their own database, but rather use a database service provider. \n The company has to decide on a database service provider with keeping in mind that they have to follow EU law, thus their data has to be stored in Europe.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n The company decided that they don't want to host their own database, but rather use a database service provider. \n The company has to decide on a database service provider with keeping in mind that they have to follow EU law, thus their data has to be stored in Europe.",
         "exampleImagePath": "U1Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/6"
     },
@@ -504,7 +504,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [Keyword.Trust],
         "definition": "The deployment provider is able to make changes to the inital code of the software system. At design time the trustworthiness is unknown, but it is essential to take precautions since the provider might be able to create backdoors or other vulnerabilities for the data.",
-        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  #TODO",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n When using an untrustworthy deployment provider there is a risk of the provider creating backdoors or other vulnerabilities for the data. ",
         "exampleImagePath": "U18Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/14"
     },
@@ -528,7 +528,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [Keyword.Trust],
         "definition": "Input validations can limit the abuse of using the system in an unintended way. Depending on the validation methods it may leave walk arounds.",
-        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  #TODO",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  If the input via the mobile app is not validated, the company might get inconclusive information leading to wrong handling of the data. For example they might misunderstand the users intention, offering him a different car",
         "exampleImagePath": "U20Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/15"
     },
@@ -676,7 +676,7 @@ const uncertainties : Uncertainty[] = [
         "keywords": [Keyword.Data],
         "definition": "This is a Test if the definition of uncertainty twentysix can be displayed correctly.",
         "exampleScenario": "This is a Test if the example scenario of uncertainty twentysix can be displayed correctly.",
-        "exampleImagePath": "",
+        "exampleImagePath": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the data what type of data can be inside the mobile app can be identified. For example when designing the personal information section within the mobile app can be identified as highly confidential data.",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/17"
     },
     // {
@@ -759,7 +759,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [],
         "definition": "Refers to the different possibilities a software system might be allocated.",
-        "exampleScenario": "A software system is deployed on a single server.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company has decided to not run their own database service as well as maintaining the mobile app. Thus they decided to use a database service provider and a mobile app provider.",
         "exampleImagePath": "",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/18"
     },
@@ -783,7 +783,7 @@ const uncertainties : Uncertainty[] = [
         "description": "This is a Test if the description of uncertainty thirty can be displayed correctly.",
         "keywords": [],
         "definition": "This is a Test if the definition of uncertainty thirty can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirty can be displayed correctly.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the interface that needs to be used to send the data to the company is defined, thus stating all functions that can be used to send the data to the company.",
         "exampleImagePath": "",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/19"
     },
@@ -815,7 +815,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [],
         "definition": "Refers to the fact that users might use a system in different ways.",
-        "exampleScenario": "A user puts in his credit card information in the wrong input field.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At run time a user puts in his credit card information in the wrong input field.",
         "exampleImagePath": "",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/20"
     },
@@ -944,7 +944,7 @@ const uncertainties : Uncertainty[] = [
         "description": "This is a Test if the description of uncertainty thirtysix can be displayed correctly.",
         "keywords": [],
         "definition": "This is a Test if the definition of uncertainty thirtysix can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirtysix can be displayed correctly.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At realization time the company decides to use a cloud provider to deploy their system.",
         "exampleImagePath": "",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/21"
     },
@@ -996,7 +996,7 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [Keyword.Trust],
         "definition": "Authentication methods should be in place whenever dealing with sensitive data such as personal information and payment details.",
-        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  #TODO",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company decides to use a password authentication mechanism to authenticate the user.",
         "exampleImagePath": "U38Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/22"
     },
@@ -1033,7 +1033,7 @@ const uncertainties : Uncertainty[] = [
         "description": "This is a Test if the description of uncertainty thirtynine can be displayed correctly.",
         "keywords": [],
         "definition": "This is a Test if the definition of uncertainty thirtynine can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirtynine can be displayed correctly.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company decides to use a database service provider to store the data.",
         "exampleImagePath": "U16Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/23"
     }
