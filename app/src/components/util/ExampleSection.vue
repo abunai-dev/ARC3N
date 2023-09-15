@@ -1,7 +1,7 @@
 <template>
     <div class="example-section">
-        <div class="scenario">
-            <h3>Example Scenario:</h3>
+        <div class="scenario" v-if="props.header !== undefined || props.description !== undefined">
+            <h3 v-if="props.header !== undefined">{{props.header}}</h3>
             <p v-for="section in descriptionSections" :key="section">{{ section }}</p>
         </div>
         <div class="supporting-image">
@@ -14,11 +14,13 @@
 
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+
 
 const props = defineProps({
         description: {
             type: String,
-            required: true
+            required: false
         },
         imagePath: {
             type: String,
@@ -28,9 +30,19 @@ const props = defineProps({
             type: String,
             required: true
         },
+        header: {
+            type: String,
+            required: false
+        }
         });
 
-const descriptionSections = props.description.split("\n");
+const descriptionSections = computed(() =>{
+    if (props.description !== undefined) {
+        return props.description.split("\n");
+    } else {
+        return '';
+    }
+});
 
 </script>
 <style scoped>

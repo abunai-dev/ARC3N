@@ -8,7 +8,7 @@ const location : Category = {
     "name": "Location",
     "definition": "Describes where an uncertainty manifests itself within the architecture.",
     "description": "",
-    "exampleScenario": 'Within a system environment is the system structure. Within the system structure resides the system behaviour. The system behaviour is influenced by the input.',
+    "exampleScenario": 'The system environment is outside of the system structure. Within the system structure resides the system behaviour. The system behaviour is influenced by the input.',
     "options": [Input, systemBehaviour, systemEnvironment, systemStructure ],
     "imagePath": "location.png",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/3"
