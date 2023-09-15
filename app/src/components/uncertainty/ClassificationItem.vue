@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import type { Option } from '@/util/types/Option';
 import type { Category } from '@/util/types/Category';
-import { type PropType, ref, computed } from 'vue';
+import { type PropType, ref } from 'vue';
 
 
 const props = defineProps({
@@ -76,8 +76,10 @@ function toggleShowDefinition() {
     margin: 5px;
 }
 .definition {
-    display: flex;
-    justify-content: center;
+    display: block;
+    height: 50px;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .container {

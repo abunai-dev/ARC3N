@@ -10,7 +10,7 @@ const architecturalElementType : Category = {
     "description": "",
     "exampleScenario": '',
     "options": [ component, connector, hardwareResource, interfaceManifestation, usageBehaviour ],
-    "imagePath": "architecturalElementType.jpg",
+    "imagePath": "architecturalelementtype.png",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/4"
 }
 

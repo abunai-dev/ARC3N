@@ -5,10 +5,10 @@ import partialReducible from "../options/manageability/partialReducible";
 const manageability : Category = {
     "name": "Manageability",
     "definition": "Can more knowledge or appropriate means reduce the uncertainty.",
-    "description": "This is a test if the type description of category location is working",
+    "description": "",
     "exampleScenario": '',
     "options": [fullyReducible, irreducible, partialReducible ],
-    "imagePath": "manageability.jpg",
+    "imagePath": "manageability.png",
     "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/25"
 }
 
