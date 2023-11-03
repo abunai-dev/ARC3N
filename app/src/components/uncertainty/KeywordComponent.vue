@@ -25,4 +25,7 @@ const props = defineProps({
     align-self: auto;
     margin: 10px;
 }
+.keyword p {
+    cursor: pointer;
+}
 </style>

@@ -7,10 +7,10 @@ const resolutionTime : Category = {
     "name": "Resolution Time",
     "definition": "Time at which the uncertainty is expected to be fully resolved.",
     "description": "",
-    "exampleScenarios": [],
+    "exampleScenario": '',
     "options": [ designTime, realizationTime, runTime, requirementsTime ],
-    "imagePath": "resolutionTime.jpg",
-    "discussionUrl": ""
+    "imagePath": "resolutiontime.png",
+    "discussionUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/26"
 }
 
 export default resolutionTime;

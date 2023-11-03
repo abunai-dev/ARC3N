@@ -5,6 +5,7 @@ const connector : ArchitecturalElementTypeOption =
     "name": "Connector",
     "definition": "Assignable to wires between components or communication",
     "exampleScenarios": [
+        "A connector between two components in a software system.",
     ]
 }
 export default connector;

@@ -45,11 +45,11 @@ const uncertainties : Uncertainty[] = [
                 positionInRelationship: RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty two can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty two can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty two can be displayed correctly.",
-        "exampleImagePath": "uncertaintyone.jpg",
+        "definition": "Pertains to the uncertaintyy concerning the potential occurrence of SQL injections within the system's usage behavior.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Due to the fact, that the company sends the data via SQL injections, depending on how the database service is handling the injections, it might be vulnerable to disclosure of data through SQL injection attacks.",
+        "exampleImagePath": "U1Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/1"
     },
     // {
@@ -137,11 +137,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Parent
             }
         ],
-        "description": "This is a Test if the description of uncertainty four can be displayed correctly.",
+        "description": "",
         "keywords": [],
-        "definition": "This is a Test if the definition of uncertainty four can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty four can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to the uncertainty regarding the methods of communication employed by connectors within the archictecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n For example the data between Mobile App and Company might not be encrypted, thus disclosing personal information of the user. ",
+        "exampleImagePath": "U4Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/7"
     },
     // {
@@ -211,11 +211,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty seven can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty seven can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty seven can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relatees to the uncertainty regarding the methods of user identification implemented through interfaces within the architecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n To access ones rental history and details, a user would need to identify himself first. \n To access the database through the database service, an employee of the company would need to identify themselves first.",
+        "exampleImagePath": "U7Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/8"
     },
     // {
@@ -285,11 +285,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty ten can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty ten can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty ten can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relates to uncertainty about whether confidential data is transmitted through interfaces within the architecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Users need to fill in personal information in the mobile app, upon starting the registration process. The data that needs to be transmitted can be classified as highly confidential, thus appropriate security measures need to be taken.",
+        "exampleImagePath": "U10Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/9"
     },
     // {
@@ -333,11 +333,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty twelve can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty twelve can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty twelve can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relates to uncertainty regarding whether communication conducted through connectors within the architecture is encrypted or not.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n For safety measures the communication between the mobile application is encrypted by RSA for a secure transfer of sensitive data from the mobile app to the company. The communication between the vehicle and company is not encrypted. Between the Company and the Database Service Provider the encryption is handled by AES. The communication within the Database Service and its databases remains unknown",
+        "exampleImagePath": "U4Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/10"
     },
     // {
@@ -407,9 +407,9 @@ const uncertainties : Uncertainty[] = [
         ],
         "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "Refers to the fact, that at design time it is not known which component provider will be chosen to provide a component. Thus the trustworthiness of the component provider is unknown.",
-        "exampleScenario": "A relatively unknown component provider is chosen for the provision of a database for the software system.",
-        "exampleImagePath": "",
+        "definition": "Concerns the system's environment and signifies recognized ignorance about the trustworthiness of the provider of a component",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n The company decided that they don't want to host their own database, but rather use a database service provider. \n The company has to decide on a database service provider with keeping in mind that they have to follow EU law, thus their data has to be stored in Europe.",
+        "exampleImagePath": "U1Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/6"
     },
     {
@@ -429,11 +429,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty sixteen can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty sixteen can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty sixteen can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relates to uncertainty regarding whether data is anonymized by a component within the architecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n The database service uses an anonymization mechanism to anonymize the data transmitted by the company to hthem and then save it in the database. Upon requesting data, it uses the same mechanism to request the data from the database.",
+        "exampleImagePath": "U16Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/11"
     },
     {
@@ -453,11 +453,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty seventeen can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty seventeen can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty seventeen can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to the input and relates to the uncertainty regarding the correctness of the data entered by the user.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n The user gets input fields to fill in his personal information including his address as well as free text fields to put in additional wishes and question for the car rental. \n At run time a user puts in all his information in the free text field, thus the mobility system needs to recognize the mistake and handle the data securely.",
+        "exampleImagePath": "U17Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/12"
     },
     {
@@ -479,9 +479,9 @@ const uncertainties : Uncertainty[] = [
         ],
         "description": "",
         "keywords": [Keyword.Data],
-        "definition": "Refers to the different types of data that are being processed within a software system. Confidential data has to be persisted differently to other data.",
-        "exampleScenario": "Credit card information is being processed within a software system. This data has to be persisted in an encrypted way.",
-        "exampleImagePath": "",
+        "definition": "Relates to uncertainty regarding whether data that is intended for persistence within a component is confidential or not.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Within the mobility system, personal information and payment details are being send to the company as well as metadata and additional information. Personal information and payment details need to be persisted confidentially.",
+        "exampleImagePath": "U18Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/13"
     },
     {
@@ -501,11 +501,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty nineteen can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty nineteen can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty nineteen can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to uncertainty regarding the trustworthiness of the provider of a hardware resource used for deployment.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n When using an untrustworthy deployment provider there is a risk of the provider creating backdoors or other vulnerabilities for the data. ",
+        "exampleImagePath": "U36Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/14"
     },
     {
@@ -525,11 +525,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty twenty can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty twenty can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty twenty can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to uncertainty regarding whether input validation is performed by an interface within the architecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  If the input via the mobile app is not validated, the company might get inconclusive information leading to wrong handling of the data. For example they might misunderstand the users intention, offering him a different car",
+        "exampleImagePath": "U20Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/15"
     },
     // {
@@ -618,11 +618,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty twentyfour can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty twentyfour can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty twentyfour can be displayed correctly.",
-        "exampleImagePath": "uncertaintythree.jpg",
+        "definition": "Relates to uncertainty concerning the specific data entered through an interface within the architecture",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n  At run time the user puts in personal data such as his address. Additionally the mobile app sends metadata including the time of the rental application creation. Personal data needs to be handled confidentially, while metadata can be handled like non-sensitive data.",
+        "exampleImagePath": "U24Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/16"
     },
     // {
@@ -672,11 +672,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Parent
             }
         ],
-        "description": "This is a Test if the description of uncertainty twentysix can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Data],
-        "definition": "This is a Test if the definition of uncertainty twentysix can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty twentysix can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relates to uncertainty regarding the specific data that is persisted by a component within the architecture.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the data what type of data can be inside the mobile app can be identified. For example when designing the personal information section within the mobile app can be identified as highly confidential data.",
+        "exampleImagePath": "U16Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/17"
     },
     // {
@@ -758,9 +758,9 @@ const uncertainties : Uncertainty[] = [
         ],
         "description": "",
         "keywords": [],
-        "definition": "Refers to the different possibilities a software system might be allocated.",
-        "exampleScenario": "A software system is deployed on a single server.",
-        "exampleImagePath": "",
+        "definition": "Relates to the system's structure and involves scenario-based uncertainty concerning the distribution of hardware resources.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company has decided to not run their own database service as well as maintaining the mobile app. Thus they decided to use a database service provider and a mobile app provider.",
+        "exampleImagePath": "U29Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/18"
     },
     {
@@ -780,11 +780,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Child
             }
         ],
-        "description": "This is a Test if the description of uncertainty thirty can be displayed correctly.",
+        "description": "",
         "keywords": [],
-        "definition": "This is a Test if the definition of uncertainty thirty can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirty can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to a scenario-based uncertainty concerning the arrangement and composition of interfaces within the system's structure.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the interface that needs to be used to send the data to the company is defined, thus stating all functions that can be used to send the data to the company.",
+        "exampleImagePath": "U30Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/19"
     },
     {
@@ -815,8 +815,8 @@ const uncertainties : Uncertainty[] = [
         "description": "",
         "keywords": [],
         "definition": "Refers to the fact that users might use a system in different ways.",
-        "exampleScenario": "A user puts in his credit card information in the wrong input field.",
-        "exampleImagePath": "",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At run time a user puts in his credit card information in the wrong input field.",
+        "exampleImagePath": "U17Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/20"
     },
     // {
@@ -943,9 +943,9 @@ const uncertainties : Uncertainty[] = [
         ],
         "description": "This is a Test if the description of uncertainty thirtysix can be displayed correctly.",
         "keywords": [],
-        "definition": "This is a Test if the definition of uncertainty thirtysix can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirtysix can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Relates to the system's environment and concers the scenario-based uncertainty of determining the specific hardware resource deployment location.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At realization time the company decides to use a cloud provider to deploy their system.",
+        "exampleImagePath": "U36Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/21"
     },
     // {
@@ -993,11 +993,11 @@ const uncertainties : Uncertainty[] = [
                 "positionInRelationship": RelationshipPosition.Parent
             }
         ],
-        "description": "This is a Test if the description of uncertainty thirtyeight can be displayed correctly.",
+        "description": "",
         "keywords": [Keyword.Trust],
-        "definition": "This is a Test if the definition of uncertainty thirtyeight can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirtyeight can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to system behavior and involves uncertainty regarding the authentication methods imployed by an interface within the architecture",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company decides to use a password authentication mechanism to authenticate the user.",
+        "exampleImagePath": "U38Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/22"
     },
     {
@@ -1030,11 +1030,11 @@ const uncertainties : Uncertainty[] = [
             }
 
         ],
-        "description": "This is a Test if the description of uncertainty thirtynine can be displayed correctly.",
+        "description": "",
         "keywords": [],
-        "definition": "This is a Test if the definition of uncertainty thirtynine can be displayed correctly.",
-        "exampleScenario": "This is a Test if the example scenario of uncertainty thirtynine can be displayed correctly.",
-        "exampleImagePath": "",
+        "definition": "Pertains to the scenario-based uncertainty of determining the specific component that is chosen to be used within the system.",
+        "exampleScenario": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n At design time the company decides to use a database service provider to store the data.",
+        "exampleImagePath": "U16Image.png",
         "communityAnnotationUrl": "https://github.com/abunai-dev/UncertaintySourceArchive/issues/23"
     }
     // ,

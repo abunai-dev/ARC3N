@@ -3,7 +3,7 @@ export interface Category {
     name: string;
     definition: string;
     description: string;
-    exampleScenarios: string[];
+    exampleScenario: string;
     options: Option[];
     imagePath: string;
     discussionUrl: string;

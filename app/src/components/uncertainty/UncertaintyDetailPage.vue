@@ -16,7 +16,7 @@
             <RelationshipItem v-for="(relation, index) in props.uncertainty.relations" :relationship="relation" :key="index" :value="relation.relatedToId" @click="$emit('selected-uncertainty-id', relation.relatedToId.toString())"/>
         </div>
         <div class="additionalHelp">
-            <ExampleSection :description="props.uncertainty.exampleScenario" :imagePath="imagePath" :collaborationUrl="props.uncertainty.communityAnnotationUrl"/>
+            <ExampleSection header="Example Section" :description="props.uncertainty.exampleScenario" :imagePath="imagePath" :collaborationUrl="props.uncertainty.communityAnnotationUrl"/>
         </div>
     </main>
 </template>
@@ -48,6 +48,7 @@ function toggleShowClassification(category: Category) {
 }
 
 function toggleShowKeywordResults(keyword: string) {
+    console.log("The keyword is: " + keyword);
     emit('selected-keyword', keyword);
 }
 
@@ -81,7 +82,7 @@ p {
 }
 
 .additionalHelp {
-    margin: 10px;
+    margin: 50px;
     padding: 10px;
 }
 

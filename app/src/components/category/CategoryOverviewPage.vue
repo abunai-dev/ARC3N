@@ -6,7 +6,7 @@
         <main>
             <BasicInformation :definition="props.statedcategory.definition" :description="props.statedcategory.description"/>
             <OptionDetailSection :options="props.statedcategory.options" :category="props.statedcategory" @filter-by-option="sendFilterOption"/>
-            <ExampleSection :description="props.statedcategory.exampleScenarios.toString()" :imagePath="imagePath" :collaborationUrl="props.statedcategory.discussionUrl"/>
+            <ExampleSection :description="props.statedcategory.exampleScenario" :imagePath="imagePath" :collaborationUrl="props.statedcategory.discussionUrl"/>
         </main>
         
     </div>

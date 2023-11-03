@@ -1,5 +1,5 @@
 <template>
-    <button @click="$emit('filter')">{{ props.buttontext }}</button>
+    <button class="button" @click="$emit('filter')">{{ props.buttontext }}</button>
 </template>
 
 <script setup lang="ts">
@@ -13,4 +13,7 @@ const props = defineProps({
 </script>
 
 <style scoped>
+.button {
+    padding: 5px;
+}
 </style>

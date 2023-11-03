@@ -41,9 +41,7 @@ const emit = defineEmits(['showClassification']);
     padding: 10px;
     display: block;
     flex-direction: column;
+    align-content: center;
 }
 
-.classificationitems p {
-    text-align: left;
-}
 </style>
