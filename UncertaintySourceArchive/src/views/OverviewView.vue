@@ -1,3 +1,5 @@
-<template>UncertaintySourceArchive</template>
+<template>
+  <div>UncertaintySourceArchive</div>
+</template>
 
 <script setup lang="ts"></script>
