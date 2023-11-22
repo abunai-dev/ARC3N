@@ -1,0 +1,26 @@
+{
+  "Structure": {
+    "name": "System Structure",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Behavior": {
+    "name": "System Behavior",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Environment": {
+    "name": "System Environment",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Input": {
+    "name": "System Input",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "Component": {
+    "name": "Component",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Connector": {
+    "name": "Connector",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Interface": {
+    "name": "Interface",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "External": {
+    "name": "External Resource",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Behaviour": {
+    "name": "Behaviour Description",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}

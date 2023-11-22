@@ -1,0 +1,14 @@
+{
+  "Yes": {
+    "name": "Yes",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "No": {
+    "name": "No",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}

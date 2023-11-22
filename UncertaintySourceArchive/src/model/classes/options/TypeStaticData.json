@@ -1,0 +1,20 @@
+{
+  "Statistical": {
+    "name": "Statistical Uncertainty",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Scenario": {
+    "name": "Scenario Uncertainty",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Recognized": {
+    "name": "Recognized Uncertainty",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}

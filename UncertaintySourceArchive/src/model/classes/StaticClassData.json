@@ -1,0 +1,50 @@
+{
+  "Location": {
+    "name": "Location",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Architectural Element Type": {
+    "name": "Architectural Element Type",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Type": {
+    "name": "Type",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Managability": {
+    "name": "Managability",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Resolution Time": {
+    "name": "Resolution Time",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Reducible by ADD": {
+    "name": "Reducible by ADD",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Impact on Confidentiality": {
+    "name": "Impact on Confidentiality",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  },
+  "Severity of the Impact": {
+    "name": "Severity of the Impact",
+    "description": "",
+    "exampleText": "",
+    "exampleImages": []
+  }
+}

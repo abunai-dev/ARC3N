@@ -1,0 +1,26 @@
+{
+  "Requirements": {
+    "name": "Requirements Time",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Design": {
+    "name": "Design Time",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Realization": {
+    "name": "Realization Time",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Runtime": {
+    "name": "Runtime",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}

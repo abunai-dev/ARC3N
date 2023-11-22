@@ -1,0 +1,20 @@
+{
+  "High": {
+    "name": "High",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "Low": {
+    "name": "Low",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  },
+  "None": {
+    "name": "None",
+    "description": "",
+    "example": "",
+    "exampleImages": []
+  }
+}
