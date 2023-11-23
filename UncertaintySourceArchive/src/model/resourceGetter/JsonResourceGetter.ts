@@ -6,7 +6,7 @@ import testData from './testData.json'
  * Gets uncertainties from a JSON file
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-class JsonResourceGetter extends ResourceGetter {
+export class JsonResourceGetter extends ResourceGetter {
   public getUncertaintyCount(): Promise<number> {
     return Promise.resolve(this.getPerPageAmount())
   }

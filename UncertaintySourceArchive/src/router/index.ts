@@ -1,4 +1,5 @@
 import OverviewView from '@/views/OverviewView.vue'
+import UncertaintyView from '@/views/wrapper/UncertaintyViewWrapper.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,6 +8,11 @@ const router = createRouter({
     {
       path: '/',
       component: OverviewView
+    },
+    {
+      path: '/uncertainty/:id',
+      component: UncertaintyView,
+      props: true
     }
   ]
 })

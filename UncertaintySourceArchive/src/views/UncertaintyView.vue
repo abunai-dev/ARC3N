@@ -1,0 +1,83 @@
+<template>
+  <main class="grid w-full grid-cols-1 gap-5 md:h-full md:grid-cols-2 md:grid-rows-[auto_1fr]">
+    <div class="col-span-1 col-start-1 row-span-1 row-start-1">
+      <h1 class="text-3xl font-bold">#{{ uncertainty.id }} - {{ uncertainty.name }}</h1>
+      <article class="pl-3">{{ uncertainty.description }}</article>
+    </div>
+    <div
+      class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-5 md:row-start-2 md:overflow-auto"
+    >
+      <CategoryComponent heading="Example">
+        <div class="space-y-2">
+          <p>{{ uncertainty.exampleText }}</p>
+          <img
+            v-for="img in uncertainty.exampleImages"
+            :key="img"
+            :src="img"
+            alt="Example image"
+            class="max-h-24 max-w-full"
+          />
+        </div>
+      </CategoryComponent>
+      <CategoryComponent
+        heading="Related Uncertainties"
+        v-if="
+          uncertainty.children.length > 0 ||
+          uncertainty.relatedUncertainties.length > 0 ||
+          uncertainty.parent ||
+          true
+        "
+      >
+        <!-- Image incoming -->
+      </CategoryComponent>
+      <div class="mx-auto w-fit">
+        <a
+          :href="
+            'https://www.github.com/' +
+            IssueResourceGetter.OWNER +
+            '/' +
+            IssueResourceGetter.REPO +
+            '/issues/' +
+            uncertainty.id
+          "
+          class="box-border items-center rounded border border-black border-opacity-10 bg-primary-dark p-1 text-white"
+        >
+          Go to discussion
+        </a>
+      </div>
+    </div>
+
+    <ContainerComponent
+      class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-light bg-opacity-20 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
+    >
+      <h2 class="text-2xl">Classification:</h2>
+      <div class="mt-2 space-y-5">
+        <CategoryComponent v-for="c in classesValues" :key="c">
+          <template #heading>
+            {{ classes[c].name }}: <i>{{ classOptions[uncertainty.classes[c]].name }}</i>
+          </template>
+          <template #default>
+            <p>{{ classes[c].description }}</p>
+          </template>
+        </CategoryComponent>
+      </div>
+    </ContainerComponent>
+  </main>
+</template>
+
+<script setup lang="ts">
+import CategoryComponent from '@/components/CategoryComponent.vue'
+import ContainerComponent from '@/components/ContainerComponent.vue'
+import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
+import type { PropType } from 'vue'
+import { classesValues, classes } from '@/model/classes/Class'
+import { classOptions } from '@/model/classes/options/ClassOption'
+import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
+
+defineProps({
+  uncertainty: {
+    type: Object as PropType<Uncertainty>,
+    required: true
+  }
+})
+</script>

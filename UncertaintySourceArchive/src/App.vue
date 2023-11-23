@@ -1,11 +1,12 @@
 <template>
-  <div class="flex h-screen bg-gradient-to-br from-[#7790A7] to-[#3D567D] p-5">
-    <div class="box-border grow overflow-auto rounded-lg bg-white p-2 shadow">
+  <div class="flex h-screen bg-gradient-to-br from-primary to-primary-dark p-5">
+    <ContainerComponent class="box-border grow overflow-auto bg-white p-5">
       <RouterView class="" />
-    </div>
+    </ContainerComponent>
   </div>
 </template>
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import ContainerComponent from './components/ContainerComponent.vue'
 </script>

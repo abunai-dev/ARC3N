@@ -1,3 +1,24 @@
 {
-  "uncertainties": []
+  "uncertainties": [
+    {
+      "name": "Are SQL Injections performed?",
+      "id": 1,
+      "description": "Pertains to the uncertaintyy concerning the potential occurrence of SQL injections within the system's usage behavior.",
+      "classes": {
+        "Location": "Structure",
+        "ArchitecturalElementType": "Component",
+        "Type": "Scenario",
+        "Managability": "Fully",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
+      "keywords": [],
+      "children": [],
+      "relatedUncertainties": [],
+      "exampleText": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Due to the fact, that the company sends the data via SQL injections, depending on how the database service is handling the injections, it might be vulnerable to disclosure of data through SQL injection attacks.",
+      "exampleImages": []
+    }
+  ]
 }

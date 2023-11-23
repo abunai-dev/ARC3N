@@ -7,8 +7,8 @@ import { BaseUncertaintyIssueParser } from './parser/BaseUncertaintyIssueParser'
  */
 export class IssueResourceGetter extends ResourceGetter {
   private static readonly BASE_URL = 'https://api.github.com'
-  private static readonly OWNER = 'abunai-dev'
-  private static readonly REPO = 'UncertaintySourceArchive'
+  public static readonly OWNER = 'abunai-dev'
+  public static readonly REPO = 'UncertaintySourceArchive'
   private static readonly ISSUES_PER_SITE = 100
   private static readonly ISSUE_LABEL = 'Verified'
 
