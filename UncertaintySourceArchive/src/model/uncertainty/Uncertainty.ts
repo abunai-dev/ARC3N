@@ -1,4 +1,4 @@
-import type { ClassOption } from '../classes/options/ClassOption'
+import type { ClassOptionEnumType } from '../classes/options/ClassOption'
 
 /**
  * Basic information about an uncertainty
@@ -6,7 +6,8 @@ import type { ClassOption } from '../classes/options/ClassOption'
 export interface BaseUncertainty {
   id: number
   name: string
-  classes: Record<string, ClassOption>
+  classes: Record<string, ClassOptionEnumType>
+  keywords: string[]
 }
 
 /**
@@ -20,4 +21,3 @@ export interface Uncertainty extends BaseUncertainty {
   children: BaseUncertainty[]
   parent?: BaseUncertainty
 }
-

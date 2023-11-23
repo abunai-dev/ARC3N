@@ -1,4 +1,5 @@
 import type { ClassOption } from './ClassOption'
+import TypeClassStaticData from './TypeStaticData.json'
 
 /**
  * List of all options of the Type Class
@@ -12,4 +13,4 @@ export enum TypeClassOptions {
 /**
  * Map of all options of the Type Class
  */
-export const typeClassOptions = {} as Record<TypeClassOptions, ClassOption>
+export const typeClassOptions = TypeClassStaticData as Record<TypeClassOptions, ClassOption>

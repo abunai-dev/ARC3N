@@ -1,18 +1,18 @@
 {
   "Requirements": {
-    "name": "Requirements Time",
+    "name": "Requirements",
     "description": "",
     "example": "",
     "exampleImages": []
   },
   "Design": {
-    "name": "Design Time",
+    "name": "Design",
     "description": "",
     "example": "",
     "exampleImages": []
   },
   "Realization": {
-    "name": "Realization Time",
+    "name": "Realization",
     "description": "",
     "example": "",
     "exampleImages": []

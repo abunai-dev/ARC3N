@@ -1,49 +1,49 @@
 {
   "Location": {
     "name": "Location",
-    "description": "",
+    "description": "Describes where an uncertainty manifests itself within the architecture.",
     "exampleText": "",
     "exampleImages": []
   },
-  "Architectural Element Type": {
+  "ArchitecturalElementType": {
     "name": "Architectural Element Type",
-    "description": "",
+    "description": "Elements to which an uncertainty can be assigned.",
     "exampleText": "",
     "exampleImages": []
   },
   "Type": {
     "name": "Type",
-    "description": "",
+    "description": "How much is known about the uncertainty and how can it be described.",
     "exampleText": "",
     "exampleImages": []
   },
   "Managability": {
     "name": "Managability",
-    "description": "",
+    "description": "Can more knowledge or appropriate means reduce the uncertainty.",
     "exampleText": "",
     "exampleImages": []
   },
-  "Resolution Time": {
+  "ResolutionTime": {
     "name": "Resolution Time",
-    "description": "",
+    "description": "Time at which the uncertainty is expected to be fully resolved.",
     "exampleText": "",
     "exampleImages": []
   },
-  "Reducible by ADD": {
+  "ReducibleByADD": {
     "name": "Reducible by ADD",
-    "description": "",
+    "description": "Uncertainty resolvable by an architectural design decision.",
     "exampleText": "",
     "exampleImages": []
   },
-  "Impact on Confidentiality": {
+  "ImpactOnConfidentiality": {
     "name": "Impact on Confidentiality",
-    "description": "",
+    "description": "Potential impact on confidentiality requirements.",
     "exampleText": "",
     "exampleImages": []
   },
-  "Severity of the Impact": {
+  "SeverityOfTheImpact": {
     "name": "Severity of the Impact",
-    "description": "",
+    "description": "Describes the severity if uncertainty is not mitigated.",
     "exampleText": "",
     "exampleImages": []
   }

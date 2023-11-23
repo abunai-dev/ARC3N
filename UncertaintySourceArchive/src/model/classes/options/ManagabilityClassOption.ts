@@ -1,4 +1,5 @@
 import type { ClassOption } from './ClassOption'
+import ManagabilityClassStaticData from './ManagabilityStaticData.json'
 
 /**
  * List of all options of the Managability Class
@@ -12,4 +13,7 @@ export enum ManagabilityClassOptions {
 /**
  * Map of all options of the Managability Class
  */
-export const managabilityClassOptions = {} as Record<ManagabilityClassOptions, ClassOption>
+export const managabilityClassOptions = ManagabilityClassStaticData as Record<
+  ManagabilityClassOptions,
+  ClassOption
+>

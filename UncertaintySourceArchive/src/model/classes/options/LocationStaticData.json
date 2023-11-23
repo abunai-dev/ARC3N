@@ -1,24 +1,24 @@
 {
   "Structure": {
-    "name": "System Structure",
+    "name": "Structure",
     "description": "",
     "example": "",
     "exampleImages": []
   },
   "Behavior": {
-    "name": "System Behavior",
+    "name": "Behavior",
     "description": "",
     "example": "",
     "exampleImages": []
   },
   "Environment": {
-    "name": "System Environment",
+    "name": "Environment",
     "description": "",
     "example": "",
     "exampleImages": []
   },
   "Input": {
-    "name": "System Input",
+    "name": "Input",
     "description": "",
     "example": "",
     "exampleImages": []

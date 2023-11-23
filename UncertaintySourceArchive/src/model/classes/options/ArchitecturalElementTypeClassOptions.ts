@@ -1,4 +1,5 @@
 import type { ClassOption } from './ClassOption'
+import ArchitecturalElementTypeStaticData from './ArchitecturalElementTypeStaticData.json'
 
 /**
  * List of all options of the Architectural Element Type Class
@@ -14,7 +15,7 @@ export enum ArchitecturalElementTypeClassOptions {
 /**
  * Map of all options of the Architectural Element Type Class
  */
-export const architecturalElementTypeClassOptions = {} as Record<
+export const architecturalElementTypeClassOptions = ArchitecturalElementTypeStaticData as Record<
   ArchitecturalElementTypeClassOptions,
   ClassOption
 >

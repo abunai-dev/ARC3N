@@ -29,20 +29,30 @@ export interface Class<T> extends StaticClass {
  */
 export enum Classes {
   LOCATION = 'Location',
-  ARCHITECTURAL_ELEMENT_TYPE = 'Architectural Element Type',
+  ARCHITECTURAL_ELEMENT_TYPE = 'ArchitecturalElementType',
   TYPE = 'Type',
   MANAGABILITY = 'Managability',
-  RESOLUTION_TIME = 'Resolution Time',
-  REDUCIBLE_BY_ADD = 'Reducible by ADD',
-  IMPACT_ON_CONFIDENTIALITY = 'Impact on Confidentiality',
-  SEVERITY_OF_IMPACT = 'Severity of the Impact'
+  RESOLUTION_TIME = 'ResolutionTime',
+  REDUCIBLE_BY_ADD = 'ReducibleByADD',
+  IMPACT_ON_CONFIDENTIALITY = 'ImpactOnConfidentiality',
+  SEVERITY_OF_IMPACT = 'SeverityOfTheImpact'
 }
+
+export const classesValues = [
+  Classes.LOCATION,
+  Classes.ARCHITECTURAL_ELEMENT_TYPE,
+  Classes.TYPE,
+  Classes.MANAGABILITY,
+  Classes.RESOLUTION_TIME,
+  Classes.REDUCIBLE_BY_ADD,
+  Classes.IMPACT_ON_CONFIDENTIALITY,
+  Classes.SEVERITY_OF_IMPACT
+]
 
 /**
  * Map of all classes of the classification
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const classes = {
+export const classes = {
   [Classes.LOCATION]: {
     ...StaticClassData[Classes.LOCATION],
     options: [
