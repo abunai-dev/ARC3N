@@ -47,7 +47,20 @@
             {{ classes[c].name }}: <i>{{ classOptions[uncertainty.classes[c]].name }}</i>
           </template>
           <template #default>
-            <p>{{ classes[c].description }}</p>
+            <div class="space-y-2">
+              <p>{{ classes[c].description }}</p>
+              <div>
+                <RouterLink
+                  :to="{
+                    name: 'class',
+                    params: { category: c }
+                  }"
+                  class="mt-5 rounded border border-black border-opacity-10 bg-primary-dark p-1 text-white"
+                >
+                  More Info
+                </RouterLink>
+              </div>
+            </div>
           </template>
         </CategoryComponent>
       </div>
