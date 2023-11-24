@@ -1,26 +1,26 @@
 {
   "Structure": {
     "name": "Structure",
-    "description": "",
-    "exampleText": "",
+    "description": "Structure",
+    "exampleText": "Components and their static wiring, assembly, and allocation",
     "exampleImages": []
   },
   "Behavior": {
     "name": "Behavior",
-    "description": "",
-    "exampleText": "",
+    "description": "Behaviour of the system and its components as well as their communication.",
+    "exampleText": "The handling of sensitive data within a component.",
     "exampleImages": []
   },
   "Environment": {
     "name": "Environment",
-    "description": "",
-    "exampleText": "",
+    "description": "System's context, including hardware resources and the external situation.",
+    "exampleText": "The physical location of a database.",
     "exampleImages": []
   },
   "Input": {
     "name": "Input",
-    "description": "",
-    "exampleText": "",
+    "description": "Inputs provided by external actors.",
+    "exampleText": "People using the software",
     "exampleImages": []
   }
 }
