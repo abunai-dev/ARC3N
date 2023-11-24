@@ -1,3 +1,4 @@
+import type { Classes } from '../classes/Class'
 import type { ClassOptionEnumType } from '../classes/options/ClassOption'
 
 /**
@@ -6,7 +7,7 @@ import type { ClassOptionEnumType } from '../classes/options/ClassOption'
 export interface BaseUncertainty {
   id: number
   name: string
-  classes: Record<string, ClassOptionEnumType>
+  classes: Record<Classes, ClassOptionEnumType>
   keywords: string[]
 }
 
