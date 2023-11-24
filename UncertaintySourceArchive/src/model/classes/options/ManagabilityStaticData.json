@@ -2,19 +2,19 @@
   "Fully": {
     "name": "Fully",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Partially": {
     "name": "Partially",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Irriducible": {
     "name": "Irriducible",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

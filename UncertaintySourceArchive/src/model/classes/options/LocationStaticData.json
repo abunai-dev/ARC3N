@@ -2,25 +2,25 @@
   "Structure": {
     "name": "Structure",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Behavior": {
     "name": "Behavior",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Environment": {
     "name": "Environment",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Input": {
     "name": "Input",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

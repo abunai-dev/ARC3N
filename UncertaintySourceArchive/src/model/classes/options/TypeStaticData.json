@@ -2,19 +2,19 @@
   "Statistical": {
     "name": "Statistical",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Scenario": {
     "name": "Scenario",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Recognized": {
     "name": "Recognized",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

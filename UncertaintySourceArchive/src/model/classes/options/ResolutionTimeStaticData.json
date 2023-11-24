@@ -2,25 +2,25 @@
   "Requirements": {
     "name": "Requirements",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Design": {
     "name": "Design",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Realization": {
     "name": "Realization",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Runtime": {
     "name": "Runtime",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

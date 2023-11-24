@@ -2,31 +2,31 @@
   "Component": {
     "name": "Component",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Connector": {
     "name": "Connector",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Interface": {
     "name": "Interface",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "External": {
     "name": "External Resource",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Behaviour": {
     "name": "Behaviour Description",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

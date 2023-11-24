@@ -2,13 +2,13 @@
   "Yes": {
     "name": "Yes",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "No": {
     "name": "No",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

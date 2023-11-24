@@ -2,19 +2,19 @@
   "Direct": {
     "name": "Direct",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Indirect": {
     "name": "Indirect",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "None": {
     "name": "None",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   }
 }

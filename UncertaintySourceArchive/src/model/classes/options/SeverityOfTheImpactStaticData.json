@@ -2,19 +2,19 @@
   "High": {
     "name": "High",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "Low": {
     "name": "Low",
     "description": "",
-    "example": "",
+    "exampleText": "",
     "exampleImages": []
   },
   "None": {
     "name": "None",
     "description": "",
     "example": "",
-    "exampleImages": []
+    "exampleText": []
   }
 }

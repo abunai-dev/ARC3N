@@ -28,7 +28,7 @@ import { typeClassOptions, type TypeClassOptions } from './TypeClassOptions'
 export interface ClassOption {
   name: string
   description: string
-  example: string
+  exampleText: string
   /** need to be insertable into the src of an img html tag */
   exampleImages: string[]
 }
