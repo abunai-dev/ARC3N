@@ -7,18 +7,8 @@
     <div
       class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-5 md:row-start-2 md:overflow-auto"
     >
-      <CategoryComponent heading="Example">
-        <div class="space-y-2">
-          <p>{{ uncertainty.exampleText }}</p>
-          <img
-            v-for="img in uncertainty.exampleImages"
-            :key="img"
-            :src="img"
-            alt="Example image"
-            class="max-h-24 max-w-full"
-          />
-        </div>
-      </CategoryComponent>
+      <ExampleDisplay :example="uncertainty" />
+
       <CategoryComponent
         heading="Related Uncertainties"
         v-if="
@@ -28,7 +18,7 @@
           true
         "
       >
-        <!-- Image incoming -->
+        <UncertaintyRelationshipDiagramm :uncertainty="uncertainty" />
       </CategoryComponent>
       <div class="mx-auto w-fit">
         <a
@@ -73,6 +63,8 @@ import type { PropType } from 'vue'
 import { classesValues, classes } from '@/model/classes/Class'
 import { classOptions } from '@/model/classes/options/ClassOption'
 import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
+import UncertaintyRelationshipDiagramm from '@/components/UncertaintyRelationshipDiagramm.vue'
+import ExampleDisplay from '@/components/ExampleDisplay.vue'
 
 defineProps({
   uncertainty: {
