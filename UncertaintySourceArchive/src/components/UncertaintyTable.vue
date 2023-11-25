@@ -1,4 +1,4 @@
-<template>Incoming</template>
+<template>Table Incoming</template>
 
 <script setup lang="ts">
 import type { Uncertainty } from '@/model/uncertainty/Uncertainty'

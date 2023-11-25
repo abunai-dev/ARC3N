@@ -30,8 +30,7 @@ const idList = computed(() => {
   return idList
 })
 
-console.log(idList.value)
-const diagrammClassesMermaidNotatio = computed(() =>
+const diagrammClassesMermaidNotation = computed(() =>
   idList.value
     .map((uncertainty) => {
       return `${uncertainty.id}[${uncertainty.name}]`
@@ -39,14 +38,14 @@ const diagrammClassesMermaidNotatio = computed(() =>
     .join('\n')
 )
 
-const parentRelationshipMermaidNotatio = computed(() => {
+const parentRelationshipMermaidNotation = computed(() => {
   if (props.uncertainty.parent) {
     return `${props.uncertainty.id} ${PARENT_ARROW} ${props.uncertainty.parent.id}`
   }
   return ''
 })
 
-const relatedRelationshipsMermaidNotatio = computed(() => {
+const relatedRelationshipsMermaidNotation = computed(() => {
   return props.uncertainty.relatedUncertainties
     .map((relatedUncertainty) => {
       return `${props.uncertainty.id} ${RELATED_ARROW} ${relatedUncertainty.id}`
@@ -63,9 +62,9 @@ const childrenRelationshipsMermaidNotation = computed(() => {
 })
 
 const mermaidCode = `flowchart BT
-  ${diagrammClassesMermaidNotatio.value}
-  ${parentRelationshipMermaidNotatio.value}
-  ${relatedRelationshipsMermaidNotatio.value}
+  ${diagrammClassesMermaidNotation.value}
+  ${parentRelationshipMermaidNotation.value}
+  ${relatedRelationshipsMermaidNotation.value}
   ${childrenRelationshipsMermaidNotation.value}
   style ${props.uncertainty.id} stroke-width:4px
 `
