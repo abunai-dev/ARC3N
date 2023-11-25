@@ -30,9 +30,8 @@
             '/issues/' +
             uncertainty.id
           "
-          class="box-border items-center rounded border border-black border-opacity-10 bg-primary-dark p-1 text-white"
         >
-          Go to discussion
+          <ButtonComponent>Go to discussion</ButtonComponent>
         </a>
       </div>
     </div>
@@ -55,9 +54,8 @@
                     name: 'class',
                     params: { category: c }
                   }"
-                  class="mt-5 rounded border border-black border-opacity-10 bg-primary-dark p-1 text-white"
                 >
-                  More Info
+                  <ButtonComponent>More Info</ButtonComponent>
                 </RouterLink>
               </div>
             </div>
@@ -78,6 +76,7 @@ import { classOptions } from '@/model/classes/options/ClassOption'
 import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 import UncertaintyRelationshipDiagramm from '@/components/UncertaintyRelationshipDiagramm.vue'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
+import ButtonComponent from '@/components/ButtonComponent.vue'
 
 defineProps({
   uncertainty: {
