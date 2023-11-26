@@ -1,5 +1,5 @@
-import type { Classes } from '../classes/Class'
-import type { ClassOptionEnumType } from '../classes/options/ClassOption'
+import type { CategoryList } from '../categories/Category'
+import type { CategoryOptionList } from '../categories/options/CategoryOption'
 
 /**
  * Basic information about an uncertainty
@@ -7,7 +7,7 @@ import type { ClassOptionEnumType } from '../classes/options/ClassOption'
 export interface BaseUncertainty {
   id: number
   name: string
-  classes: Record<Classes, ClassOptionEnumType>
+  classes: Record<CategoryList, CategoryOptionList>
   keywords: string[]
 }
 

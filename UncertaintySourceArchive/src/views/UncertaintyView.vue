@@ -41,13 +41,13 @@
     >
       <h2 class="text-2xl">Classification:</h2>
       <div class="mt-2 space-y-5">
-        <CategoryComponent v-for="c in classesValues" :key="c">
+        <CategoryComponent v-for="c in categoryOrder" :key="c">
           <template #heading>
-            {{ classes[c].name }}: <i>{{ classOptions[uncertainty.classes[c]].name }}</i>
+            {{ categories[c].name }}: <i>{{ categoryOptions[uncertainty.classes[c]].name }}</i>
           </template>
           <template #default>
             <div class="space-y-2">
-              <p>{{ classes[c].description }}</p>
+              <p>{{ categories[c].description }}</p>
               <div>
                 <RouterLink
                   :to="{
@@ -71,8 +71,8 @@ import CategoryComponent from '@/components/CategoryComponent.vue'
 import ContainerComponent from '@/components/ContainerComponent.vue'
 import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
 import type { PropType } from 'vue'
-import { classesValues, classes } from '@/model/classes/Class'
-import { classOptions } from '@/model/classes/options/ClassOption'
+import { categoryOrder, categories } from '@/model/categories/Category'
+import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 import UncertaintyRelationshipDiagramm from '@/components/UncertaintyRelationshipDiagramm.vue'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'

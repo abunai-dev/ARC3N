@@ -44,11 +44,11 @@
 
         <section class="space-y-2">
           <FormInputComponent
-            v-for="c in classesValues"
+            v-for="c in categoryOrder"
             :key="c"
             :id="c"
-            :label="classes[c].name"
-            :placeholder="`Enter ${classes[c].name}`"
+            :label="categories[c].name"
+            :placeholder="`Enter ${categories[c].name}`"
             inputType="custom"
           >
             <select
@@ -58,8 +58,8 @@
               class="h-8 w-full rounded border border-black border-opacity-50 bg-transparent outline-none placeholder:text-gray-400 md:w-96"
             >
               <option :value="null">Select an option</option>
-              <option v-for="o in classes[c].options" :key="o" :value="o">
-                {{ classOptions[o].name }}
+              <option v-for="o in categories[c].options" :key="o" :value="o">
+                {{ categoryOptions[o].name }}
               </option>
             </select>
           </FormInputComponent>
@@ -110,8 +110,8 @@
 
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import { classesValues, classes, Classes } from '@/model/classes/Class'
-import { classOptions, type ClassOptionEnumType } from '@/model/classes/options/ClassOption'
+import { categoryOrder, categories, CategoryList } from '@/model/categories/Category'
+import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
 import type { BaseUncertainty, Uncertainty } from '@/model/uncertainty/Uncertainty'
 import { computed, ref, type PropType, type Ref } from 'vue'
 import FormInputComponent from '@/components/FormInputComponent.vue'
@@ -135,14 +135,14 @@ const uncertainty: Ref<Uncertainty> = ref({
   exampleImages: [],
   children: [],
   relatedUncertainties: [],
-  classes: {} as Record<Classes, ClassOptionEnumType>
+  classes: {} as Record<CategoryList, CategoryOptionList>
 })
 
 const allowSubmit = computed(() => {
   return (
     uncertainty.value.name.length > 0 &&
     uncertainty.value.description.length > 0 &&
-    Object.values(uncertainty.value.classes).length === classesValues.length &&
+    Object.values(uncertainty.value.classes).length === categoryOrder.length &&
     Object.values(uncertainty.value.classes).every((v) => v !== null)
   )
 })
@@ -151,7 +151,7 @@ function updateKeywordField(value: string[]) {
   uncertainty.value.keywords = value
 }
 
-function updateClassField(c: Classes, value: ClassOptionEnumType | null) {
+function updateClassField(c: CategoryList, value: CategoryOptionList | null) {
   console.log(value)
   if (value == null || (value as string) == 'null') {
     delete uncertainty.value.classes[c]
@@ -194,3 +194,4 @@ function submitUncertainty() {
   window.open(encodeURI(url), '_blank')?.focus()
 }
 </script>
+@/model/classes/Category@/model/classes/options/CategoryOption

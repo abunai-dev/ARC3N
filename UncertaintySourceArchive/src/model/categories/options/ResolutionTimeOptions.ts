@@ -1,10 +1,10 @@
-import type { ClassOption } from './ClassOption'
+import type { CategoryOption } from './CategoryOption'
 import ResolutionTimeStaticData from './ResolutionTimeStaticData.json'
 
 /**
  * List of all options of the Resolution Time Class
  */
-export enum ResolutionTimeClassOptions {
+export enum ResolutionTimeOptionList {
   REQUIREMENTS_TIME = 'Requirements',
   DESIGN_TIME = 'Design',
   REALITAION_TIME = 'Realization',
@@ -14,7 +14,7 @@ export enum ResolutionTimeClassOptions {
 /**
  * Map of all options of the Resolution Time Class
  */
-export const resolutionTimeClassOptions = ResolutionTimeStaticData as Record<
-  ResolutionTimeClassOptions,
-  ClassOption
+export const resolutionTimeOptions = ResolutionTimeStaticData as Record<
+  ResolutionTimeOptionList,
+  CategoryOption
 >

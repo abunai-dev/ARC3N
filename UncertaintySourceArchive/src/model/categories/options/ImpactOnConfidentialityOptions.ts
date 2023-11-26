@@ -1,10 +1,10 @@
-import type { ClassOption } from './ClassOption'
+import type { CategoryOption } from './CategoryOption'
 import ImpactOnConfidentialityStaticData from './ImpactOnConfidentialityStaticData.json'
 
 /**
  * List of all options of the Impact on Confidentiality Class
  */
-export enum ImpactOnConfidentialityClassOptions {
+export enum ImpactOnConfidentialityOptionList {
   DIRECT = 'Direct',
   INDIRECT = 'Indirect',
   NONE = 'None'
@@ -13,7 +13,7 @@ export enum ImpactOnConfidentialityClassOptions {
 /**
  * Map of all options of the Impact on Confidentiality Class
  */
-export const impactOnConfidentialityClassOptions = ImpactOnConfidentialityStaticData as Record<
-  ImpactOnConfidentialityClassOptions,
-  ClassOption
+export const impactOnConfidentialityOptions = ImpactOnConfidentialityStaticData as Record<
+  ImpactOnConfidentialityOptionList,
+  CategoryOption
 >

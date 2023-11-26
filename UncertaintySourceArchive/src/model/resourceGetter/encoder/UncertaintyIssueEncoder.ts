@@ -1,8 +1,8 @@
 import type { Uncertainty, BaseUncertainty } from '@/model/uncertainty/Uncertainty'
 import { AbstractEncoder } from './AbstractEncoder'
 import { BaseUncertaintyJsonEncoder } from './BaseUncertaintyJsonEncoder'
-import { classesValues, type Classes, classes } from '@/model/classes/Class'
-import { classOptions, type ClassOptionEnumType } from '@/model/classes/options/ClassOption'
+import { categoryOrder, type CategoryList, categories } from '../../categories/Category'
+import { categoryOptions, type CategoryOptionList } from '../../categories/options/CategoryOption'
 
 export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly BASE_UNCERTAINTY_ID = 8672
@@ -37,10 +37,10 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     return `<h2>Description</h2>\n<!-- ${UncertaintyIssueEncoder.DESCRIPTION_ID}= -->\n ${description}\n <!-- =${UncertaintyIssueEncoder.DESCRIPTION_ID} -->`
   }
 
-  private formatClassifications(classifications: Record<Classes, ClassOptionEnumType>): string {
+  private formatClassifications(classifications: Record<CategoryList, CategoryOptionList>): string {
     let result = '<h2>Classifications</h2>\n'
-    result += classesValues
-      .map((c) => `${classes[c].name}: ${classOptions[classifications[c]].name}`)
+    result += categoryOrder
+      .map((c) => `${categories[c].name}: ${categoryOptions[classifications[c]].name}`)
       .join('\n')
     return result
   }

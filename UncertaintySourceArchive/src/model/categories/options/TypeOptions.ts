@@ -1,10 +1,10 @@
-import type { ClassOption } from './ClassOption'
+import type { CategoryOption } from './CategoryOption'
 import TypeClassStaticData from './TypeStaticData.json'
 
 /**
  * List of all options of the Type Class
  */
-export enum TypeClassOptions {
+export enum TypeOptionList {
   STATISTICAL_UNCERTAINTY = 'Statistical',
   SCENARIO_UNCERTAINTY = 'Scenario',
   RECOGNIZED_UNCERTAINTY = 'Recognized'
@@ -13,4 +13,4 @@ export enum TypeClassOptions {
 /**
  * Map of all options of the Type Class
  */
-export const typeClassOptions = TypeClassStaticData as Record<TypeClassOptions, ClassOption>
+export const typeOptions = TypeClassStaticData as Record<TypeOptionList, CategoryOption>

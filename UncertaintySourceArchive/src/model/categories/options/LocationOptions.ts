@@ -1,10 +1,10 @@
-import type { ClassOption } from './ClassOption'
+import type { CategoryOption } from './CategoryOption'
 import LocationStaticData from './LocationStaticData.json'
 
 /**
  * List of all options of the Location Class
  */
-export enum LocationClassOptions {
+export enum LocationOptionList {
   STRUCTURE = 'Structure',
   BEHAVIOR = 'Behavior',
   ENVIRONMENT = 'Environment',
@@ -14,4 +14,4 @@ export enum LocationClassOptions {
 /**
  * Map of all options of the Location Class
  */
-export const locationClassOptions = LocationStaticData as Record<LocationClassOptions, ClassOption>
+export const locationOptions = LocationStaticData as Record<LocationOptionList, CategoryOption>

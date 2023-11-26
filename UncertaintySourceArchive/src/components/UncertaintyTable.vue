@@ -4,8 +4,8 @@
 import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
 import { ref, type PropType, type Ref, computed } from 'vue'
 import type { Filter, Sorting, Columns } from '@/model/ui/Table'
-import { classesValues, Classes, classes } from '@/model/classes/Class'
-import { classOptions, type ClassOptionEnumType } from '@/model/classes/options/ClassOption'
+import { categoryOrder, CategoryList, categories } from '@/model/categories/Category'
+import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
 
 const props = defineProps({
   searchString: {
@@ -35,14 +35,14 @@ const props = defineProps({
     required: false,
     default: () => {
       return [
-        Classes.ARCHITECTURAL_ELEMENT_TYPE,
-        Classes.IMPACT_ON_CONFIDENTIALITY,
-        Classes.LOCATION,
-        Classes.MANAGABILITY,
-        Classes.REDUCIBLE_BY_ADD,
-        Classes.RESOLUTION_TIME,
-        Classes.SEVERITY_OF_IMPACT,
-        Classes.TYPE,
+        CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
+        CategoryList.IMPACT_ON_CONFIDENTIALITY,
+        CategoryList.LOCATION,
+        CategoryList.MANAGABILITY,
+        CategoryList.REDUCIBLE_BY_ADD,
+        CategoryList.RESOLUTION_TIME,
+        CategoryList.SEVERITY_OF_IMPACT,
+        CategoryList.TYPE,
         'name',
         'id',
         'keywords'
@@ -66,7 +66,7 @@ const filteredUncertainties = computed(() => {
  * @param uncertainty Uncertainty to check
  */
 function matchesFilter(uncertainty: Uncertainty): boolean {
-  return classesValues.every((c: Classes) => {
+  return categoryOrder.every((c: CategoryList) => {
     const f = props.filter[c]
     return f == undefined || f.length == 0 || f.includes(uncertainty.classes[c])
   })
@@ -97,8 +97,8 @@ function matchesSearchString(uncertainty: Uncertainty): boolean {
         return true
       }
     }
-    for (let c of classesValues) {
-      if (classOptions[uncertainty.classes[c]].name.toLowerCase().includes(part)) {
+    for (let c of categoryOrder) {
+      if (categoryOptions[uncertainty.classes[c]].name.toLowerCase().includes(part)) {
         return true
       }
     }
@@ -131,10 +131,10 @@ function uncertaintyComparator(a: Uncertainty, b: Uncertainty): number {
     }
     return sortingDirection.value * (aKeywords.length - bKeywords.length)
   } else {
-    const indexA = (classes[props.sorting.field].options as ClassOptionEnumType[]).indexOf(
+    const indexA = (categories[props.sorting.field].options as CategoryOptionList[]).indexOf(
       a.classes[props.sorting.field]
     )
-    const indexB = (classes[props.sorting.field].options as ClassOptionEnumType[]).indexOf(
+    const indexB = (categories[props.sorting.field].options as CategoryOptionList[]).indexOf(
       b.classes[props.sorting.field]
     )
 

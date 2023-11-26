@@ -32,15 +32,11 @@ import FilterSelector from '@/components/FilterSelector.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import type { Filter } from '@/model/ui/Table'
 import { ref, watch } from 'vue'
-import { Classes } from '@/model/classes/Class'
-import { LocationClassOptions } from '@/model/classes/options/LocationClassOptions'
 
 library.add(faSearch)
 library.add(faPlus)
 
-const filter = ref({
-  [Classes.LOCATION]: [LocationClassOptions.INPUT]
-} as Filter)
+const filter = ref({} as Filter)
 
 watch(filter, (value) => {
   console.log(value)

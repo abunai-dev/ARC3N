@@ -15,11 +15,11 @@
         <CategoryComponent
           v-for="option in categoryObject.options"
           :key="option"
-          :heading="classOptions[option].name"
+          :heading="categoryOptions[option].name"
         >
           <div space-y-2>
-            <p>{{ classOptions[option].description }}</p>
-            <ExampleDisplay :example="classOptions[option]" />
+            <p>{{ categoryOptions[option].description }}</p>
+            <ExampleDisplay :example="categoryOptions[option]" />
             <UncertaintyTable :filter="{ category: [option] } as Filter" />
           </div>
         </CategoryComponent>
@@ -31,21 +31,21 @@
 </template>
 
 <script setup lang="ts">
-import { type Classes, classes } from '@/model/classes/Class'
+import { type CategoryList, categories } from '@/model/categories/Category'
 import ContainerComponent from '@/components/ContainerComponent.vue'
 import CategoryComponent from '@/components/CategoryComponent.vue'
 import { computed, type PropType } from 'vue'
-import { classOptions } from '@/model/classes/options/ClassOption'
+import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
 import type { Filter } from '@/model/ui/Table'
 
 const props = defineProps({
   category: {
-    type: String as PropType<Classes>,
+    type: String as PropType<CategoryList>,
     required: true
   }
 })
 
-const categoryObject = computed(() => classes[props.category])
+const categoryObject = computed(() => categories[props.category])
 </script>
