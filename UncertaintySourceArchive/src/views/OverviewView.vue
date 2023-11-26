@@ -14,10 +14,12 @@
           class="h-8 grow rounded bg-transparent outline-none placeholder:text-gray-400"
         />
       </div>
-      <ButtonComponent class="flex items-center space-x-1">
-        <FontAwesomeIcon icon="plus" />
-        <div>Add New</div>
-      </ButtonComponent>
+      <RouterLink to="/create">
+        <ButtonComponent class="flex items-center space-x-1">
+          <FontAwesomeIcon icon="plus" />
+          <div>Add New</div>
+        </ButtonComponent>
+      </RouterLink>
     </div>
     <UncertaintyTable />
   </main>

@@ -12,6 +12,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly PARENT_ID = 8570
   public static readonly CHILD_ID = 1324
   public static readonly RELATED_ID = 8623
+  public static readonly KEYWORD_ID = 1835
   private static readonly BASE_COMMENT =
     '<!-- Please do not change any content except where comments explizitly allow you too -->'
 
@@ -20,8 +21,10 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
       data as BaseUncertainty
     )}\n<h1>${data.name}</h1>\n${this.formatDescription(
       data.description
-    )}\n\n---\n${this.formatClassifications(data.classes)}\n\n---\n${this.formatExample(
+    )}\n${this.formatClassifications(data.classes)}\n${this.formatExample(
       data.exampleText
+    )}\n${this.formatKeywords(
+      data.keywords
     )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}\n`
   }
 
@@ -38,11 +41,22 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   }
 
   private formatClassifications(classifications: Record<CategoryList, CategoryOptionList>): string {
-    let result = '<h2>Classifications</h2>\n'
+    let result = '<h2>Classifications</h2>\n\n'
+    result += '| Category | Option |\n|--|--|\n'
     result += categoryOrder
-      .map((c) => `${categories[c].name}: ${categoryOptions[classifications[c]].name}`)
+      .map((category) => {
+        return `| ${categories[category].name} | ${
+          categoryOptions[classifications[category]].name
+        } |`
+      })
       .join('\n')
     return result
+  }
+
+  private formatKeywords(keywords: string[]): string {
+    return `<h2>Keywords</h2>\n<!-- ${UncertaintyIssueEncoder.KEYWORD_ID}= -->\n${keywords.join(
+      ', '
+    )}\n<!-- =${UncertaintyIssueEncoder.KEYWORD_ID} -->`
   }
 
   private formatExample(example: string): string {
@@ -65,21 +79,21 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     ) {
       return ''
     }
-    let result = '\n\n---\n<h2>Related Uncertainties</h2>\n'
+    let result = '<h2>Related Uncertainties</h2>\n'
     if (uncertainty.parent) {
       result += `<h3>Parent:</h3>\n<!-- ${UncertaintyIssueEncoder.PARENT_ID}= -->#${uncertainty.parent.id}<!-- =${UncertaintyIssueEncoder.PARENT_ID} -->\n`
     }
     if (uncertainty.children.length > 0) {
       result += `<h3>Children:</h3>\n<!-- ${
         UncertaintyIssueEncoder.CHILD_ID
-      }= -->\n ${uncertainty.children.map((c) => `#${c.id}`)}<!-- =${
+      }= -->\n ${uncertainty.children.map((c) => `#${c.id}`).join(', ')}<!-- =${
         UncertaintyIssueEncoder.CHILD_ID
       } -->\n`
     }
     if (uncertainty.relatedUncertainties.length > 0) {
       result += `<h3>Related Uncertainties:</h3>\n<!-- ${
         UncertaintyIssueEncoder.RELATED_ID
-      }= -->\n${uncertainty.relatedUncertainties.map((c) => `#${c.id}`)}<!-- =${
+      }= -->\n${uncertainty.relatedUncertainties.map((c) => `#${c.id}`).join(', ')}<!-- =${
         UncertaintyIssueEncoder.RELATED_ID
       } -->`
     }

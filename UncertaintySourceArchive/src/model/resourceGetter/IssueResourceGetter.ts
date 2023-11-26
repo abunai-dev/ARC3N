@@ -10,7 +10,8 @@ export class IssueResourceGetter extends ResourceGetter {
   public static readonly OWNER = 'abunai-dev'
   public static readonly REPO = 'UncertaintySourceArchive'
   private static readonly ISSUES_PER_SITE = 30
-  private static readonly ISSUE_LABEL = 'Verified'
+  public static readonly ACCEPTED_ISSUE_LABEL = 'accepted'
+  public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
 
   public async getUncertaintyCount(): Promise<number> {
     let sum = 0
@@ -48,7 +49,7 @@ export class IssueResourceGetter extends ResourceGetter {
     return await fetch(
       `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${
         IssueResourceGetter.REPO
-      }/issues?labels=${IssueResourceGetter.ISSUE_LABEL}&state=open&per_page=${
+      }/issues?labels=${IssueResourceGetter.ACCEPTED_ISSUE_LABEL}&state=open&per_page=${
         perPage ?? IssueResourceGetter.ISSUES_PER_SITE
       }&page=${page}`
     ).then((response) => response.json())

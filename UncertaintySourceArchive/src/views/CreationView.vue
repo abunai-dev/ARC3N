@@ -190,8 +190,8 @@ function getUncertainties(value: string[]) {
 function submitUncertainty() {
   if (!allowSubmit.value) return
   const issueString = new UncertaintyIssueEncoder().encode(uncertainty.value)
-  const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=Uncertainty Proposal: ${uncertainty.value.name}&body=${issueString}`
-  window.open(encodeURI(url), '_blank')?.focus()
+  const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=Uncertainty Proposal: ${uncertainty.value.name}&body=${issueString}&labels=${IssueResourceGetter.PROPOSED_ISSUE_LABEL}`
+  window.open(encodeURI(url).replace(/#/g, '%23'), '_blank')?.focus()
 }
 </script>
 @/model/classes/Category@/model/classes/options/CategoryOption
