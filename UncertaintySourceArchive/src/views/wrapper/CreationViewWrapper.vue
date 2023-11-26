@@ -1,3 +1,4 @@
+<!-- Wrapper for the Creation View. It handles the asynchronous data getting -->
 <template>
   <p v-if="uncertainties == 'Not found'"></p>
   <p v-else-if="uncertainties == null">Loading...</p>

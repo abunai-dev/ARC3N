@@ -6,7 +6,9 @@ import { BaseUncertaintyIssueParser } from './BaseUncertaintyIssueParser'
  * Parses an issue body to get information about a uncertainty
  */
 export class UncertaintyIssueParser extends AbstractParser<Uncertainty> {
+  /** @inheritdoc */
   parse(data: string): Uncertainty {
+    // TODO: Implement
     return {
       ...new BaseUncertaintyIssueParser().parse(data),
       description: '',

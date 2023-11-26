@@ -1,9 +1,7 @@
 import type { CategoryOption } from './CategoryOption'
 import ResolutionTimeStaticData from './ResolutionTimeStaticData.json'
 
-/**
- * List of all options of the Resolution Time Class
- */
+/** List of all options of the Category Resolution Time */
 export enum ResolutionTimeOptionList {
   REQUIREMENTS_TIME = 'Requirements',
   DESIGN_TIME = 'Design',
@@ -11,9 +9,7 @@ export enum ResolutionTimeOptionList {
   RUNTIME = 'Runtime'
 }
 
-/**
- * Map of all options of the Resolution Time Class
- */
+/** Map with detailed information about all options of the Category Resolution Time */
 export const resolutionTimeOptions = ResolutionTimeStaticData as Record<
   ResolutionTimeOptionList,
   CategoryOption

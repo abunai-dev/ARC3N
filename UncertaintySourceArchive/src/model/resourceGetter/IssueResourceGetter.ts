@@ -13,6 +13,7 @@ export class IssueResourceGetter extends ResourceGetter {
   public static readonly ACCEPTED_ISSUE_LABEL = 'accepted'
   public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
 
+  /** @inheritdoc */
   public async getUncertaintyCount(): Promise<number> {
     let sum = 0
     let lastPage = 0
@@ -25,10 +26,12 @@ export class IssueResourceGetter extends ResourceGetter {
     return sum
   }
 
+  /** @inheritdoc */
   public getDefaultPerPageAmount(): number {
     return IssueResourceGetter.ISSUES_PER_SITE
   }
 
+  /** @inheritdoc */
   public async getList(page: number, perPage?: number): Promise<BaseUncertainty[]> {
     const issueIds = await this.getIssueList(page, perPage).then((data) =>
       data.map((issue: any) => issue.number)
@@ -40,6 +43,7 @@ export class IssueResourceGetter extends ResourceGetter {
     return issues.map((issue: any) => parser.parse(issue.body))
   }
 
+  /** @inheritdoc */
   public async getUncertainty(id: number): Promise<Uncertainty> {
     void id
     throw new Error('Method not implemented.')

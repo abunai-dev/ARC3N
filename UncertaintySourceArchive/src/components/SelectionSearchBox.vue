@@ -1,3 +1,4 @@
+<!-- Component for selecting (multiple) object (from a given list) -->
 <template>
   <div>
     <div
@@ -22,6 +23,7 @@
             selectedList.length < props.limit
         }"
       />
+      <!-- Suggestions -->
       <ContainerComponent
         class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-scroll bg-white !p-0"
         :class="showBelow ? 'top-[100%]' : 'bottom-[100%]'"
@@ -67,20 +69,24 @@ library.add(faShare)
 library.add(faCircleXmark)
 
 const props = defineProps({
+  /** List of options to use for suggestions */
   options: {
     type: Array as PropType<string[]>,
     required: true
   },
+  /** If false only allow options from the options list. Otherwise any value will be accepted */
   allowNewOption: {
     type: Boolean,
     required: false,
     default: false
   },
+  /** Limit of values to take */
   limit: {
     type: Number,
     required: false,
     default: Infinity
   },
+  /** Placeholder of the textbox */
   placeholder: {
     type: String,
     required: false,
@@ -88,11 +94,17 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['input'])
+const emit = defineEmits<{
+  /** v-model for the selected options */
+  (event: 'input', value: string[]): void
+}>()
 
+/** Selected options */
 const selectedList: Ref<string[]> = ref([])
+/** Content of the input field. Bound via v-model */
 const textInput: Ref<string> = ref('')
 
+/** Options to display in selection based on the current text in the input */
 const filteredOptions = computed(() => {
   if (textInput.value === '') {
     return []
@@ -106,6 +118,10 @@ const filteredOptions = computed(() => {
     })
 })
 
+/**
+ * Checks if an option can be added and does so if possible
+ * @param option Option to add
+ */
 function addOption(option: string) {
   console.log('addOption', option)
   if (
@@ -124,18 +140,28 @@ function addOption(option: string) {
   }
 }
 
+/**
+ * Removes an option from the selected list
+ * @param option Option to remove
+ */
 function removeOption(option: string) {
   selectedList.value.splice(selectedList.value.indexOf(option), 1)
   emit('input', selectedList.value)
 }
 
+/** Indicates whether the suggestions should be displayed */
 const showSuggestions = computed(() => {
   return filteredOptions.value.length > 0 && selectedList.value.length < props.limit
 })
 
+// This part of the code handles the positioning of the suggestions, so they are not cutoff by the bottom of the page
+/** Reference to the input tag */
 const inputRef: Ref<HTMLElement | null> = ref(null)
+/** Distance the input field has to the page bottom */
 const inputDistanceFromBottom = ref(0)
+/** Height of the page */
 const pageHeight = ref(0)
+/** Whether the suggestions should be shown below the input field or above */
 const showBelow = computed(() => {
   return pageHeight.value - inputDistanceFromBottom.value > 320
 })
@@ -153,6 +179,7 @@ function getWindowHeight() {
   )
 }
 
+// recalculate the distance to the bottom of the page when the input field changes
 watch(showSuggestions, () => {
   if (inputRef.value === null) {
     return 0
@@ -161,10 +188,12 @@ watch(showSuggestions, () => {
   inputDistanceFromBottom.value = inputRect.bottom
 })
 
+// recalculate the page height when the window is resized
 window.addEventListener('resize', () => {
   pageHeight.value = getWindowHeight()
 })
 
+// initial calculation of the page height
 onMounted(() => {
   pageHeight.value = getWindowHeight()
 })

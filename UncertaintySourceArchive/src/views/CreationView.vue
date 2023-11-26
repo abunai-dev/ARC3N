@@ -11,6 +11,7 @@
 
     <article class="row-span-1 row-start-2 space-y-5 md:row-start-3">
       <form class="space-y-5">
+        <!-- Base information -->
         <section class="space-y-2">
           <FormInputComponent
             id="name"
@@ -27,12 +28,7 @@
             required
             inputType="multiline"
           />
-          <FormInputComponent
-            id="keywords"
-            label="Keywords"
-            @input="updateKeywordField"
-            inputType="custom"
-          >
+          <FormInputComponent id="keywords" label="Keywords" inputType="custom">
             <SelectionSearchBox
               :options="uncertaintyList.map((u) => u.keywords).flat()"
               @input="updateKeywordField"
@@ -42,6 +38,7 @@
           </FormInputComponent>
         </section>
 
+        <!-- Categories and options -->
         <section class="space-y-2">
           <FormInputComponent
             v-for="c in categoryOrder"
@@ -65,6 +62,7 @@
           </FormInputComponent>
         </section>
 
+        <!-- Example text -->
         <section>
           <FormInputComponent
             id="exampleText"
@@ -75,6 +73,7 @@
           />
         </section>
 
+        <!-- Relation to other uncertainties -->
         <section class="space-y-2">
           <FormInputComponent id="parent" label="Parent Uncertainty" inputType="custom">
             <SelectionSearchBox
@@ -120,12 +119,14 @@ import { UncertaintyIssueEncoder } from '@/model/resourceGetter/encoder/Uncertai
 import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 
 const props = defineProps({
+  /** List of all uncertainties */
   uncertaintyList: {
     type: Array as PropType<BaseUncertainty[]>,
     required: true
   }
 })
 
+/** Object that is being filled in by the form */
 const uncertainty: Ref<Uncertainty> = ref({
   id: -1,
   name: '',
@@ -160,6 +161,10 @@ function updateClassField(c: CategoryList, value: CategoryOptionList | null) {
   }
 }
 
+/**
+ * Gets the value of an input that produced an event
+ * @param event Event emited by the change
+ */
 function getEventValue(event: Event) {
   return (event?.target as unknown as { value: any })?.value
 }
@@ -181,6 +186,9 @@ function updateRelatedField(value: string[]) {
   uncertainty.value.relatedUncertainties = getUncertainties(value)
 }
 
+/**
+ * Returns the uncertainties that have the given names
+ */
 function getUncertainties(value: string[]) {
   return value
     .map((v) => props.uncertaintyList.find((u) => u.name === v))
@@ -194,4 +202,3 @@ function submitUncertainty() {
   window.open(encodeURI(url).replace(/#/g, '%23'), '_blank')?.focus()
 }
 </script>
-@/model/classes/Category@/model/classes/options/CategoryOption

@@ -49,7 +49,7 @@ import { faSearch, faPlus, faFileExport } from '@fortawesome/free-solid-svg-icon
 import FilterSelector from '@/components/FilterSelector.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import type { Filter } from '@/model/ui/Table'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { resourceGetter } from '@/model/resourceGetter/Getter'
 import type { BaseUncertainty } from '@/model/uncertainty/Uncertainty'
 
@@ -59,6 +59,9 @@ library.add(faFileExport)
 
 const filter = ref({} as Filter)
 
+/**
+ * Exports all uncertainties to a file and downloads it
+ */
 async function exportUncertainties() {
   resourceGetter
     .getUncertaintyCount()
@@ -83,8 +86,4 @@ async function exportUncertainties() {
       console.log('Could not create export file', error)
     })
 }
-
-watch(filter, (value) => {
-  console.log(value)
-})
 </script>

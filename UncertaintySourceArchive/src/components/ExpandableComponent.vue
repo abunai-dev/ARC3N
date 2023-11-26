@@ -1,5 +1,6 @@
+<!-- Component for grouping content. Collapses to hide content -->
 <template>
-  <CategoryComponent>
+  <SectionComponent>
     <template #heading>
       <div class="flex items-center" @click="expanded = !expanded">
         <FontAwesomeIcon
@@ -19,12 +20,12 @@
         <slot></slot>
       </div>
     </template>
-  </CategoryComponent>
+  </SectionComponent>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CategoryComponent from './CategoryComponent.vue'
+import SectionComponent from './SectionComponent.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'

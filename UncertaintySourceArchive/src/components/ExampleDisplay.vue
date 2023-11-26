@@ -1,5 +1,6 @@
+<!-- Displays an example text and its images -->
 <template>
-  <CategoryComponent heading="Example">
+  <SectionComponent heading="Example">
     <div class="space-y-2">
       <p>{{ example.exampleText }}</p>
       <img
@@ -10,14 +11,15 @@
         class="max-h-[40vh] max-w-full"
       />
     </div>
-  </CategoryComponent>
+  </SectionComponent>
 </template>
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import CategoryComponent from './CategoryComponent.vue'
+import SectionComponent from './SectionComponent.vue'
 
 defineProps({
+  /** Object holding the text and images */
   example: {
     type: Object as PropType<{ exampleText: string; exampleImages: string[] }>,
     required: true

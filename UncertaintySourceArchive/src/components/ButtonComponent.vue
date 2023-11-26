@@ -1,3 +1,4 @@
+<!-- Stylized div for everything clickable -->
 <template>
   <div
     class="w-fit cursor-pointer rounded border border-black border-opacity-10 bg-primary-dark p-1 text-white hover:bg-[#596B7D] active:bg-[#334869]"
@@ -11,6 +12,7 @@
 
 <script setup lang="ts">
 defineProps({
+  /** Whether to display the disabled style */
   disabled: {
     type: Boolean,
     required: false,

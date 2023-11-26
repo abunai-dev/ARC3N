@@ -4,6 +4,9 @@ import { BaseUncertaintyJsonEncoder } from './BaseUncertaintyJsonEncoder'
 import { categoryOrder, type CategoryList, categories } from '../../categories/Category'
 import { categoryOptions, type CategoryOptionList } from '../../categories/options/CategoryOption'
 
+/**
+ * Encodes a {@link Uncertainty} to a GitHub issue
+ */
 export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly BASE_UNCERTAINTY_ID = 8672
   public static readonly DESCRIPTION_ID = 6725
@@ -16,6 +19,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   private static readonly BASE_COMMENT =
     '<!-- Please do not change any content except where comments explizitly allow you too -->'
 
+  /** @inheritdoc */
   public encode(data: Uncertainty): string {
     return `${UncertaintyIssueEncoder.BASE_COMMENT}\n\n${this.formatBaseUncertainty(
       data as BaseUncertainty

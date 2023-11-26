@@ -2,6 +2,9 @@ import type { BaseUncertainty, Uncertainty } from '../uncertainty/Uncertainty'
 import { ResourceGetter } from './ResourceGetter'
 import testData from './testData.json'
 
+/**
+ * Uncertainty format from testData.json
+ */
 type JsonUncertainty = BaseUncertainty & {
   description: string
   exampleText: string
@@ -14,16 +17,18 @@ type JsonUncertainty = BaseUncertainty & {
 /**
  * Gets uncertainties from a JSON file
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class JsonResourceGetter extends ResourceGetter {
+  /** @inheritdoc */
   public getUncertaintyCount(): Promise<number> {
     return Promise.resolve(this.getDefaultPerPageAmount())
   }
 
+  /** @inheritdoc */
   public getDefaultPerPageAmount(): number {
     return testData.uncertainties.length
   }
 
+  /** @inheritdoc */
   public async getList(page: number, perPage: number): Promise<BaseUncertainty[]> {
     void page, perPage
     return testData.uncertainties as BaseUncertainty[]
@@ -39,6 +44,7 @@ export class JsonResourceGetter extends ResourceGetter {
     throw new Error(`Uncertainty with id ${id} not found`)
   }
 
+  /** @inheritdoc */
   public async getUncertainty(id: number): Promise<Uncertainty> {
     const uncertainty = (testData.uncertainties as JsonUncertainty[]).find(
       (uncertainty) => uncertainty.id === id

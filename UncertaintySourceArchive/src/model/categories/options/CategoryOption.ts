@@ -27,6 +27,7 @@ export interface CategoryOption {
   exampleImages: string[]
 }
 
+/** List of all possible values of options of any category can have */
 export type CategoryOptionList =
   | ArchitecturalElementTypeOptionList
   | ImpactOnConfidentialityOptionList
@@ -37,6 +38,7 @@ export type CategoryOptionList =
   | SeverityOfTheImpactOptionList
   | TypeOptionList
 
+/** Map with detailed information about all options in the classification */
 export const categoryOptions = {
   ...architecturalElementTypeOptions,
   ...impactOnConfidentialityOptions,

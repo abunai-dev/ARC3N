@@ -1,3 +1,4 @@
+<!-- Displays the relationship between uncertainties -->
 <template>
   <pre class="mermaid [&>*]:mx-auto">
     {{ mermaidCode }}
@@ -10,16 +11,19 @@ import { computed, ref, type PropType, type Ref, onMounted } from 'vue'
 import mermaid from 'mermaid'
 
 const props = defineProps({
+  /** Root uncertainty of diagramm */
   uncertainty: {
     type: Object as PropType<Uncertainty>,
     required: true
   }
 })
 
+// Definitions of the arrow in mermaid notation
 const PARENT_ARROW = '--Parent-->'
 const CHILD_ARROW = '--Child-->'
 const RELATED_ARROW = '-.Related.-'
 
+/** List of the uncertainties to display in the diagramm */
 const idList = computed(() => {
   const idList = [props.uncertainty as BaseUncertainty]
   if (props.uncertainty.parent) {
@@ -30,6 +34,7 @@ const idList = computed(() => {
   return idList
 })
 
+/** The nodes of the diagramm in mermaid notation */
 const diagrammClassesMermaidNotation = computed(() =>
   idList.value
     .map((uncertainty) => {
@@ -38,6 +43,7 @@ const diagrammClassesMermaidNotation = computed(() =>
     .join('\n')
 )
 
+/** Mermaid notation of the parent relationship */
 const parentRelationshipMermaidNotation = computed(() => {
   if (props.uncertainty.parent) {
     return `${props.uncertainty.id} ${PARENT_ARROW} ${props.uncertainty.parent.id}`
@@ -45,6 +51,7 @@ const parentRelationshipMermaidNotation = computed(() => {
   return ''
 })
 
+/** Mermaid notation of the relationships to the related uncertainties */
 const relatedRelationshipsMermaidNotation = computed(() => {
   return props.uncertainty.relatedUncertainties
     .map((relatedUncertainty) => {
@@ -53,6 +60,7 @@ const relatedRelationshipsMermaidNotation = computed(() => {
     .join('\n')
 })
 
+/** Mermiad notation of the relationships to the children */
 const childrenRelationshipsMermaidNotation = computed(() => {
   return props.uncertainty.children
     .map((child) => {
@@ -61,6 +69,7 @@ const childrenRelationshipsMermaidNotation = computed(() => {
     .join('\n')
 })
 
+/** The mermaid code to display */
 const mermaidCode = `flowchart BT
   ${diagrammClassesMermaidNotation.value}
   ${parentRelationshipMermaidNotation.value}
@@ -69,6 +78,7 @@ const mermaidCode = `flowchart BT
   style ${props.uncertainty.id} stroke-width:4px
 `
 
+/** Reference to the pre where the diagramm is drawen in */
 const diagramm: Ref<null | HTMLElement> = ref(null)
 
 onMounted(() => {

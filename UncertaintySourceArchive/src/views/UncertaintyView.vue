@@ -9,7 +9,7 @@
     >
       <ExampleDisplay :example="uncertainty" />
 
-      <CategoryComponent
+      <SectionComponent
         heading="Related Uncertainties"
         v-if="
           uncertainty.children.length > 0 ||
@@ -19,7 +19,8 @@
         "
       >
         <UncertaintyRelationshipDiagramm :uncertainty="uncertainty" />
-      </CategoryComponent>
+      </SectionComponent>
+
       <div class="mx-auto w-fit">
         <a
           :href="
@@ -36,12 +37,13 @@
       </div>
     </div>
 
+    <!-- The options for each category of this uncertainty -->
     <ContainerComponent
       class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-light bg-opacity-20 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
     >
       <h2 class="text-2xl">Classification:</h2>
       <div class="mt-2 space-y-5">
-        <CategoryComponent v-for="c in categoryOrder" :key="c">
+        <SectionComponent v-for="c in categoryOrder" :key="c">
           <template #heading>
             {{ categories[c].name }}: <i>{{ categoryOptions[uncertainty.classes[c]].name }}</i>
           </template>
@@ -60,14 +62,14 @@
               </div>
             </div>
           </template>
-        </CategoryComponent>
+        </SectionComponent>
       </div>
     </ContainerComponent>
   </main>
 </template>
 
 <script setup lang="ts">
-import CategoryComponent from '@/components/CategoryComponent.vue'
+import SectionComponent from '@/components/SectionComponent.vue'
 import ContainerComponent from '@/components/ContainerComponent.vue'
 import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
 import type { PropType } from 'vue'
@@ -79,6 +81,7 @@ import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 
 defineProps({
+  /** Uncertainty to dislpay */
   uncertainty: {
     type: Object as PropType<Uncertainty>,
     required: true

@@ -1,3 +1,4 @@
+<!-- Wrapper for the Uncertainty View. It handles the asynchronous data getting -->
 <template>
   <p v-if="uncertainty == 'Not found'"></p>
   <p v-else-if="uncertainty == null">Loading...</p>
@@ -11,6 +12,7 @@ import { type Uncertainty } from '@/model/uncertainty/Uncertainty'
 import UncertaintyView from '@/views/UncertaintyView.vue'
 
 const props = defineProps({
+  /** The id of the uncertainty to display */
   id: {
     type: String,
     required: true

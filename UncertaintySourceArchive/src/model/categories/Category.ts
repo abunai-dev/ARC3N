@@ -16,17 +16,13 @@ interface StaticCategory {
   exampleImages: string[]
 }
 
-/**
- * Represents a class of the classification
- */
+/** Represents a category of the classification */
 export interface Category<T> extends StaticCategory {
   /** This list implies a natural ordering from smallest to largest */
   options: T[]
 }
 
-/**
- * List of all classes of the classification
- */
+/** List of all categories of the classification */
 export enum CategoryList {
   LOCATION = 'Location',
   ARCHITECTURAL_ELEMENT_TYPE = 'ArchitecturalElementType',
@@ -38,6 +34,7 @@ export enum CategoryList {
   SEVERITY_OF_IMPACT = 'SeverityOfTheImpact'
 }
 
+/** List of all categories of the classification in the order they should be displayed */
 export const categoryOrder = [
   CategoryList.LOCATION,
   CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
@@ -49,9 +46,7 @@ export const categoryOrder = [
   CategoryList.SEVERITY_OF_IMPACT
 ]
 
-/**
- * Map of all classes of the classification
- */
+/** Map with detailed information about all categories of the classification */
 export const categories = {
   [CategoryList.LOCATION]: {
     ...StaticCategoryData[CategoryList.LOCATION],
