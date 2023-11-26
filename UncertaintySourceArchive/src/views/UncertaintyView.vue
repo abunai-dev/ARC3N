@@ -51,7 +51,7 @@
               <div>
                 <RouterLink
                   :to="{
-                    name: 'class',
+                    name: 'category',
                     params: { category: c }
                   }"
                 >

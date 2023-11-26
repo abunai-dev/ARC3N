@@ -1,4 +1,4 @@
-import ClassView from '@/views/ClassView.vue'
+import CategoryView from '@/views/CategoryView.vue'
 import OverviewView from '@/views/OverviewView.vue'
 import UncertaintyView from '@/views/wrapper/UncertaintyViewWrapper.vue'
 import CreationViewWrapper from '@/views/wrapper/CreationViewWrapper.vue'
@@ -19,9 +19,9 @@ const router = createRouter({
       props: true
     },
     {
-      name: 'class',
-      path: '/class/:category',
-      component: ClassView,
+      name: 'category',
+      path: '/category/:category',
+      component: CategoryView,
       props: true
     },
     {
