@@ -29,7 +29,7 @@ export class JsonResourceGetter extends ResourceGetter {
     return testData.uncertainties as BaseUncertainty[]
   }
 
-  public getBaseUncertainty(id: number): BaseUncertainty {
+  private getBaseUncertainty(id: number): BaseUncertainty {
     const uncertainty = (testData.uncertainties as BaseUncertainty[]).find(
       (uncertainty) => uncertainty.id === id
     ) as BaseUncertainty | undefined
