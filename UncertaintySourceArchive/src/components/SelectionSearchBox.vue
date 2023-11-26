@@ -10,6 +10,9 @@
         :placeholder="placeholder"
         @keypress.enter="addOption(textInput)"
         :disabled="selectedList.length >= props.limit"
+        ref="inputRef"
+        @blur="hasFocus = false"
+        @input="hasFocus = true"
       />
       <FontAwesomeIcon
         icon="share"
@@ -22,9 +25,10 @@
         }"
       />
       <ContainerComponent
-        class="absolute top-[100%] z-10 max-h-[300px] min-h-0 overflow-scroll bg-white p-0"
+        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-scroll bg-white !p-0"
+        :class="showBelow ? 'top-[100%]' : 'bottom-[100%]'"
         id="testTemp"
-        v-if="filteredOptions.length > 0"
+        v-if="showSuggestions"
       >
         <div
           v-for="option in filteredOptions"
@@ -56,7 +60,7 @@
 
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, type PropType, type Ref, computed } from 'vue'
+import { ref, type PropType, type Ref, computed, onMounted, watch } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faShare, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import ContainerComponent from './ContainerComponent.vue'
@@ -122,4 +126,47 @@ function removeOption(option: string) {
   selectedList.value.splice(selectedList.value.indexOf(option), 1)
   emit('input', selectedList.value)
 }
+
+const hasFocus = ref(false)
+const showSuggestions = computed(() => {
+  return (
+    filteredOptions.value.length > 0 && selectedList.value.length < props.limit && hasFocus.value
+  )
+})
+
+const inputRef: Ref<HTMLElement | null> = ref(null)
+const inputDistanceFromBottom = ref(0)
+const pageHeight = ref(0)
+const showBelow = computed(() => {
+  return pageHeight.value - inputDistanceFromBottom.value > 320
+})
+
+function getWindowHeight() {
+  let body = document.body
+  let html = document.documentElement
+
+  return Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  )
+}
+
+watch(showSuggestions, () => {
+  if (inputRef.value === null) {
+    return 0
+  }
+  const inputRect = inputRef.value.getBoundingClientRect()
+  inputDistanceFromBottom.value = inputRect.bottom
+})
+
+window.addEventListener('resize', () => {
+  pageHeight.value = getWindowHeight()
+})
+
+onMounted(() => {
+  pageHeight.value = getWindowHeight()
+})
 </script>
