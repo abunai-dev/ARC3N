@@ -119,6 +119,9 @@ function addOption(option: string) {
   selectedList.value.push(option)
   textInput.value = ''
   emit('input', selectedList.value)
+  if (inputRef.value != null && selectedList.value.length < props.limit) {
+    inputRef.value.focus()
+  }
 }
 
 function removeOption(option: string) {
