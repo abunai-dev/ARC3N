@@ -101,7 +101,7 @@
         </section>
       </form>
 
-      <button type="submit" :disabled="!allowSubmit" @click="console.log(uncertainty)">
+      <button type="submit" :disabled="!allowSubmit" @click="submitUncertainty()">
         <ButtonComponent :disabled="!allowSubmit">Submit Uncertainty</ButtonComponent>
       </button>
     </article>
@@ -116,6 +116,8 @@ import type { BaseUncertainty, Uncertainty } from '@/model/uncertainty/Uncertain
 import { computed, ref, type PropType, type Ref } from 'vue'
 import FormInputComponent from '@/components/FormInputComponent.vue'
 import SelectionSearchBox from '@/components/SelectionSearchBox.vue'
+import { UncertaintyIssueEncoder } from '@/model/resourceGetter/encoder/UncertaintyIssueEncoder'
+import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 
 const props = defineProps({
   uncertaintyList: {
@@ -183,5 +185,12 @@ function getUncertainties(value: string[]) {
   return value
     .map((v) => props.uncertaintyList.find((u) => u.name === v))
     .filter((u) => u != undefined) as BaseUncertainty[]
+}
+
+function submitUncertainty() {
+  if (!allowSubmit.value) return
+  const issueString = new UncertaintyIssueEncoder().encode(uncertainty.value)
+  const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=Uncertainty Proposal: ${uncertainty.value.name}&body=${issueString}`
+  window.open(encodeURI(url), '_blank')?.focus()
 }
 </script>

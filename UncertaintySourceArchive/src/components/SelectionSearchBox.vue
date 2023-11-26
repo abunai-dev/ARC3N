@@ -11,8 +11,6 @@
         @keypress.enter="addOption(textInput)"
         :disabled="selectedList.length >= props.limit"
         ref="inputRef"
-        @blur="hasFocus = false"
-        @input="hasFocus = true"
       />
       <FontAwesomeIcon
         icon="share"
@@ -109,6 +107,7 @@ const filteredOptions = computed(() => {
 })
 
 function addOption(option: string) {
+  console.log('addOption', option)
   if (
     option === '' ||
     selectedList.value.includes(option) ||
@@ -127,11 +126,8 @@ function removeOption(option: string) {
   emit('input', selectedList.value)
 }
 
-const hasFocus = ref(false)
 const showSuggestions = computed(() => {
-  return (
-    filteredOptions.value.length > 0 && selectedList.value.length < props.limit && hasFocus.value
-  )
+  return filteredOptions.value.length > 0 && selectedList.value.length < props.limit
 })
 
 const inputRef: Ref<HTMLElement | null> = ref(null)
