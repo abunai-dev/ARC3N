@@ -33,15 +33,18 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   }
 
   private formatBaseUncertainty(uncertainty: BaseUncertainty): string {
-    return `<!-- ${
-      UncertaintyIssueEncoder.BASE_UNCERTAINTY_ID
-    }= ${new BaseUncertaintyJsonEncoder().encode(uncertainty)} =${
-      UncertaintyIssueEncoder.BASE_UNCERTAINTY_ID
-    } -->`
+    return this.formatWithIdComment(
+      UncertaintyIssueEncoder.BASE_UNCERTAINTY_ID,
+      new BaseUncertaintyJsonEncoder().encode(uncertainty),
+      true
+    )
   }
 
   private formatDescription(description: string): string {
-    return `<h2>Description</h2>\n<!-- ${UncertaintyIssueEncoder.DESCRIPTION_ID}= -->\n ${description}\n <!-- =${UncertaintyIssueEncoder.DESCRIPTION_ID} -->`
+    return `<h2>Description</h2>\n${this.formatWithIdComment(
+      UncertaintyIssueEncoder.DESCRIPTION_ID,
+      description
+    )}`
   }
 
   private formatClassifications(classifications: Record<CategoryList, CategoryOptionList>): string {
@@ -58,17 +61,21 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   }
 
   private formatKeywords(keywords: string[]): string {
-    return `<h2>Keywords</h2>\n<!-- ${UncertaintyIssueEncoder.KEYWORD_ID}= -->\n${keywords.join(
-      ', '
-    )}\n<!-- =${UncertaintyIssueEncoder.KEYWORD_ID} -->`
+    return `<h2>Keywords</h2>\n${keywords.join(', ')}`
   }
 
   private formatExample(example: string): string {
-    return `<h2>Example</h2>\n<!-- ${UncertaintyIssueEncoder.EXAMPLE_ID}= -->\n${example}\n<!-- =${UncertaintyIssueEncoder.EXAMPLE_ID} -->`
+    return `<h2>Example</h2>\n${this.formatWithIdComment(
+      UncertaintyIssueEncoder.EXAMPLE_ID,
+      example
+    )}}`
   }
 
   private formatExampleImageSection(): string {
-    return `<!-- ${UncertaintyIssueEncoder.EXAMPLE_ID}= -->\n<!-- YOU CAN INSERT IMAGES FOR THE EXAMPLE BELOW THIS COMMENT -->\n\n<!-- YOU CAN INSERT IMAGES FOR THE EXAMPLE ABOVE THIS COMMENT --><!-- =${UncertaintyIssueEncoder.EXAMPLE_ID} -->`
+    return this.formatWithIdComment(
+      UncertaintyIssueEncoder.EXAMPLE_IMAGE_ID,
+      '<!-- YOU CAN INSERT IMAGES FOR THE EXAMPLE BELOW THIS COMMENT -->\n\n<!-- YOU CAN INSERT IMAGES FOR THE EXAMPLE ABOVE THIS COMMENT -->'
+    )
   }
 
   private formatRelatedUncertainties(uncertainty: {
@@ -85,22 +92,40 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     }
     let result = '<h2>Related Uncertainties</h2>\n'
     if (uncertainty.parent) {
-      result += `<h3>Parent:</h3>\n<!-- ${UncertaintyIssueEncoder.PARENT_ID}= -->#${uncertainty.parent.id}<!-- =${UncertaintyIssueEncoder.PARENT_ID} -->\n`
+      result += `<h3>Parent:</h3>\n${this.formatWithIdComment(
+        UncertaintyIssueEncoder.PARENT_ID,
+        `#${uncertainty.parent.id}`
+      )}\n`
     }
     if (uncertainty.children.length > 0) {
-      result += `<h3>Children:</h3>\n<!-- ${
-        UncertaintyIssueEncoder.CHILD_ID
-      }= -->\n ${uncertainty.children.map((c) => `#${c.id}`).join(', ')}<!-- =${
-        UncertaintyIssueEncoder.CHILD_ID
-      } -->\n`
+      result += `<h3>Children:</h3>\n${this.formatWithIdComment(
+        UncertaintyIssueEncoder.CHILD_ID,
+        uncertainty.children.map((c) => `#${c.id}`).join(', ')
+      )}\n`
     }
     if (uncertainty.relatedUncertainties.length > 0) {
-      result += `<h3>Related Uncertainties:</h3>\n<!-- ${
-        UncertaintyIssueEncoder.RELATED_ID
-      }= -->\n${uncertainty.relatedUncertainties.map((c) => `#${c.id}`).join(', ')}<!-- =${
-        UncertaintyIssueEncoder.RELATED_ID
-      } -->`
+      result += `<h3>Related Uncertainties:</h3>\n${this.formatWithIdComment(
+        UncertaintyIssueEncoder.RELATED_ID,
+        uncertainty.relatedUncertainties.map((c) => `#${c.id}`).join(', ')
+      )}`
     }
+    return result
+  }
+
+  private formatWithIdComment(
+    id: number,
+    content: string,
+    contentInComment: boolean = false
+  ): string {
+    let result = `<!-- ${id}= `
+    if (!contentInComment) {
+      result += '-->\n'
+    }
+    result += content
+    if (!contentInComment) {
+      result += '\n<!--'
+    }
+    result += ` =${id} -->`
     return result
   }
 }
