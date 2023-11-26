@@ -17,15 +17,15 @@ type JsonUncertainty = BaseUncertainty & {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class JsonResourceGetter extends ResourceGetter {
   public getUncertaintyCount(): Promise<number> {
-    return Promise.resolve(this.getPerPageAmount())
+    return Promise.resolve(this.getDefaultPerPageAmount())
   }
 
-  public getPerPageAmount(): number {
+  public getDefaultPerPageAmount(): number {
     return testData.uncertainties.length
   }
 
-  public async getList(page: number): Promise<BaseUncertainty[]> {
-    void page
+  public async getList(page: number, perPage: number): Promise<BaseUncertainty[]> {
+    void page, perPage
     return testData.uncertainties as BaseUncertainty[]
   }
 

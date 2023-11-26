@@ -12,13 +12,14 @@ export abstract class ResourceGetter {
   /**
    * Get the amount of uncertainties per page. Equals the maximum amount of uncertainties that can be retrieved at once by {@link getList}
    */
-  public abstract getPerPageAmount(): number
+  public abstract getDefaultPerPageAmount(): number
 
   /**
    * Gets a list of uncertainties
    * @param page The page to get the uncertainties from. Starts at 1
+   * @param perPage The amount of uncertainties to get per page
    */
-  public abstract getList(page: number): Promise<BaseUncertainty[]>
+  public abstract getList(page: number, perPage?: number): Promise<BaseUncertainty[]>
 
   /**
    * Gets a single uncertainty

@@ -14,7 +14,7 @@
         "ImpactOnConfidentiality": "Direct",
         "SeverityOfTheImpact": "Low"
       },
-      "keywords": [],
+      "keywords": ["SQL", "Input", "Database"],
       "children": [3, 5],
       "relatedUncertainties": [4, 7, 12],
       "exampleText": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Due to the fact, that the company sends the data via SQL injections, depending on how the database service is handling the injections, it might be vulnerable to disclosure of data through SQL injection attacks.",
@@ -23,27 +23,33 @@
     },
     {
       "id": 2,
-      "name": "Parent"
+      "name": "Parent",
+      "keywords": []
     },
     {
       "id": 3,
-      "name": "Child 1"
+      "name": "Child 1",
+      "keywords": []
     },
     {
       "id": 4,
-      "name": "Related 1"
+      "name": "Related 1",
+      "keywords": []
     },
     {
       "id": 5,
-      "name": "Child 2"
+      "name": "Child 2",
+      "keywords": []
     },
     {
       "id": 7,
-      "name": "Related 3"
+      "name": "Related 3",
+      "keywords": []
     },
     {
       "id": 12,
-      "name": "Related 4"
+      "name": "Related 4",
+      "keywords": []
     }
   ]
 }

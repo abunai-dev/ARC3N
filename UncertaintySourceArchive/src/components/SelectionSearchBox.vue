@@ -23,12 +23,13 @@
       />
       <ContainerComponent
         class="absolute top-[100%] z-10 max-h-[300px] min-h-0 overflow-scroll bg-white p-0"
+        id="testTemp"
         v-if="filteredOptions.length > 0"
       >
         <div
           v-for="option in filteredOptions"
           :key="option"
-          class="p-1 hover:bg-gray-500"
+          class="p-1 hover:bg-gray-200"
           @click="addOption(option)"
         >
           {{ option }}
@@ -94,9 +95,13 @@ const filteredOptions = computed(() => {
   if (textInput.value === '') {
     return []
   }
-  return props.options.filter((option) => {
-    return option.toLowerCase().includes(textInput.value.toLowerCase())
-  })
+  return props.options
+    .filter((option) => {
+      return option.toLowerCase().includes(textInput.value.toLowerCase())
+    })
+    .filter((option) => {
+      return !selectedList.value.includes(option)
+    })
 })
 
 function addOption(option: string) {

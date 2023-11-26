@@ -9,7 +9,7 @@ export class IssueResourceGetter extends ResourceGetter {
   private static readonly BASE_URL = 'https://api.github.com'
   public static readonly OWNER = 'abunai-dev'
   public static readonly REPO = 'UncertaintySourceArchive'
-  private static readonly ISSUES_PER_SITE = 100
+  private static readonly ISSUES_PER_SITE = 30
   private static readonly ISSUE_LABEL = 'Verified'
 
   public async getUncertaintyCount(): Promise<number> {
@@ -24,12 +24,12 @@ export class IssueResourceGetter extends ResourceGetter {
     return sum
   }
 
-  public getPerPageAmount(): number {
+  public getDefaultPerPageAmount(): number {
     return IssueResourceGetter.ISSUES_PER_SITE
   }
 
-  public async getList(page: number): Promise<BaseUncertainty[]> {
-    const issueIds = await this.getIssueList(page).then((data) =>
+  public async getList(page: number, perPage?: number): Promise<BaseUncertainty[]> {
+    const issueIds = await this.getIssueList(page, perPage).then((data) =>
       data.map((issue: any) => issue.number)
     )
 
@@ -44,9 +44,13 @@ export class IssueResourceGetter extends ResourceGetter {
     throw new Error('Method not implemented.')
   }
 
-  private async getIssueList(page: number): Promise<any[]> {
+  private async getIssueList(page: number, perPage?: number): Promise<any[]> {
     return await fetch(
-      `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues?labels=${IssueResourceGetter.ISSUE_LABEL}&state=open&per_page=${IssueResourceGetter.ISSUES_PER_SITE}&page=${page}`
+      `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${
+        IssueResourceGetter.REPO
+      }/issues?labels=${IssueResourceGetter.ISSUE_LABEL}&state=open&per_page=${
+        perPage ?? IssueResourceGetter.ISSUES_PER_SITE
+      }&page=${page}`
     ).then((response) => response.json())
   }
 
