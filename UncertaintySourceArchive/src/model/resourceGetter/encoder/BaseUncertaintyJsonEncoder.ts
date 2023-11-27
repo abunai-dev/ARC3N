@@ -7,6 +7,11 @@ import { AbstractEncoder } from './AbstractEncoder'
 export class BaseUncertaintyJsonEncoder extends AbstractEncoder<BaseUncertainty> {
   /** @inheritdoc */
   public encode(data: BaseUncertainty): string {
-    return JSON.stringify(data)
+    return JSON.stringify({
+      id: data.id,
+      name: data.name,
+      classes: data.classes,
+      keywords: data.keywords
+    })
   }
 }

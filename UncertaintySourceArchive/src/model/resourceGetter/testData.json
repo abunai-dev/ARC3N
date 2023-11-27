@@ -18,38 +18,62 @@
       "children": [3, 5],
       "relatedUncertainties": [4, 7, 12],
       "exampleText": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Due to the fact, that the company sends the data via SQL injections, depending on how the database service is handling the injections, it might be vulnerable to disclosure of data through SQL injection attacks.",
-      "exampleImages": [],
+      "exampleImages": ["https://raw.githubusercontent.com/abunai-dev/UncertaintySourceArchive/main/screenshot_table_total.png"],
       "parent": 2
     },
     {
       "id": 2,
       "name": "Parent",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     },
     {
       "id": 3,
       "name": "Child 1",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     },
     {
       "id": 4,
       "name": "Related 1",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     },
     {
       "id": 5,
       "name": "Child 2",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     },
     {
       "id": 7,
       "name": "Related 3",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     },
     {
       "id": 12,
       "name": "Related 4",
-      "keywords": []
+      "keywords": [],
+      "description": "",
+      "classes": {},
+      "children": [],
+      "relatedUncertainties": []
     }
   ]
 }

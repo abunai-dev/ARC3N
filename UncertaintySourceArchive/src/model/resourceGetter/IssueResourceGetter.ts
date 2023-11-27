@@ -40,7 +40,7 @@ export class IssueResourceGetter extends ResourceGetter {
     const issues = await Promise.all(issueIds.map((id) => this.getIssue(id)))
 
     const parser = new BaseUncertaintyIssueParser()
-    return issues.map((issue: any) => parser.parse(issue.body))
+    return Promise.all(issues.map((issue: any) => parser.parse(issue.body)))
   }
 
   /** @inheritdoc */

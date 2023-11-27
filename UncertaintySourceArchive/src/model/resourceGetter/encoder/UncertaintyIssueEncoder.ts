@@ -21,18 +21,18 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
 
   /** @inheritdoc */
   public encode(data: Uncertainty): string {
-    return `${UncertaintyIssueEncoder.BASE_COMMENT}\n\n${this.formatBaseUncertainty(
-      data as BaseUncertainty
-    )}\n<h1>${data.name}</h1>\n${this.formatDescription(
-      data.description
-    )}\n${this.formatClassifications(data.classes)}\n${this.formatExample(
+    return `${UncertaintyIssueEncoder.BASE_COMMENT}\n\n${this.formatBaseUncertainty(data)}\n<h1>${
+      data.name
+    }</h1>\n${this.formatDescription(data.description)}\n${this.formatClassifications(
+      data.classes
+    )}\n${this.formatExample(
       data.exampleText
-    )}\n${this.formatKeywords(
+    )}\n${this.formatExampleImageSection()}\n${this.formatKeywords(
       data.keywords
-    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}\n`
+    )}${this.formatRelatedUncertainties(data)}\n`
   }
 
-  private formatBaseUncertainty(uncertainty: BaseUncertainty): string {
+  private formatBaseUncertainty(uncertainty: Uncertainty): string {
     return this.formatWithIdComment(
       UncertaintyIssueEncoder.BASE_UNCERTAINTY_ID,
       new BaseUncertaintyJsonEncoder().encode(uncertainty),
