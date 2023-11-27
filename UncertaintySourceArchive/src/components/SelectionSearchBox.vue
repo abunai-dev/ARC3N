@@ -123,7 +123,6 @@ const filteredOptions = computed(() => {
  * @param option Option to add
  */
 function addOption(option: string) {
-  console.log('addOption', option)
   if (
     option === '' ||
     selectedList.value.includes(option) ||

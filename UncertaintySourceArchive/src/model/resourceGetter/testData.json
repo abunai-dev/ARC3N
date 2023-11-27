@@ -18,7 +18,9 @@
       "children": [3, 5],
       "relatedUncertainties": [4, 7, 12],
       "exampleText": "Within a mobility system, a company might offer Vehicle rentals. \n A user can rent a vehicle via a mobile app. The company then collects all necessary information and saves it in a database by sending the data to the database service. \n \n Due to the fact, that the company sends the data via SQL injections, depending on how the database service is handling the injections, it might be vulnerable to disclosure of data through SQL injection attacks.",
-      "exampleImages": ["https://raw.githubusercontent.com/abunai-dev/UncertaintySourceArchive/main/screenshot_table_total.png"],
+      "exampleImages": [
+        "https://raw.githubusercontent.com/abunai-dev/UncertaintySourceArchive/main/screenshot_table_total.png"
+      ],
       "parent": 2
     },
     {

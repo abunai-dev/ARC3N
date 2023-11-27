@@ -153,7 +153,6 @@ function updateKeywordField(value: string[]) {
 }
 
 function updateClassField(c: CategoryList, value: CategoryOptionList | null) {
-  console.log(value)
   if (value == null || (value as string) == 'null') {
     delete uncertainty.value.classes[c]
   } else {
