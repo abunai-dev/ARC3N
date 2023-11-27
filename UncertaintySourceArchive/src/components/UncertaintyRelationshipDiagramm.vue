@@ -1,6 +1,6 @@
 <!-- Displays the relationship between uncertainties -->
 <template>
-  <pre class="mermaid [&>*]:mx-auto">
+  <pre class="mermaid [&>*]:mx-auto" ref="diagramm">
     {{ mermaidCode }}
   </pre>
 </template>
