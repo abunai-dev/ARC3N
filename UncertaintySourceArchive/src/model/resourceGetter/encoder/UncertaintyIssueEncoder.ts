@@ -25,11 +25,9 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
       data.name
     }</h1>\n${this.formatDescription(data.description)}\n${this.formatClassifications(
       data.classes
-    )}\n${this.formatExample(
+    )}\n${this.formatKeywords(data.keywords)}\n${this.formatExample(
       data.exampleText
-    )}\n${this.formatExampleImageSection()}\n${this.formatKeywords(
-      data.keywords
-    )}${this.formatRelatedUncertainties(data)}\n`
+    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}`
   }
 
   private formatBaseUncertainty(uncertainty: Uncertainty): string {
@@ -61,6 +59,9 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   }
 
   private formatKeywords(keywords: string[]): string {
+    if (keywords.length === 0) {
+      return ''
+    }
     return `<h2>Keywords</h2>\n${keywords.join(', ')}`
   }
 
@@ -68,7 +69,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     return `<h2>Example</h2>\n${this.formatWithIdComment(
       UncertaintyIssueEncoder.EXAMPLE_ID,
       example
-    )}}`
+    )}`
   }
 
   private formatExampleImageSection(): string {

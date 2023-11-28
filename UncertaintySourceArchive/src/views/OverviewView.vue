@@ -52,6 +52,7 @@ import type { Filter } from '@/model/ui/Table'
 import { ref } from 'vue'
 import { resourceGetter } from '@/model/resourceGetter/Getter'
 import type { BaseUncertainty } from '@/model/uncertainty/Uncertainty'
+import { BaseUncertaintyJsonEncoder } from '@/model/resourceGetter/encoder/BaseUncertaintyJsonEncoder'
 
 library.add(faSearch)
 library.add(faPlus)
@@ -74,7 +75,10 @@ async function exportUncertainties() {
     })
     .then((data) => {
       const uncertainties = data.flat()
-      const blob = new Blob([JSON.stringify(uncertainties)], { type: 'application/json' })
+      const encoder = new BaseUncertaintyJsonEncoder()
+      const blob = new Blob([`[${uncertainties.map(encoder.encode).join(',')}]`], {
+        type: 'application/json'
+      })
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
