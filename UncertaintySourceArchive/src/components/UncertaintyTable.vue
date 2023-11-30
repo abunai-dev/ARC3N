@@ -1,29 +1,39 @@
 <template>
   <div>
-    <table class="table w-full">
-      <tr class="border-b border-gray-400">
-        <td
+    <div class="table w-full">
+      <div class="table-row">
+        <div
           v-for="col in shownColumns"
           :key="col"
-          class="cursor-pointer text-center"
+          class="table-cell cursor-pointer border-b border-gray-400 text-center"
           @click="changeSorting(col)"
         >
           <div>
             {{ columnNames[col].name }}
             <FontAwesomeIcon :icon="getSortingIcon(col)" class="text-xs" />
           </div>
-        </td>
-      </tr>
-      <tr
+        </div>
+      </div>
+      <RouterLink
         v-for="[index, uncertainty] in filteredUncertainties.entries()"
         :key="uncertainty.id"
         :class="{ 'bg-black bg-opacity-10': index % 2 == 1 }"
+        :to="{
+          name: 'uncertainty',
+          params: { id: uncertainty.id.toString() }
+        }"
+        class="table-row"
       >
-        <td v-for="col in shownColumns" :key="col" :class="{ 'text-center': col != 'id' }">
+        <div
+          v-for="col in shownColumns"
+          :key="col"
+          :class="{ 'text-center': col != 'id' }"
+          class="table-cell"
+        >
           {{ getDisplayValue(uncertainty, col) }}
-        </td>
-      </tr>
-    </table>
+        </div>
+      </RouterLink>
+    </div>
     <div v-if="uncertainties.length < uncertaintyCount" class="w-full pt-2 text-center font-bold">
       Loading more...
     </div>
@@ -40,6 +50,7 @@ import { resourceGetter } from '@/model/resourceGetter/Getter'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSortUp, faSortDown, faSort } from '@fortawesome/free-solid-svg-icons'
+import { RouterLink } from 'vue-router'
 
 library.add(faSortUp, faSortDown, faSort)
 
