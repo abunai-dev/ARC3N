@@ -135,7 +135,7 @@ async function getUncertainties() {
     if (page > uncertaintyCount.value / resourceGetter.getDefaultPerPageAmount()) {
       return
     }
-    resourceGetter.getList(page).then((data) => {
+    resourceGetter.getPage(page).then((data) => {
       uncertainties.value = uncertainties.value.concat(data)
     })
   }

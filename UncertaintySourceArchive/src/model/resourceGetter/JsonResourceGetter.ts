@@ -29,8 +29,13 @@ export class JsonResourceGetter extends ResourceGetter {
   }
 
   /** @inheritdoc */
-  public async getList(page: number, perPage: number): Promise<BaseUncertainty[]> {
+  public async getPage(page: number, perPage: number): Promise<BaseUncertainty[]> {
     void page, perPage
+    return testData.uncertainties as BaseUncertainty[]
+  }
+
+  /** @inheritdoc */
+  public async getAll(): Promise<BaseUncertainty[]> {
     return testData.uncertainties as BaseUncertainty[]
   }
 

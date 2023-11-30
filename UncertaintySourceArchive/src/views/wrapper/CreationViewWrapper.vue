@@ -14,14 +14,7 @@ import CreationView from '@/views/CreationView.vue'
 const uncertainties: Ref<BaseUncertainty[] | null | 'Not found'> = ref(null)
 
 resourceGetter
-  .getUncertaintyCount()
-  .then((uncertaintyCount) => {
-    const promises: Promise<BaseUncertainty[]>[] = []
-    for (let i = 0; i < uncertaintyCount; i += 100) {
-      promises.push(resourceGetter.getList(i, 100))
-    }
-    return Promise.all(promises)
-  })
+  .getAll()
   .then((data) => {
     uncertainties.value = data.flat()
   })
