@@ -1,35 +1,46 @@
 <template>
   <div class="flex h-screen max-h-screen flex-col overflow-hidden">
     <nav class="flex items-center space-x-5 px-3">
-      <h1 class="text-2xl">ARC3N</h1>
+      <RouterLink to="/"><h1 class="cursor-pointer text-2xl">ARC3N</h1></RouterLink>
       <ul class="flex space-x-1 bg-white py-1 text-lg">
         <NavBarComponent
           :link="{
-            link: '/archive',
+            link: {
+              name: 'archive'
+            },
             name: 'Archive'
           }"
         />
         <NavBarComponent
           :link="{
-            link: '/category',
+            link: {
+              name: 'classification'
+            },
             name: 'Classification'
           }"
           :children="
             categoryOrder.map((category) => ({
-              link: '/category/' + category,
+              link: {
+                name: 'category',
+                params: { category: category }
+              },
               name: category
             }))
           "
         />
         <NavBarComponent
           :link="{
-            link: '/export',
+            link: {
+              name: 'export'
+            },
             name: 'Export'
           }"
         />
         <NavBarComponent
           :link="{
-            link: '/create',
+            link: {
+              name: 'create'
+            },
             name: 'Add New'
           }"
         />
