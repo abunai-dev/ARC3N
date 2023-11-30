@@ -21,7 +21,9 @@
           <div space-y-2>
             <p>{{ categoryOptions[option].description }}</p>
             <ExampleDisplay :example="categoryOptions[option]" />
-            <UncertaintyTable :filter="{ category: [option] } as Filter" />
+            <ExpandableComponent heading="Table">
+              <UncertaintyTable :filter="{ [category]: [option] } as Filter" />
+            </ExpandableComponent>
           </div>
         </SectionComponent>
       </div>
@@ -40,6 +42,7 @@ import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
 import type { Filter } from '@/model/ui/Table'
+import ExpandableComponent from '@/components/ExpandableComponent.vue'
 
 const props = defineProps({
   /** The category to display */

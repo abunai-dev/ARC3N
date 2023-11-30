@@ -1,11 +1,47 @@
-<template>Table Incoming</template>
+<template>
+  <div>
+    <table class="table w-full">
+      <tr class="border-b border-gray-400">
+        <td
+          v-for="col in shownColumns"
+          :key="col"
+          class="cursor-pointer text-center"
+          @click="changeSorting(col)"
+        >
+          <div>
+            {{ columnNames[col].name }}
+            <FontAwesomeIcon :icon="getSortingIcon(col)" class="text-xs" />
+          </div>
+        </td>
+      </tr>
+      <tr
+        v-for="[index, uncertainty] in filteredUncertainties.entries()"
+        :key="uncertainty.id"
+        :class="{ 'bg-black bg-opacity-10': index % 2 == 1 }"
+      >
+        <td v-for="col in shownColumns" :key="col" :class="{ 'text-center': col != 'id' }">
+          {{ getDisplayValue(uncertainty, col) }}
+        </td>
+      </tr>
+    </table>
+    <div v-if="uncertainties.length < uncertaintyCount" class="w-full pt-2 text-center font-bold">
+      Loading more...
+    </div>
+  </div>
+</template>
 
 <script setup lang="ts">
-import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
+import type { BaseUncertainty } from '@/model/uncertainty/Uncertainty'
 import { ref, type PropType, type Ref, computed } from 'vue'
 import type { Filter, Sorting, Columns } from '@/model/ui/Table'
 import { categoryOrder, CategoryList, categories } from '@/model/categories/Category'
 import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
+import { resourceGetter } from '@/model/resourceGetter/Getter'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSortUp, faSortDown, faSort } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSortUp, faSortDown, faSort)
 
 const props = defineProps({
   searchString: {
@@ -20,40 +56,82 @@ const props = defineProps({
       return {}
     }
   },
-  sorting: {
-    type: Object as PropType<Sorting>,
-    required: false,
-    default: () => {
-      return {
-        field: 'none',
-        direction: 'ascending'
-      }
-    }
-  },
   shownColumns: {
     type: Array as PropType<Columns[]>,
     required: false,
     default: () => {
-      return [
-        CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
-        CategoryList.IMPACT_ON_CONFIDENTIALITY,
-        CategoryList.LOCATION,
-        CategoryList.MANAGABILITY,
-        CategoryList.REDUCIBLE_BY_ADD,
-        CategoryList.RESOLUTION_TIME,
-        CategoryList.SEVERITY_OF_IMPACT,
-        CategoryList.TYPE,
-        'name',
-        'id',
-        'keywords'
-      ]
+      return ['id', 'name', 'keywords', ...categoryOrder]
     }
   }
 })
 
-const uncertainties: Ref<Uncertainty[]> = ref([])
+const columnNames: Record<Columns, { name: string }> = {
+  ...categories,
+  name: { name: 'Name' },
+  id: { name: 'ID' },
+  keywords: { name: 'Keywords' }
+}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function getDisplayValue(uncertainty: BaseUncertainty, column: Columns): string {
+  if (column == 'name') {
+    return uncertainty.name
+  } else if (column == 'id') {
+    return uncertainty.id.toString()
+  } else if (column == 'keywords') {
+    return Object.keys(uncertainty.keywords).sort().join(', ')
+  } else {
+    return categoryOptions[uncertainty.classes[column]].name
+  }
+}
+
+const sorting = ref<Sorting>({
+  field: 'none',
+  direction: 'ascending'
+})
+
+function getSortingIcon(column: Columns): string {
+  if (sorting.value.field == column) {
+    if (sorting.value.direction == 'ascending') {
+      return 'sort-up'
+    } else {
+      return 'sort-down'
+    }
+  } else {
+    return 'sort'
+  }
+}
+
+function changeSorting(column: Columns): void {
+  if (sorting.value.field == column) {
+    if (sorting.value.direction == 'ascending') {
+      sorting.value.direction = 'descending'
+    } else {
+      sorting.value.field = 'none'
+    }
+  } else {
+    sorting.value.field = column
+    sorting.value.direction = 'ascending'
+  }
+}
+
+const uncertainties: Ref<BaseUncertainty[]> = ref([])
+const uncertaintyCount = ref(0)
+
+async function getUncertainties() {
+  uncertaintyCount.value = await resourceGetter.getUncertaintyCount()
+
+  function getUncertaintiesHelper(page: number): void {
+    if (page > uncertaintyCount.value / resourceGetter.getDefaultPerPageAmount()) {
+      return
+    }
+    resourceGetter.getList(page).then((data) => {
+      uncertainties.value = uncertainties.value.concat(data)
+    })
+  }
+  getUncertaintiesHelper(1)
+}
+getUncertainties()
+
 const filteredUncertainties = computed(() => {
   return uncertainties.value
     .filter(matchesFilter)
@@ -65,14 +143,14 @@ const filteredUncertainties = computed(() => {
  * Predicate to check if an uncertainty matches the filter
  * @param uncertainty Uncertainty to check
  */
-function matchesFilter(uncertainty: Uncertainty): boolean {
+function matchesFilter(uncertainty: BaseUncertainty): boolean {
   return categoryOrder.every((c: CategoryList) => {
     const f = props.filter[c]
     return f == undefined || f.length == 0 || f.includes(uncertainty.classes[c])
   })
 }
 
-const searcheStringParts = computed(() =>
+const searchStringParts = computed(() =>
   props.searchString
     .trimEnd()
     .toLowerCase()
@@ -84,11 +162,11 @@ const searcheStringParts = computed(() =>
  * Predicate to check if an uncertainty matches the search string
  * @param uncertainty Uncertainty to check
  */
-function matchesSearchString(uncertainty: Uncertainty): boolean {
-  if (searcheStringParts.value.length == 0) {
+function matchesSearchString(uncertainty: BaseUncertainty): boolean {
+  if (searchStringParts.value.length == 0) {
     return true
   }
-  return searcheStringParts.value.some((part) => {
+  return searchStringParts.value.some((part) => {
     if (uncertainty.name.toLowerCase().includes(part) || uncertainty.id.toString().includes(part)) {
       return true
     }
@@ -106,21 +184,21 @@ function matchesSearchString(uncertainty: Uncertainty): boolean {
   })
 }
 
-const sortingDirection = computed(() => (props.sorting.direction == 'ascending' ? 1 : -1))
+const sortingDirection = computed(() => (sorting.value.direction == 'ascending' ? 1 : -1))
 
 /**
  * Comparator for uncertainties. Uses the sorting field and direction from props.
  * @param a Left uncertainty
  * @param b Right uncertainty
  */
-function uncertaintyComparator(a: Uncertainty, b: Uncertainty): number {
-  if (props.sorting.field == 'none') {
+function uncertaintyComparator(a: BaseUncertainty, b: BaseUncertainty): number {
+  if (sorting.value.field == 'none') {
     return a.id - b.id
-  } else if (props.sorting.field == 'name') {
+  } else if (sorting.value.field == 'name') {
     return sortingDirection.value * a.name.localeCompare(b.name)
-  } else if (props.sorting.field == 'id') {
+  } else if (sorting.value.field == 'id') {
     return sortingDirection.value * (a.id - b.id)
-  } else if (props.sorting.field == 'keywords') {
+  } else if (sorting.value.field == 'keywords') {
     const aKeywords = Object.keys(a.keywords).sort()
     const bKeywords = Object.keys(b.keywords).sort()
     for (let i = 0; i < Math.min(aKeywords.length, bKeywords.length); i++) {
@@ -131,11 +209,11 @@ function uncertaintyComparator(a: Uncertainty, b: Uncertainty): number {
     }
     return sortingDirection.value * (aKeywords.length - bKeywords.length)
   } else {
-    const indexA = (categories[props.sorting.field].options as CategoryOptionList[]).indexOf(
-      a.classes[props.sorting.field]
+    const indexA = (categories[sorting.value.field].options as CategoryOptionList[]).indexOf(
+      a.classes[sorting.value.field]
     )
-    const indexB = (categories[props.sorting.field].options as CategoryOptionList[]).indexOf(
-      b.classes[props.sorting.field]
+    const indexB = (categories[sorting.value.field].options as CategoryOptionList[]).indexOf(
+      b.classes[sorting.value.field]
     )
 
     if (indexA == indexB) {

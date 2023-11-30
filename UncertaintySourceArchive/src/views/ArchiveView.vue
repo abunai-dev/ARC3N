@@ -15,6 +15,7 @@
         <input
           type="search"
           placeholder="Search"
+          v-model="searchString"
           class="h-8 grow rounded bg-transparent outline-none placeholder:text-gray-400"
         />
       </div>
@@ -37,7 +38,7 @@
         </ButtonComponent>
       </RouterLink>
     </div>
-    <UncertaintyTable />
+    <UncertaintyTable :filter="filter" :search-string="searchString" />
   </main>
 </template>
 
@@ -59,6 +60,7 @@ library.add(faPlus)
 library.add(faFileExport)
 
 const filter = ref({} as Filter)
+const searchString = ref('')
 
 /**
  * Exports all uncertainties to a file and downloads it

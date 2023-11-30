@@ -84,8 +84,10 @@ function changeFilter(category: CategoryList, option: CategoryOptionList) {
   for (const c of categoryOrder) {
     const tt = [] as CategoryOptionList[]
     for (const o of categories[c].options) {
-      if (c == category && o == option && !isTrueInPropFilter(category, option)) {
-        tt.push(o)
+      if (c == category && o == option) {
+        if (!isTrueInPropFilter(c, o)) {
+          tt.push(o)
+        }
       } else if (isTrueInPropFilter(c, o)) {
         tt.push(o)
       }

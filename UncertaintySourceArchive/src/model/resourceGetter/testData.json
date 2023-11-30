@@ -28,7 +28,16 @@
       "name": "Parent",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Environment",
+        "ArchitecturalElementType": "Component",
+        "Type": "Scenario",
+        "Managability": "Fully",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     },
@@ -37,7 +46,16 @@
       "name": "Child 1",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Structure",
+        "ArchitecturalElementType": "Component",
+        "Type": "Scenario",
+        "Managability": "Fully",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     },
@@ -46,7 +64,16 @@
       "name": "Related 1",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Environment",
+        "ArchitecturalElementType": "Component",
+        "Type": "Statistical",
+        "Managability": "Fully",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     },
@@ -55,7 +82,16 @@
       "name": "Child 2",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Behavior",
+        "ArchitecturalElementType": "Component",
+        "Type": "Recognized",
+        "Managability": "Fully",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     },
@@ -64,7 +100,16 @@
       "name": "Related 3",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Behavior",
+        "ArchitecturalElementType": "Component",
+        "Type": "Scenario",
+        "Managability": "Irriducible",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     },
@@ -73,7 +118,16 @@
       "name": "Related 4",
       "keywords": [],
       "description": "",
-      "classes": {},
+      "classes": {
+        "Location": "Structure",
+        "ArchitecturalElementType": "Component",
+        "Type": "Scenario",
+        "Managability": "Irriducible",
+        "ResolutionTime": "Runtime",
+        "ReducibleByADD": "Yes",
+        "ImpactOnConfidentiality": "Direct",
+        "SeverityOfTheImpact": "Low"
+      },
       "children": [],
       "relatedUncertainties": []
     }
