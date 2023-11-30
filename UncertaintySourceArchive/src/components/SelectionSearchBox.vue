@@ -45,7 +45,7 @@
       <div
         v-for="option in selectedList"
         :key="option"
-        class="m-1 flex w-fit items-center rounded bg-primary-dark p-1 text-sm text-white first:ml-0 last:mr-0"
+        class="m-1 flex w-fit items-center rounded bg-primary-800 p-1 text-sm text-white first:ml-0 last:mr-0"
       >
         {{ option }}
         <FontAwesomeIcon

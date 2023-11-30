@@ -10,7 +10,7 @@
     </div>
 
     <!-- All options this category has -->
-    <ContainerComponent class="bg-primary-light bg-opacity-20">
+    <ContainerComponent class="bg-primary-200 bg-opacity-20">
       <h2 class="text-2xl">Options:</h2>
       <div class="mt-2 space-y-5">
         <SectionComponent
@@ -22,7 +22,7 @@
             <p>{{ categoryOptions[option].description }}</p>
             <ExampleDisplay :example="categoryOptions[option]" />
             <ExpandableComponent heading="Table">
-              <UncertaintyTable :filter="{ [category]: [option] } as Filter" />
+              <UncertaintyTable :filter="{ [category]: [option] }" />
             </ExpandableComponent>
           </div>
         </SectionComponent>
@@ -41,7 +41,6 @@ import { computed, type PropType } from 'vue'
 import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
-import type { Filter } from '@/model/ui/Table'
 import ExpandableComponent from '@/components/ExpandableComponent.vue'
 
 const props = defineProps({

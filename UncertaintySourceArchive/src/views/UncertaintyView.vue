@@ -39,7 +39,7 @@
 
     <!-- The options for each category of this uncertainty -->
     <ContainerComponent
-      class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-light bg-opacity-20 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
+      class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-200 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
     >
       <h2 class="text-2xl">Classification:</h2>
       <div class="mt-2 space-y-5">

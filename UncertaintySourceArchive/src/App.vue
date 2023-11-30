@@ -36,7 +36,7 @@
       </ul>
     </nav>
     <div
-      class="flex grow flex-col space-y-5 overflow-hidden bg-gradient-to-br from-primary to-primary-dark p-5"
+      class="flex grow flex-col space-y-5 overflow-hidden bg-gradient-to-br from-primary-600 to-primary-800 p-5"
     >
       <ContainerComponent class="box-border grow overflow-auto bg-white p-5">
         <RouterView class="" />
