@@ -10,7 +10,7 @@
     </div>
 
     <!-- All options this category has -->
-    <ContainerComponent class="bg-primary-200 bg-opacity-20">
+    <ContainerComponent class="bg-primary-100">
       <h2 class="text-2xl">Options:</h2>
       <div class="mt-2 space-y-5">
         <SectionComponent
@@ -21,7 +21,9 @@
           <div space-y-2>
             <p>{{ categoryOptions[option].description }}</p>
             <ExampleDisplay :example="categoryOptions[option]" />
-            <ExpandableComponent heading="Table">
+            <ExpandableComponent
+              :heading="`All uncertainties with ${categoryObject.name}: ${categoryOptions[option].name}`"
+            >
               <UncertaintyTable :filter="{ [category]: [option] }" />
             </ExpandableComponent>
           </div>

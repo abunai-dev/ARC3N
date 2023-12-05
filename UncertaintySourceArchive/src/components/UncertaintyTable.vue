@@ -5,12 +5,16 @@
         <div
           v-for="col in shownColumns"
           :key="col"
-          class="table-cell cursor-pointer border-b border-gray-400 text-center"
+          class="table-cell max-h-fit cursor-pointer border-b border-gray-400 text-center"
           @click="changeSorting(col)"
         >
-          <div>
-            {{ columnNames[col].name }}
-            <FontAwesomeIcon :icon="getSortingIcon(col)" class="text-xs" />
+          <div class="flex h-full items-center space-x-1 px-1">
+            <div class="h-full grow">
+              {{ columnNames[col].name }}
+            </div>
+            <div>
+              <FontAwesomeIcon :icon="getSortingIcon(col)" class="text-xs" />
+            </div>
           </div>
         </div>
       </div>

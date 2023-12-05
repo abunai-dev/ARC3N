@@ -39,7 +39,7 @@
 
     <!-- The options for each category of this uncertainty -->
     <ContainerComponent
-      class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-200 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
+      class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-100 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
     >
       <h2 class="text-2xl">Classification:</h2>
       <div class="mt-2 space-y-5">
@@ -50,16 +50,7 @@
           <template #default>
             <div class="space-y-2">
               <p>{{ categories[c].description }}</p>
-              <div>
-                <RouterLink
-                  :to="{
-                    name: 'category',
-                    params: { category: c }
-                  }"
-                >
-                  <ButtonComponent>More Info</ButtonComponent>
-                </RouterLink>
-              </div>
+              <div>List here</div>
             </div>
           </template>
         </SectionComponent>
