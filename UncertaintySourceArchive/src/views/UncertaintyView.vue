@@ -50,7 +50,11 @@
           <template #default>
             <div class="space-y-2">
               <p>{{ categories[c].description }}</p>
-              <div>List here</div>
+              <ClassOptionList
+                :category="c"
+                :selected-option="uncertainty.classes[c]"
+                class="hidden md:flex"
+              />
             </div>
           </template>
         </SectionComponent>
@@ -70,6 +74,7 @@ import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 import UncertaintyRelationshipDiagramm from '@/components/UncertaintyRelationshipDiagramm.vue'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
+import ClassOptionList from '@/components/ClassOptionList.vue'
 
 defineProps({
   /** Uncertainty to dislpay */
