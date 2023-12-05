@@ -1,51 +1,6 @@
 <template>
   <div class="flex h-screen max-h-screen flex-col overflow-hidden">
-    <nav class="flex items-center space-x-5 px-3">
-      <RouterLink to="/"><h1 class="cursor-pointer text-2xl">ARC3N</h1></RouterLink>
-      <ul class="flex space-x-1 bg-white py-1 text-lg">
-        <NavBarComponent
-          :link="{
-            link: {
-              name: 'archive'
-            },
-            name: 'Archive'
-          }"
-        />
-        <NavBarComponent
-          :link="{
-            link: {
-              name: 'classification'
-            },
-            name: 'Classification'
-          }"
-          :children="
-            categoryOrder.map((category) => ({
-              link: {
-                name: 'category',
-                params: { category: category }
-              },
-              name: category
-            }))
-          "
-        />
-        <NavBarComponent
-          :link="{
-            link: {
-              name: 'export'
-            },
-            name: 'Export'
-          }"
-        />
-        <NavBarComponent
-          :link="{
-            link: {
-              name: 'create'
-            },
-            name: 'Add New'
-          }"
-        />
-      </ul>
-    </nav>
+    <NavBar />
     <div
       class="flex grow flex-col space-y-5 overflow-hidden bg-gradient-to-br from-primary-600 to-primary-800 p-5"
     >
@@ -59,6 +14,5 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import ContainerComponent from './components/ContainerComponent.vue'
-import NavBarComponent from './components/NavBarComponent.vue'
-import { categoryOrder } from './model/categories/Category'
+import NavBar from './components/NavBar.vue'
 </script>

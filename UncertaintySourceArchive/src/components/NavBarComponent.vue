@@ -1,5 +1,5 @@
 <template>
-  <li class="group relative z-50 h-full p-1">
+  <li class="group relative z-50 h-full p-2">
     <RouterLink
       :to="link.link"
       class="rounded p-1 hover:bg-primary-200"
@@ -8,7 +8,10 @@
     >
     <ul
       v-if="children.length > 0"
-      class="absolute left-0 top-full hidden w-full min-w-fit flex-col rounded-b border bg-white p-1 group-hover:flex"
+      class="left-0 top-full w-full min-w-fit flex-col bg-white p-1 md:absolute md:hidden md:rounded-b md:border md:border-t-0 md:group-hover:flex"
+      :class="
+        isCurrentRoute() || children.some((child) => isCurrentRoute(child)) ? 'flex' : 'hidden'
+      "
     >
       <NavBarComponent
         v-for="child in children"
@@ -42,15 +45,14 @@ const props = defineProps({
   }
 })
 
-function isCurrentRoute() {
-  const sameName = router.currentRoute.value.name == props.link.link.name
-  if (props.link.link.params != undefined) {
+function isCurrentRoute(route?: Route) {
+  const link = route ?? props.link
+  const sameName = router.currentRoute.value.name == link.link.name
+  if (link.link.params != undefined) {
     return (
       sameName &&
-      Object.keys(props.link.link.params).every((key) => {
-        return (
-          (props.link.link.params as RouteParamsRaw)[key] == router.currentRoute.value.params[key]
-        )
+      Object.keys(link.link.params).every((key) => {
+        return (link.link.params as RouteParamsRaw)[key] == router.currentRoute.value.params[key]
       })
     )
   }
