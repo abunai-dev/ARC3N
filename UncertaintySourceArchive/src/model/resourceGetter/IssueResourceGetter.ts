@@ -37,7 +37,13 @@ export class IssueResourceGetter extends ResourceGetter {
     const parser = new BaseUncertaintyIssueParser()
     const uncertainties: Promise<BaseUncertainty>[] = []
     this.getIssueList(page, perPage).then((data) =>
-      data.map((issue: any) => uncertainties.push(parser.parse(issue.body)))
+      data.map((issue: any) => {
+        try {
+          uncertainties.push(parser.parse(issue.body))
+        } catch (error) {
+          console.error(`Error parsing issue ${issue.number}: ${error}`)
+        }
+      })
     )
 
     return Promise.all(uncertainties)
