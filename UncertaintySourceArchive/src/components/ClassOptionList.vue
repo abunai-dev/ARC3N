@@ -10,7 +10,10 @@
       }"
     >
       <FontAwesomeIcon :icon="categoryOptions[option].icon ?? faNotdef" />
-      <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
+      <p
+        class="hidden cursor-default group-hover:flex"
+        :class="{ '!flex': selectedOption == option }"
+      >
         {{ categoryOptions[option].name }}
       </p>
     </div>
