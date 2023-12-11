@@ -14,7 +14,7 @@
         '!flex': shownNavBar
       }"
     >
-      <RouterLink to="/"><h1 class="cursor-pointer text-2xl">ARC3N</h1></RouterLink>
+      <RouterLink to="/"><h1 class="cursor-pointer text-2xl">ARC<sup>3</sup>N</h1></RouterLink>
       <ul class="flex flex-col space-x-1 text-lg md:flex-row">
         <NavBarComponent
           :link="{
