@@ -6,12 +6,12 @@
       <div>Filter</div>
     </ButtonComponent>
     <ContainerComponent
-      class="absolute top-[115%] z-10 max-h-[400px] min-h-[270px] min-w-[288px] max-w-full overflow-scroll bg-white"
+      class="absolute top-[115%] z-10 max-h-[75vh] min-h-[270px] min-w-[288px] max-w-full overflow-scroll bg-white"
       v-if="visible"
     >
       <div>
         <h3 class="text-lg font-bold">Filter</h3>
-        <ExpandableComponent
+        <SectionComponent
           v-for="c in categoryOrder"
           :key="c.toString()"
           :heading="categories[c].name"
@@ -22,7 +22,7 @@
               <label @click="changeFilter(c, o)">{{ categoryOptions[o].name }}</label>
             </div>
           </div>
-        </ExpandableComponent>
+        </SectionComponent>
       </div>
     </ContainerComponent>
   </div>
@@ -34,7 +34,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { ref, type PropType, computed } from 'vue'
 import ContainerComponent from './ContainerComponent.vue'
 import type { Filter } from '@/model/ui/Table'
-import ExpandableComponent from './ExpandableComponent.vue'
+import SectionComponent from './SectionComponent.vue'
 import { categories, categoryOrder, CategoryList } from '@/model/categories/Category'
 import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
 import { library } from '@fortawesome/fontawesome-svg-core'
