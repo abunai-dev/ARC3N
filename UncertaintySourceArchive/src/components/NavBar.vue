@@ -44,6 +44,14 @@
         <NavBarComponent
           :link="{
             link: {
+              name: 'guide'
+            },
+            name: 'Guide'
+          }"
+        />
+        <NavBarComponent
+          :link="{
+            link: {
               name: 'export'
             },
             name: 'Export'
