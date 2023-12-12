@@ -1,6 +1,6 @@
 import type { BaseUncertainty, Uncertainty } from '../uncertainty/Uncertainty'
 import { ResourceGetter } from './ResourceGetter'
-import testData from './testData.json'
+import data from '../../../public/data.json' assert { type: 'json' }
 
 /**
  * Uncertainty format from testData.json
@@ -25,22 +25,22 @@ export class JsonResourceGetter extends ResourceGetter {
 
   /** @inheritdoc */
   public getDefaultPerPageAmount(): number {
-    return testData.uncertainties.length
+    return data.uncertainties.length
   }
 
   /** @inheritdoc */
   public async getPage(page: number, perPage: number): Promise<BaseUncertainty[]> {
     void page, perPage
-    return testData.uncertainties as BaseUncertainty[]
+    return data.uncertainties as BaseUncertainty[]
   }
 
   /** @inheritdoc */
   public async getAll(): Promise<BaseUncertainty[]> {
-    return testData.uncertainties as BaseUncertainty[]
+    return data.uncertainties as BaseUncertainty[]
   }
 
   private getBaseUncertainty(id: number): BaseUncertainty {
-    const uncertainty = (testData.uncertainties as BaseUncertainty[]).find(
+    const uncertainty = (data.uncertainties as BaseUncertainty[]).find(
       (uncertainty) => uncertainty.id === id
     ) as BaseUncertainty | undefined
     if (uncertainty) {
@@ -51,7 +51,7 @@ export class JsonResourceGetter extends ResourceGetter {
 
   /** @inheritdoc */
   public async getUncertainty(id: number): Promise<Uncertainty> {
-    const uncertainty = (testData.uncertainties as JsonUncertainty[]).find(
+    const uncertainty = (data.uncertainties as JsonUncertainty[]).find(
       (uncertainty) => uncertainty.id === id
     ) as JsonUncertainty | undefined
     if (uncertainty) {
