@@ -6,7 +6,7 @@
       <div>Filter</div>
     </ButtonComponent>
     <ContainerComponent
-      class="absolute top-[115%] z-10 max-h-[75vh] min-h-[270px] min-w-[300px] max-w-full overflow-scroll bg-white md:min-w-[600px]"
+      class="absolute top-[115%] z-10 max-h-[75vh] min-h-[270px] min-w-[300px] max-w-full overflow-scroll bg-primary-0 dark:bg-primary-900 md:min-w-[600px]"
       v-if="visible"
     >
       <div>

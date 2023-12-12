@@ -25,7 +25,7 @@
       />
       <!-- Suggestions -->
       <ContainerComponent
-        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-scroll bg-white !p-0"
+        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-scroll bg-primary-0 !p-0 dark:bg-slate-800"
         :class="showBelow ? 'top-[100%]' : 'bottom-[100%]'"
         id="testTemp"
         v-if="showSuggestions"
