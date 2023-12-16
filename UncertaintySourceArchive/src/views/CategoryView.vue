@@ -10,7 +10,7 @@
     </div>
 
     <!-- All options this category has -->
-    <ContainerComponent class="bg-primary-100">
+    <ContainerComponent class="bg-primary-100 dark:bg-primary-950">
       <h2 class="text-2xl">Options:</h2>
       <div class="mt-2 space-y-5">
         <SectionComponent

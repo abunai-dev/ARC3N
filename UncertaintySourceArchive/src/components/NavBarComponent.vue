@@ -8,7 +8,7 @@
     >
     <ul
       v-if="children.length > 0"
-      class="left-0 top-full w-full min-w-fit flex-col bg-white p-1 md:absolute md:hidden md:rounded-b md:border md:border-t-0 md:group-hover:flex"
+      class="left-0 top-full w-full min-w-fit flex-col bg-primary-0 p-1 dark:bg-primary-900 md:absolute md:hidden md:rounded-b md:border md:border-t-0 md:group-hover:flex"
       :class="
         isCurrentRoute() || children.some((child) => isCurrentRoute(child)) ? 'flex' : 'hidden'
       "

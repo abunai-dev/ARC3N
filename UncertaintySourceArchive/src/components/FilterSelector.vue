@@ -6,23 +6,25 @@
       <div>Filter</div>
     </ButtonComponent>
     <ContainerComponent
-      class="absolute top-[115%] z-10 max-h-[75vh] min-h-[270px] min-w-[288px] max-w-full overflow-scroll bg-white"
+      class="absolute top-[115%] z-10 max-h-[75vh] min-h-[270px] min-w-[300px] max-w-full overflow-scroll bg-primary-0 dark:bg-primary-900 md:min-w-[600px]"
       v-if="visible"
     >
       <div>
         <h3 class="text-lg font-bold">Filter</h3>
-        <SectionComponent
-          v-for="c in categoryOrder"
-          :key="c.toString()"
-          :heading="categories[c].name"
-        >
-          <div>
-            <div v-for="o in categories[c].options" :key="o.toString()" class="space-x-2">
-              <input type="checkbox" v-model="helper[c][o]" @change="changeFilter(c, o)" />
-              <label @click="changeFilter(c, o)">{{ categoryOptions[o].name }}</label>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <SectionComponent
+            v-for="c in categoryOrder"
+            :key="c.toString()"
+            :heading="categories[c].name"
+          >
+            <div>
+              <div v-for="o in categories[c].options" :key="o.toString()" class="space-x-2">
+                <input type="checkbox" v-model="helper[c][o]" @change="changeFilter(c, o)" />
+                <label @click="changeFilter(c, o)">{{ categoryOptions[o].name }}</label>
+              </div>
             </div>
-          </div>
-        </SectionComponent>
+          </SectionComponent>
+        </div>
       </div>
     </ContainerComponent>
   </div>

@@ -41,6 +41,9 @@
     <div v-if="uncertainties.length < uncertaintyCount" class="w-full pt-2 text-center font-bold">
       Loading more...
     </div>
+    <div v-if="filteredUncertainties.length == 0" class="w-full pt-2 text-center font-bold">
+      No uncertainties fit filter/search
+    </div>
   </div>
 </template>
 

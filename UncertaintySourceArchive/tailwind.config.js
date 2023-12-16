@@ -6,9 +6,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: colors.cyan
+        primary: {
+          ...colors.slate,
+          0: '#fff',
+          1000: '#000'
+        }
       }
     }
   },
+  darkMode: 'class',
   plugins: []
 }

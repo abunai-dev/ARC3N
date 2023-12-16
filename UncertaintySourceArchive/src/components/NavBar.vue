@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-primary-1000 dark:text-primary-0">
     <button
       class="absolute left-0 top-0 z-40 m-2 w-20 md:hidden"
       @click="shownNavBar = !shownNavBar"
@@ -9,7 +9,7 @@
       </ButtonComponent>
     </button>
     <nav
-      class="absolute left-0 z-30 hidden h-full flex-col space-x-5 border bg-white px-3 pt-16 shadow md:relative md:flex md:h-fit md:flex-row md:items-center md:border-0 md:pt-0 md:shadow-none"
+      class="absolute left-0 z-30 hidden h-full flex-col space-x-5 border bg-primary-0 px-3 pt-16 shadow dark:bg-primary-900 md:relative md:flex md:h-fit md:flex-row md:items-center md:border-0 md:pt-0 md:shadow-none"
       :class="{
         '!flex': shownNavBar
       }"
