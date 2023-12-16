@@ -50,12 +50,13 @@ import { ref, type PropType, type Ref, computed } from 'vue'
 import type { Filter, Sorting, Columns } from '@/model/ui/Table'
 import { categoryOrder, CategoryList, categories } from '@/model/categories/Category'
 import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
-import { resourceGetter } from '@/model/resourceGetter/Getter'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSortUp, faSortDown, faSort } from '@fortawesome/free-solid-svg-icons'
 import { RouterLink } from 'vue-router'
+import { JsonResourceGetter } from '@/model/resourceGetter/JsonResourceGetter'
 
+const resourceGetter = new JsonResourceGetter()
 library.add(faSortUp, faSortDown, faSort)
 
 const props = defineProps({

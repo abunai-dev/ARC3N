@@ -11,7 +11,7 @@ export class IssueResourceGetter extends ResourceGetter {
   public static readonly OWNER = 'abunai-dev'
   public static readonly REPO = 'UncertaintySourceArchive'
   private static readonly ISSUES_PER_SITE = 30
-  public static readonly ACCEPTED_ISSUE_LABEL = 'accepted'
+  public static readonly ACCEPTED_ISSUE_LABEL = 'bug'
   public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
 
   /** @inheritdoc */
@@ -36,16 +36,19 @@ export class IssueResourceGetter extends ResourceGetter {
   public async getPage(page: number, perPage?: number): Promise<BaseUncertainty[]> {
     const parser = new BaseUncertaintyIssueParser()
     const uncertainties: Promise<BaseUncertainty>[] = []
-    this.getIssueList(page, perPage).then((data) =>
+    await this.getIssueList(page, perPage).then((data) =>
       data.map((issue: any) => {
         try {
-          uncertainties.push(parser.parse(issue.body))
+          const parsed = parser.parse(issue.body)
+          console.log(parsed)
+          uncertainties.push(parsed)
         } catch (error) {
           console.error(`Error parsing issue ${issue.number}: ${error}`)
         }
       })
     )
 
+    console.log('all', uncertainties)
     return Promise.all(uncertainties)
   }
 
@@ -60,6 +63,7 @@ export class IssueResourceGetter extends ResourceGetter {
 
   public async getAll(): Promise<BaseUncertainty[]> {
     const issueCount = await this.getUncertaintyCount()
+    console.log(`Found ${issueCount} issues`)
     const pageCount = Math.ceil(issueCount / 100)
     const issues = await Promise.all(
       Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => this.getPage(page))

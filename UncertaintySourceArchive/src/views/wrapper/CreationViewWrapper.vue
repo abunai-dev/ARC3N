@@ -6,14 +6,14 @@
 </template>
 
 <script setup lang="ts">
-import { resourceGetter } from '@/model/resourceGetter/Getter'
 import type { BaseUncertainty } from '@/model/uncertainty/Uncertainty'
 import { type Ref, ref } from 'vue'
 import CreationView from '@/views/CreationView.vue'
+import { JsonResourceGetter } from '@/model/resourceGetter/JsonResourceGetter'
 
 const uncertainties: Ref<BaseUncertainty[] | null | 'Not found'> = ref(null)
 
-resourceGetter
+new JsonResourceGetter()
   .getAll()
   .then((data) => {
     uncertainties.value = data.flat()

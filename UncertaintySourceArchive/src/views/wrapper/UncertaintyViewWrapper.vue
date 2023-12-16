@@ -6,10 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import { resourceGetter } from '@/model/resourceGetter/Getter'
 import { type Ref, ref, toRef } from 'vue'
 import { type Uncertainty } from '@/model/uncertainty/Uncertainty'
 import UncertaintyView from '@/views/UncertaintyView.vue'
+import { JsonResourceGetter } from '@/model/resourceGetter/JsonResourceGetter'
 
 const props = defineProps({
   /** The id of the uncertainty to display */
@@ -23,7 +23,7 @@ const uncertainty: Ref<Uncertainty | null | 'Not found'> = ref(null)
 
 const reactiveId = toRef(props, 'id')
 
-resourceGetter
+new JsonResourceGetter()
   .getUncertainty(parseInt(reactiveId.value))
   .then((data) => {
     uncertainty.value = data

@@ -2,7 +2,7 @@ import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
 import { BaseUncertaintyIssueParser } from './BaseUncertaintyIssueParser'
 import { UncertaintyIssueEncoder } from '../encoder/UncertaintyIssueEncoder'
 import { AbstractIssueParser } from './AbstractIssueParser'
-import { resourceGetter } from '../Getter'
+import { JsonResourceGetter } from '../JsonResourceGetter'
 
 /**
  * Parses an issue body to get information about a uncertainty
@@ -64,7 +64,7 @@ export class UncertaintyIssueParser extends AbstractIssueParser<Uncertainty> {
   }
 
   private getUncertaintiesFromIdList(ids: number[]): Promise<Uncertainty[]> {
-    return Promise.all(ids.map((id) => resourceGetter.getUncertainty(id)))
+    return Promise.all(ids.map((id) => new JsonResourceGetter().getUncertainty(id)))
   }
 
   private extractImageList(imageList: string): string[] {
