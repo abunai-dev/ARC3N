@@ -52,7 +52,7 @@
               @change="(event) => updateClassField(c, getEventValue(event))"
               :id="c"
               :name="c"
-              class="h-8 w-full rounded border border-black border-opacity-50 bg-transparent outline-none placeholder:text-gray-400 md:w-96"
+              class="h-8 w-full rounded border border-black border-opacity-50 bg-transparent outline-none placeholder:text-gray-400 dark:bg-gray-800 md:w-96"
             >
               <option :value="null">Select an option</option>
               <option v-for="o in categories[c].options" :key="o" :value="o">

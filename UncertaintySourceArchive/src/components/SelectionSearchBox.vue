@@ -2,10 +2,10 @@
 <template>
   <div>
     <div
-      class="relative flex h-8 w-full items-center rounded border border-black border-opacity-50 bg-transparent md:w-96"
+      class="relative flex h-8 w-full items-center rounded border border-black border-opacity-50 bg-transparent dark:bg-gray-800 md:w-96"
     >
       <input
-        class="grow outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
+        class="grow bg-transparent outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
         type="text"
         v-model="textInput"
         :placeholder="placeholder"
@@ -45,7 +45,7 @@
       <div
         v-for="option in selectedList"
         :key="option"
-        class="m-1 flex w-fit items-center rounded bg-primary-800 p-1 text-sm text-white first:ml-0 last:mr-0"
+        class="m-1 flex w-fit items-center rounded bg-primary-800 p-1 text-sm text-white first:ml-0 last:mr-0 dark:bg-primary-700"
       >
         {{ option }}
         <FontAwesomeIcon

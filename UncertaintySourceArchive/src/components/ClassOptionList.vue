@@ -3,10 +3,10 @@
     <div
       v-for="option in categories[category].options"
       :key="option"
-      class="group flex flex-grow items-center justify-center space-x-2 bg-primary-50 first:rounded-l-full last:rounded-r-full"
+      class="group flex flex-grow items-center justify-center space-x-2 bg-primary-50 duration-0 first:rounded-l-full last:rounded-r-full dark:bg-primary-950"
       :class="{
-        '!bg-primary-300': option == selectedOption,
-        'hover:bg-primary-200': option != selectedOption
+        '!bg-primary-300 dark:!bg-primary-700': option == selectedOption,
+        'hover:bg-primary-200 dark:hover:bg-primary-800': option != selectedOption
       }"
     >
       <FontAwesomeIcon :icon="categoryOptions[option].icon ?? faNotdef" />

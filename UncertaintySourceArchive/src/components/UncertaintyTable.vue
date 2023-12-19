@@ -21,7 +21,7 @@
       <RouterLink
         v-for="[index, uncertainty] in filteredUncertainties.entries()"
         :key="uncertainty.id"
-        :class="{ 'bg-black bg-opacity-10': index % 2 == 1 }"
+        :class="{ 'bg-black bg-opacity-10 dark:bg-opacity-30': index % 2 == 1 }"
         :to="{
           name: 'uncertainty',
           params: { id: uncertainty.id.toString() }

@@ -9,7 +9,7 @@
       />
 
       <div
-        class="col-span-1 col-start-1 row-span-1 row-start-2 flex h-fit w-full items-center rounded border border-black border-opacity-50 md:col-span-1 md:col-start-2 md:row-span-1 md:row-start-1 md:w-96"
+        class="col-span-1 col-start-1 row-span-1 row-start-2 flex h-fit w-full items-center rounded border border-black border-opacity-50 dark:bg-gray-800 md:col-span-1 md:col-start-2 md:row-span-1 md:row-start-1 md:w-96"
       >
         <FontAwesomeIcon icon="search" class="mx-2 text-gray-400" />
         <input

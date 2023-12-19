@@ -1,5 +1,5 @@
 <template>
-  <main class="mt-20 flex h-full flex-col items-center text-center">
+  <main class="flex h-full flex-col items-center text-center">
     <img src="https://raw.githubusercontent.com/abunai-dev/.github/main/profile/abunai-art.png" />
     <h1 class="text-3xl font-bold">ARC<sup>3</sup>N</h1>
     <h3 class="text-xl">

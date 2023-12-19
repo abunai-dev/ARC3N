@@ -2,13 +2,13 @@
   <li class="group relative z-50 h-full p-2">
     <RouterLink
       :to="link.link"
-      class="rounded p-1 hover:bg-primary-200"
+      class="rounded p-1 hover:bg-primary-200 dark:hover:bg-primary-900"
       :class="{ 'font-bold': isCurrentRoute() }"
       >{{ link.name }}</RouterLink
     >
     <ul
       v-if="children.length > 0"
-      class="left-0 top-full w-full min-w-fit flex-col bg-primary-0 p-1 dark:bg-primary-900 md:absolute md:hidden md:rounded-b md:border md:border-t-0 md:group-hover:flex"
+      class="left-0 top-full w-full min-w-fit flex-col bg-primary-0 p-1 dark:border-primary-950 dark:bg-primary-975 md:absolute md:hidden md:rounded-b md:border md:border-t-0 md:group-hover:flex"
       :class="
         isCurrentRoute() || children.some((child) => isCurrentRoute(child)) ? 'flex' : 'hidden'
       "
