@@ -38,9 +38,6 @@
         </div>
       </RouterLink>
     </div>
-    <div v-if="uncertainties.length < uncertaintyCount" class="w-full pt-2 text-center font-bold">
-      Loading more...
-    </div>
     <div v-if="filteredUncertainties.length == 0" class="w-full pt-2 text-center font-bold">
       No uncertainties fit filter/search
     </div>
@@ -57,9 +54,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSortUp, faSortDown, faSort } from '@fortawesome/free-solid-svg-icons'
 import { RouterLink } from 'vue-router'
-import { JsonResourceGetter } from '@/model/resourceGetter/JsonResourceGetter'
+import { resourceGetter } from '@/model/resourceGetter/ResourceGetter'
 
-const resourceGetter = new JsonResourceGetter()
 library.add(faSortUp, faSortDown, faSort)
 
 const props = defineProps({
@@ -134,22 +130,8 @@ function changeSorting(column: Columns): void {
 }
 
 const uncertainties: Ref<BaseUncertainty[]> = ref([])
-const uncertaintyCount = ref(0)
 
-async function getUncertainties() {
-  uncertaintyCount.value = await resourceGetter.getUncertaintyCount()
-
-  function getUncertaintiesHelper(page: number): void {
-    if (page > uncertaintyCount.value / resourceGetter.getDefaultPerPageAmount()) {
-      return
-    }
-    resourceGetter.getPage(page).then((data) => {
-      uncertainties.value = uncertainties.value.concat(data)
-    })
-  }
-  getUncertaintiesHelper(1)
-}
-getUncertainties()
+resourceGetter.getAll().then((i) => (uncertainties.value = i))
 
 const filteredUncertainties = computed(() => {
   return uncertainties.value

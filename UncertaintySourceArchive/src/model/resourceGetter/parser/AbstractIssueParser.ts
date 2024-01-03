@@ -1,6 +1,6 @@
 import { AbstractParser } from './AbstractParser'
 
-export abstract class AbstractIssueParser<T> extends AbstractParser<T> {
+export abstract class AbstractIssueParser<T> extends AbstractParser<string, T> {
   protected extractContentFromIdComment(
     id: number,
     data: string,

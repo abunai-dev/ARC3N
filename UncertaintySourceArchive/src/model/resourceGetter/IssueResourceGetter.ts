@@ -1,83 +1,41 @@
-import type { BaseUncertainty, Uncertainty } from '../uncertainty/Uncertainty'
-import { ResourceGetter } from './ResourceGetter'
-import { BaseUncertaintyIssueParser } from './parser/BaseUncertaintyIssueParser'
+import type { JsonUncertainty } from '../uncertainty/Uncertainty'
 import { UncertaintyIssueParser } from './parser/UncertaintyIssueParser'
 
 /**
  * Gets uncertainties from GitHub issues
  */
-export class IssueResourceGetter extends ResourceGetter {
+export class IssueResourceGetter {
   private static readonly BASE_URL = 'https://api.github.com'
   public static readonly OWNER = 'abunai-dev'
   public static readonly REPO = 'UncertaintySourceArchive'
-  private static readonly ISSUES_PER_SITE = 30
+  private static readonly ISSUES_PER_SITE = 100
   public static readonly ACCEPTED_ISSUE_LABEL = 'bug'
   public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
 
-  /** @inheritdoc */
-  public async getUncertaintyCount(): Promise<number> {
-    let sum = 0
-    let lastPage = 0
-    let page = 1
+  public async get(): Promise<JsonUncertainty[]> {
+    const uncertainties: Promise<JsonUncertainty>[] = []
+    let lastFetchedCount = 0
+    let pageIndex = 0
+    const parser = new UncertaintyIssueParser()
     do {
-      lastPage = await this.getIssueList(page).then((data) => data.length)
-      sum += lastPage
-      page++
-    } while (lastPage === IssueResourceGetter.ISSUES_PER_SITE)
-    return sum
-  }
+      const json = (await fetch(
+        `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues?labels=${IssueResourceGetter.ACCEPTED_ISSUE_LABEL}&state=open&per_page=${IssueResourceGetter.ISSUES_PER_SITE}&page=${pageIndex}`
+      ).then((r) => r.json())) as any[]
 
-  /** @inheritdoc */
-  public getDefaultPerPageAmount(): number {
-    return IssueResourceGetter.ISSUES_PER_SITE
-  }
+      lastFetchedCount += json.length
 
-  /** @inheritdoc */
-  public async getPage(page: number, perPage?: number): Promise<BaseUncertainty[]> {
-    const parser = new BaseUncertaintyIssueParser()
-    const uncertainties: Promise<BaseUncertainty>[] = []
-    await this.getIssueList(page, perPage).then((data) =>
-      data.map((issue: any) => {
-        try {
-          const parsed = parser.parse(issue.body)
-          console.log(parsed)
-          uncertainties.push(parsed)
-        } catch (error) {
-          console.error(`Error parsing issue ${issue.number}: ${error}`)
-        }
+      json.forEach((j) => {
+        uncertainties.push(
+          parser.parse(j.body).then((u) => {
+            u.id = j.number
+            return u
+          })
+        )
       })
-    )
 
-    console.log('all', uncertainties)
+      pageIndex++
+    } while (lastFetchedCount >= IssueResourceGetter.ISSUES_PER_SITE)
+
     return Promise.all(uncertainties)
-  }
-
-  /** @inheritdoc */
-  public async getUncertainty(id: number): Promise<Uncertainty> {
-    return fetch(
-      `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/${id}`
-    )
-      .then((response) => response.json())
-      .then((data) => new UncertaintyIssueParser().parse(data.body))
-  }
-
-  public async getAll(): Promise<BaseUncertainty[]> {
-    const issueCount = await this.getUncertaintyCount()
-    console.log(`Found ${issueCount} issues`)
-    const pageCount = Math.ceil(issueCount / 100)
-    const issues = await Promise.all(
-      Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => this.getPage(page))
-    )
-    return issues.flat()
-  }
-
-  private async getIssueList(page: number, perPage?: number): Promise<any[]> {
-    return await fetch(
-      `${IssueResourceGetter.BASE_URL}/repos/${IssueResourceGetter.OWNER}/${
-        IssueResourceGetter.REPO
-      }/issues?labels=${IssueResourceGetter.ACCEPTED_ISSUE_LABEL}&state=open&per_page=${
-        perPage ?? IssueResourceGetter.ISSUES_PER_SITE
-      }&page=${page}`
-    ).then((response) => response.json())
   }
 }

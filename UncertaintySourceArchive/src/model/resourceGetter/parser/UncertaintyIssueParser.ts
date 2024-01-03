@@ -1,15 +1,14 @@
-import type { Uncertainty } from '@/model/uncertainty/Uncertainty'
+import type { JsonUncertainty } from '@/model/uncertainty/Uncertainty'
 import { BaseUncertaintyIssueParser } from './BaseUncertaintyIssueParser'
 import { UncertaintyIssueEncoder } from '../encoder/UncertaintyIssueEncoder'
 import { AbstractIssueParser } from './AbstractIssueParser'
-import { JsonResourceGetter } from '../JsonResourceGetter'
 
 /**
  * Parses an issue body to get information about a uncertainty
  */
-export class UncertaintyIssueParser extends AbstractIssueParser<Uncertainty> {
+export class UncertaintyIssueParser extends AbstractIssueParser<JsonUncertainty> {
   /** @inheritdoc */
-  public async parse(data: string) {
+  public async parse(data: string): Promise<JsonUncertainty> {
     const childIds = data.includes(UncertaintyIssueEncoder.CHILD_ID.toString())
       ? this.transformIdListToIdArray(
           this.extractContentFromIdComment(UncertaintyIssueEncoder.CHILD_ID, data)
@@ -30,12 +29,6 @@ export class UncertaintyIssueParser extends AbstractIssueParser<Uncertainty> {
         )
       : undefined
 
-    const uncertainties = await this.getUncertaintiesFromIdList([
-      ...childIds,
-      ...relatedIds,
-      ...(parentId ? [parentId] : [])
-    ])
-
     return {
       ...(await new BaseUncertaintyIssueParser().parse(data)),
       description: this.extractContentFromIdComment(UncertaintyIssueEncoder.DESCRIPTION_ID, data),
@@ -43,15 +36,9 @@ export class UncertaintyIssueParser extends AbstractIssueParser<Uncertainty> {
       exampleImages: this.extractImageList(
         this.extractContentFromIdComment(UncertaintyIssueEncoder.EXAMPLE_IMAGE_ID, data)
       ),
-      relatedUncertainties: relatedIds.map((id) =>
-        uncertainties.find((uncertainty) => uncertainty.id === id)
-      ) as Uncertainty[],
-      children: childIds.map((id) =>
-        uncertainties.find((uncertainty) => uncertainty.id === id)
-      ) as Uncertainty[],
+      relatedUncertainties: relatedIds,
+      children: childIds,
       parent: parentId
-        ? uncertainties.find((uncertainty) => uncertainty.id === parentId)
-        : undefined
     }
   }
 
@@ -61,10 +48,6 @@ export class UncertaintyIssueParser extends AbstractIssueParser<Uncertainty> {
       .replace(' ', '')
       .split(',')
       .map((id) => parseInt(id.trim().substring(1)))
-  }
-
-  private getUncertaintiesFromIdList(ids: number[]): Promise<Uncertainty[]> {
-    return Promise.all(ids.map((id) => new JsonResourceGetter().getUncertainty(id)))
   }
 
   private extractImageList(imageList: string): string[] {

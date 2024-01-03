@@ -22,3 +22,15 @@ export interface Uncertainty extends BaseUncertainty {
   children: BaseUncertainty[]
   parent?: BaseUncertainty
 }
+
+/**
+ * Uncertainty format from testData.json
+ */
+export interface JsonUncertainty extends BaseUncertainty {
+  description: string
+  exampleText: string
+  exampleImages: string[]
+  relatedUncertainties: number[]
+  children: number[]
+  parent?: number
+}

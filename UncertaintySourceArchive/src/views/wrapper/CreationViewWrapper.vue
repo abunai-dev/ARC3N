@@ -9,11 +9,11 @@
 import type { BaseUncertainty } from '@/model/uncertainty/Uncertainty'
 import { type Ref, ref } from 'vue'
 import CreationView from '@/views/CreationView.vue'
-import { JsonResourceGetter } from '@/model/resourceGetter/JsonResourceGetter'
+import { resourceGetter } from '@/model/resourceGetter/ResourceGetter'
 
 const uncertainties: Ref<BaseUncertainty[] | null | 'Not found'> = ref(null)
 
-new JsonResourceGetter()
+resourceGetter
   .getAll()
   .then((data) => {
     uncertainties.value = data.flat()

@@ -29,3 +29,4 @@ coverage
 
 script/
 !script/index.js
+fonts/
