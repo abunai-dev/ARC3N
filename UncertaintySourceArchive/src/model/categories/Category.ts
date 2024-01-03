@@ -59,21 +59,21 @@ export const categories = {
   [CategoryList.LOCATION]: {
     ...StaticCategoryData[CategoryList.LOCATION],
     options: [
-      LocationOptionList.STRUCTURE,
       LocationOptionList.BEHAVIOR,
       LocationOptionList.ENVIRONMENT,
-      LocationOptionList.INPUT
+      LocationOptionList.INPUT,
+      LocationOptionList.STRUCTURE
     ],
     exampleImages: [LocationExample1]
   } as Category<LocationOptionList>,
   [CategoryList.ARCHITECTURAL_ELEMENT_TYPE]: {
     ...StaticCategoryData[CategoryList.ARCHITECTURAL_ELEMENT_TYPE],
     options: [
+      ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION,
       ArchitecturalElementTypeOptionList.COMPONENT,
       ArchitecturalElementTypeOptionList.CONNECTOR,
-      ArchitecturalElementTypeOptionList.INTERFACE,
       ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE,
-      ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION
+      ArchitecturalElementTypeOptionList.INTERFACE
     ],
     exampleImages: [ArchitecturelElementTypeExample1]
   } as Category<ArchitecturalElementTypeOptionList>,
