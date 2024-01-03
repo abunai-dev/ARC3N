@@ -9,7 +9,9 @@ export enum ManagabilityOptionList {
 }
 
 /** Map with detailed information about all options of the Category Managability */
-export const managabilityOptions = ManagabilityClassStaticData as Record<
+const managabilityOptions = ManagabilityClassStaticData as Record<
   ManagabilityOptionList,
   CategoryOption
 >
+managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].icon = 'fa-lock'
+export { managabilityOptions }

@@ -11,7 +11,7 @@
     "exampleText": "User input is not validated before being processed by a software system.",
     "exampleImages": []
   },
-  "None": {
+  "severityNone": {
     "name": "None",
     "description": "No loss of confidentiality expected at all.",
     "exampleText": "The user somehow gets access to metadata when interacting with a system.",

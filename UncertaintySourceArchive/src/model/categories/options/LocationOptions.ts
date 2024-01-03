@@ -10,4 +10,10 @@ export enum LocationOptionList {
 }
 
 /** Map with detailed information about all options of the Category Location */
-export const locationOptions = LocationStaticData as Record<LocationOptionList, CategoryOption>
+const locationOptions = LocationStaticData as Record<LocationOptionList, CategoryOption>
+locationOptions[LocationOptionList.STRUCTURE].icon = 'fa-building'
+locationOptions[LocationOptionList.BEHAVIOR].icon = 'fa-gear'
+locationOptions[LocationOptionList.ENVIRONMENT].icon = 'fa-earth-america'
+locationOptions[LocationOptionList.INPUT].icon = 'fa-keyboard'
+
+export { locationOptions }

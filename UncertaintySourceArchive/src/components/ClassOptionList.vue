@@ -9,7 +9,7 @@
         'hover:bg-primary-200 dark:hover:bg-primary-800': option != selectedOption
       }"
     >
-      <FontAwesomeIcon :icon="categoryOptions[option].icon ?? faNotdef" />
+      <i class="fa-solid" :class="categoryOptions[option].icon ?? 'fa-notdef'"></i>
       <p
         class="hidden cursor-default group-hover:flex"
         :class="{ '!flex': selectedOption == option }"
@@ -24,8 +24,6 @@
 import { type CategoryList, categories } from '@/model/categories/Category'
 import { type CategoryOptionList, categoryOptions } from '@/model/categories/options/CategoryOption'
 import type { PropType } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faNotdef } from '@fortawesome/free-solid-svg-icons'
 
 defineProps({
   category: {

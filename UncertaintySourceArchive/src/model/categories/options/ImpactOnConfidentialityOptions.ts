@@ -5,11 +5,14 @@ import ImpactOnConfidentialityStaticData from './ImpactOnConfidentialityStaticDa
 export enum ImpactOnConfidentialityOptionList {
   DIRECT = 'Direct',
   INDIRECT = 'Indirect',
-  NONE = 'None'
+  NONE = 'impactNone'
 }
 
 /** Map with detailed detailed information all options of the Category Impact on Confidentiality */
-export const impactOnConfidentialityOptions = ImpactOnConfidentialityStaticData as Record<
+const impactOnConfidentialityOptions = ImpactOnConfidentialityStaticData as Record<
   ImpactOnConfidentialityOptionList,
   CategoryOption
 >
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].icon = 'fa-shield-keyhole'
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].icon = 'fa-shield'
+export { impactOnConfidentialityOptions }

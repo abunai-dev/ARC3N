@@ -1,4 +1,3 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import {
   architecturalElementTypeOptions,
   type ArchitecturalElementTypeOptionList
@@ -26,7 +25,7 @@ export interface CategoryOption {
   exampleText: string
   /** need to be insertable into the src of an img html tag */
   exampleImages: string[]
-  icon?: IconDefinition
+  icon?: string
 }
 
 /** List of all possible values of options of any category can have */

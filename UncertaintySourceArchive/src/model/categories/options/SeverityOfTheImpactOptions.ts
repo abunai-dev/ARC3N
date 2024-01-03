@@ -5,11 +5,16 @@ import SeverityOfTheImpactClassStaticData from './SeverityOfTheImpactStaticData.
 export enum SeverityOfTheImpactOptionList {
   HIGH = 'High',
   LOW = 'Low',
-  NONE = 'None'
+  NONE = 'severityNone'
 }
 
 /** Map with detailed information about all options of the Category Severity of the Impact */
-export const severityOfTheImpactOptions = SeverityOfTheImpactClassStaticData as Record<
+const severityOfTheImpactOptions = SeverityOfTheImpactClassStaticData as Record<
   SeverityOfTheImpactOptionList,
   CategoryOption
 >
+severityOfTheImpactOptions[SeverityOfTheImpactOptionList.HIGH].icon = 'fa-circle-exclamation'
+severityOfTheImpactOptions[SeverityOfTheImpactOptionList.LOW].icon = 'fa-circle-question'
+severityOfTheImpactOptions[SeverityOfTheImpactOptionList.NONE].icon = 'fa-circle'
+
+export { severityOfTheImpactOptions }

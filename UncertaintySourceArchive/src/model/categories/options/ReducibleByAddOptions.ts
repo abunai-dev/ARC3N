@@ -8,7 +8,11 @@ export enum ReducibleByAddOptionList {
 }
 
 /** Map with detailed information about all options of the Category Reducible by Add */
-export const reducibleByAddOptions = ReducibleByAddStaticData as Record<
+const reducibleByAddOptions = ReducibleByAddStaticData as Record<
   ReducibleByAddOptionList,
   CategoryOption
 >
+reducibleByAddOptions[ReducibleByAddOptionList.YES].icon = 'fa-check'
+reducibleByAddOptions[ReducibleByAddOptionList.NO].icon = 'fa-xmark'
+
+export { reducibleByAddOptions }

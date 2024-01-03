@@ -11,7 +11,16 @@ export enum ArchitecturalElementTypeOptionList {
 }
 
 /** Map with detailed information about all options of the Category Architectural Element Type */
-export const architecturalElementTypeOptions = ArchitecturalElementTypeStaticData as Record<
+const architecturalElementTypeOptions = ArchitecturalElementTypeStaticData as Record<
   ArchitecturalElementTypeOptionList,
   CategoryOption
 >
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.COMPONENT].icon =
+  'fa-puzzle-piece'
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].icon = 'fa-link'
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].icon = 'fa-webhook'
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE].icon =
+  'fa-server'
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION].icon =
+  'fa-computer-mouse'
+export { architecturalElementTypeOptions }

@@ -9,4 +9,8 @@ export enum TypeOptionList {
 }
 
 /** Map with detailed information about all options of the Category Type */
-export const typeOptions = TypeClassStaticData as Record<TypeOptionList, CategoryOption>
+const typeOptions = TypeClassStaticData as Record<TypeOptionList, CategoryOption>
+typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].icon = 'fa-chart-pie-simple'
+typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].icon = 'fa-shield-exclamation'
+
+export { typeOptions }

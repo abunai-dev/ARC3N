@@ -11,7 +11,7 @@
     "exampleText": "Architectural Design Decisions (ADDs), Uncertainties",
     "exampleImages": []
   },
-  "None": {
+  "impactNone": {
     "name": "None",
     "description": "No impact on confidentiality",
     "exampleText": "If only publicly available data is affected",
