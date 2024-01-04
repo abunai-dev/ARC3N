@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex min-h-[24px]">
     <div
       v-for="option in categories[category].options"
       :key="option"
@@ -32,7 +32,7 @@ defineProps({
   },
   selectedOption: {
     type: String as PropType<CategoryOptionList>,
-    required: true
+    required: false
   }
 })
 </script>
