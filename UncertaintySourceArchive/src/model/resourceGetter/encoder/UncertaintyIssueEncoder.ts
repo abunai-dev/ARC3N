@@ -17,7 +17,9 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly RELATED_ID = 8623
   public static readonly KEYWORD_ID = 1835
   private static readonly BASE_COMMENT =
-    '<!-- Please do not change any content except where comments explizitly allow you too -->'
+    '<!-- Please do not change any content except where comments explicitly allow you too -->'
+  private static readonly GUIDE_REF =
+    'More information on how to use the issues and the archive can be found [here](arc3n.abunai.dev/guide).'
 
   /** @inheritdoc */
   public encode(data: Uncertainty): string {
@@ -27,7 +29,9 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
       data.classes
     )}\n${this.formatKeywords(data.keywords)}\n${this.formatExample(
       data.exampleText
-    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}`
+    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}\n\n---\n${
+      UncertaintyIssueEncoder.GUIDE_REF
+    }`
   }
 
   private formatBaseUncertainty(uncertainty: Uncertainty): string {

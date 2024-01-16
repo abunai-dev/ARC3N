@@ -63,7 +63,6 @@ resourceGetter
     return format(JSON.stringify(content), { filepath: 'name.json', plugins: [estree, babel] })
   })
   .then((content) => {
-    console.log(content)
     return hljs.highlight(content, { language: 'json' }).value
   })
   .then((content) => {
@@ -73,7 +72,6 @@ resourceGetter
       lines.push('...')
     }
     fileContent.value = lines.join('\n')
-    console.log(fileContent.value)
   })
 
 // This code is responsible for changing the theme of the highlighted code depending on light/dark mode
@@ -87,7 +85,7 @@ onMounted(() => {
   }
   const styleHolderDiv = styleholder.value as Node
   const styleElement = document.createElement('style')
-  styleElement.innerHTML = dark ? hljsDarkMode : hljsLightMode
+  styleElement.innerHTML = dark.value ? hljsDarkMode : hljsLightMode
   styleHolderDiv.appendChild(styleElement)
 })
 

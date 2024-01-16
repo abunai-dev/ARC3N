@@ -77,6 +77,11 @@ const props = defineProps({
     default: () => {
       return ['id', 'name', 'keywords', ...categoryOrder]
     }
+  },
+  maxRows: {
+    type: Number,
+    required: false,
+    default: undefined
   }
 })
 
@@ -134,10 +139,16 @@ const uncertainties: Ref<BaseUncertainty[]> = ref([])
 resourceGetter.getAll().then((i) => (uncertainties.value = i))
 
 const filteredUncertainties = computed(() => {
-  return uncertainties.value
+  const u = uncertainties.value
     .filter(matchesFilter)
     .filter(matchesSearchString)
     .sort(uncertaintyComparator)
+
+  if (props.maxRows != undefined) {
+    return u.slice(0, props.maxRows)
+  } else {
+    return u
+  }
 })
 
 /**
