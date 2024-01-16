@@ -91,7 +91,7 @@ import { categoryOrder } from '../model/categories/Category'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
-import { ref, watch } from 'vue'
+import { inject, ref, type Ref } from 'vue'
 import ButtonComponent from './ButtonComponent.vue'
 import { router } from '@/router'
 
@@ -103,16 +103,7 @@ router.afterEach(() => {
   shownNavBar.value = false
 })
 
-const dark = ref(false)
-
-watch(dark, (value) => {
-  const root = document.getElementById('app') as HTMLElement
-  if (value) {
-    root.classList.add('dark')
-  } else {
-    root.classList.remove('dark')
-  }
-})
+const dark = inject('dark') as Ref<boolean>
 </script>
 
 <style scoped>

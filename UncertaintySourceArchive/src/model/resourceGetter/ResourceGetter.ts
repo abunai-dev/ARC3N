@@ -30,8 +30,7 @@ abstract class ResourceGetter {
 
   public abstract getFileUrl(): string
 
-  protected async getFileContent() {
-    console.log('getFileContent', 1)
+  public async getFileContent() {
     if (this.rawContent.size > 0) {
       return Array.from(this.rawContent.values())
     }
