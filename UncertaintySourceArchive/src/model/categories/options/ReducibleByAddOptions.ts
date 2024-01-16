@@ -1,5 +1,6 @@
 import type { CategoryOption } from './CategoryOption'
 import ReducibleByAddStaticData from './ReducibleByAddStaticData.json'
+import colors from 'tailwindcss/colors'
 
 /** List of all options of the Category Reducible by Add */
 export enum ReducibleByAddOptionList {
@@ -15,4 +16,6 @@ const reducibleByAddOptions = ReducibleByAddStaticData as Record<
 reducibleByAddOptions[ReducibleByAddOptionList.YES].icon = 'fa-check'
 reducibleByAddOptions[ReducibleByAddOptionList.NO].icon = 'fa-xmark'
 
+reducibleByAddOptions[ReducibleByAddOptionList.YES].color = colors.green
+reducibleByAddOptions[ReducibleByAddOptionList.NO].color = colors.red
 export { reducibleByAddOptions }

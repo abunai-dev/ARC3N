@@ -9,7 +9,11 @@
         'hover:bg-primary-200 dark:hover:bg-primary-800': option != selectedOption
       }"
     >
-      <i class="fa-solid" :class="categoryOptions[option].icon ?? 'fa-notdef'"></i>
+      <i
+        class="fa-solid"
+        :class="categoryOptions[option].icon ?? 'fa-notdef'"
+        :style="{ color: categoryOptions[option].color?.[500] ?? 'black' }"
+      ></i>
       <p
         class="hidden cursor-default group-hover:flex"
         :class="{ '!flex': selectedOption == option }"

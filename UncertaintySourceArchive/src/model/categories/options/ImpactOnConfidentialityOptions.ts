@@ -1,5 +1,6 @@
 import type { CategoryOption } from './CategoryOption'
 import ImpactOnConfidentialityStaticData from './ImpactOnConfidentialityStaticData.json'
+import colors from 'tailwindcss/colors'
 
 /** List of all options of the Category Impact on Confidentiality */
 export enum ImpactOnConfidentialityOptionList {
@@ -15,4 +16,8 @@ const impactOnConfidentialityOptions = ImpactOnConfidentialityStaticData as Reco
 >
 impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].icon = 'fa-shield-keyhole'
 impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].icon = 'fa-shield'
+
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].color = colors.red
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.INDIRECT].color = colors.yellow
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].color = colors.green
 export { impactOnConfidentialityOptions }

@@ -1,5 +1,6 @@
 import type { CategoryOption } from './CategoryOption'
 import ManagabilityClassStaticData from './ManagabilityStaticData.json'
+import colors from 'tailwindcss/colors'
 
 /** List of all options of the Category Managability */
 export enum ManagabilityOptionList {
@@ -14,4 +15,8 @@ const managabilityOptions = ManagabilityClassStaticData as Record<
   CategoryOption
 >
 managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].icon = 'fa-lock'
+
+managabilityOptions[ManagabilityOptionList.FULLY_REDUCIBLE].color = colors.green
+managabilityOptions[ManagabilityOptionList.PARTIALLY_REDUCIBLE].color = colors.yellow
+managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].color = colors.red
 export { managabilityOptions }
