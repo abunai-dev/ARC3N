@@ -9,6 +9,7 @@ export default {
         primary: {
           ...colors.slate,
           0: '#fff',
+          970: 'hsl(200, 20%, 16%)',
           975: 'hsl(200, 20%, 13%)',
           1000: '#000'
         }

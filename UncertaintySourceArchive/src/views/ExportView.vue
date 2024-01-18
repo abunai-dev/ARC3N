@@ -21,12 +21,12 @@
 
     <section class="flex flex-col overflow-hidden">
       <h3 class="text-2xl">File Preview</h3>
-      <div class="flex-1 overflow-scroll">
+      <ContainerComponent class="flex-1 overflow-scroll bg-primary-50 dark:bg-primary-970">
         <pre
           v-if="fileContent != null"
           class="min-h-[100px]"
         ><code v-html="fileContent"></code></pre>
-      </div>
+      </ContainerComponent>
 
       <div ref="styleholder"></div>
     </section>
@@ -46,6 +46,7 @@ import hljs from 'highlight.js'
 import json from 'highlight.js/lib/languages/json'
 import estree from 'prettier/plugins/estree'
 import babel from 'prettier/plugins/babel'
+import ContainerComponent from '@/components/ContainerComponent.vue'
 
 hljs.registerLanguage('json', json)
 
