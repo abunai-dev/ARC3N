@@ -10,39 +10,37 @@
     </div>
 
     <!-- All options this category has -->
-    <ContainerComponent class="bg-primary-100 dark:bg-primary-900">
-      <h2 class="text-2xl">Options:</h2>
-      <div class="mt-2 space-y-6">
-        <SectionComponent v-for="option in categoryObject.options" :key="option">
-          <template #heading>
+    <h2 class="text-2xl">Options:</h2>
+    <div class="mt-2 space-y-6">
+      <ContainerComponent
+        class="bg-primary-100 dark:bg-primary-900"
+        v-for="option in categoryObject.options"
+        :key="option"
+      >
+        <div class="flex flex-col gap-5 md:flex-row">
+          <div class="flex-1">
             <div class="space-x-2">
               <CategoryIconDisplay :option="option" />
               <span>{{ categoryOptions[option].name }}</span>
             </div>
-          </template>
-          <template #default>
-            <div class="flex flex-col gap-5 md:flex-row">
-              <div class="flex-1 space-y-3">
-                <p>{{ categoryOptions[option].description }}</p>
-                <p>{{ categoryOptions[option].exampleText }}</p>
-              </div>
-              <UncertaintyTable
-                class="flex-1"
-                :filter="{ [category]: [option] }"
-                :shown-columns="[
-                  'id',
-                  'name',
-                  CategoryList.LOCATION,
-                  CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
-                  CategoryList.TYPE
-                ]"
-                :max-rows="3"
-              />
-            </div>
-          </template>
-        </SectionComponent>
-      </div>
-    </ContainerComponent>
+            <p class="mt-1">{{ categoryOptions[option].description }}</p>
+            <p class="mt-3">{{ categoryOptions[option].exampleText }}</p>
+          </div>
+          <UncertaintyTable
+            class="flex-1"
+            :filter="{ [category]: [option] }"
+            :shown-columns="[
+              'id',
+              'name',
+              CategoryList.LOCATION,
+              CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
+              CategoryList.TYPE
+            ]"
+            :max-rows="3"
+          />
+        </div>
+      </ContainerComponent>
+    </div>
 
     <ExampleDisplay :example="categoryObject" />
   </main>
@@ -51,7 +49,6 @@
 <script setup lang="ts">
 import { CategoryList, categories } from '@/model/categories/Category'
 import ContainerComponent from '@/components/ContainerComponent.vue'
-import SectionComponent from '@/components/SectionComponent.vue'
 import { computed, type PropType } from 'vue'
 import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
