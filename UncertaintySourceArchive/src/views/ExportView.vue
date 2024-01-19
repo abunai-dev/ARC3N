@@ -3,10 +3,13 @@
     <p class="mx-auto w-fit">
       Get a json file containing all the uncertainties either by using this link:
     </p>
-    <p class="mx-auto my-4 w-fit">
-      <span class="h-10 rounded rounded-r-none border border-primary-400 px-2 py-1">{{ url }}</span>
+    <p class="mx-auto my-4 flex w-fit">
       <span
-        class="h-10 cursor-pointer rounded rounded-l-none border border-l-0 border-primary-400 px-2 py-1"
+        class="flex h-8 items-center justify-center rounded rounded-r-none border border-primary-400 px-2 py-1"
+        >{{ url }}</span
+      >
+      <span
+        class="max-w-8 flex h-8 max-h-8 w-8 cursor-pointer items-center justify-center rounded rounded-l-none border border-l-0 border-primary-400 px-2 py-1 text-center duration-1000 active:text-lg"
         @click="copy()"
       >
         <FontAwesomeIcon :icon="faCopy" />
