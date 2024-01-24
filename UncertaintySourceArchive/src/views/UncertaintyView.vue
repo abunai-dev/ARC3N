@@ -1,8 +1,34 @@
 <template>
   <main class="grid w-full grid-cols-1 gap-5 md:h-full md:grid-cols-2 md:grid-rows-[auto_1fr]">
     <div class="col-span-1 col-start-1 row-span-1 row-start-1">
-      <h1 class="text-3xl font-bold">#{{ uncertainty.id }} - {{ uncertainty.name }}</h1>
-      <article class="pl-3">{{ uncertainty.description }}</article>
+      <div class="flex flex-col md:flex-row">
+        <h1 class="text-3xl font-bold md:flex-grow">
+          #{{ uncertainty.id }} - {{ uncertainty.name }}
+        </h1>
+        <a
+          :href="
+            'https://www.github.com/' +
+            IssueResourceGetter.OWNER +
+            '/' +
+            IssueResourceGetter.REPO +
+            '/issues/' +
+            uncertainty.id
+          "
+        >
+          <ButtonComponent>Go to discussion</ButtonComponent>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-3 text-sm">
+        <div
+          v-for="keyword in uncertainty.keywords"
+          :key="keyword"
+          class="rounded bg-primary-200 px-1 dark:bg-primary-950"
+        >
+          #{{ keyword }}
+        </div>
+      </div>
+      <article>{{ uncertainty.description }}</article>
     </div>
     <div
       class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-5 md:row-start-2 md:overflow-auto"
@@ -20,21 +46,6 @@
       >
         <UncertaintyRelationshipDiagramm :uncertainty="uncertainty" />
       </SectionComponent>
-
-      <div class="mx-auto w-fit">
-        <a
-          :href="
-            'https://www.github.com/' +
-            IssueResourceGetter.OWNER +
-            '/' +
-            IssueResourceGetter.REPO +
-            '/issues/' +
-            uncertainty.id
-          "
-        >
-          <ButtonComponent>Go to discussion</ButtonComponent>
-        </a>
-      </div>
     </div>
 
     <!-- The options for each category of this uncertainty -->

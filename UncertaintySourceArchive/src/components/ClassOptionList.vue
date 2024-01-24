@@ -3,7 +3,7 @@
     <div
       v-for="option in categories[category].options"
       :key="option"
-      class="group flex flex-grow items-center space-x-2 bg-primary-200 pl-3 duration-0 first:rounded-t-lg last:rounded-b-lg dark:bg-primary-800"
+      class="group flex flex-grow items-center space-x-2 bg-primary-200 pl-3 first:rounded-t-lg last:rounded-b-lg dark:bg-primary-800"
       :class="{
         '!bg-primary-300 dark:!bg-primary-600': option == selectedOption
       }"

@@ -8,7 +8,7 @@
         :key="img"
         :src="img"
         :alt="`Example image ${index + 1}`"
-        class="max-h-[40vh] max-w-full"
+        class="max-h-[40vh] max-w-full dark:invert"
       />
     </div>
   </SectionComponent>
