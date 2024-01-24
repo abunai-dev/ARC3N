@@ -42,7 +42,7 @@
       class="col-span-1 col-start-1 row-span-1 row-start-2 bg-primary-100 dark:bg-primary-900 md:col-span-1 md:col-start-2 md:row-span-2 md:row-start-1 md:overflow-auto"
     >
       <h2 class="text-2xl">Classification:</h2>
-      <div class="mt-2 space-y-5">
+      <div class="mt-2 grid grid-cols-1 space-y-5 md:grid-cols-2">
         <SectionComponent v-for="c in categoryOrder" :key="c">
           <template #heading>
             {{ categories[c].name }}: <i>{{ categoryOptions[uncertainty.classes[c]].name }}</i>
