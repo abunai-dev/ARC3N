@@ -1,13 +1,11 @@
 <!-- Displays the relationship between uncertainties -->
 <template>
-  <pre class="mermaid [&>*]:mx-auto" ref="diagramm">
-    {{ mermaidCode }}
-  </pre>
+  <div ref="diagrammContainer"></div>
 </template>
 
 <script setup lang="ts">
 import type { BaseUncertainty, Uncertainty } from '@/model/uncertainty/Uncertainty'
-import { computed, ref, type PropType, type Ref, onMounted } from 'vue'
+import { computed, ref, type PropType, type Ref, onMounted, inject, watch } from 'vue'
 import mermaid from 'mermaid'
 
 const props = defineProps({
@@ -38,7 +36,7 @@ const idList = computed(() => {
 const diagrammClassesMermaidNotation = computed(() =>
   idList.value
     .map((uncertainty) => {
-      return `${uncertainty.id}[${uncertainty.name}]`
+      return `${uncertainty.id}[${uncertainty.name}]:::styleClass`
     })
     .join('\n')
 )
@@ -75,21 +73,48 @@ const mermaidCode = `flowchart BT
   ${parentRelationshipMermaidNotation.value}
   ${relatedRelationshipsMermaidNotation.value}
   ${childrenRelationshipsMermaidNotation.value}
-  style ${props.uncertainty.id} stroke-width:4px
-`
+  style ${props.uncertainty.id} stroke-width:3px`
 
 /** Reference to the pre where the diagramm is drawen in */
-const diagramm: Ref<null | HTMLElement> = ref(null)
+const diagrammContainer: Ref<null | HTMLElement> = ref(null)
 
-onMounted(() => {
-  if (diagramm.value === null) {
+const dark = inject('dark') as Ref<boolean>
+
+function draw() {
+  if (diagrammContainer.value === null) {
     return
   }
+  const pre = document.createElement('pre')
+  const code = `${mermaidCode}\n
+  classDef default stroke:${dark.value ? '#ddddff' : '#222230'},fill:${
+    dark.value ? '#101030' : '#eeeff'
+  }`
+  pre.innerHTML = code
+  if (diagrammContainer.value.firstChild) {
+    diagrammContainer.value.removeChild(diagrammContainer.value.firstChild)
+  }
+  diagrammContainer.value.appendChild(pre)
   mermaid.initialize({
-    startOnLoad: false
+    startOnLoad: false,
+    theme: dark.value ? 'dark' : 'light'
   })
   mermaid.run({
-    nodes: [diagramm.value]
+    nodes: [pre]
   })
+}
+
+watch(dark, () => {
+  draw()
+})
+
+onMounted(() => {
+  draw()
 })
 </script>
+
+<style scoped>
+.styleClass > rect {
+  fill: #ff0000;
+  stroke: #ffff00;
+}
+</style>
