@@ -16,16 +16,15 @@ abstract class ResourceGetter {
 
   /** @inheritdoc */
   public async getAll(): Promise<BaseUncertainty[]> {
-    console.log('getAll')
     return this.getFileContent()
   }
 
   public async getUncertainty(id: number) {
-    return this.parser.parse(await this.getJsonUncerainty(id))
+    return this.parser.parse(await this.getJsonUncertainty(id))
   }
 
   public async getBaseUncertainty(id: number): Promise<BaseUncertainty> {
-    return this.getJsonUncerainty(id)
+    return this.getJsonUncertainty(id)
   }
 
   public abstract getFileUrl(): string
@@ -37,7 +36,6 @@ abstract class ResourceGetter {
 
     const content: JsonUncertainty[] = await fetch(this.getFileUrl())
       .then((r) => {
-        console.log(r)
         return r.json()
       })
       .catch((e) => {
@@ -48,11 +46,10 @@ abstract class ResourceGetter {
       this.rawContent.set(c.id, c)
     })
 
-    console.log(content)
     return content
   }
 
-  private async getJsonUncerainty(id: number) {
+  private async getJsonUncertainty(id: number) {
     if (!this.rawContent.has(id)) {
       await this.getFileContent()
     }
@@ -62,7 +59,7 @@ abstract class ResourceGetter {
 
 class DefaultResourceGetter extends ResourceGetter {
   public getFileUrl(): string {
-    throw window.location.origin + '/data.json'
+    return window.location.origin + '/data.json'
   }
 }
 
