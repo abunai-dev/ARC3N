@@ -70,13 +70,19 @@
         <label class="relative inline-block h-6 w-12">
           <input type="checkbox" class="h-0 w-0 opacity-0" v-model="dark" />
           <span
-            class="fa-solid absolute bottom-0 left-0 right-0 top-0 cursor-pointer rounded-full border border-black border-opacity-10 bg-primary-50 transition-all duration-300 ease-in-out before:absolute before:bottom-[calc(0.125rem-1px)] before:left-[calc(0.125rem-1px)] before:z-40 before:h-5 before:w-5 before:rounded-full before:bg-primary-800 before:duration-300 dark:bg-primary-700"
+            class="absolute bottom-0 left-0 right-0 top-0 cursor-pointer rounded-full border border-black border-opacity-10 bg-primary-50 transition-all duration-300 ease-in-out dark:bg-primary-700"
             :class="{
-              'before:translate-x-[1.375rem]': dark,
-              'fa-sun': !dark,
-              'fa-moon': dark
+              'before:translate-x-[1.375rem]': dark
             }"
           >
+            <span
+              class="fa-solid absolute bottom-[calc(0.125rem-1px)] left-[calc(0.125rem-1px)] z-50 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-center text-sm text-white duration-300"
+              :class="{
+                'translate-x-[1.375rem]': dark,
+                'fa-sun': !dark,
+                'fa-moon': dark
+              }"
+            ></span>
           </span>
         </label>
       </div>
