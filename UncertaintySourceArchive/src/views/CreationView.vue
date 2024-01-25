@@ -9,8 +9,8 @@
       insert an image.
     </p>
 
-    <article class="row-span-1 row-start-2 space-y-5 md:row-start-3">
-      <form class="space-y-5">
+    <article class="row-span-1 row-start-2 space-y-7 md:row-start-3">
+      <form class="space-y-10">
         <!-- Base information -->
         <section class="space-y-2">
           <FormInputComponent

@@ -1,5 +1,7 @@
 <template>
-  <main class="grid w-full grid-cols-1 gap-5 md:h-full md:grid-cols-2 md:grid-rows-[auto_1fr]">
+  <main
+    class="grid w-full grid-cols-1 gap-5 gap-y-10 md:h-full md:grid-cols-2 md:grid-rows-[auto_1fr]"
+  >
     <div class="col-span-1 col-start-1 row-span-1 row-start-1">
       <div class="flex flex-col md:flex-row">
         <h1 class="text-3xl font-bold md:flex-grow">
@@ -31,7 +33,7 @@
       <article>{{ uncertainty.description }}</article>
     </div>
     <div
-      class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-5 md:row-start-2 md:overflow-auto"
+      class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-10 md:row-start-2 md:overflow-auto"
     >
       <ExampleDisplay :example="uncertainty" />
 
