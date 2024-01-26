@@ -23,15 +23,15 @@ architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.COMPONENT].ic
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].icon = 'fa-link'
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].icon = 'fa-webhook'
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE].icon =
-  'fa-server'
+  'fa-arrow-up-right-from-square'
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION].icon =
-  'fa-computer-mouse'
+  'fa-gear'
 
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.COMPONENT].color = colors.orange
-architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].color = colors.teal
-architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].color = colors.fuchsia
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].color = colors.violet
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].color = colors.amber
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE].color =
   colors.rose
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION].color =
-  colors.blue
+  colors.sky
 export { architecturalElementTypeOptions }

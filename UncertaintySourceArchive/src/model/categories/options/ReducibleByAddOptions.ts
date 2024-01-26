@@ -13,9 +13,9 @@ const reducibleByAddOptions = ReducibleByAddStaticData as Record<
   ReducibleByAddOptionList,
   CategoryOption
 >
-reducibleByAddOptions[ReducibleByAddOptionList.YES].icon = 'fa-check'
-reducibleByAddOptions[ReducibleByAddOptionList.NO].icon = 'fa-xmark'
+reducibleByAddOptions[ReducibleByAddOptionList.YES].icon = 'fa-hexagon-check'
+reducibleByAddOptions[ReducibleByAddOptionList.NO].icon = 'fa-hexagon-xmark'
 
-reducibleByAddOptions[ReducibleByAddOptionList.YES].color = colors.green
-reducibleByAddOptions[ReducibleByAddOptionList.NO].color = colors.red
+reducibleByAddOptions[ReducibleByAddOptionList.YES].color = colors.emerald
+reducibleByAddOptions[ReducibleByAddOptionList.NO].color = colors.pink
 export { reducibleByAddOptions }

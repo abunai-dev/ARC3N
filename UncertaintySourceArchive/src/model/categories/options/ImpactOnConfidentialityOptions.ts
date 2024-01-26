@@ -14,10 +14,12 @@ const impactOnConfidentialityOptions = ImpactOnConfidentialityStaticData as Reco
   ImpactOnConfidentialityOptionList,
   CategoryOption
 >
-impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].icon = 'fa-shield-keyhole'
-impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].icon = 'fa-shield'
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].icon =
+  'fa-shield-exclamation'
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.INDIRECT].icon = 'fa-shield-halved'
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].icon = 'fa-shield-check'
 
-impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].color = colors.red
-impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.INDIRECT].color = colors.yellow
-impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].color = colors.green
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.DIRECT].color = colors.rose
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.INDIRECT].color = colors.amber
+impactOnConfidentialityOptions[ImpactOnConfidentialityOptionList.NONE].color = colors.stone
 export { impactOnConfidentialityOptions }

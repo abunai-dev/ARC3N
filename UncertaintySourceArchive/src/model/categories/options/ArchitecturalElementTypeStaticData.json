@@ -18,13 +18,13 @@
     "exampleImages": []
   },
   "External": {
-    "name": "External Resource",
+    "name": "External",
     "description": "Assignable to external resources.",
     "exampleText": "Servers, external actors",
     "exampleImages": []
   },
   "Behaviour": {
-    "name": "Behaviour Description",
+    "name": "Behavior",
     "description": "Assignable to behaviour descriptions.",
     "exampleText": "Algorithms, User Imput",
     "exampleImages": []

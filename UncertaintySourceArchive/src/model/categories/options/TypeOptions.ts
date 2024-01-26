@@ -11,10 +11,11 @@ export enum TypeOptionList {
 
 /** Map with detailed information about all options of the Category Type */
 const typeOptions = TypeClassStaticData as Record<TypeOptionList, CategoryOption>
-typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].icon = 'fa-chart-pie-simple'
-typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].icon = 'fa-shield-exclamation'
+typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].icon = 'fa-chart-simple'
+typeOptions[TypeOptionList.SCENARIO_UNCERTAINTY].icon = 'fa-list-ol'
+typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].icon = 'fa-seal-question'
 
-typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].color = colors.green
-typeOptions[TypeOptionList.SCENARIO_UNCERTAINTY].color = colors.yellow
-typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].color = colors.red
+typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].color = colors.lime
+typeOptions[TypeOptionList.SCENARIO_UNCERTAINTY].color = colors.indigo
+typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].color = colors.purple
 export { typeOptions }

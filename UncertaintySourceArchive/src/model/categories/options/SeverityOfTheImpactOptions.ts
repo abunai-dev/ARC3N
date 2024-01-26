@@ -14,8 +14,8 @@ const severityOfTheImpactOptions = SeverityOfTheImpactClassStaticData as Record<
   SeverityOfTheImpactOptionList,
   CategoryOption
 >
-severityOfTheImpactOptions[SeverityOfTheImpactOptionList.HIGH].icon = 'fa-circle-exclamation'
-severityOfTheImpactOptions[SeverityOfTheImpactOptionList.LOW].icon = 'fa-circle-question'
+severityOfTheImpactOptions[SeverityOfTheImpactOptionList.HIGH].icon = 'fa-triangle-exclamation'
+severityOfTheImpactOptions[SeverityOfTheImpactOptionList.LOW].icon = 'fa-circle-exclamation'
 severityOfTheImpactOptions[SeverityOfTheImpactOptionList.NONE].icon = 'fa-circle'
 
 severityOfTheImpactOptions[SeverityOfTheImpactOptionList.HIGH].color = colors.red

@@ -12,14 +12,14 @@ export enum LocationOptionList {
 
 /** Map with detailed information about all options of the Category Location */
 const locationOptions = LocationStaticData as Record<LocationOptionList, CategoryOption>
-locationOptions[LocationOptionList.STRUCTURE].icon = 'fa-building'
-locationOptions[LocationOptionList.BEHAVIOR].icon = 'fa-gear'
+locationOptions[LocationOptionList.STRUCTURE].icon = 'fa-diagram-project'
+locationOptions[LocationOptionList.BEHAVIOR].icon = 'fa-gears'
 locationOptions[LocationOptionList.ENVIRONMENT].icon = 'fa-earth-america'
-locationOptions[LocationOptionList.INPUT].icon = 'fa-keyboard'
+locationOptions[LocationOptionList.INPUT].icon = 'fa-user'
 
 locationOptions[LocationOptionList.STRUCTURE].color = colors.orange
 locationOptions[LocationOptionList.BEHAVIOR].color = colors.blue
-locationOptions[LocationOptionList.ENVIRONMENT].color = colors.teal
-locationOptions[LocationOptionList.INPUT].color = colors.fuchsia
+locationOptions[LocationOptionList.ENVIRONMENT].color = colors.lime
+locationOptions[LocationOptionList.INPUT].color = colors.indigo
 
 export { locationOptions }

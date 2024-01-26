@@ -14,9 +14,11 @@ const managabilityOptions = ManagabilityClassStaticData as Record<
   ManagabilityOptionList,
   CategoryOption
 >
-managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].icon = 'fa-lock'
+managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].icon = 'fa-hand'
+managabilityOptions[ManagabilityOptionList.PARTIALLY_REDUCIBLE].icon = 'fa-sliders'
+managabilityOptions[ManagabilityOptionList.FULLY_REDUCIBLE].icon = 'fa-wand-magic-sparkles'
 
-managabilityOptions[ManagabilityOptionList.FULLY_REDUCIBLE].color = colors.green
-managabilityOptions[ManagabilityOptionList.PARTIALLY_REDUCIBLE].color = colors.yellow
-managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].color = colors.red
+managabilityOptions[ManagabilityOptionList.FULLY_REDUCIBLE].color = colors.emerald
+managabilityOptions[ManagabilityOptionList.PARTIALLY_REDUCIBLE].color = colors.cyan
+managabilityOptions[ManagabilityOptionList.IRRIDUCIBLE].color = colors.pink
 export { managabilityOptions }
