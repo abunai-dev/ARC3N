@@ -6,7 +6,7 @@ import colors from 'tailwindcss/colors'
 export enum ResolutionTimeOptionList {
   REQUIREMENTS_TIME = 'Requirements',
   DESIGN_TIME = 'Design',
-  REALITAION_TIME = 'Realization',
+  REALIZATION_TIME = 'Realization',
   RUNTIME = 'Runtime'
 }
 
@@ -17,11 +17,11 @@ const resolutionTimeOptions = ResolutionTimeStaticData as Record<
 >
 resolutionTimeOptions[ResolutionTimeOptionList.REQUIREMENTS_TIME].icon = 'fa-list'
 resolutionTimeOptions[ResolutionTimeOptionList.DESIGN_TIME].icon = 'fa-pen'
-resolutionTimeOptions[ResolutionTimeOptionList.REALITAION_TIME].icon = 'fa-code-simple'
+resolutionTimeOptions[ResolutionTimeOptionList.REALIZATION_TIME].icon = 'fa-code-simple'
 resolutionTimeOptions[ResolutionTimeOptionList.RUNTIME].icon = 'fa-clock'
 
 resolutionTimeOptions[ResolutionTimeOptionList.REQUIREMENTS_TIME].color = colors.blue
 resolutionTimeOptions[ResolutionTimeOptionList.DESIGN_TIME].color = colors.teal
-resolutionTimeOptions[ResolutionTimeOptionList.REALITAION_TIME].color = colors.orange
+resolutionTimeOptions[ResolutionTimeOptionList.REALIZATION_TIME].color = colors.orange
 resolutionTimeOptions[ResolutionTimeOptionList.RUNTIME].color = colors.violet
 export { resolutionTimeOptions }

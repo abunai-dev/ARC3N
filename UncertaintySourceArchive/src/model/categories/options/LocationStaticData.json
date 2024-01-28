@@ -7,7 +7,7 @@
   },
   "Behavior": {
     "name": "Behavior",
-    "description": "Behaviour of the system and its components as well as their communication.",
+    "description": "Behavior of the system and its components as well as their communication.",
     "exampleText": "The handling of sensitive data within a component.",
     "exampleImages": []
   },

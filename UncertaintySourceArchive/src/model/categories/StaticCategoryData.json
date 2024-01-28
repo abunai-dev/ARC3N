@@ -14,8 +14,8 @@
     "description": "How much is known about the uncertainty and how can it be described.",
     "exampleText": "When there is recognized ignorance, one does not have any knowledge of the uncertainty. When there is scenario uncertainty, one knows the possible outcomes of the uncertainty. When there is statistical uncertainty, one knows the probability distribution of the uncertainty."
   },
-  "Managability": {
-    "name": "Managability",
+  "Manageability": {
+    "name": "Manageability",
     "description": "Can more knowledge or appropriate means reduce the uncertainty.",
     "exampleText": ""
   },

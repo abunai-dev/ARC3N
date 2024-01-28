@@ -8,7 +8,7 @@ export enum ArchitecturalElementTypeOptionList {
   CONNECTOR = 'Connector',
   INTERFACE = 'Interface',
   EXTERNAL_RESOURCE = 'External',
-  BEHAIOUR_DESCRIPTION = 'Behaviour'
+  BEHAVIOR_DESCRIPTION = 'Behavior'
 }
 
 /** Map with detailed information about all options of the Category Architectural Element Type */
@@ -24,7 +24,7 @@ architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].ic
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].icon = 'fa-webhook'
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE].icon =
   'fa-arrow-up-right-from-square'
-architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION].icon =
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAVIOR_DESCRIPTION].icon =
   'fa-gear'
 
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.COMPONENT].color = colors.orange
@@ -32,6 +32,6 @@ architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.CONNECTOR].co
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.INTERFACE].color = colors.amber
 architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE].color =
   colors.rose
-architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION].color =
+architecturalElementTypeOptions[ArchitecturalElementTypeOptionList.BEHAVIOR_DESCRIPTION].color =
   colors.sky
 export { architecturalElementTypeOptions }

@@ -23,10 +23,10 @@
     "exampleText": "Servers, external actors",
     "exampleImages": []
   },
-  "Behaviour": {
+  "Behavior": {
     "name": "Behavior",
-    "description": "Assignable to behaviour descriptions.",
-    "exampleText": "Algorithms, User Imput",
+    "description": "Assignable to behavior descriptions.",
+    "exampleText": "Algorithms, User Input",
     "exampleImages": []
   }
 }

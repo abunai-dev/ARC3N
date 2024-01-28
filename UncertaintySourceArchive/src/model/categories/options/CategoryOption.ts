@@ -7,7 +7,7 @@ import {
   type ImpactOnConfidentialityOptionList
 } from './ImpactOnConfidentialityOptions'
 import { locationOptions, type LocationOptionList } from './LocationOptions'
-import { managabilityOptions, type ManagabilityOptionList } from './ManagabilityOption'
+import { manageabilityOptions, type ManageabilityOptionList } from './ManageabilityOption'
 import { reducibleByAddOptions, type ReducibleByAddOptionList } from './ReducibleByAddOptions'
 import { resolutionTimeOptions, type ResolutionTimeOptionList } from './ResolutionTimeOptions'
 import {
@@ -34,7 +34,7 @@ export type CategoryOptionList =
   | ArchitecturalElementTypeOptionList
   | ImpactOnConfidentialityOptionList
   | LocationOptionList
-  | ManagabilityOptionList
+  | ManageabilityOptionList
   | ReducibleByAddOptionList
   | ResolutionTimeOptionList
   | SeverityOfTheImpactOptionList
@@ -45,7 +45,7 @@ export const categoryOptions = {
   ...architecturalElementTypeOptions,
   ...impactOnConfidentialityOptions,
   ...locationOptions,
-  ...managabilityOptions,
+  ...manageabilityOptions,
   ...reducibleByAddOptions,
   ...resolutionTimeOptions,
   ...severityOfTheImpactOptions,

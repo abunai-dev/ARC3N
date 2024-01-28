@@ -1,7 +1,7 @@
 import { ArchitecturalElementTypeOptionList } from './options/ArchitecturalElementTypeOptions'
 import { ImpactOnConfidentialityOptionList } from './options/ImpactOnConfidentialityOptions'
 import { LocationOptionList } from './options/LocationOptions'
-import { ManagabilityOptionList } from './options/ManagabilityOption'
+import { ManageabilityOptionList } from './options/ManageabilityOption'
 import { ReducibleByAddOptionList } from './options/ReducibleByAddOptions'
 import { ResolutionTimeOptionList } from './options/ResolutionTimeOptions'
 import { SeverityOfTheImpactOptionList } from './options/SeverityOfTheImpactOptions'
@@ -35,7 +35,7 @@ export enum CategoryList {
   LOCATION = 'Location',
   ARCHITECTURAL_ELEMENT_TYPE = 'ArchitecturalElementType',
   TYPE = 'Type',
-  MANAGABILITY = 'Managability',
+  MANAGEABILITY = 'Manageability',
   RESOLUTION_TIME = 'ResolutionTime',
   REDUCIBLE_BY_ADD = 'ReducibleByADD',
   IMPACT_ON_CONFIDENTIALITY = 'ImpactOnConfidentiality',
@@ -47,7 +47,7 @@ export const categoryOrder = [
   CategoryList.LOCATION,
   CategoryList.ARCHITECTURAL_ELEMENT_TYPE,
   CategoryList.TYPE,
-  CategoryList.MANAGABILITY,
+  CategoryList.MANAGEABILITY,
   CategoryList.RESOLUTION_TIME,
   CategoryList.REDUCIBLE_BY_ADD,
   CategoryList.IMPACT_ON_CONFIDENTIALITY,
@@ -69,7 +69,7 @@ export const categories = {
   [CategoryList.ARCHITECTURAL_ELEMENT_TYPE]: {
     ...StaticCategoryData[CategoryList.ARCHITECTURAL_ELEMENT_TYPE],
     options: [
-      ArchitecturalElementTypeOptionList.BEHAIOUR_DESCRIPTION,
+      ArchitecturalElementTypeOptionList.BEHAVIOR_DESCRIPTION,
       ArchitecturalElementTypeOptionList.COMPONENT,
       ArchitecturalElementTypeOptionList.CONNECTOR,
       ArchitecturalElementTypeOptionList.EXTERNAL_RESOURCE,
@@ -86,21 +86,21 @@ export const categories = {
     ],
     exampleImages: [TypeExample1]
   } as Category<TypeOptionList>,
-  [CategoryList.MANAGABILITY]: {
-    ...StaticCategoryData[CategoryList.MANAGABILITY],
+  [CategoryList.MANAGEABILITY]: {
+    ...StaticCategoryData[CategoryList.MANAGEABILITY],
     options: [
-      ManagabilityOptionList.FULLY_REDUCIBLE,
-      ManagabilityOptionList.PARTIALLY_REDUCIBLE,
-      ManagabilityOptionList.IRRIDUCIBLE
+      ManageabilityOptionList.FULLY_REDUCIBLE,
+      ManageabilityOptionList.PARTIALLY_REDUCIBLE,
+      ManageabilityOptionList.IRREDUCIBLE
     ],
     exampleImages: [ManagabilityExample1]
-  } as Category<ManagabilityOptionList>,
+  } as Category<ManageabilityOptionList>,
   [CategoryList.RESOLUTION_TIME]: {
     ...StaticCategoryData[CategoryList.RESOLUTION_TIME],
     options: [
       ResolutionTimeOptionList.REQUIREMENTS_TIME,
       ResolutionTimeOptionList.DESIGN_TIME,
-      ResolutionTimeOptionList.REALITAION_TIME,
+      ResolutionTimeOptionList.REALIZATION_TIME,
       ResolutionTimeOptionList.RUNTIME
     ],
     exampleImages: [ResolutionTimeExample1]
