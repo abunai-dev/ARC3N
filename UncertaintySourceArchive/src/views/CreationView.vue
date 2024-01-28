@@ -36,6 +36,12 @@
               allowNewOption
             />
           </FormInputComponent>
+          <FormInputComponent
+            id="reference"
+            label="Literature Reference"
+            v-model="uncertainty.sourceReferenceLink"
+            placeholder="Literature Reference"
+          />
         </section>
 
         <!-- Categories and options -->
@@ -136,7 +142,8 @@ const uncertainty: Ref<Uncertainty> = ref({
   exampleImages: [],
   children: [],
   relatedUncertainties: [],
-  classes: classes
+  classes: classes,
+  sourceReferenceLink: ''
 })
 
 const allowSubmit = computed(() => {
@@ -180,6 +187,9 @@ function getUncertainties(value: string[]) {
 
 function submitUncertainty() {
   if (!allowSubmit.value) return
+  if (uncertainty.value.sourceReferenceLink?.trim().length === 0) {
+    uncertainty.value.sourceReferenceLink = undefined
+  }
   const issueString = new UncertaintyIssueEncoder().encode(uncertainty.value)
   const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=Uncertainty Proposal: ${uncertainty.value.name}&body=${issueString}&labels=${IssueResourceGetter.PROPOSED_ISSUE_LABEL}`
   window.open(encodeURI(url).replace(/#/g, '%23'), '_blank')?.focus()

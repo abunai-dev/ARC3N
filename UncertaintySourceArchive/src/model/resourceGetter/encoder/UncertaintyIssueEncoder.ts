@@ -16,6 +16,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly CHILD_ID = 1324
   public static readonly RELATED_ID = 8623
   public static readonly KEYWORD_ID = 1835
+  public static readonly SOURCE_ID = 3734
   private static readonly BASE_COMMENT =
     '<!-- Please do not change any content except where comments explicitly allow you too -->'
   private static readonly GUIDE_REF =
@@ -25,9 +26,12 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public encode(data: Uncertainty): string {
     return `${UncertaintyIssueEncoder.BASE_COMMENT}\n\n${this.formatBaseUncertainty(data)}\n<h1>${
       data.name
-    }</h1>\n${this.formatDescription(data.description)}\n${this.formatClassifications(
-      data.classes
-    )}\n${this.formatKeywords(data.keywords)}\n${this.formatExample(
+    }</h1>\n${this.formatDescription(
+      data.description,
+      data.sourceReferenceLink
+    )}\n${this.formatClassifications(data.classes)}\n${this.formatKeywords(
+      data.keywords
+    )}\n${this.formatExample(
       data.exampleText
     )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}\n\n---\n${
       UncertaintyIssueEncoder.GUIDE_REF
@@ -42,11 +46,18 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     )
   }
 
-  private formatDescription(description: string): string {
-    return `<h2>Description</h2>\n${this.formatWithIdComment(
+  private formatDescription(description: string, source?: string): string {
+    let desc = `<h2>Description</h2>\n${this.formatWithIdComment(
       UncertaintyIssueEncoder.DESCRIPTION_ID,
       description
     )}`
+    if (source) {
+      desc += `\n${this.formatWithIdComment(
+        UncertaintyIssueEncoder.SOURCE_ID,
+        `[Literature Reference](${source})`
+      )}`
+    }
+    return desc
   }
 
   private formatClassifications(classifications: Record<CategoryList, CategoryOptionList>): string {

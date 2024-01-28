@@ -21,6 +21,7 @@ export interface Uncertainty extends BaseUncertainty {
   relatedUncertainties: BaseUncertainty[]
   children: BaseUncertainty[]
   parent?: BaseUncertainty
+  sourceReferenceLink?: string
 }
 
 /**
@@ -33,4 +34,5 @@ export interface JsonUncertainty extends BaseUncertainty {
   relatedUncertainties: number[]
   children: number[]
   parent?: number
+  sourceReferenceLink?: string
 }

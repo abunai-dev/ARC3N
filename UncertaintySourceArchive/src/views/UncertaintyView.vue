@@ -31,6 +31,9 @@
         </div>
       </div>
       <article>{{ uncertainty.description }}</article>
+      <a v-if="uncertainty.sourceReferenceLink" :href="uncertainty.sourceReferenceLink"
+        >Literature Reference</a
+      >
     </div>
     <div
       class="col-span-1 col-start-1 row-span-1 row-start-3 space-y-10 md:row-start-2 md:overflow-auto"

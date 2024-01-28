@@ -29,6 +29,12 @@ export class UncertaintyIssueParser extends AbstractIssueParser<JsonUncertainty>
         )
       : undefined
 
+    const referenceLink = data.includes(UncertaintyIssueEncoder.SOURCE_ID.toString())
+      ? this.extractReferenceLink(
+          this.extractContentFromIdComment(UncertaintyIssueEncoder.SOURCE_ID, data)
+        )
+      : undefined
+
     return {
       ...(await new BaseUncertaintyIssueParser().parse(data)),
       description: this.extractContentFromIdComment(UncertaintyIssueEncoder.DESCRIPTION_ID, data),
@@ -38,7 +44,8 @@ export class UncertaintyIssueParser extends AbstractIssueParser<JsonUncertainty>
       ),
       relatedUncertainties: relatedIds,
       children: childIds,
-      parent: parentId
+      parent: parentId,
+      sourceReferenceLink: referenceLink
     }
   }
 
@@ -61,5 +68,14 @@ export class UncertaintyIssueParser extends AbstractIssueParser<JsonUncertainty>
       }
     }
     return imageLinks
+  }
+
+  private extractReferenceLink(data: string): string {
+    const regexp = RegExp(`\\[([^\\]]*)\\]\\(([^)]*)\\)`, 'm')
+    const result = regexp.exec(data)
+    if (result) {
+      return result[2]
+    }
+    return ''
   }
 }
