@@ -6,7 +6,10 @@ export abstract class AbstractIssueParser<T> extends AbstractParser<string, T> {
     data: string,
     dataIsInsideComment: boolean = false
   ): string {
-    const firstCut = RegExp(`(?:.|\n)*<!-- ${id}= ((?:.|\n)*) =${id} -->`, 'm').exec(data)?.[1]
+    const firstCut = RegExp(
+      `(?:.|\n|(?:\r\n))*<!-- ${id}= ((?:.|\n|(?:\r\n))*) =${id} -->`,
+      'm'
+    ).exec(data)?.[1]
     if (firstCut === undefined) {
       throw new Error(`Could not find id ${id} in data at 1`)
     }
@@ -15,7 +18,7 @@ export abstract class AbstractIssueParser<T> extends AbstractParser<string, T> {
       return firstCut
     }
 
-    const secondCut = RegExp(`-->((?:.|\n)*)<!--`, 'm').exec(firstCut)?.[1]
+    const secondCut = RegExp(`-->((?:.|\n|(?:\r\n))*)<!--`, 'm').exec(firstCut)?.[1]
     if (secondCut === undefined) {
       throw new Error(`Could not find id ${id} in data at 2`)
     }

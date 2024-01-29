@@ -98,7 +98,7 @@ function getDisplayValue(uncertainty: BaseUncertainty, column: Columns): string 
   } else if (column == 'id') {
     return uncertainty.id.toString()
   } else if (column == 'keywords') {
-    return Object.keys(uncertainty.keywords).sort().join(', ')
+    return uncertainty.keywords.sort().join(', ')
   } else {
     return categoryOptions[uncertainty.classes[column]].name
   }

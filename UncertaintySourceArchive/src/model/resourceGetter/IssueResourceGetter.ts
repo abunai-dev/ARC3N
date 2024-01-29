@@ -9,7 +9,7 @@ export class IssueResourceGetter {
   public static readonly OWNER = 'abunai-dev'
   public static readonly REPO = 'UncertaintySourceArchive'
   private static readonly ISSUES_PER_SITE = 100
-  public static readonly ACCEPTED_ISSUE_LABEL = 'bug'
+  public static readonly ACCEPTED_ISSUE_LABEL = 'accepted'
   public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
 
   public async get(): Promise<JsonUncertainty[]> {
