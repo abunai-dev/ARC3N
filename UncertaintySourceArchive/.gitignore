@@ -27,6 +27,6 @@ coverage
 *.sln
 *.sw?
 
-script/
+script/*
 !script/index.js
 fonts/
