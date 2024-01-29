@@ -52,7 +52,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
       description
     )}`
     if (source) {
-      desc += `\n${this.formatWithIdComment(
+      desc += `\n\n${this.formatWithIdComment(
         UncertaintyIssueEncoder.SOURCE_ID,
         `[Literature Reference](${source})`
       )}`

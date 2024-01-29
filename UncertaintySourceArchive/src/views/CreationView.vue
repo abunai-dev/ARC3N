@@ -193,7 +193,7 @@ function submitUncertainty() {
     uncertainty.value.sourceReferenceLink = undefined
   }
   const issueString = new UncertaintyIssueEncoder().encode(uncertainty.value)
-  const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=Uncertainty Proposal: ${uncertainty.value.name}&body=${issueString}&labels=${IssueResourceGetter.PROPOSED_ISSUE_LABEL}`
+  const url = `https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues/new?title=${uncertainty.value.name}&body=${issueString}&labels=${IssueResourceGetter.PROPOSED_ISSUE_LABEL}`
   window.open(encodeURI(url).replace(/#/g, '%23'), '_blank')?.focus()
 }
 </script>
