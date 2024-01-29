@@ -1,5 +1,7 @@
 <template>
-  <main class="grid grid-cols-1 grid-rows-[auto_1fr_auto] gap-6 md:grid-rows-[auto_auto_1fr]">
+  <main
+    class="grid grid-cols-1 grid-rows-[auto_1fr_auto] gap-6 md:grid-rows-[auto_auto_1fr] md:gap-2"
+  >
     <h1 class="row-span-1 row-start-1 text-3xl font-bold">Suggest new Uncertainty</h1>
     <p class="row-span-1 row-start-3 md:row-start-2">
       To suggest an uncertainty: Fill this form out and then click the button. <br />
@@ -9,7 +11,7 @@
       insert an image.
     </p>
 
-    <article class="row-span-1 row-start-2 space-y-7 md:row-start-3">
+    <article class="row-span-1 row-start-2 space-y-7 md:row-start-3 md:mt-5">
       <form class="space-y-10">
         <!-- Base information -->
         <section class="space-y-2">

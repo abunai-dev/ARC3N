@@ -9,12 +9,10 @@
         'hover:cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-800':
           option != selectedOption
       }"
+      @click="selectedOption = option"
     >
       <CategoryIconDisplay :option="option" />
-      <p
-        class="hidden cursor-default group-hover:flex"
-        :class="{ '!flex': selectedOption == option }"
-      >
+      <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
         {{ categoryOptions[option].name }}
       </p>
     </div>
@@ -24,7 +22,7 @@
 <script setup lang="ts">
 import { type CategoryList, categories } from '@/model/categories/Category'
 import { type CategoryOptionList, categoryOptions } from '@/model/categories/options/CategoryOption'
-import { computed, type PropType } from 'vue'
+import { computed, ref, type PropType, type Ref } from 'vue'
 import CategoryIconDisplay from './CategoryIconDisplay.vue'
 
 const props = defineProps({
@@ -43,7 +41,12 @@ const emit = defineEmits<{
 }>()
 
 const selectedOption = computed({
-  get: () => props.modelValue,
-  set: (value: CategoryOptionList) => emit('update:modelValue', value)
+  get: () => _selectedOption.value ?? props.modelValue,
+  set: (value) => {
+    _selectedOption.value = value
+    emit('update:modelValue', value)
+  }
 })
+
+const _selectedOption: Ref<CategoryOptionList | null> = ref(null)
 </script>
