@@ -31,7 +31,10 @@
         </div>
       </div>
       <article>{{ uncertainty.description }}</article>
-      <a v-if="uncertainty.sourceReferenceLink" :href="uncertainty.sourceReferenceLink"
+      <a
+        v-if="uncertainty.sourceReferenceLink"
+        :href="uncertainty.sourceReferenceLink"
+        class="text-blue-600 underline dark:text-blue-500"
         >Literature Reference</a
       >
     </div>

@@ -21,7 +21,8 @@ export class JsonParser extends AbstractParser<JsonUncertainty, Uncertainty> {
       exampleImages: data.exampleImages,
       relatedUncertainties: related,
       children: children,
-      parent: parent
+      parent: parent,
+      sourceReferenceLink: data.sourceReferenceLink
     }
   }
 }
