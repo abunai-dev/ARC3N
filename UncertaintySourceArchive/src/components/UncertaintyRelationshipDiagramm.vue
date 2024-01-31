@@ -80,16 +80,16 @@ const diagrammContainer: Ref<null | HTMLElement> = ref(null)
 
 const dark = inject('dark') as Ref<boolean>
 
-function draw() {
+async function draw() {
   if (diagrammContainer.value === null) {
     return
   }
-  const pre = document.createElement('pre')
+  const pre = document.createElement('div')
+  pre.id = 'diagramm'
   const code = `${mermaidCode}\n
   classDef default stroke:${dark.value ? '#ddddff' : '#222230'},fill:${
     dark.value ? '#101030' : '#eeeff'
   }`
-  pre.innerHTML = code
   if (diagrammContainer.value.firstChild) {
     diagrammContainer.value.removeChild(diagrammContainer.value.firstChild)
   }
@@ -98,9 +98,18 @@ function draw() {
     startOnLoad: false,
     theme: dark.value ? 'dark' : 'light'
   })
-  mermaid.run({
-    nodes: [pre]
-  })
+  let { svg } = await mermaid.render('diagramm', code)
+
+  // Makes sure there is no cutoff on chromium based browsers
+  const viewBox = svg
+    .match(/viewBox="(.*?)"/)?.[1]
+    .split(' ')
+    .map((v) => parseInt(v.trim()))
+  if (!viewBox) {
+    return
+  }
+  svg = svg.replace(/viewBox=".*?"/, `viewBox="0 0 ${viewBox[2]} ${viewBox[3] + 10}"`)
+  diagrammContainer.value.innerHTML = svg
 }
 
 watch(dark, () => {
