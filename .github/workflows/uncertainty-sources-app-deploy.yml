@@ -1,34 +1,41 @@
-name: Uncertainty Source App Deployment Workflow
+name: Build and Deploy ARC3N
 
-on: 
-  workflow_dispatch: # Use this to dispatch from the Actions Tab
-  push:
+on:
+ workflow_dispatch:
+ push:
     branches:
       - main
-
-permissions: 
-  contents: write
-
+      
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Clone Font Awesome Overwrites ✌️
+        uses: actions/checkout@v2
+        with:
+          repository: abunai-dev/UncertaintySourceArchive-overwrites
+          path: app/fonts
+          token: ${{ secrets.OVERWRITES_READONLY_TOKEN }}
+      
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
 
-      - name: Install and Build
+      - name: Install and Build 🔧
         working-directory: app
         run: |
-           npm install
-           npm run build
+          npm install
+          npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy 🚀
+        uses: burnett01/rsync-deployments@4.1
         with:
-          branch: gh-pages
-          folder: app/dist
-            
+          switches: -avzr --delete
+          path: app/dist/
+          remote_path: /home/${{ secrets.USERNAME }}/html/${{ vars.TARGET }}
+          remote_host: ${{ secrets.SERVER }}
+          remote_user: ${{ secrets.USERNAME }}
+          remote_key: ${{ secrets.PRIVATE_KEY }}
