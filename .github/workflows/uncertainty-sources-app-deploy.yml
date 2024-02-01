@@ -24,10 +24,11 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install and Build 🔧
+      - name: Install, Fetch and Build 🔧
         working-directory: app
         run: |
           npm install
+          npm run fetch-uncertainties
           npm run build
 
       - name: Deploy 🚀

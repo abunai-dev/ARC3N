@@ -30,3 +30,5 @@ coverage
 script/*
 !script/index.js
 fonts/
+
+public/data.json
