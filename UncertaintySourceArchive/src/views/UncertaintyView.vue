@@ -45,7 +45,7 @@
       <a
         v-if="uncertainty.sourceReferenceLink"
         :href="uncertainty.sourceReferenceLink"
-        class="text-blue-600 underline dark:text-blue-500"
+        class="text-link underline dark:text-link-dark"
         >Literature Reference</a
       >
     </div>
