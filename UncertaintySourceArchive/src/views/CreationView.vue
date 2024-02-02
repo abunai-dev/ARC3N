@@ -107,9 +107,14 @@
         </section>
       </form>
 
-      <button type="submit" :disabled="!allowSubmit" @click="submitUncertainty()">
-        <ButtonComponent :disabled="!allowSubmit">Submit Uncertainty</ButtonComponent>
-      </button>
+      <section class="flex flex-col gap-5 align-middle md:flex-row">
+        <button type="submit" @click="submitUncertainty()">
+          <ButtonComponent :disabled="!allowSubmit">Submit Uncertainty</ButtonComponent>
+        </button>
+        <p class="text-red-700 dark:text-red-500" v-if="showError">
+          Please provide a name and a description.
+        </p>
+      </section>
     </article>
   </main>
 </template>
@@ -192,8 +197,14 @@ function getUncertainties(value: string[]) {
     .filter((u) => u != undefined) as BaseUncertainty[]
 }
 
+const showError = ref(false)
+
 function submitUncertainty() {
-  if (!allowSubmit.value) return
+  if (!allowSubmit.value) {
+    showError.value = true
+    return
+  }
+  showError.value = false
   if (uncertainty.value.sourceReferenceLink?.trim().length === 0) {
     uncertainty.value.sourceReferenceLink = undefined
   }
