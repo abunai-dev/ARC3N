@@ -43,8 +43,6 @@
         </div>
       </ContainerComponent>
     </div>
-
-    <ExampleDisplay :example="categoryObject" />
   </main>
 </template>
 
@@ -53,7 +51,6 @@ import { CategoryList, categories } from '@/model/categories/Category'
 import ContainerComponent from '@/components/ContainerComponent.vue'
 import { computed, type PropType } from 'vue'
 import { categoryOptions } from '@/model/categories/options/CategoryOption'
-import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
 import CategoryIconDisplay from '@/components/CategoryIconDisplay.vue'
 

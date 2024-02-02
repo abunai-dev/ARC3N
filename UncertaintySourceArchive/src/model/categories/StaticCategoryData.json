@@ -1,42 +1,34 @@
 {
   "Location": {
     "name": "Location",
-    "description": "Describes where an uncertainty manifests itself within the architecture.",
-    "exampleText": "The system environment is outside of the system structure. Within the system structure resides the system behaviour. The system behaviour is influenced by the input."
+    "description": "Describes where an uncertainty manifests itself within the architecture."
   },
   "ArchitecturalElementType": {
     "name": "Architectural Element Type",
-    "description": "Elements to which an uncertainty can be assigned.",
-    "exampleText": ""
+    "description": "Elements to which an uncertainty can be assigned."
   },
   "Type": {
     "name": "Type",
-    "description": "How much is known about the uncertainty and how can it be described.",
-    "exampleText": "When there is recognized ignorance, one does not have any knowledge of the uncertainty. When there is scenario uncertainty, one knows the possible outcomes of the uncertainty. When there is statistical uncertainty, one knows the probability distribution of the uncertainty."
+    "description": "How much is known about the uncertainty and how can it be described."
   },
   "Manageability": {
     "name": "Manageability",
-    "description": "Can more knowledge or appropriate means reduce the uncertainty.",
-    "exampleText": ""
+    "description": "Can more knowledge or appropriate means reduce the uncertainty."
   },
   "ResolutionTime": {
     "name": "Resolution Time",
-    "description": "Time at which the uncertainty is expected to be fully resolved.",
-    "exampleText": ""
+    "description": "Time at which the uncertainty is expected to be fully resolved."
   },
   "ReducibleByADD": {
     "name": "Reducible by ADD",
-    "description": "Uncertainty resolvable by an architectural design decision.",
-    "exampleText": ""
+    "description": "Uncertainty resolvable by an architectural design decision."
   },
   "ImpactOnConfidentiality": {
     "name": "Impact on Confidentiality",
-    "description": "Potential impact on confidentiality requirements.",
-    "exampleText": ""
+    "description": "Potential impact on confidentiality requirements."
   },
   "SeverityOfTheImpact": {
     "name": "Severity of the Impact",
-    "description": "Describes the severity if uncertainty is not mitigated.",
-    "exampleText": ""
+    "description": "Describes the severity if uncertainty is not mitigated."
   }
 }
