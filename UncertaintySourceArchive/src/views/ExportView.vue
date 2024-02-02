@@ -9,7 +9,7 @@
         >{{ url }}</span
       >
       <span
-        class="max-w-8 flex h-8 max-h-8 w-8 cursor-pointer items-center justify-center rounded rounded-l-none border border-l-0 border-primary-400 px-2 py-1 text-center duration-1000 active:text-lg"
+        class="flex h-8 max-h-8 w-8 max-w-8 cursor-pointer items-center justify-center rounded rounded-l-none border border-l-0 border-primary-400 px-2 py-1 text-center duration-1000 active:text-lg"
         @click="copy()"
       >
         <FontAwesomeIcon :icon="faCopy" />

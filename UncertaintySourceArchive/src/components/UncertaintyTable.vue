@@ -182,7 +182,7 @@ function matchesSearchString(uncertainty: BaseUncertainty): boolean {
     if (uncertainty.name.toLowerCase().includes(part) || uncertainty.id.toString().includes(part)) {
       return true
     }
-    for (let keyword in uncertainty.keywords) {
+    for (let keyword of uncertainty.keywords) {
       if (keyword.toLowerCase().includes(part)) {
         return true
       }
