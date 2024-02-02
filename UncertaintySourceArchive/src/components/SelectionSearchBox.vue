@@ -12,6 +12,8 @@
         @keypress.enter="addOption(textInput)"
         :disabled="selectedList.length >= props.limit"
         ref="inputRef"
+        @input="hasFocus = true"
+        @blur="hasFocus = false"
       />
       <FontAwesomeIcon
         icon="share"
@@ -104,6 +106,8 @@ const selectedList: Ref<string[]> = ref([])
 /** Content of the input field. Bound via v-model */
 const textInput: Ref<string> = ref('')
 
+const hasFocus = ref(false)
+
 /** Options to display in selection based on the current text in the input */
 const filteredOptions = computed(() => {
   if (textInput.value === '') {
@@ -150,7 +154,9 @@ function removeOption(option: string) {
 
 /** Indicates whether the suggestions should be displayed */
 const showSuggestions = computed(() => {
-  return filteredOptions.value.length > 0 && selectedList.value.length < props.limit
+  return (
+    filteredOptions.value.length > 0 && selectedList.value.length < props.limit && hasFocus.value
+  )
 })
 
 // This part of the code handles the positioning of the suggestions, so they are not cutoff by the bottom of the page

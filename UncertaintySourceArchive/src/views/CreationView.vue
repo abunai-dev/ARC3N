@@ -32,7 +32,12 @@
           />
           <FormInputComponent id="keywords" label="Keywords" inputType="custom">
             <SelectionSearchBox
-              :options="uncertaintyList.map((u) => u.keywords).flat()"
+              :options="
+                uncertaintyList
+                  .map((u) => u.keywords)
+                  .flat()
+                  .filter((v, i, a) => a.indexOf(v) === i)
+              "
               @input="updateKeywordField"
               placeholder="Keywords"
               allowNewOption
