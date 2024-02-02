@@ -5,7 +5,18 @@
     <div class="col-span-1 col-start-1 row-span-1 row-start-1">
       <div class="flex flex-col md:flex-row">
         <h1 class="text-3xl font-bold md:flex-grow">
-          #{{ uncertainty.id }} - {{ uncertainty.name }}
+          <ToolTip direction="right">
+            <template #default>
+              <span
+                class="cursor-pointer text-primary-500 active:text-primary-700 dark:text-primary-300 dark:active:text-primary-500"
+                @Click="copyID()"
+              >
+                #{{ uncertainty.id }}
+              </span>
+            </template>
+            <template #tooltip> Click ID to copy </template>
+          </ToolTip>
+          - {{ uncertainty.name }}
         </h1>
         <a
           :href="
@@ -94,12 +105,17 @@ import UncertaintyRelationshipDiagramm from '@/components/UncertaintyRelationshi
 import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import ClassOptionList from '@/components/ClassOptionList.vue'
+import ToolTip from '@/components/ToolTip.vue'
 
-defineProps({
+const props = defineProps({
   /** Uncertainty to dislpay */
   uncertainty: {
     type: Object as PropType<Uncertainty>,
     required: true
   }
 })
+
+function copyID() {
+  navigator.clipboard.writeText(`#${props.uncertainty.id}`)
+}
 </script>
