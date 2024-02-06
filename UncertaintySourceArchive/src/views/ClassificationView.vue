@@ -13,7 +13,7 @@
           <template #heading>
             <span class="space-x-2 text-link underline dark:text-link-dark">
               <span>{{ categories[category].name }}</span
-              ><span class="fa-solid fa-solid fa-arrow-up-right-from-square"></span>
+              ><span class="fa-solid fa-solid fa-arrow-up-right-from-square class text-sm"></span>
             </span>
           </template>
           <div class="space-y-5">
