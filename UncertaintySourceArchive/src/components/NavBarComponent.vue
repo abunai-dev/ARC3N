@@ -4,7 +4,7 @@
       :to="link.link"
       class="rounded p-1 hover:bg-primary-200 dark:hover:bg-primary-900"
       :class="{ 'font-bold': isCurrentRoute() }"
-      >{{ link.name }}</RouterLink
+      ><span class="md:whitespace-nowrap">{{ link.name }}</span></RouterLink
     >
     <ul
       v-if="children.length > 0"

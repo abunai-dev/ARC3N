@@ -37,7 +37,7 @@
                 name: 'category',
                 params: { category: category }
               },
-              name: category
+              name: categories[category].name
             }))
           "
         />
@@ -100,6 +100,7 @@ import { faBars, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { inject, ref, type Ref } from 'vue'
 import ButtonComponent from './ButtonComponent.vue'
 import { router } from '@/router'
+import { categories } from '@/model/categories/Category'
 
 library.add(faBars, faSun, faMoon)
 
