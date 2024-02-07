@@ -27,19 +27,19 @@
       />
       <!-- Suggestions -->
       <ContainerComponent
-        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-auto bg-primary-0 !p-0 dark:bg-slate-800"
+        class="absolute z-10 flex max-h-[300px] min-h-0 w-full flex-col items-start overflow-auto bg-primary-0 !p-0 dark:bg-slate-800"
         :class="showBelow ? 'top-[100%]' : 'bottom-[100%]'"
         id="testTemp"
         v-if="showSuggestions"
       >
-        <div
+        <button
           v-for="option in filteredOptions"
           :key="option"
-          class="selectorOption p-1 hover:bg-gray-200"
+          class="selectorOption w-full p-1 text-left hover:bg-gray-200"
           @click="addOption(option)"
         >
           {{ option }}
-        </div>
+        </button>
       </ContainerComponent>
     </div>
 
@@ -66,6 +66,8 @@ import { ref, type PropType, type Ref, computed, onMounted, watch } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faShare, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import ContainerComponent from './ContainerComponent.vue'
+
+const clicked = ref(false)
 
 library.add(faShare)
 library.add(faCircleXmark)
@@ -137,6 +139,8 @@ function addOption(option: string) {
     return
   }
 
+  clicked.value = true
+
   selectedList.value.push(option)
   textInput.value = ''
   emit('input', selectedList.value)
@@ -162,6 +166,7 @@ const showSuggestions = computed(() => {
 })
 
 function loseFocus(e: RealFocusEvent) {
+  console.log(e)
   let newFocusElement = e.explicitOriginalTarget
   if (newFocusElement === null) {
     newFocusElement = e.relatedTarget as HTMLElement | null
