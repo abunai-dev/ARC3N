@@ -6,15 +6,14 @@
         :to="{ name: 'category', params: { category: category } }"
         v-for="category in categoryOrder"
         :key="category"
-        class="col-span-1 row-span-1"
+        class="col-span-1 col-start-1 row-span-1 [&_*]:!cursor-pointer"
         :class="`grid-start-${(categoryOrder.indexOf(category) % 3) + 1}`"
       >
         <SectionComponent>
           <template #heading>
-            <span class="space-x-2 text-link underline dark:text-link-dark">
-              <span>{{ categories[category].name }}</span
-              ><span class="fa-solid fa-solid fa-arrow-up-right-from-square class text-sm"></span>
-            </span>
+            <span class="space-x-2 text-link underline dark:text-link-dark">{{
+              categories[category].name
+            }}</span>
           </template>
           <div class="space-y-5">
             <p>{{ categories[category].description }}</p>
