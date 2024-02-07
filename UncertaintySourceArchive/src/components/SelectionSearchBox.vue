@@ -13,7 +13,7 @@
         :disabled="selectedList.length >= props.limit"
         ref="inputRef"
         @input="hasFocus = true"
-        @blur="hasFocus = false"
+        @blur="(e) => loseFocus(e as RealFocusEvent)"
       />
       <FontAwesomeIcon
         icon="share"
@@ -27,7 +27,7 @@
       />
       <!-- Suggestions -->
       <ContainerComponent
-        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-scroll bg-primary-0 !p-0 dark:bg-slate-800"
+        class="absolute z-10 max-h-[300px] min-h-0 w-full overflow-auto bg-primary-0 !p-0 dark:bg-slate-800"
         :class="showBelow ? 'top-[100%]' : 'bottom-[100%]'"
         id="testTemp"
         v-if="showSuggestions"
@@ -35,7 +35,7 @@
         <div
           v-for="option in filteredOptions"
           :key="option"
-          class="p-1 hover:bg-gray-200"
+          class="selectorOption p-1 hover:bg-gray-200"
           @click="addOption(option)"
         >
           {{ option }}
@@ -69,6 +69,8 @@ import ContainerComponent from './ContainerComponent.vue'
 
 library.add(faShare)
 library.add(faCircleXmark)
+
+type RealFocusEvent = FocusEvent & { explicitOriginalTarget: HTMLElement | null }
 
 const props = defineProps({
   /** List of options to use for suggestions */
@@ -158,6 +160,26 @@ const showSuggestions = computed(() => {
     filteredOptions.value.length > 0 && selectedList.value.length < props.limit && hasFocus.value
   )
 })
+
+function loseFocus(e: RealFocusEvent) {
+  let newFocusElement = e.explicitOriginalTarget
+  if (newFocusElement === null) {
+    newFocusElement = e.relatedTarget as HTMLElement | null
+  }
+  if (newFocusElement === null) {
+    hasFocus.value = false
+    return
+  }
+  const focusElementIsOption =
+    newFocusElement.classList != undefined && newFocusElement.classList.contains('selectorOption')
+  const focusElementParentIsOption =
+    newFocusElement.parentElement != null &&
+    newFocusElement.parentElement.classList != undefined &&
+    newFocusElement.parentElement.classList.contains('selectorOption')
+  if (!focusElementIsOption && !focusElementParentIsOption) {
+    hasFocus.value = false
+  }
+}
 
 // This part of the code handles the positioning of the suggestions, so they are not cutoff by the bottom of the page
 /** Reference to the input tag */
