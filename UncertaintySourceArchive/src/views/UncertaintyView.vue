@@ -14,7 +14,7 @@
                 #{{ uncertainty.id }}
               </span>
             </template>
-            <template #tooltip> Click ID to copy </template>
+            <template #tooltip> Click to copy </template>
           </ToolTip>
           - {{ uncertainty.name }}
         </h1>
