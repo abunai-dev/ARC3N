@@ -42,12 +42,38 @@ import { faSearch, faPlus, faFileExport } from '@fortawesome/free-solid-svg-icon
 import FilterSelector from '@/components/FilterSelector.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import type { Filter } from '@/model/ui/Table'
-import { ref } from 'vue'
+import { computed, ref, type PropType, type Ref } from 'vue'
 
 library.add(faSearch)
 library.add(faPlus)
 library.add(faFileExport)
 
-const filter = ref({} as Filter)
-const searchString = ref('')
+const props = defineProps({
+  filter: {
+    type: Object as PropType<Filter>,
+    required: false
+  },
+  search: {
+    type: String,
+    required: false
+  }
+})
+
+const _filter: Ref<null | Filter> = ref(null)
+const _searchString: Ref<null | string> = ref(null)
+
+const filter = computed({
+  get: () => _filter.value || props.filter || {},
+  set: (value: Filter) => {
+    console.log(value)
+    _filter.value = value
+  }
+})
+
+const searchString = computed({
+  get: () => _searchString.value || props.search || '',
+  set: (value: string) => {
+    _searchString.value = value
+  }
+})
 </script>

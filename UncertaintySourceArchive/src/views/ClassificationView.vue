@@ -6,7 +6,7 @@
         :to="{ name: 'category', params: { category: category } }"
         v-for="category in categoryOrder"
         :key="category"
-        class="col-span-1 col-start-1 row-span-1 [&_*]:!cursor-pointer"
+        class="col-span-1 row-span-1 [&_*]:!cursor-pointer"
         :class="`grid-start-${(categoryOrder.indexOf(category) % 3) + 1}`"
       >
         <SectionComponent>

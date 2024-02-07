@@ -19,7 +19,14 @@ const router = createRouter({
     {
       name: 'archive',
       path: '/archive',
-      component: ArchiveView
+      component: ArchiveView,
+      props: (route) => {
+        const filter = route.query.filter as string | null
+        return {
+          filter: filter ? JSON.parse(filter) : undefined,
+          search: route.query.search ?? undefined
+        }
+      }
     },
     {
       name: 'uncertainty',
