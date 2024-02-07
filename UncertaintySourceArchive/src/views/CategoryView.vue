@@ -27,7 +27,16 @@
             <p class="mt-3">{{ categoryOptions[option].exampleText }}</p>
           </div>
           <div class="flex-1">
-            <h3>Selected examples:</h3>
+            <div class="flex">
+              <h3 class="flex-1">Selected examples:</h3>
+              <RouterLink :to="`/archive?filter=${JSON.stringify({ [category]: [option] })}`">
+                <ButtonComponent>
+                  <span class="space-x-1"
+                    ><FontAwesomeIcon :icon="faTable" /> <span>See all</span></span
+                  >
+                </ButtonComponent>
+              </RouterLink>
+            </div>
             <UncertaintyTable
               :filter="{ [category]: [option] }"
               :shown-columns="[
@@ -53,6 +62,9 @@ import { computed, type PropType } from 'vue'
 import { categoryOptions } from '@/model/categories/options/CategoryOption'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
 import CategoryIconDisplay from '@/components/CategoryIconDisplay.vue'
+import ButtonComponent from '@/components/ButtonComponent.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faTable } from '@fortawesome/free-solid-svg-icons'
 
 const props = defineProps({
   /** The category to display */
