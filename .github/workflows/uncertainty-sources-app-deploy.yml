@@ -2,6 +2,8 @@ name: Build and Deploy ARC3N
 
 on:
  workflow_dispatch:
+ issues:
+    types: [opened, reopened, edited, closed, deleted]
  push:
     branches:
       - main
