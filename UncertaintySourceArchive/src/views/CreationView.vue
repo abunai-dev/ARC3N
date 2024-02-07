@@ -84,7 +84,7 @@
         <section class="space-y-2">
           <FormInputComponent id="parent" label="Parent Uncertainty" inputType="custom">
             <SelectionSearchBox
-              :options="uncertaintyList.map((u) => u.name)"
+              :options="uncertaintyList.map((u) => `#${u.id} - ${u.name}`)"
               :limit="1"
               @input="updateParentField"
               placeholder="Parent Uncertainty"
@@ -92,14 +92,14 @@
           </FormInputComponent>
           <FormInputComponent id="children" label="Child Uncertainties" inputType="custom">
             <SelectionSearchBox
-              :options="uncertaintyList.map((u) => u.name)"
+              :options="uncertaintyList.map((u) => `#${u.id} - ${u.name}`)"
               @input="updateChildrenField"
               placeholder="Child Uncertainties"
             />
           </FormInputComponent>
           <FormInputComponent id="related" label="Related Uncertainties" inputType="custom">
             <SelectionSearchBox
-              :options="uncertaintyList.map((u) => u.name)"
+              :options="uncertaintyList.map((u) => `#${u.id} - ${u.name}`)"
               @input="updateRelatedField"
               placeholder="Related Uncertainties"
             />
