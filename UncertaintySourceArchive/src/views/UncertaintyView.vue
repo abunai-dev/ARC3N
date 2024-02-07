@@ -73,21 +73,29 @@
     >
       <h2 class="text-2xl">Classification:</h2>
       <div class="mt-2 grid grid-cols-1 space-y-5 md:grid-cols-2">
-        <SectionComponent v-for="c in categoryOrder" :key="c">
-          <template #heading>
-            {{ categories[c].name }}: <i>{{ categoryOptions[uncertainty.classes[c]].name }}</i>
-          </template>
-          <template #default>
-            <div class="space-y-2">
-              <p>{{ categories[c].description }}</p>
-              <ClassOptionList
-                :category="c"
-                :selected-option="uncertainty.classes[c]"
-                class="hidden md:flex"
-              />
-            </div>
-          </template>
-        </SectionComponent>
+        <RouterLink
+          v-for="category in categoryOrder"
+          :key="category"
+          :to="{ name: 'category', params: { category: category } }"
+          class="[&_*]:!cursor-pointer"
+        >
+          <SectionComponent>
+            <template #heading>
+              {{ categories[category].name }}:
+              <i>{{ categoryOptions[uncertainty.classes[category]].name }}</i>
+            </template>
+            <template #default>
+              <div class="space-y-2">
+                <p>{{ categories[category].description }}</p>
+                <ClassOptionList
+                  :category="category"
+                  :selected-option="uncertainty.classes[category]"
+                  class="hidden md:flex"
+                />
+              </div>
+            </template>
+          </SectionComponent>
+        </RouterLink>
       </div>
     </ContainerComponent>
   </main>
