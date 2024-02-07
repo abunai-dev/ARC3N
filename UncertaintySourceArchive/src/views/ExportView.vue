@@ -22,7 +22,7 @@
       </a>
     </form>
 
-    <section class="flex flex-col overflow-hidden">
+    <section class="mx-auto flex w-2/3 flex-col overflow-hidden">
       <h3 class="text-2xl">File Preview</h3>
       <ContainerComponent class="flex-1 overflow-scroll bg-primary-50 dark:bg-primary-970">
         <pre
@@ -30,7 +30,6 @@
           class="min-h-[100px]"
         ><code v-html="fileContent"></code></pre>
       </ContainerComponent>
-
       <div ref="styleholder"></div>
     </section>
   </div>
