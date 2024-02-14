@@ -7,6 +7,7 @@ import HomeView from '@/views/HomeView.vue'
 import GuideView from '@/views/GuideView.vue'
 import ClassificationView from '@/views/ClassificationView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { resourceGetter } from '@/model/resourceGetter/ResourceGetter'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -61,6 +62,17 @@ const router = createRouter({
       component: GuideView
     }
   ]
+})
+
+router.afterEach((to) => {
+  if (to.name == 'uncertainty') {
+    const id = parseInt(to.params.id as string)
+    resourceGetter
+      .getBaseUncertainty(id)
+      .then((uncertainty) => (document.title = `#${id} - ${uncertainty.name} - ARCH3N`))
+  } else {
+    document.title = 'ARCH3N'
+  }
 })
 
 export { router }
