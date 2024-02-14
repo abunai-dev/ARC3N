@@ -5,7 +5,7 @@
       class="relative flex h-8 w-full items-center rounded border border-black border-opacity-50 bg-transparent dark:bg-gray-800 md:w-96"
     >
       <input
-        class="grow bg-transparent outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
+        class="grow bg-transparent px-1 outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
         type="text"
         v-model="textInput"
         :placeholder="placeholder"

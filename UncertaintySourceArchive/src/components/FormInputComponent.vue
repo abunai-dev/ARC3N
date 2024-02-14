@@ -9,7 +9,7 @@
       :placeholder="placeholder"
       :required="required"
       v-model="value"
-      class="h-8 w-full rounded border border-black border-opacity-50 bg-transparent outline-none placeholder:text-gray-400 dark:bg-gray-800 md:w-96"
+      class="h-8 w-full rounded border border-black border-opacity-50 bg-transparent px-1 outline-none placeholder:text-gray-400 dark:bg-gray-800 md:w-96"
     />
     <textarea
       v-else-if="inputType == 'multiline'"
@@ -18,7 +18,7 @@
       :placeholder="placeholder"
       :required="required"
       v-model="value"
-      class="h-32 w-full rounded border border-black border-opacity-50 bg-transparent outline-none placeholder:text-gray-400 dark:bg-gray-800 md:w-1/2"
+      class="h-32 w-full rounded border border-black border-opacity-50 bg-transparent px-1 outline-none placeholder:text-gray-400 dark:bg-gray-800 md:w-1/2"
     ></textarea>
     <!-- Slot for other input types -->
     <slot v-else></slot>
