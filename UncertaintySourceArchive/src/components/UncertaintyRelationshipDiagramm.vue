@@ -68,7 +68,7 @@ const childrenRelationshipsMermaidNotation = computed(() => {
 })
 
 /** The mermaid code to display */
-const mermaidCode = `flowchart BT
+const mermaidCode = `flowchart LR
   ${diagramClassesMermaidNotation.value}
   ${parentRelationshipMermaidNotation.value}
   ${relatedRelationshipsMermaidNotation.value}
