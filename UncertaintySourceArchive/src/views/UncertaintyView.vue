@@ -76,7 +76,7 @@
         <RouterLink
           v-for="category in categoryOrder"
           :key="category"
-          :to="{ name: 'category', params: { category: category } }"
+          :to="`/category/${category}?highlight=${uncertainty.classes[category]}`"
           class="[&_*]:!cursor-pointer"
         >
           <SectionComponent>

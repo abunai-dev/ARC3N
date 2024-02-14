@@ -39,7 +39,10 @@ const router = createRouter({
       name: 'category',
       path: '/category/:category',
       component: CategoryView,
-      props: true
+      props: (route) => {
+        const highlight = route.query.highlight as string | null
+        return { category: route.params.category, highlight: highlight ?? undefined }
+      }
     },
     {
       name: 'classification',

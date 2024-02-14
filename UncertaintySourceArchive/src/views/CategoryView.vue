@@ -16,6 +16,9 @@
         class="bg-primary-100 dark:bg-primary-900"
         v-for="option in categoryObject.options"
         :key="option"
+        :class="{
+          'border-2': option == props.highlight
+        }"
       >
         <div class="flex flex-col gap-5 md:flex-row">
           <div class="flex-1">
@@ -59,7 +62,7 @@
 import { CategoryList, categories } from '@/model/categories/Category'
 import ContainerComponent from '@/components/ContainerComponent.vue'
 import { computed, type PropType } from 'vue'
-import { categoryOptions } from '@/model/categories/options/CategoryOption'
+import { categoryOptions, type CategoryOptionList } from '@/model/categories/options/CategoryOption'
 import UncertaintyTable from '@/components/UncertaintyTable.vue'
 import CategoryIconDisplay from '@/components/CategoryIconDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
@@ -71,6 +74,10 @@ const props = defineProps({
   category: {
     type: String as PropType<CategoryList>,
     required: true
+  },
+  highlight: {
+    type: String as PropType<CategoryOptionList>,
+    required: false
   }
 })
 
