@@ -22,9 +22,9 @@
       </a>
     </form>
 
-    <section class="mx-auto flex w-2/3 flex-col overflow-hidden">
+    <section class="mx-auto mt-10 w-2/3 flex-col overflow-hidden">
       <h3 class="text-2xl">File Preview</h3>
-      <ContainerComponent class="flex-1 overflow-scroll bg-primary-50 dark:bg-primary-970">
+      <ContainerComponent class="h-[60vh] overflow-scroll bg-primary-50 dark:bg-primary-970">
         <pre
           v-if="fileContent != null"
           class="min-h-[100px]"
