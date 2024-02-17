@@ -9,7 +9,22 @@
         type="text"
         v-model="textInput"
         :placeholder="placeholder"
-        @keypress.enter="addOption(textInput)"
+        @keypress.enter="addSelectedOption()"
+        @keydown.down="
+          (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            keyUpDown(1)
+          }
+        "
+        @keydown.up="
+          (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            keyUpDown(-1)
+          }
+        "
+        @keydown.esc="hasFocus = false"
         :disabled="selectedList.length >= props.limit"
         ref="inputRef"
         @input="hasFocus = true"
@@ -33,10 +48,14 @@
         v-if="showSuggestions"
       >
         <button
-          v-for="option in filteredOptions"
-          :key="option"
-          class="selectorOption w-full p-1 text-left hover:bg-gray-200"
+          v-for="[index, option] in filteredOptions.entries()"
+          :key="index"
+          class="selectorOption w-full p-1 text-left"
           @click="addOption(option)"
+          :class="highlightedOption == index ? 'bg-gray-200' : 'bg-transparent'"
+          ref="optionsRef"
+          @mouseenter="highlightOption(index, true)"
+          @mouseleave="highlightOption(-1, true)"
         >
           {{ option }}
         </button>
@@ -126,6 +145,14 @@ const filteredOptions = computed(() => {
     })
 })
 
+function addSelectedOption() {
+  if (highlightedOption.value >= 0) {
+    addOption(filteredOptions.value[highlightedOption.value])
+  } else {
+    addOption(textInput.value)
+  }
+}
+
 /**
  * Checks if an option can be added and does so if possible
  * @param option Option to add
@@ -165,8 +192,45 @@ const showSuggestions = computed(() => {
   )
 })
 
+const highlightedOption = ref(-1)
+const optionsRef: Ref<HTMLElement[]> = ref([])
+const optionHolder: Ref<HTMLElement | null> = ref(null)
+
+function highlightOption(index: number, isHover: boolean) {
+  highlightedOption.value = index
+  if (!isHover && optionHolder.value != null && index >= 0) {
+    optionsRef.value[index].scrollIntoView({ block: 'nearest' })
+  }
+}
+
+function keyUpDown(indexMove: number) {
+  if (highlightedOption.value == -1) {
+    if (indexMove < 0) {
+      highlightOption(filteredOptions.value.length - 1, false)
+    } else {
+      highlightOption(0, false)
+    }
+    return
+  }
+  if (highlightedOption.value + indexMove < 0) {
+    return
+  }
+  if (highlightedOption.value + indexMove >= filteredOptions.value.length) {
+    return
+  }
+  highlightOption(highlightedOption.value + indexMove, false)
+}
+
+watch(filteredOptions, (newOptions, oldOptions) => {
+  if (highlightedOption.value < 0) {
+    return
+  }
+  const oldSelectedOption = oldOptions[highlightedOption.value]
+  const newIndex = newOptions.indexOf(oldSelectedOption)
+  highlightOption(newIndex, false)
+})
+
 function loseFocus(e: RealFocusEvent) {
-  console.log(e)
   let newFocusElement = e.explicitOriginalTarget
   if (newFocusElement === null) {
     newFocusElement = e.relatedTarget as HTMLElement | null
