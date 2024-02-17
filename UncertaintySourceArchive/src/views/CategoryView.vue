@@ -33,7 +33,7 @@
             <div class="flex">
               <h3 class="flex-1">Selected examples:</h3>
               <RouterLink :to="`/archive?filter=${JSON.stringify({ [category]: [option] })}`">
-                <ButtonComponent>
+                <ButtonComponent class="py-[1px]">
                   <span class="space-x-1"
                     ><FontAwesomeIcon :icon="faTable" /> <span>See all</span></span
                   >
@@ -41,6 +41,7 @@
               </RouterLink>
             </div>
             <UncertaintyTable
+              class="pt-1"
               :filter="{ [category]: [option] }"
               :shown-columns="[
                 'id',
