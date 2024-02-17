@@ -22,9 +22,30 @@
       </a>
     </form>
 
-    <section class="mx-auto mt-10 w-2/3 flex-col overflow-hidden">
+    <div class="mx-auto pt-5 text-center">
+      <p>
+        For more information on how to use the data, please refer to the
+        <RouterLink to="guide" class="text-link underline dark:text-link-dark">guide</RouterLink>
+        and on
+        <a href="https://www.abunai.dev" class="text-link underline dark:text-link-dark"
+          >abunai.dev</a
+        >.
+      </p>
+      <p>
+        All information can also be found
+        <a
+          :href="`https://www.github.com/${IssueResourceGetter.OWNER}/${IssueResourceGetter.REPO}/issues?q=label%3A${IssueResourceGetter.ACCEPTED_ISSUE_LABEL}`"
+          class="text-link underline dark:text-link-dark"
+          >here</a
+        >.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-10 flex w-2/3 flex-col overflow-hidden">
       <h3 class="text-2xl">File Preview</h3>
-      <ContainerComponent class="h-[60vh] overflow-scroll bg-primary-50 dark:bg-primary-970">
+      <ContainerComponent
+        class="max-h-[50vh] grow overflow-scroll bg-primary-50 dark:bg-primary-970"
+      >
         <pre
           v-if="fileContent != null"
           class="min-h-[100px]"
@@ -49,6 +70,7 @@ import json from 'highlight.js/lib/languages/json'
 import estree from 'prettier/plugins/estree'
 import babel from 'prettier/plugins/babel'
 import ContainerComponent from '@/components/ContainerComponent.vue'
+import { IssueResourceGetter } from '@/model/resourceGetter/IssueResourceGetter'
 
 hljs.registerLanguage('json', json)
 
