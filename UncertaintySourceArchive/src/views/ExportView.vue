@@ -26,7 +26,7 @@
       <p>
         For more information on how to use the data, please refer to the
         <RouterLink to="guide" class="text-link underline dark:text-link-dark">guide</RouterLink>
-        and on
+        and
         <a href="https://www.abunai.dev" class="text-link underline dark:text-link-dark"
           >abunai.dev</a
         >.
