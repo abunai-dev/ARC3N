@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: abunai-dev/UncertaintySourceArchive-overwrites
-          path: app/fonts
+          path: UncertaintySourceArchive/fonts
           token: ${{ secrets.OVERWRITES_READONLY_TOKEN }}
       
       - uses: actions/setup-node@v3
