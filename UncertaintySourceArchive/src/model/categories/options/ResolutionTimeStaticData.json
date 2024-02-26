@@ -1,0 +1,26 @@
+{
+  "Requirements": {
+    "name": "Requirements Time",
+    "description": "As soon as requirements are defined, the uncertainty is resolved.",
+    "exampleText": "Confidentiality requirements",
+    "exampleImages": []
+  },
+  "Design": {
+    "name": "Design Time",
+    "description": "As soon as the system is designed, the uncertainty is resolved",
+    "exampleText": "System structure, System Componets",
+    "exampleImages": []
+  },
+  "Realization": {
+    "name": "Realization Time",
+    "description": "As soon as the system or parts of it are implemented and deployed, the uncertainty is resolved.",
+    "exampleText": "Where a software system is deployed and used.",
+    "exampleImages": []
+  },
+  "Runtime": {
+    "name": "Runtime",
+    "description": "As knowledge is gained from testing and system operations, the uncertainty is resolved.",
+    "exampleText": "Monitoring",
+    "exampleImages": []
+  }
+}

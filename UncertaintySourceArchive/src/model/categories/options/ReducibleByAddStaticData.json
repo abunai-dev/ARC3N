@@ -1,0 +1,14 @@
+{
+  "Yes": {
+    "name": "Yes",
+    "description": "Uncertainty can be reduced by taking an ADD.",
+    "exampleText": "By designing the system in a way that the impact of the uncertainty is (partially) mitigated.",
+    "exampleImages": []
+  },
+  "No": {
+    "name": "No",
+    "description": "Uncertainty is not resolvable or treatable by taking an ADD.",
+    "exampleText": "The behavior of a user with a software system.",
+    "exampleImages": []
+  }
+}

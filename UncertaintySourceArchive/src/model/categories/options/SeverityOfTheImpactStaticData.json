@@ -1,0 +1,20 @@
+{
+  "High": {
+    "name": "High",
+    "description": "Total loss of confidentiality, or sensitive data.",
+    "exampleText": "An admin's password might get leaked",
+    "exampleImages": []
+  },
+  "Low": {
+    "name": "Low",
+    "description": "Access to restricted information could be obtained but the damage is limited.",
+    "exampleText": "User input is not validated before being processed by a software system.",
+    "exampleImages": []
+  },
+  "severityNone": {
+    "name": "None",
+    "description": "No loss of confidentiality expected at all.",
+    "exampleText": "The user somehow gets access to metadata when interacting with a system.",
+    "exampleImages": []
+  }
+}

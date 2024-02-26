@@ -1,0 +1,32 @@
+{
+  "Component": {
+    "name": "Component",
+    "description": "Assignable to software components.",
+    "exampleText": "Related to the allocation of a component.",
+    "exampleImages": []
+  },
+  "Connector": {
+    "name": "Connector",
+    "description": "Assignable to wires between components or communication.",
+    "exampleText": "A connector between two components in a software system.",
+    "exampleImages": []
+  },
+  "Interface": {
+    "name": "Interface",
+    "description": "Assignable to interfaces.",
+    "exampleText": "Signatures, Parameters, Return values.",
+    "exampleImages": []
+  },
+  "External": {
+    "name": "External",
+    "description": "Assignable to external resources.",
+    "exampleText": "Servers, external actors",
+    "exampleImages": []
+  },
+  "Behavior": {
+    "name": "Behavior",
+    "description": "Assignable to behavior descriptions.",
+    "exampleText": "Algorithms, User Input",
+    "exampleImages": []
+  }
+}

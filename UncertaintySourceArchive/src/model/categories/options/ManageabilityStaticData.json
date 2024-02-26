@@ -1,0 +1,20 @@
+{
+  "Fully": {
+    "name": "Fully Reducible",
+    "description": "Reducible",
+    "exampleText": "By acquiring more knowledge, Comprehensive simulation",
+    "exampleImages": []
+  },
+  "Partially": {
+    "name": "Partially Reducible",
+    "description": "At least partially reducible.",
+    "exampleText": "By applying scenario-based mitigation strategies.",
+    "exampleImages": []
+  },
+  "Irreducible": {
+    "name": "Irreducible",
+    "description": "Uncertainty cannot be further reduced.",
+    "exampleText": "Due to its aleatory nature.",
+    "exampleImages": []
+  }
+}

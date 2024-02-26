@@ -1,0 +1,34 @@
+{
+  "Location": {
+    "name": "Location",
+    "description": "Describes where an uncertainty manifests itself within the architecture."
+  },
+  "ArchitecturalElementType": {
+    "name": "Architectural Element Type",
+    "description": "Elements to which an uncertainty can be assigned."
+  },
+  "Type": {
+    "name": "Type",
+    "description": "How much is known about the uncertainty and how can it be described."
+  },
+  "Manageability": {
+    "name": "Manageability",
+    "description": "Can more knowledge or appropriate means reduce the uncertainty."
+  },
+  "ResolutionTime": {
+    "name": "Resolution Time",
+    "description": "Time at which the uncertainty is expected to be fully resolved."
+  },
+  "ReducibleByADD": {
+    "name": "Reducible by ADD",
+    "description": "Uncertainty resolvable by an architectural design decision."
+  },
+  "ImpactOnConfidentiality": {
+    "name": "Impact on Confidentiality",
+    "description": "Potential impact on confidentiality requirements."
+  },
+  "SeverityOfTheImpact": {
+    "name": "Severity of the Impact",
+    "description": "Describes the severity if uncertainty is not mitigated."
+  }
+}

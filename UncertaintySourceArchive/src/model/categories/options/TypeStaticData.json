@@ -1,0 +1,20 @@
+{
+  "Statistical": {
+    "name": "Statistical Uncertainty",
+    "description": "Uncertainty describable with statistical means.",
+    "exampleText": "Stochastic expressions",
+    "exampleImages": []
+  },
+  "Scenario": {
+    "name": "Scenario Uncertainty",
+    "description": "Distinct scenarios depending on the uncertain outcome, no statistical means",
+    "exampleText": "Handling different types of input data in a software system.",
+    "exampleImages": []
+  },
+  "Recognized": {
+    "name": "Recognized Ignorance",
+    "description": "Awareness of the uncertainty but no mitigation or description strategy is in place.",
+    "exampleText": "The trustworthiness of partner companies that are included in the software engineering process.",
+    "exampleImages": []
+  }
+}
