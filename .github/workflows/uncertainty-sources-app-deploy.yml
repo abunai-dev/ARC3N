@@ -27,7 +27,7 @@ jobs:
           node-version: "18"
 
       - name: Install, Fetch and Build 🔧
-        working-directory: app
+        working-directory: UncertaintySourceArchive
         run: |
           npm install
           npm run fetch-uncertainties
@@ -37,7 +37,7 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: app/dist/
+          path: UncertaintySourceArchive/dist/
           remote_path: /home/${{ secrets.USERNAME }}/html/${{ vars.TARGET }}
           remote_host: ${{ secrets.SERVER }}
           remote_user: ${{ secrets.USERNAME }}
