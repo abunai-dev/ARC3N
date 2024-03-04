@@ -8,7 +8,7 @@
     </div>
 
     <div id="arcen">
-      <h3 class="text-xl font-bold">ARC<sub>3</sub>N</h3>
+      <h3 class="text-xl font-bold">ARC<sup>3</sup>N</h3>
       In the <RouterLink to="archive">archive</RouterLink> you can find a list of all uncertainties
       in the database. Clicking a row leads to a more detailed view of the uncertainty giving a more
       detailed description and other related uncertainties. <br />
