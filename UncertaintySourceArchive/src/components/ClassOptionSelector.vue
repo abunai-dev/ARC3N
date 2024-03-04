@@ -1,6 +1,6 @@
 <template>
   <div class="flex min-h-[24px]">
-    <div
+    <ToolTip
       v-for="option in categories[category].options"
       :key="option"
       class="group flex flex-grow items-center justify-center space-x-2 bg-primary-100 duration-0 first:rounded-l-full last:rounded-r-full dark:bg-primary-900"
@@ -10,12 +10,20 @@
           option != selectedOption
       }"
       @click="selectedOption = option"
+      direction="bottom"
     >
-      <CategoryIconDisplay :option="option" />
-      <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
-        {{ categoryOptions[option].name }}
-      </p>
-    </div>
+      <template #default>
+        <CategoryIconDisplay :option="option" />
+        <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
+          {{ categoryOptions[option].name }}
+        </p>
+      </template>
+      <template #tooltip>
+        <p>
+          {{ categoryOptions[option].description }}
+        </p>
+      </template>
+    </ToolTip>
   </div>
 </template>
 
@@ -24,6 +32,7 @@ import { type CategoryList, categories } from '@/model/categories/Category'
 import { type CategoryOptionList, categoryOptions } from '@/model/categories/options/CategoryOption'
 import { computed, ref, type PropType, type Ref } from 'vue'
 import CategoryIconDisplay from './CategoryIconDisplay.vue'
+import ToolTip from './ToolTip.vue'
 
 const props = defineProps({
   category: {
