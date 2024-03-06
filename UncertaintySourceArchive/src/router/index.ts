@@ -72,9 +72,9 @@ router.afterEach((to) => {
     const id = parseInt(to.params.id as string)
     resourceGetter
       .getBaseUncertainty(id)
-      .then((uncertainty) => (document.title = `#${id} - ${uncertainty.name} - ARCH3N`))
+      .then((uncertainty) => (document.title = `#${id} - ${uncertainty.name} - ARC3N`))
   } else {
-    document.title = 'ARCH3N'
+    document.title = 'ARC3N'
   }
 })
 
