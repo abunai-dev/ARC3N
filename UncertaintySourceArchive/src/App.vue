@@ -17,8 +17,11 @@
 import { RouterView } from 'vue-router'
 import ContainerComponent from './components/ContainerComponent.vue'
 import NavBar from './components/NavBar.vue'
-import { provide, ref } from 'vue'
+import { provide, ref, watch } from 'vue'
 
-const dark = ref(false)
+const dark = ref(localStorage.getItem('dark') == 'true')
 provide('dark', dark)
+watch(dark, () => {
+  localStorage.setItem('dark', dark.value ? 'true' : 'false')
+})
 </script>
