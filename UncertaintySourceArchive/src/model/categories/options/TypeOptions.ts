@@ -17,5 +17,5 @@ typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].icon = 'fa-seal-question'
 
 typeOptions[TypeOptionList.STATISTICAL_UNCERTAINTY].color = colors.lime
 typeOptions[TypeOptionList.SCENARIO_UNCERTAINTY].color = colors.indigo
-typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].color = colors.purple
+typeOptions[TypeOptionList.RECOGNIZED_UNCERTAINTY].color = colors.rose
 export { typeOptions }

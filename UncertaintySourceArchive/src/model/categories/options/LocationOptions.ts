@@ -20,6 +20,6 @@ locationOptions[LocationOptionList.INPUT].icon = 'fa-user'
 locationOptions[LocationOptionList.STRUCTURE].color = colors.orange
 locationOptions[LocationOptionList.BEHAVIOR].color = colors.blue
 locationOptions[LocationOptionList.ENVIRONMENT].color = colors.lime
-locationOptions[LocationOptionList.INPUT].color = colors.indigo
+locationOptions[LocationOptionList.INPUT].color = colors.amber
 
 export { locationOptions }
