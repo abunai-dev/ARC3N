@@ -1,20 +1,20 @@
 {
   "Direct": {
     "name": "Direct",
-    "description": "Direct impact on confidentiality.",
-    "exampleText": "Directly affecting personal user data.",
+    "description": "The uncertainty has a direct impact on the software system's confidentiality.",
+    "exampleText": "Uncertainty related to the input, processing, or storage of sensitive data like user data.",
     "exampleImages": []
   },
   "Indirect": {
     "name": "Indirect",
-    "description": "Impact only in conjunction with contextual factors.",
-    "exampleText": "Architectural Design Decisions (ADDs), Uncertainties",
+    "description": "The uncertainty only has an indirect impact on the software system's confidentiality that usually relies on other uncertainties or other contextual factors.",
+    "exampleText": "Uncertainty related to architectural design decisions, or security measures.",
     "exampleImages": []
   },
   "impactNone": {
     "name": "None",
-    "description": "No impact on confidentiality",
-    "exampleText": "If only publicly available data is affected",
+    "description": "The uncertainty is expected to have no impact on confidentiality at all.",
+    "exampleText": "Uncertainty related to handling non-sensitive data or within well-secured system parts.",
     "exampleImages": []
   }
 }

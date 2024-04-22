@@ -9,11 +9,11 @@
   },
   "Type": {
     "name": "Type",
-    "description": "Describes how much is known about the uncertainty and how it can be described on a scale from only being aware to having precise knowledge."
+    "description": "Describes how much is known about the uncertainty and how it can be described on a scale from only being aware to having precise knowledge. This only provides a first estimate and may change with growing knowledge."
   },
   "Manageability": {
     "name": "Manageability",
-    "description": "Describes whether and to which extent the uncertainty can be managed, reduced, or mitigated."
+    "description": "Describes whether and to which extent the uncertainty can be managed, reduced, or mitigated. This only provides a first estimate and may change with growing knowledge."
   },
   "ResolutionTime": {
     "name": "Resolution Time",
@@ -21,11 +21,11 @@
   },
   "ReducibleByADD": {
     "name": "Reducible by ADD",
-    "description": "Describes whether the uncertainty is resolvable by an architectural design decision."
+    "description": "Describes whether the uncertainty is resolvable by an architectural design decision, i.e., a decision that specifies or restricts a software's structure or behavior, limiting the design space."
   },
   "ImpactOnConfidentiality": {
     "name": "Impact on Confidentiality",
-    "description": "Describes the potential impact on confidentiality requirements. This only provides a first, system-independent estimate."
+    "description": "Describes the impact on confidentiality requirements. This only provides a first, system-independent estimate."
   },
   "SeverityOfTheImpact": {
     "name": "Severity of the Impact",

@@ -1,20 +1,20 @@
 {
   "Fully": {
     "name": "Fully Reducible",
-    "description": "Reducible",
-    "exampleText": "By acquiring more knowledge, Comprehensive simulation",
+    "description": "The uncertainty can be fully resolved with appropriate means that mitigate its potential impact.",
+    "exampleText": "Acquiring more knowledge, making an informed architectural design decision, or applying comprehensive simulation.",
     "exampleImages": []
   },
   "Partially": {
     "name": "Partially Reducible",
-    "description": "At least partially reducible.",
-    "exampleText": "By applying scenario-based mitigation strategies.",
+    "description": "The uncertainty is at least partially reducible which reduces the potential impact severity or limits critical outcomes by appropriate mitigation techniques.",
+    "exampleText": "Applying scenario-based mitigation strategies, or system-wide constraints and policies.",
     "exampleImages": []
   },
   "Irreducible": {
     "name": "Irreducible",
-    "description": "Uncertainty cannot be further reduced.",
-    "exampleText": "Due to its aleatory nature.",
+    "description": "The uncertainty cannot be further reduced as there is no reasonable way to achieve the required knowledge at this point in time, or at all.",
+    "exampleText": "Uncertainty with an aleatory nature, that cannot be resolved at all.",
     "exampleImages": []
   }
 }

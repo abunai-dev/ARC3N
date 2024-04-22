@@ -1,14 +1,14 @@
 {
   "Yes": {
     "name": "Yes",
-    "description": "Uncertainty can be reduced by taking an ADD.",
-    "exampleText": "By designing the system in a way that the impact of the uncertainty is (partially) mitigated.",
+    "description": "The uncertainty can be reduced by taking an architectural design decision.",
+    "exampleText": "Uncertainty that can be addressed by designing the system in a way that the impact of the uncertainty is (partially) mitigated.",
     "exampleImages": []
   },
   "No": {
     "name": "No",
-    "description": "Uncertainty is not resolvable or treatable by taking an ADD.",
-    "exampleText": "The behavior of a user with a software system.",
+    "description": "The uncertainty is not resolvable or treatable by taking an architectural design decision.",
+    "exampleText": "Uncertainty that is outside the scope of the designed software system, and cannot be properly addressed within the design process, e.g., the behavior of a third-party.",
     "exampleImages": []
   }
 }

@@ -1,26 +1,26 @@
 {
   "Requirements": {
     "name": "Requirements Time",
-    "description": "As soon as requirements are defined, the uncertainty is resolved.",
-    "exampleText": "Confidentiality requirements",
+    "description": "The uncertainty is expected to be resolved as soon as the requirements are defined.",
+    "exampleText": "Uncertainty related to confidentiality requirements or security policies.",
     "exampleImages": []
   },
   "Design": {
     "name": "Design Time",
-    "description": "As soon as the system is designed, the uncertainty is resolved",
-    "exampleText": "System structure, System Componets",
+    "description": "The uncertainty is expected to be resolved as soon as the software system is designed.",
+    "exampleText": "Uncertainty related to architectural design decisions, the system structure, or components.",
     "exampleImages": []
   },
   "Realization": {
     "name": "Realization Time",
-    "description": "As soon as the system or parts of it are implemented and deployed, the uncertainty is resolved.",
-    "exampleText": "Where a software system is deployed and used.",
+    "description": "The uncertainty is expected to be resolved as soon as the software system or parts of it are implemented and deployed.",
+    "exampleText": "Uncertainty related to implementation or deployment details.",
     "exampleImages": []
   },
   "Runtime": {
     "name": "Runtime",
-    "description": "As knowledge is gained from testing and system operations, the uncertainty is resolved.",
-    "exampleText": "Monitoring",
+    "description": "The uncertainty is expected to be resolved as knowledge is gained from testing and system operations, or not at all.",
+    "exampleText": "Uncertainty related to runtime properties that can be inspected using dynamic analysis, e.g., using monitoring, or profiling.",
     "exampleImages": []
   }
 }

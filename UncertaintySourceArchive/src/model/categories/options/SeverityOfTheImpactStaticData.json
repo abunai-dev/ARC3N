@@ -1,20 +1,20 @@
 {
   "High": {
     "name": "High",
-    "description": "Total loss of confidentiality, or sensitive data.",
-    "exampleText": "An admin's password might get leaked",
+    "description": "The uncertainty can cause a total loss of confidentiality, e.g. due to a data breach.",
+    "exampleText": "Uncertainty either related to highly sensitive data like certificate or encryption keys, or an admin password or uncertainty related to central security measures like sanitization.",
     "exampleImages": []
   },
   "Low": {
     "name": "Low",
-    "description": "Access to restricted information could be obtained but the damage is limited.",
-    "exampleText": "User input is not validated before being processed by a software system.",
+    "description": "The uncertainty can cause access to restricted information but the damage is limited.",
+    "exampleText": "Uncertainty in the input validation that has limited effects due to proper security policies.",
     "exampleImages": []
   },
   "severityNone": {
     "name": "None",
-    "description": "No loss of confidentiality expected at all.",
-    "exampleText": "The user somehow gets access to metadata when interacting with a system.",
+    "description": "The uncertainty is expected to cause no loss of confidentiality at all.",
+    "exampleText": "Uncertainty related to parts of a software system that does not deal with sensitive information.",
     "exampleImages": []
   }
 }
