@@ -19,8 +19,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
   public static readonly SOURCE_ID = 3734
   private static readonly BASE_COMMENT =
     '<!-- Please do not change any content except where comments explicitly allow you too -->'
-  private static readonly GUIDE_REF =
-    'More information on how to use the issues and the archive can be found [here](arc3n.abunai.dev/guide).'
+  private static readonly GUIDE_REF = '' // Removed guide for now
 
   /** @inheritdoc */
   public encode(data: Uncertainty): string {

@@ -24,9 +24,7 @@
 
     <div class="mx-auto pt-5 text-center">
       <p>
-        For more information on how to use the data, please refer to the
-        <RouterLink to="guide" class="text-link underline dark:text-link-dark">guide</RouterLink>
-        and
+        For more information on how to use the data, please refer to
         <a href="https://www.abunai.dev" class="text-link underline dark:text-link-dark"
           >abunai.dev</a
         >.
@@ -41,15 +39,15 @@
       </p>
     </div>
 
-    <section class="mx-auto mt-10 flex w-2/3 flex-col overflow-hidden">
-      <h3 class="text-2xl">File Preview</h3>
+    <section class="mx-auto mt-10 flex w-3/6 flex-col overflow-hidden">
+      <h3 class="font-mono text-xl">&gt; cat data.json</h3>
       <ContainerComponent
-        class="max-h-[50vh] grow overflow-scroll bg-primary-50 dark:bg-primary-970"
+        class="max-h-[30vh] grow overflow-scroll bg-primary-50 dark:bg-primary-970"
       >
         <pre
           v-if="fileContent != null"
           class="min-h-[100px]"
-        ><code v-html="fileContent"></code></pre>
+        ><code v-html="fileContent" class="font-mono text-xs"></code></pre>
       </ContainerComponent>
       <div ref="styleholder"></div>
     </section>

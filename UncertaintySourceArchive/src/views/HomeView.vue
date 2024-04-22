@@ -32,7 +32,10 @@
       <span class="font-bold">ARC<sup>3</sup>N</span> is part of the
       <span class="font-bold">ABUNAI</span> research project which provides a comprehensive process
       of uncertainty-aware confidentiality analysis <span class="text-xs italic">[3]</span>. To
-      learn more about the project, visit the project website.
+      learn more about the project, visit the
+      <a class="text-link underline dark:text-link-dark" href="https://abunai.dev/"
+        >project website</a
+      >.
     </p>
 
     <div class="inline-flex space-x-3">
