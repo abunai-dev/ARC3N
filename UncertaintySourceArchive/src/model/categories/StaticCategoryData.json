@@ -1,34 +1,34 @@
 {
   "Location": {
     "name": "Location",
-    "description": "Describes where an uncertainty manifests itself within the architecture."
+    "description": "Describes where an uncertainty manifests itself within the architecture and which view or concern of the software architecture is primarily applicable."
   },
   "ArchitecturalElementType": {
     "name": "Architectural Element Type",
-    "description": "Elements to which an uncertainty can be assigned."
+    "description": "Describes the type or class of elements to which an uncertainty can be assigned when considering its impact on a software system's confidentiality."
   },
   "Type": {
     "name": "Type",
-    "description": "How much is known about the uncertainty and how can it be described."
+    "description": "Describes how much is known about the uncertainty and how it can be described on a scale from only being aware to having precise knowledge."
   },
   "Manageability": {
     "name": "Manageability",
-    "description": "Can more knowledge or appropriate means reduce the uncertainty."
+    "description": "Describes whether and to which extent the uncertainty can be managed, reduced, or mitigated."
   },
   "ResolutionTime": {
     "name": "Resolution Time",
-    "description": "Time at which the uncertainty is expected to be fully resolved."
+    "description": "Describes the rough time span in the development process where the uncertainty is usually expected to be fully resolved."
   },
   "ReducibleByADD": {
     "name": "Reducible by ADD",
-    "description": "Uncertainty resolvable by an architectural design decision."
+    "description": "Describes whether the uncertainty is resolvable by an architectural design decision."
   },
   "ImpactOnConfidentiality": {
     "name": "Impact on Confidentiality",
-    "description": "Potential impact on confidentiality requirements."
+    "description": "Describes the potential impact on confidentiality requirements. This only provides a first, system-independent estimate."
   },
   "SeverityOfTheImpact": {
     "name": "Severity of the Impact",
-    "description": "Describes the severity if uncertainty is not mitigated."
+    "description": "Describes the severity if the uncertainty is not mitigated. This only provides a first, system-independent estimate."
   }
 }

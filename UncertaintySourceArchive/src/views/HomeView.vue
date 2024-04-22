@@ -50,7 +50,7 @@
       </a>
     </div>
 
-    <p class="mt-20 w-3/6 text-left text-xs italic">
+    <p class="mt-16 w-3/6 text-left text-xs italic">
       [1] S. Seifermann, et al., "Detecting violations of access control and information flow
       policies in data flow diagrams", JSS, vol. 184, Elsevier, 2022.<br />
       [2] M. Acosta, et al., "Uncertainty in coupled models of cyber-physical systems", MODELS-C,
@@ -65,8 +65,9 @@
       [7] S. Hahner, et al., "Model-based Confidentiality Analysis under Uncertainty", ICSA-C, IEEE,
       2023.<br />
       [8] M. Walter, et al., "Architectural Optimization for Confidentiality Under Structural
-      Uncertainty", ECSA, Springer, 2022.
+      Uncertainty", ECSA, Springer, 2022.<br />
     </p>
+    <p class="mt-4">&nbsp;</p>
   </main>
 </template>
 

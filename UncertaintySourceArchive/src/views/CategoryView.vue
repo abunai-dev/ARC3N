@@ -20,18 +20,20 @@
           'border-2': option == props.highlight
         }"
       >
-        <div class="flex flex-col gap-5 md:flex-row">
+        <div class="flex flex-col gap-10 md:flex-row">
           <div class="flex-1">
             <div class="space-x-2 text-2xl">
               <CategoryIconDisplay :option="option" />
               <span>{{ categoryOptions[option].name }}</span>
             </div>
             <p class="mt-1">{{ categoryOptions[option].description }}</p>
-            <p class="mt-3">{{ categoryOptions[option].exampleText }}</p>
+            <p class="mt-3">
+              <span class="italic">This includes:</span> {{ categoryOptions[option].exampleText }}
+            </p>
           </div>
           <div class="flex-1">
             <div class="flex">
-              <h3 class="flex-1">Selected examples:</h3>
+              <h3 class="flex-1 italic">Selected examples:</h3>
               <RouterLink :to="`/archive?filter=${JSON.stringify({ [category]: [option] })}`">
                 <ButtonComponent class="py-[1px]">
                   <span class="space-x-1"

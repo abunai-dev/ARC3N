@@ -1,26 +1,26 @@
 {
   "Structure": {
     "name": "Structure",
-    "description": "Structure",
-    "exampleText": "Components and their static wiring, assembly, and allocation",
+    "description": "The uncertainty is related to the structure of the software system and becomes visible in structural views, e.g., component diagrams, or class diagrams.",
+    "exampleText": "Uncertainty related to components and their static wiring, assembly, and allocation.",
     "exampleImages": []
   },
   "Behavior": {
     "name": "Behavior",
-    "description": "Behavior of the system and its components as well as their communication.",
-    "exampleText": "The handling of sensitive data within a component.",
+    "description": "The uncertainty is related to the behavior of the software system and becomes visible in behavioral views, e.g., activity diagrams, or sequence diagrams. ",
+    "exampleText": "Uncertainty related to the handling of data within a component or the communication between components.",
     "exampleImages": []
   },
   "Environment": {
     "name": "Environment",
-    "description": "System's context, including hardware resources and the external situation.",
-    "exampleText": "The physical location of a database.",
+    "description": "The uncertainty is related to the environmental context of the software system and becomes visible when considering external factors, e.g., in deployment diagrams.",
+    "exampleText": "Uncertainty related to hardware resources, or the external situation.",
     "exampleImages": []
   },
   "Input": {
     "name": "Input",
-    "description": "Inputs provided by external actors.",
-    "exampleText": "People using the software",
+    "description": "The uncertainty is related to the input to the software system and becomes visible when considering external interface specifications, or usage descriptions.",
+    "exampleText": "Uncertainty related to inputs provided by external actors, e.g., people using the software.",
     "exampleImages": []
   }
 }

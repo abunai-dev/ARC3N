@@ -1,6 +1,17 @@
 <template>
   <main class="space-y-5">
-    <h1 class="text-3xl font-bold">Classification</h1>
+    <div>
+      <h1 class="text-3xl font-bold">Classification</h1>
+      <p class="mt-2 w-3/6 italic">
+        This classification is based on: S. Hahner, et al., "A Classification of
+        Software-Architectural Uncertainty Regarding Confidentiality", ICETE, Springer, 2023, doi:
+        <a
+          href="https://doi.org/10.1007/978-3-031-36840-0_8"
+          class="text-link underline dark:text-link-dark"
+          >10.1007/978-3-031-36840-0_8</a
+        >.
+      </p>
+    </div>
     <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
       <RouterLink
         :to="{ name: 'category', params: { category: category } }"

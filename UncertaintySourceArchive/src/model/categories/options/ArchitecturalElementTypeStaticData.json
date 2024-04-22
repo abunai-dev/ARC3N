@@ -1,32 +1,32 @@
 {
   "Component": {
     "name": "Component",
-    "description": "Assignable to software components.",
-    "exampleText": "Related to the allocation of a component.",
+    "description": "The uncertainty is assignable to software components. This represents the nodes of a software system.",
+    "exampleText": "Uncertainty related to component-wide decisions or properties.",
     "exampleImages": []
   },
   "Connector": {
     "name": "Connector",
-    "description": "Assignable to wires between components or communication.",
-    "exampleText": "A connector between two components in a software system.",
+    "description": "The uncertainty is assignable to wires between components, or their communication. This represents the edges between the nodes of a software system.",
+    "exampleText": "Uncertainty related to properties of the communication between two components.",
     "exampleImages": []
   },
   "Interface": {
     "name": "Interface",
-    "description": "Assignable to interfaces.",
-    "exampleText": "Signatures, Parameters, Return values.",
+    "description": "The uncertainty is assignable to interfaces of components. This represents contact point of nodes and edges in a software system.",
+    "exampleText": "Uncertainty related to signatures, parameters, or return values.",
     "exampleImages": []
   },
   "External": {
     "name": "External",
-    "description": "Assignable to external resources.",
-    "exampleText": "Servers, external actors",
+    "description": "The uncertainty is assignable to external resources or their properties. This represents annotating the nodes of a software system.",
+    "exampleText": "Uncertainty related to properties of resources, users, or other external actors.",
     "exampleImages": []
   },
   "Behavior": {
     "name": "Behavior",
-    "description": "Assignable to behavior descriptions.",
-    "exampleText": "Algorithms, User Input",
+    "description": "The uncertainty is assignable to behavior descriptions. This represents specifying the behavior of nodes within a software system.",
+    "exampleText": "Uncertainty related to algorithms, user behavior and input, data processing, and persistance.",
     "exampleImages": []
   }
 }
