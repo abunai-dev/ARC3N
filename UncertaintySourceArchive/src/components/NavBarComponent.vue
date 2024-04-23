@@ -45,7 +45,7 @@ const props = defineProps({
   }
 })
 
-function isCurrentRoute(route?: Route) {
+function isCurrentRoute(route?: Route): boolean {
   const link = route ?? props.link
   const sameName = router.currentRoute.value.name == link.link.name
   if (link.link.params != undefined) {
