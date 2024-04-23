@@ -1,9 +1,13 @@
 <template>
   <main class="space-y-5">
     <div>
-      <h1 class="text-3xl font-bold">
-        {{ categoryObject.name }}
-      </h1>
+      <div class="flex items-center gap-5">
+        <h1 class="text-3xl font-bold">
+          {{ categoryObject.name }}
+        </h1>
+        <TagList class="h-fit" :tags="categoryObject.tags" :add-hash="false" />
+      </div>
+
       <article>
         {{ categoryObject.description }}
       </article>
@@ -71,6 +75,7 @@ import CategoryIconDisplay from '@/components/CategoryIconDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faTable } from '@fortawesome/free-solid-svg-icons'
+import TagList from '@/components/TagList.vue'
 
 const props = defineProps({
   /** The category to display */

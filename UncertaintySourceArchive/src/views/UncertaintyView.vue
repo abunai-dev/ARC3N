@@ -32,15 +32,8 @@
         </a>
       </div>
 
-      <div class="flex flex-wrap gap-3 text-sm">
-        <div
-          v-for="keyword in uncertainty.keywords"
-          :key="keyword"
-          class="rounded bg-primary-200 px-1 dark:bg-primary-950"
-        >
-          #{{ keyword }}
-        </div>
-      </div>
+      <TagList :tags="uncertainty.keywords" />
+
       <article>{{ uncertainty.description }}</article>
       <a
         v-if="uncertainty.sourceReferenceLink"
@@ -114,6 +107,7 @@ import ExampleDisplay from '@/components/ExampleDisplay.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import ClassOptionList from '@/components/ClassOptionList.vue'
 import ToolTip from '@/components/ToolTip.vue'
+import TagList from '@/components/TagList.vue'
 
 const props = defineProps({
   /** Uncertainty to dislpay */

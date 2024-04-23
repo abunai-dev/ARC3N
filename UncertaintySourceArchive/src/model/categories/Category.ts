@@ -11,6 +11,7 @@ import StaticCategoryData from './StaticCategoryData.json'
 interface StaticCategory {
   name: string
   description: string
+  tags: string[]
 }
 
 /** Represents a category of the classification */

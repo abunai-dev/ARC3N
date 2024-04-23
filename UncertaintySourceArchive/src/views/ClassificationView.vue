@@ -22,9 +22,12 @@
       >
         <SectionComponent>
           <template #heading>
-            <span class="space-x-2 text-link underline dark:text-link-dark">{{
-              categories[category].name
-            }}</span>
+            <div class="flex items-center gap-5">
+              <span class="space-x-2 text-link underline dark:text-link-dark">{{
+                categories[category].name
+              }}</span>
+              <TagList class="h-fit text-xs" :tags="categories[category].tags" :add-hash="false" />
+            </div>
           </template>
           <div class="space-y-5">
             <p>{{ categories[category].description }}</p>
@@ -40,6 +43,7 @@
 import SectionComponent from '@/components/SectionComponent.vue'
 import { categoryOrder, categories } from '@/model/categories/Category'
 import ClassOptionList from '@/components/ClassOptionList.vue'
+import TagList from '@/components/TagList.vue'
 </script>
 
 <style scoped>
