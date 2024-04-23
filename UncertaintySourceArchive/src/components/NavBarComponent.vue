@@ -56,6 +56,6 @@ function isCurrentRoute(route?: Route) {
       })
     )
   }
-  return sameName
+  return sameName || props.children.some((child) => isCurrentRoute(child))
 }
 </script>
