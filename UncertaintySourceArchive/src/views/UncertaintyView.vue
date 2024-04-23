@@ -5,11 +5,10 @@
     <div class="col-span-1 col-start-1 row-span-1 row-start-1">
       <div class="flex flex-col md:flex-row">
         <h1 class="text-3xl font-bold md:flex-grow">
-          <ToolTip direction="right">
+          <ToolTip direction="right" @Click="copyID()">
             <template #default>
               <span
                 class="cursor-pointer text-primary-500 active:text-primary-700 dark:text-primary-300 dark:active:text-primary-500"
-                @Click="copyID()"
               >
                 #{{ uncertainty.id }}
               </span>
