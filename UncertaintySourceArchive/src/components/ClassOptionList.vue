@@ -17,7 +17,7 @@
       </template>
 
       <template #tooltip>
-        <p class="min-w-[350px] max-w-full whitespace-pre-wrap">
+        <p class="min-w-[300px] max-w-full whitespace-pre-wrap">
           {{ categoryOptions[option].description }}
         </p>
       </template>
