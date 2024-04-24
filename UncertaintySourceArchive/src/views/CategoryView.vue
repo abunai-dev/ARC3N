@@ -21,7 +21,8 @@
         v-for="option in categoryObject.options"
         :key="option"
         :class="{
-          'border-2': option == props.highlight
+          'border-[3px] border-primary-600 border-opacity-100 dark:border-primary-400':
+            option == props.highlight
         }"
       >
         <div class="flex flex-col gap-10 md:flex-row">
