@@ -74,7 +74,7 @@ hljs.registerLanguage('json', json)
 
 const url = resourceGetter.getFileUrl()
 const fileContent: Ref<null | string> = ref(null)
-const maxLines = 40
+const maxLines = 120
 
 function copy() {
   navigator.clipboard.writeText(url)
