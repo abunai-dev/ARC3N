@@ -2,41 +2,41 @@
   "Location": {
     "name": "Location",
     "description": "Describes where an uncertainty manifests itself within the architecture and which view or concern of the software architecture is primarily applicable.",
-    "tags": ["System-Independent", "Nominal", "Immutable", "Multiple Choice"]
+    "tags": ["System-Independent", "Nominal", "Immutable"]
   },
   "ArchitecturalElementType": {
     "name": "Architectural Element Type",
     "description": "Describes the type or class of elements to which an uncertainty can be assigned when considering its impact on a software system's confidentiality.",
-    "tags": ["System-Independent", "Nominal", "Immutable", "Multiple Choice"]
+    "tags": ["System-Independent", "Nominal", "Immutable"]
   },
   "Type": {
     "name": "Type",
     "description": "Describes how much is known about the uncertainty and how it can be described on a scale from only being aware to having precise knowledge. This only provides a first estimate and may change with growing knowledge.",
-    "tags": ["System-Specific", "Ordinal", "Mutable", "Single Choice"]
+    "tags": ["System-Specific", "Ordinal", "Mutable"]
   },
   "Manageability": {
     "name": "Manageability",
     "description": "Describes whether and to which extent the uncertainty can be managed, reduced, or mitigated. This only provides a first estimate and may change with growing knowledge.",
-    "tags": ["System-Specific", "Ordinal", "Mutable", "Single Choice"]
+    "tags": ["System-Specific", "Ordinal", "Mutable"]
   },
   "ResolutionTime": {
     "name": "Resolution Time",
     "description": "Describes the rough time span in the development process where the uncertainty is usually expected to be fully resolved.",
-    "tags": ["System-Independent", "Ordinal", "Immutable", "Single Choice"]
+    "tags": ["System-Independent", "Ordinal", "Immutable"]
   },
   "ReducibleByADD": {
     "name": "Reducible by ADD",
     "description": "Describes whether the uncertainty is resolvable by an architectural design decision, i.e., a decision that specifies or restricts a software's structure or behavior, limiting the design space.",
-    "tags": ["System-Independent", "Nominal", "Immutable", "Single Choice"]
+    "tags": ["System-Independent", "Nominal", "Immutable"]
   },
   "ImpactOnConfidentiality": {
     "name": "Impact on Confidentiality",
     "description": "Describes the impact on confidentiality requirements. This only provides a first, system-independent estimate.",
-    "tags": ["System-Specific", "Ordinal", "Mutable", "Single Choice"]
+    "tags": ["System-Specific", "Ordinal", "Mutable"]
   },
   "SeverityOfTheImpact": {
     "name": "Severity of the Impact",
     "description": "Describes the severity if the uncertainty is not mitigated. This only provides a first, system-independent estimate.",
-    "tags": ["System-Specific", "Ordinal", "Mutable", "Single Choice"]
+    "tags": ["System-Specific", "Ordinal", "Mutable"]
   }
 }
