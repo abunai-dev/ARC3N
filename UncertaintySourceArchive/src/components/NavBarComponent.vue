@@ -26,7 +26,12 @@
 <script setup lang="ts">
 import { router } from '@/router'
 import type { PropType } from 'vue'
-import { RouterLink, type RouteLocationNamedRaw, type RouteParamsRaw } from 'vue-router'
+import {
+  RouterLink,
+  type RouteLocationNamedRaw,
+  type RouteParamsRaw,
+  type RouteRecordName
+} from 'vue-router'
 
 type Route = {
   link: RouteLocationNamedRaw
@@ -42,12 +47,19 @@ const props = defineProps({
     type: Array as PropType<Route[]>,
     required: false,
     default: () => []
+  },
+  alternativeLinkNames: {
+    type: Array<RouteRecordName>,
+    required: false,
+    default: () => []
   }
 })
 
 function isCurrentRoute(route?: Route): boolean {
   const link = route ?? props.link
-  const sameName = router.currentRoute.value.name == link.link.name
+  const sameName =
+    router.currentRoute.value.name == link.link.name ||
+    props.alternativeLinkNames.includes(router.currentRoute.value.name ?? '')
   if (link.link.params != undefined) {
     return (
       sameName &&

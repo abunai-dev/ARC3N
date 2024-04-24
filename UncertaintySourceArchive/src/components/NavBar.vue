@@ -23,6 +23,7 @@
             },
             name: 'Archive'
           }"
+          :alternative-link-names="['uncertainty']"
         />
         <NavBarComponent
           :link="{
