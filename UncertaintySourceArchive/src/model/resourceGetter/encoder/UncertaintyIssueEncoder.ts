@@ -65,7 +65,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
     result += categoryOrder
       .map((category) => {
         return `| ${categories[category].name} | ${
-          categoryOptions[classifications[category]].name
+          categoryOptions[category][classifications[category]].name
         } |`
       })
       .join('\n')

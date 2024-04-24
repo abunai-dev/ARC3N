@@ -28,12 +28,13 @@
         <div class="flex flex-col gap-10 md:flex-row">
           <div class="flex-1">
             <div class="space-x-2 text-2xl">
-              <CategoryIconDisplay :option="option" />
-              <span>{{ categoryOptions[option].name }}</span>
+              <CategoryIconDisplay :category="category" :option="option" />
+              <span>{{ categoryOptions[category][option].name }}</span>
             </div>
-            <p class="mt-1">{{ categoryOptions[option].description }}</p>
+            <p class="mt-1">{{ categoryOptions[category][option].description }}</p>
             <p class="mt-3">
-              <span class="italic">This includes:</span> {{ categoryOptions[option].exampleText }}
+              <span class="italic">This includes:</span>
+              {{ categoryOptions[category][option].exampleText }}
             </p>
           </div>
           <div class="flex-1">

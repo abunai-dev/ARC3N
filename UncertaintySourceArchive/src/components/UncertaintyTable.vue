@@ -100,7 +100,7 @@ function getDisplayValue(uncertainty: BaseUncertainty, column: Columns): string 
   } else if (column == 'keywords') {
     return uncertainty.keywords.sort().join(', ')
   } else {
-    return categoryOptions[uncertainty.classes[column]].name
+    return categoryOptions[column][uncertainty.classes[column]].name
   }
 }
 
@@ -188,7 +188,7 @@ function matchesSearchString(uncertainty: BaseUncertainty): boolean {
       }
     }
     for (let c of categoryOrder) {
-      if (categoryOptions[uncertainty.classes[c]].name.toLowerCase().includes(part)) {
+      if (categoryOptions[c][uncertainty.classes[c]].name.toLowerCase().includes(part)) {
         return true
       }
     }

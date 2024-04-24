@@ -1,3 +1,4 @@
+import { CategoryList } from '../Category'
 import {
   architecturalElementTypeOptions,
   type ArchitecturalElementTypeOptionList
@@ -42,12 +43,12 @@ export type CategoryOptionList =
 
 /** Map with detailed information about all options in the classification */
 export const categoryOptions = {
-  ...architecturalElementTypeOptions,
-  ...impactOnConfidentialityOptions,
-  ...locationOptions,
-  ...manageabilityOptions,
-  ...reducibleByAddOptions,
-  ...resolutionTimeOptions,
-  ...severityOfTheImpactOptions,
-  ...typeOptions
-} as Record<CategoryOptionList, CategoryOption>
+  [CategoryList.ARCHITECTURAL_ELEMENT_TYPE]: architecturalElementTypeOptions,
+  [CategoryList.IMPACT_ON_CONFIDENTIALITY]: impactOnConfidentialityOptions,
+  [CategoryList.LOCATION]: locationOptions,
+  [CategoryList.MANAGEABILITY]: manageabilityOptions,
+  [CategoryList.REDUCIBLE_BY_ADD]: reducibleByAddOptions,
+  [CategoryList.RESOLUTION_TIME]: resolutionTimeOptions,
+  [CategoryList.SEVERITY_OF_IMPACT]: severityOfTheImpactOptions,
+  [CategoryList.TYPE]: typeOptions
+} as Record<CategoryList, Record<CategoryOptionList, CategoryOption>>

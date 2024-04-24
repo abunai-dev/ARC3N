@@ -20,7 +20,7 @@
             <div>
               <div v-for="o in categories[c].options" :key="o.toString()" class="space-x-2">
                 <input type="checkbox" v-model="helper[c][o]" @change="changeFilter(c, o)" />
-                <label @click="changeFilter(c, o)">{{ categoryOptions[o].name }}</label>
+                <label @click="changeFilter(c, o)">{{ categoryOptions[c][o].name }}</label>
               </div>
             </div>
           </SectionComponent>

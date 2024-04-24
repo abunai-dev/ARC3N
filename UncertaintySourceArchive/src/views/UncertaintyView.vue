@@ -74,7 +74,7 @@
           <SectionComponent>
             <template #heading>
               {{ categories[category].name }}:
-              <i>{{ categoryOptions[uncertainty.classes[category]].name }}</i>
+              <i>{{ categoryOptions[category][uncertainty.classes[category]].name }}</i>
             </template>
             <template #default>
               <div class="space-y-2">

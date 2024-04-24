@@ -13,14 +13,14 @@
       direction="bottom"
     >
       <template #default>
-        <CategoryIconDisplay :option="option" />
+        <CategoryIconDisplay :category="category" :option="option" />
         <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
-          {{ categoryOptions[option].name }}
+          {{ categoryOptions[category][option].name }}
         </p>
       </template>
       <template #tooltip>
         <p>
-          {{ categoryOptions[option].description }}
+          {{ categoryOptions[category][option].description }}
         </p>
       </template>
     </ToolTip>

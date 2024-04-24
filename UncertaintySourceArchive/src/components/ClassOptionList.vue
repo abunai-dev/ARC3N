@@ -10,15 +10,15 @@
       :direction="index >= categories[category].options.length / 2 ? 'top' : 'bottom'"
     >
       <template #default>
-        <CategoryIconDisplay :option="option" />
+        <CategoryIconDisplay :category="category" :option="option" />
         <p class="cursor-default">
-          {{ categoryOptions[option].name }}
+          {{ categoryOptions[category][option].name }}
         </p>
       </template>
 
       <template #tooltip>
         <p class="min-w-[300px] max-w-full whitespace-pre-wrap">
-          {{ categoryOptions[option].description }}
+          {{ categoryOptions[category][option].description }}
         </p>
       </template>
     </ToolTip>
