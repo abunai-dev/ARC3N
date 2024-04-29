@@ -7,3 +7,13 @@ Additionally, software architects can collaborate on the knowledge through GitHu
 
 To access the tool use the following link:
 https://arc3n.abunai.dev/
+
+## Installation
+1) Dowload and install [Node.js](https://nodejs.org/en/download)
+3) Create a folder called `fontawesome` in `UncertaintySourceArchive/fonts/`
+4) Download [FontAwesome Free for Web](https://fontawesome.com/download)
+5) Open the zip and copy the contents of the `fontawesome-free-6.5.2-web` folder to your newly create `fontawesome` folder in the project
+6) Navigate to the `UncertaintySourceArchive` folder in your console
+7) Run `npm install` in your console
+8) Run `npm run dev` in your conosle
+9) Open the tooling at http://localhost:5173/
