@@ -192,8 +192,12 @@ function updateRelatedField(value: string[]) {
  * Returns the uncertainties that have the given names
  */
 function getUncertainties(value: string[]) {
+  const uncertainties = props.uncertaintyList.map((u) => {
+    return { uncertainty: u, name: `#${u.id} - ${u.name}` }
+  })
   return value
-    .map((v) => props.uncertaintyList.find((u) => u.name === v))
+    .map((v) => uncertainties.find((u) => u.name === v))
+    .map((u) => u?.uncertainty)
     .filter((u) => u != undefined) as BaseUncertainty[]
 }
 

@@ -65,7 +65,6 @@ const _searchString: Ref<null | string> = ref(null)
 const filter = computed({
   get: () => _filter.value || props.filter || {},
   set: (value: Filter) => {
-    console.log(value)
     _filter.value = value
   }
 })

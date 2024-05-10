@@ -32,9 +32,7 @@ export class UncertaintyIssueEncoder extends AbstractEncoder<Uncertainty> {
       data.keywords
     )}\n${this.formatExample(
       data.exampleText
-    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}\n\n---\n${
-      UncertaintyIssueEncoder.GUIDE_REF
-    }`
+    )}\n${this.formatExampleImageSection()}${this.formatRelatedUncertainties(data)}`
   }
 
   private formatBaseUncertainty(uncertainty: Uncertainty): string {
