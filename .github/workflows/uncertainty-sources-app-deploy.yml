@@ -18,7 +18,7 @@ jobs:
       - name: Clone Font Awesome Overwrites ✌️
         uses: actions/checkout@v4
         with:
-          repository: abunai-dev/UncertaintySourceArchive-overwrites
+          repository: abunai-dev/ARC3N-overwrites
           path: UncertaintySourceArchive/fonts
           token: ${{ secrets.OVERWRITES_READONLY_TOKEN }}
       
