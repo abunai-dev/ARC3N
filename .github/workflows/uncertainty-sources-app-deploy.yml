@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: abunai-dev/ARC3N-overwrites
-          path: UncertaintySourceArchive/fonts
+          path: ARC3N/fonts
           token: ${{ secrets.OVERWRITES_READONLY_TOKEN }}
       
       - uses: actions/setup-node@v4
@@ -27,7 +27,7 @@ jobs:
           node-version: "20"
 
       - name: Install, Fetch and Build 🔧
-        working-directory: UncertaintySourceArchive
+        working-directory: ARC3N
         run: |
           npm install
           npm run fetch-uncertainties
@@ -37,7 +37,7 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: UncertaintySourceArchive/dist/
+          path: ARC3N/dist/
           remote_path: /home/${{ secrets.USERNAME }}/html/${{ vars.TARGET }}
           remote_host: ${{ secrets.SERVER }}
           remote_user: ${{ secrets.USERNAME }}

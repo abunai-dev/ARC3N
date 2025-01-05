@@ -7,7 +7,7 @@ import { UncertaintyIssueParser } from './parser/UncertaintyIssueParser'
 export class IssueResourceGetter {
   private static readonly BASE_URL = 'https://api.github.com'
   public static readonly OWNER = 'abunai-dev'
-  public static readonly REPO = 'UncertaintySourceArchive'
+  public static readonly REPO = 'ARC3N'
   private static readonly ISSUES_PER_SITE = 100
   public static readonly ACCEPTED_ISSUE_LABEL = 'accepted'
   public static readonly PROPOSED_ISSUE_LABEL = 'proposal'
