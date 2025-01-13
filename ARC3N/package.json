@@ -13,7 +13,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --max-warnings 0",
     "format": "prettier --write src/",
-    "prepare": "cd ../ && husky install ./UncertaintySourceArchive/.husky",
+    "prepare": "cd ../ && husky install ./ARC3N/.husky",
     "fetch-uncertainties": "run-s fetch-uncertainties:build fetch-uncertainties:fetch",
     "fetch-uncertainties:fetch": "node script/index.js",
     "fetch-uncertainties:build": "npx vite build --config vite.script.config.ts"
