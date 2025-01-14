@@ -1,5 +1,5 @@
 import { writeFile } from 'fs'
-import { main } from './uncertainty-source-archive.js'
+import { main } from './arc3n.js'
 
 async function run() {
   const result = await main()
