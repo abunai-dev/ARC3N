@@ -14,13 +14,6 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-
-      - name: Clone Font Awesome Overwrites ✌️
-        uses: actions/checkout@v4
-        with:
-          repository: abunai-dev/ARC3N-overwrites
-          path: ARC3N/fonts
-          token: ${{ secrets.OVERWRITES_READONLY_TOKEN }}
       
       - uses: actions/setup-node@v4
         with:
