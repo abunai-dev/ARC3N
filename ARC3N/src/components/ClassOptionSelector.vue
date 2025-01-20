@@ -13,7 +13,7 @@
       direction="bottom"
     >
       <template #default>
-        <CategoryIconDisplay :category="category" :option="option" />
+        <CategoryIconDisplay :category="category" :option="option" class="h-4" />
         <p class="hidden group-hover:flex" :class="{ '!flex': selectedOption == option }">
           {{ categoryOptions[category][option].name }}
         </p>

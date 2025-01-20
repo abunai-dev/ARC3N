@@ -27,7 +27,6 @@ export interface CategoryOption {
   /** need to be insertable into the src of an img html tag */
   exampleImages: string[]
   icon?: string
-  color?: { 500: string }
 }
 
 /** List of all possible values of options of any category can have */

@@ -1,9 +1,5 @@
 <template>
-  <i
-    class="fa-solid"
-    :class="categoryOptions[category][option].icon ?? 'fa-notdef'"
-    :style="{ color: categoryOptions[category][option].color?.[500] ?? 'black' }"
-  ></i>
+  <span :class="categoryOptions[category][option].icon ?? 'icon-notdef'"></span>
 </template>
 
 <script setup lang="ts">
