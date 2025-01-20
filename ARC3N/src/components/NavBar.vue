@@ -69,13 +69,14 @@
             }"
           >
             <span
-              class="fa-solid absolute bottom-[calc(0.125rem-1px)] left-[calc(0.125rem-1px)] z-50 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-center text-sm text-white duration-300"
+              class="absolute bottom-[calc(0.125rem-1px)] left-[calc(0.125rem-1px)] z-50 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-center text-sm text-white duration-300"
               :class="{
-                'translate-x-[1.375rem]': dark,
-                'fa-sun': !dark,
-                'fa-moon': dark
+                'translate-x-[1.375rem]': dark
               }"
-            ></span>
+            >
+              <FontAwesomeIcon icon="sun" v-if="!dark" />
+              <FontAwesomeIcon icon="moon" v-else />
+            </span>
           </span>
         </label>
       </div>
