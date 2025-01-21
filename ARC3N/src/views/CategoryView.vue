@@ -28,7 +28,7 @@
         <div class="flex flex-col gap-10 md:flex-row">
           <div class="flex-1">
             <div class="space-x-2 text-2xl">
-              <CategoryIconDisplay :category="category" :option="option" />
+              <CategoryIconDisplay :category="category" :option="option" class="h-6" />
               <span>{{ categoryOptions[category][option].name }}</span>
             </div>
             <p class="mt-1">{{ categoryOptions[category][option].description }}</p>

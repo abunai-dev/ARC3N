@@ -10,7 +10,7 @@
       :direction="index >= categories[category].options.length / 2 ? 'top' : 'bottom'"
     >
       <template #default>
-        <CategoryIconDisplay :category="category" :option="option" />
+        <CategoryIconDisplay :category="category" :option="option" class="h-4" />
         <p class="cursor-default">
           {{ categoryOptions[category][option].name }}
         </p>
